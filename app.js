@@ -1,12 +1,12 @@
 const projects = [
   {
     slug: "new-project",
-    years: "May 2025 - May 2026",
-    company: "Educational Technology Company (under NDA)",
-    title: "Selected NDA Projects",
+    years: "2025 - 2026",
+    company: "NDA",
+    title: "Designing AI-powered educational products: From concept to growth",
     image: "case-new",
     summary:
-      "A case study about designing a one-click learning experience for AI-powered educational products.",
+      "I led product design initiatives across several AI-powered educational products, exploring market opportunities, shaping product direction, defining user experiences, and driving products from concept to launch and continuous optimization.",
     role: "Senior Product Designer",
     delivered: "Product Discovery • UX Research • Product Design • Prototyping • Design Systems • AI Experience Design",
     outcome: "A simplified learning experience for AI-powered educational products.",
@@ -14,8 +14,41 @@ const projects = [
       {
         title: "Intro",
         body:
-          "During this period, I worked on a portfolio of AI-powered educational products for web and mobile platforms.\n\nDue to strict confidentiality agreements, I cannot publicly share product names, interfaces, user flows, business metrics, or proprietary design artifacts.\n\nHowever, the projects covered the complete product lifecycle—from discovery and validation to launch and post-release optimization.",
+          "I helped shape and launch multiple <strong>AI-powered educational products</strong> for web and mobile platforms, working at the intersection of product strategy, user experience, and rapid experimentation.\n\n Due to strict confidentiality agreements (NDA), <strong>I cannot publicly share any specific details</strong> such as product names, interfaces, user flows, business metrics, or proprietary design artifacts. However, <strong>I can share the process behind the work.</strong>\n\n My involvement spanned the <strong>entire product lifecycle:</strong> from identifying and validating opportunities to defining product direction, supporting launches, and continuously improving products based on user feedback and performance insights.",
         bullets: []
+      },
+      {
+        title: "What was the challenge?",
+        body:
+          "Building successful AI-powered educational products required more than designing interfaces. It involved making strategic product decisions under uncertainty, validating assumptions, accelerating execution, and maintaining a relentless focus on student outcomes. \n\nWhile each product was different, the underlying challenges remained remarkably consistent:",
+        bullets: [],
+        cards: [
+          {
+            title: "Rapidly evolving market",
+            body: "New opportunities emerge constantly as AI capabilities evolve.",
+            icon: "assets/icon-market.svg"
+          },
+          {
+            title: "Finding  right opportunities",
+            body: "Identifying unmet needs and promising product directions before competitors.",
+            icon: "assets/icon-opportunities.svg"
+          },
+          {
+            title: "Learning outcomes first",
+            body: "The goal is not AI for AI's sake, but helping students achieve meaningful results.",
+            icon: "assets/icon-learning.svg"
+          },
+          {
+            title: "Balancing speed and validation",
+            body: "Moving quickly while ensuring decisions are grounded in real market demand.",
+            icon: "assets/icon-speed.svg"
+          
+          }
+        ]
+      },
+      {
+        type: "statement",
+        title: "Many opportunities → Many discoveries → Many products → Many launches"
       },
       {
         title: "Process and solution",
@@ -253,9 +286,23 @@ function projectUrl(slug) {
 function renderHome() {
   app.innerHTML = `
     <section class="section hero">
+      <figure class="hero-media">
+        <img src="assets/photo.jpg" alt="Alina Diadenko" />
+      </figure>
       <div class="hero-copy">
-        <p class="eyebrow">/hi there!</p>
-        <h1>I’m Alina, Senior Product Designer who is always looking for exciting challenges, new learning opportunities, and ways to grow—become a better designer (/human)</h1>
+        <h6 class="hero-greeting">hello there!</h6>
+        <h3 class="hero-bio">I’m a Senior Product Designer with 10 years of experience building digital products across startups and established companies. Curious by nature, I'm always looking for exciting design challenges, new learning opportunities, and ways to grow—become a better designer (/human)</h3>
+        <div class="hero-social">
+          <a href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <img src="assets/linkedin.svg" alt="" />
+          </a>
+          <a href="mailto:alina29122@gmail.com" aria-label="Email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="m2 7 10 7 10-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+          <a href="https://medium.com/@alina.dyadenko" target="_blank" rel="noreferrer" aria-label="Medium">
+            <img src="assets/medium.svg" alt="" />
+          </a>
+        </div>
       </div>
     </section>
 
@@ -383,7 +430,11 @@ function renderCase(slug) {
       </section>
     ` : ""}
 
-    ${project.sections.map((section) => `
+    ${project.sections.map((section) => section.type === "statement" ? `
+      <section class="section section-tight case-section case-statement">
+        <h2>${section.title}</h2>
+      </section>
+    ` : `
       <section class="section section-tight case-section">
         <div class="two-column">
           <h2>${section.title}</h2>
@@ -392,6 +443,19 @@ function renderCase(slug) {
             ${section.bullets.length ? `<ul>${section.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>` : ""}
           </div>
         </div>
+        ${section.cards ? `
+          <div class="visual-cards">
+            ${section.cards.map((card) => `
+              <article class="visual-card">
+                <span class="visual-card-icon" aria-hidden="true">${card.icon ? `<img src="${card.icon}" alt="" />` : ""}</span>
+                <div class="visual-card-copy">
+                  <h3>${card.title}</h3>
+                  <p>${card.body}</p>
+                </div>
+              </article>
+            `).join("")}
+          </div>
+        ` : ""}
       </section>
     `).join("")}
 
