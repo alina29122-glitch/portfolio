@@ -13,7 +13,7 @@ const projects = [
     sections: [
       {
         title: "Intro",
-        body:
+        body:  
           "I helped shape and launch multiple <strong>AI-powered educational products</strong> for web and mobile platforms, working at the intersection of product strategy, user experience, and rapid experimentation.\n\n Due to strict confidentiality agreements (NDA), <strong>I cannot publicly share any specific details</strong> such as product names, interfaces, user flows, business metrics, or proprietary design artifacts. However, <strong>I can share the process behind the work.</strong>\n\n My involvement spanned the <strong>entire product lifecycle:</strong> from identifying and validating opportunities to defining product direction, supporting launches, and continuously improving products based on user feedback and performance insights.",
         bullets: []
       },
@@ -48,16 +48,47 @@ const projects = [
       },
       {
         type: "statement",
-        title: "Many opportunities → Many discoveries → Many products → Many launches"
+        title: "The hardest part wasn't building products. It was deciding what was worth building."
       },
       {
-        title: "Process and solution",
+        title: "Journey behind every launch",
         body:
-          "Use this section to describe the design process: research, discovery, flows, concepts, prototypes, iterations, and how decisions were made.",
-        bullets: [
-          "Add the most important insight that shaped the solution.",
-          "Describe the design direction and key product decisions.",
-          "Add validation, launch, and post-release learnings."
+          "Throughout the year, I continuously explored opportunities within the educational AI space. The goal wasn't to generate more ideas, but to identify opportunities with real user demand in long-term potential.\n\n As the only Product Designer within the R&D team, I partnered closely with Product managers and Market researchers to identify opportunities, validate concepts, and shape product direction from early discovery through launch and optimization. \n\n The process  followed these stages:",
+        bullets: [],
+        pipeline: [
+          {
+            title: "Analyze market signals",
+            icon: "assets/icon-pipeline-graph.svg",
+            listStyle: "bullets",
+            items: ["Review of 50+ competitor products", "Educational AI trends analysis", "User interviews & surveys", "Product usage analysis", "Community feedback"]
+          },
+          {
+            title: "Identify opportunities",
+            icon: "assets/icon-pipeline-archery.svg",
+            label: "20+ potential directions discovered in different learning areas",
+            items: ["AI-assisted writing", "Personalized learning", "AI companion / AI tutoring experiences", "etc."]
+          },
+          {
+            title: "Validate demand",
+            icon: "assets/icon-pipeline-kpi.svg",
+            body: "Conducted various validation activities, including concept validation, usability testing, positioning angle experiments, user surveys, and market fit assessment.",
+            outcome: {
+              label: "Outcome:",
+              items: ["Concepts evaluated", "User demand validated + core assumptions tested", "MVP scope and products launch pipeline defined"]
+            }
+          },
+          {
+            title: "Launch products",
+            icon: "assets/icon-pipeline-rocket.svg",
+            listStyle: "bullets",
+            items: ["Core product enhancements", "New feature launches", "Web-based learning platforms", "Mobile apps", "Growth experiments"]
+          },
+          {
+            title: "Optimize product performance",
+            icon: "assets/icon-pipeline-infinity.svg",
+            listStyle: "bullets",
+            items: ["Product performance review", "Conversion experiments", "Pricing & paywall testing", "Positioning validation", "Continuous iterations"]
+          }
         ]
       }
     ]
@@ -452,6 +483,38 @@ function renderCase(slug) {
                   <h3>${card.title}</h3>
                   <p>${card.body}</p>
                 </div>
+              </article>
+            `).join("")}
+          </div>
+        ` : ""}
+        ${section.pipeline ? `
+          <div class="process-pipeline" aria-label="Opportunity Pipeline">
+            ${section.pipeline.map((stage) => `
+              <article class="pipeline-card">
+                <span class="pipeline-icon" aria-hidden="true">${stage.icon ? `<img src="${stage.icon}" alt="" />` : ""}</span>
+                <h3>${stage.title}</h3>
+                ${stage.body ? `<p class="pipeline-body">${stage.body}</p>` : ""}
+                ${stage.label ? `<p class="pipeline-label">${stage.label}</p>` : ""}
+                ${stage.items ? `
+                  <ul class="${stage.label || stage.listStyle === "bullets" ? "pipeline-options" : ""}">
+                    ${stage.items.map((item) => typeof item === "string" ? `<li>${item}</li>` : `
+                      <li>
+                        ${item.label}
+                        <ul>
+                          ${item.items.map((subitem) => `<li>${subitem}</li>`).join("")}
+                        </ul>
+                      </li>
+                    `).join("")}
+                  </ul>
+                ` : ""}
+                ${stage.outcome ? `
+                  <div class="pipeline-outcome">
+                    <p class="pipeline-label">${stage.outcome.label}</p>
+                    <ul class="pipeline-options">
+                      ${stage.outcome.items.map((item) => `<li>${item}</li>`).join("")}
+                    </ul>
+                  </div>
+                ` : ""}
               </article>
             `).join("")}
           </div>
