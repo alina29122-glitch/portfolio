@@ -84,10 +84,39 @@ const projects = [
             items: ["Core product enhancements", "New feature launches", "Web-based learning platforms", "Mobile apps", "Growth experiments"]
           },
           {
-            title: "Optimize product performance",
+            title: "Optimize performance",
             icon: "assets/icon-pipeline-infinity.svg",
             listStyle: "bullets",
             items: ["Product performance review", "Conversion experiments", "Pricing & paywall testing", "Positioning validation", "Continuous iterations"]
+          }
+        ]
+      },
+      {
+        title: "Product Opportunities Explored",
+        eyebrow: "Overview",
+        body:
+          "Throughout the year, multiple opportunities within the educational AI space were investigated and evaluated. While each initiative addressed a different problem, they all shared a common goal: helping students learn more effectively through AI-powered experiences.",
+        bullets: [],
+        opportunityCards: [
+          {
+            title: "AI-Assisted Writing",
+            focus: "Exploring how AI could support students throughout the writing process-from idea generation and outlining to refinement, feedback, and quality improvement.",
+            themes: ["Academic writing workflows", "Content generation", "Writing assistance", "Feedback & evaluation", "Learning through writing"]
+          },
+          {
+            title: "AI-Powered Learning",
+            focus: "Investigating ways to transform educational content into more accessible and personalized learning experiences.",
+            themes: ["Content transformation", "Knowledge organization", "Personalized learning", "Learning materials", "Educational workflows"]
+          },
+          {
+            title: "Practice & Retention",
+            focus: "Exploring how AI could improve active recall, exam preparation, and long-term knowledge retention.",
+            themes: ["Active recall", "Practice sessions", "Knowledge reinforcement", "Learning progress", "Study effectiveness"]
+          },
+          {
+            title: "Problem Solving & Guidance",
+            focus: "Researching AI-powered experiences that help students understand concepts, solve problems, and learn more independently.",
+            themes: ["Guided problem solving", "Concept explanation", "Mobile-first experiences", "Learning support", "AI assistance"]
           }
         ]
       }
@@ -317,28 +346,34 @@ function projectUrl(slug) {
 function renderHome() {
   app.innerHTML = `
     <section class="section hero">
+      <div class="hero-copy">
+        <p class="eyebrow">/Senior Product Designer</p>
+        <h1 class="hero-title">Designing digital products with research, clarity, and care.</h1>
+        <div class="hero-bottom">
+          <p class="hero-bio">I’m a Senior Product Designer with 10 years of experience building digital products across startups and established companies. Curious by nature, I'm always looking for exciting design challenges, new learning opportunities, and ways to grow.</p>
+          <div class="hero-social">
+            <a href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <img src="assets/linkedin.svg" alt="" />
+            </a>
+            <a href="mailto:alina29122@gmail.com" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="m2 7 10 7 10-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </a>
+            <a href="https://medium.com/@alina.dyadenko" target="_blank" rel="noreferrer" aria-label="Medium">
+              <img src="assets/medium.svg" alt="" />
+            </a>
+          </div>
+        </div>
+      </div>
       <figure class="hero-media">
         <img src="assets/photo.jpg" alt="Alina Diadenko" />
       </figure>
-      <div class="hero-copy">
-        <h6 class="hero-greeting">hello there!</h6>
-        <h3 class="hero-bio">I’m a Senior Product Designer with 10 years of experience building digital products across startups and established companies. Curious by nature, I'm always looking for exciting design challenges, new learning opportunities, and ways to grow—become a better designer (/human)</h3>
-        <div class="hero-social">
-          <a href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-            <img src="assets/linkedin.svg" alt="" />
-          </a>
-          <a href="mailto:alina29122@gmail.com" aria-label="Email">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="m2 7 10 7 10-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          </a>
-          <a href="https://medium.com/@alina.dyadenko" target="_blank" rel="noreferrer" aria-label="Medium">
-            <img src="assets/medium.svg" alt="" />
-          </a>
-        </div>
-      </div>
     </section>
 
     <section class="section section-tight" id="projects">
-      <p class="eyebrow">/projects</p>
+      <div class="section-heading">
+        <p class="eyebrow">/projects</p>
+        <h2 class="lead">Selected work across product discovery, UX strategy, and shipped digital experiences.</h2>
+      </div>
       <div class="projects-list">
         ${projects.map(projectCard).join("")}
       </div>
@@ -357,12 +392,15 @@ function renderHome() {
 function projectCard(project) {
   return `
     <article class="project-card">
+      <div class="project-card-kicker">
+        <p class="project-year">${project.years}</p>
+        <p class="project-year">${project.company}</p>
+      </div>
       <a class="project-media" href="${projectUrl(project.slug)}" aria-label="${project.title}">
         <span class="project-image ${project.image}"></span>
       </a>
       <div class="project-card-info">
         <div class="card-info">
-          <p class="project-year">${project.years} / ${project.company}</p>
           <div>
             <h3>${project.title}</h3>
             <p>${project.summary}</p>
@@ -468,7 +506,10 @@ function renderCase(slug) {
     ` : `
       <section class="section section-tight case-section">
         <div class="two-column">
-          <h2>${section.title}</h2>
+          <div>
+            ${section.eyebrow ? `<p class="eyebrow">${section.eyebrow}</p>` : ""}
+            <h2>${section.title}</h2>
+          </div>
           <div>
             ${section.body.split("\n\n").map((paragraph) => `<p class="body-copy">${paragraph}</p>`).join("")}
             ${section.bullets.length ? `<ul>${section.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>` : ""}
@@ -482,6 +523,27 @@ function renderCase(slug) {
                 <div class="visual-card-copy">
                   <h3>${card.title}</h3>
                   <p>${card.body}</p>
+                </div>
+              </article>
+            `).join("")}
+          </div>
+        ` : ""}
+        ${section.opportunityCards ? `
+          <div class="opportunity-cards">
+            ${section.opportunityCards.map((card) => `
+              <article class="opportunity-card">
+                <h3>${card.title}</h3>
+                <div class="opportunity-card-body">
+                  <div>
+                    <p class="opportunity-label">Focus</p>
+                    <p>${card.focus}</p>
+                  </div>
+                  <div>
+                    <p class="opportunity-label">Key themes</p>
+                    <ul>
+                      ${card.themes.map((theme) => `<li>${theme}</li>`).join("")}
+                    </ul>
+                  </div>
                 </div>
               </article>
             `).join("")}
