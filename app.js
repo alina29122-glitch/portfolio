@@ -319,7 +319,6 @@ const app = document.querySelector("#app");
 const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-toggle]");
 const menuOverlay = document.querySelector("[data-menu-overlay]");
-const preloader = document.querySelector("[data-preloader]");
 const motionQuery = [
   ".project-card",
   ".testimonial blockquote",
@@ -332,6 +331,7 @@ const motionQuery = [
   ".case-meta",
   ".visual-panel",
   ".case-section ul",
+  ".case-section-nav",
   ".section > .eyebrow"
 ].join(",");
 
@@ -347,10 +347,9 @@ function renderHome() {
   app.innerHTML = `
     <section class="section hero">
       <div class="hero-copy">
-        <p class="eyebrow">/Senior Product Designer</p>
-        <h1 class="hero-title">Designing digital products with research, clarity, and care.</h1>
+        <h1 class="hero-title">I’m Alina, Senior Product Designer who is always looking for exciting challenges, learning opportunities, and ways to grow — become a better designer (/human)</h1>
         <div class="hero-bottom">
-          <p class="hero-bio">I’m a Senior Product Designer with 10 years of experience building digital products across startups and established companies. Curious by nature, I'm always looking for exciting design challenges, new learning opportunities, and ways to grow.</p>
+          <p class="hero-bio">I design digital products and experiences across product discovery, UX strategy, interaction design, and shipped product work.</p>
           <div class="hero-social">
             <a href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
               <img src="assets/linkedin.svg" alt="" />
@@ -370,10 +369,7 @@ function renderHome() {
     </section>
 
     <section class="section section-tight" id="projects">
-      <div class="section-heading">
-        <p class="eyebrow">/projects</p>
-        <h2 class="lead">Selected work across product discovery, UX strategy, and shipped digital experiences.</h2>
-      </div>
+      <p class="eyebrow">/projects</p>
       <div class="projects-list">
         ${projects.map(projectCard).join("")}
       </div>
@@ -392,15 +388,12 @@ function renderHome() {
 function projectCard(project) {
   return `
     <article class="project-card">
-      <div class="project-card-kicker">
-        <p class="project-year">${project.years}</p>
-        <p class="project-year">${project.company}</p>
-      </div>
       <a class="project-media" href="${projectUrl(project.slug)}" aria-label="${project.title}">
         <span class="project-image ${project.image}"></span>
       </a>
       <div class="project-card-info">
         <div class="card-info">
+          <p class="project-year">${project.years} / ${project.company}</p>
           <div>
             <h3>${project.title}</h3>
             <p>${project.summary}</p>
@@ -471,24 +464,38 @@ function renderCase(slug) {
     return;
   }
 
+  let n = 0;
+  const eyebrows = project.sections.map((s) =>
+    s.type === "statement" ? null : (s.eyebrow || `/${String(++n).padStart(2, "0")}`)
+  );
+  const hasSectionNav = project.sections.filter((s) => s.type !== "statement").length > 1;
+
   app.innerHTML = `
     <section class="section case-hero">
-      <p class="eyebrow">${project.years} / ${project.company}</p>
-      <h1 class="page-title">${project.title}</h1>
-      <p class="intro-text">${project.summary}</p>
+      <div class="case-hero-visual" aria-label="${project.title} image">
+        <span class="project-image ${project.image}"></span>
+      </div>
+      <div class="case-hero-title">
+        <p class="eyebrow">${project.years} / ${project.company}</p>
+        <h1 class="page-title">${project.title}</h1>
+      </div>
       <div class="case-meta">
-        <div><span>Team & role</span>${project.role}</div>
-        <div><span>What I did</span>${project.delivered}</div>
-        <div><span>Outcome</span>${project.outcome}</div>
-        <div><span>Project type</span>Product design case study</div>
+        <article><span>Team & role</span><p>${project.role}</p></article>
+        <article><span>What I did</span><p>${project.summary}</p></article>
+        <article><span>What I delivered</span><p>${project.delivered}</p></article>
+        <article><span>Outcome</span><p>${project.outcome}</p></article>
       </div>
     </section>
 
-    <section class="section section-tight">
-      <div class="visual-panel" aria-label="${project.title} image">
-        <span class="project-image ${project.image}"></span>
-      </div>
-    </section>
+    ${hasSectionNav ? `
+      <section class="section section-tight">
+        <nav class="case-section-nav" aria-label="Case study sections">
+          ${project.sections.map((section, i) => section.type !== "statement" ?
+            `<a href="#case-s-${i}">${section.title}</a>` : ""
+          ).join("")}
+        </nav>
+      </section>
+    ` : ""}
 
     ${project.stats ? `
       <section class="section section-tight">
@@ -499,20 +506,20 @@ function renderCase(slug) {
       </section>
     ` : ""}
 
-    ${project.sections.map((section) => section.type === "statement" ? `
-      <section class="section section-tight case-section case-statement">
+    ${project.sections.map((section, index) => section.type === "statement" ? `
+      <section id="case-s-${index}" class="section section-tight case-section case-statement">
         <h2>${section.title}</h2>
       </section>
     ` : `
-      <section class="section section-tight case-section">
+      <section id="case-s-${index}" class="section section-tight case-section">
         <div class="two-column">
           <div>
-            ${section.eyebrow ? `<p class="eyebrow">${section.eyebrow}</p>` : ""}
+            <p class="eyebrow">${eyebrows[index]}</p>
             <h2>${section.title}</h2>
           </div>
           <div>
-            ${section.body.split("\n\n").map((paragraph) => `<p class="body-copy">${paragraph}</p>`).join("")}
-            ${section.bullets.length ? `<ul>${section.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>` : ""}
+            ${section.body ? section.body.split("\n\n").map((paragraph) => `<p class="body-copy">${paragraph}</p>`).join("") : ""}
+            ${section.bullets && section.bullets.length ? `<ul>${section.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>` : ""}
           </div>
         </div>
         ${section.cards ? `
@@ -707,8 +714,14 @@ function setupProjectCursor() {
   }
 
   app.querySelectorAll(".project-media").forEach((media) => {
-    media.addEventListener("pointerenter", () => bubble.classList.add("is-active"));
-    media.addEventListener("pointerleave", () => bubble.classList.remove("is-active"));
+    media.addEventListener("pointerenter", (event) => {
+      bubble.style.left = `${event.clientX}px`;
+      bubble.style.top = `${event.clientY}px`;
+      bubble.classList.add("is-active");
+    });
+    media.addEventListener("pointerleave", () => {
+      bubble.classList.remove("is-active");
+    });
     media.addEventListener("pointermove", (event) => {
       bubble.style.left = `${event.clientX}px`;
       bubble.style.top = `${event.clientY}px`;
@@ -741,10 +754,6 @@ function setupGlobalInteractions() {
     if (event.key === "Escape") closeMenu();
   });
 
-  window.addEventListener("load", () => {
-    setTimeout(() => preloader?.classList.add("is-hidden"), 220);
-  });
-  setTimeout(() => preloader?.classList.add("is-hidden"), 900);
 }
 
 setupGlobalInteractions();
