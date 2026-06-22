@@ -476,7 +476,6 @@ function renderCase(slug) {
         <span class="project-image ${project.image}"></span>
       </div>
       <div class="case-hero-title">
-        <p class="eyebrow">${project.years} / ${project.company}</p>
         <h1 class="page-title">${project.title}</h1>
       </div>
       <div class="case-meta">
@@ -486,16 +485,6 @@ function renderCase(slug) {
         <article><span>Outcome</span><p>${project.outcome}</p></article>
       </div>
     </section>
-
-    ${hasSectionNav ? `
-      <section class="section section-tight">
-        <nav class="case-section-nav" aria-label="Case study sections">
-          ${project.sections.map((section, i) => section.type !== "statement" ?
-            `<a href="#case-s-${i}">${section.title}</a>` : ""
-          ).join("")}
-        </nav>
-      </section>
-    ` : ""}
 
     ${project.stats ? `
       <section class="section section-tight">
@@ -515,11 +504,41 @@ function renderCase(slug) {
         <div class="two-column">
           <div>
             <p class="eyebrow">${eyebrows[index]}</p>
-            <h2>${section.title}</h2>
           </div>
           <div>
+            <h2>${section.title}</h2>
             ${section.body ? section.body.split("\n\n").map((paragraph) => `<p class="body-copy">${paragraph}</p>`).join("") : ""}
             ${section.bullets && section.bullets.length ? `<ul>${section.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>` : ""}
+            ${hasSectionNav && index === project.sections.findIndex((item) => item.type !== "statement") ? `
+              <nav class="case-section-nav" aria-label="Case study sections">
+                ${project.sections
+                  .map((item, i) => item.type !== "statement" ? `<a href="#case-s-${i}">${item.title}</a>` : "")
+                  .filter(Boolean)
+                  .join(`<span aria-hidden="true"> / </span>`)}
+              </nav>
+            ` : ""}
+            ${section.opportunityCards ? `
+              <div class="opportunity-cards">
+                ${section.opportunityCards.map((card) => `
+                  <article class="opportunity-card">
+                    <span class="opportunity-marker" aria-hidden="true"></span>
+                    <h3>${card.title}</h3>
+                    <div class="opportunity-card-body">
+                      <div>
+                        <p class="opportunity-label">Focus</p>
+                        <p>${card.focus}</p>
+                      </div>
+                      <div>
+                        <p class="opportunity-label">Key themes</p>
+                        <ul>
+                          ${card.themes.map((theme) => `<li>${theme}</li>`).join("")}
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                `).join("")}
+              </div>
+            ` : ""}
           </div>
         </div>
         ${section.cards ? `
@@ -535,55 +554,39 @@ function renderCase(slug) {
             `).join("")}
           </div>
         ` : ""}
-        ${section.opportunityCards ? `
-          <div class="opportunity-cards">
-            ${section.opportunityCards.map((card) => `
-              <article class="opportunity-card">
-                <h3>${card.title}</h3>
-                <div class="opportunity-card-body">
-                  <div>
-                    <p class="opportunity-label">Focus</p>
-                    <p>${card.focus}</p>
-                  </div>
-                  <div>
-                    <p class="opportunity-label">Key themes</p>
-                    <ul>
-                      ${card.themes.map((theme) => `<li>${theme}</li>`).join("")}
-                    </ul>
-                  </div>
-                </div>
-              </article>
-            `).join("")}
-          </div>
-        ` : ""}
         ${section.pipeline ? `
           <div class="process-pipeline" aria-label="Opportunity Pipeline">
-            ${section.pipeline.map((stage) => `
+            ${section.pipeline.map((stage, stageIndex) => `
               <article class="pipeline-card">
                 <span class="pipeline-icon" aria-hidden="true">${stage.icon ? `<img src="${stage.icon}" alt="" />` : ""}</span>
-                <h3>${stage.title}</h3>
-                ${stage.body ? `<p class="pipeline-body">${stage.body}</p>` : ""}
-                ${stage.label ? `<p class="pipeline-label">${stage.label}</p>` : ""}
-                ${stage.items ? `
-                  <ul class="${stage.label || stage.listStyle === "bullets" ? "pipeline-options" : ""}">
-                    ${stage.items.map((item) => typeof item === "string" ? `<li>${item}</li>` : `
-                      <li>
-                        ${item.label}
-                        <ul>
-                          ${item.items.map((subitem) => `<li>${subitem}</li>`).join("")}
-                        </ul>
-                      </li>
-                    `).join("")}
-                  </ul>
-                ` : ""}
-                ${stage.outcome ? `
-                  <div class="pipeline-outcome">
-                    <p class="pipeline-label">${stage.outcome.label}</p>
-                    <ul class="pipeline-options">
-                      ${stage.outcome.items.map((item) => `<li>${item}</li>`).join("")}
+                <div class="pipeline-heading">
+                  <p class="pipeline-number">/ ${String(stageIndex + 1).padStart(2, "0")}</p>
+                  <h4>${stage.title}</h4>
+                </div>
+                <div class="pipeline-copy">
+                  ${stage.body ? `<p class="pipeline-body">${stage.body}</p>` : ""}
+                  ${stage.label ? `<p class="pipeline-label">${stage.label}</p>` : ""}
+                  ${stage.items ? `
+                    <ul class="${stage.label || stage.listStyle === "bullets" ? "pipeline-options" : ""}">
+                      ${stage.items.map((item) => typeof item === "string" ? `<li>${item}</li>` : `
+                        <li>
+                          ${item.label}
+                          <ul>
+                            ${item.items.map((subitem) => `<li>${subitem}</li>`).join("")}
+                          </ul>
+                        </li>
+                      `).join("")}
                     </ul>
-                  </div>
-                ` : ""}
+                  ` : ""}
+                  ${stage.outcome ? `
+                    <div class="pipeline-outcome">
+                      <p class="pipeline-label">${stage.outcome.label}</p>
+                      <ul class="pipeline-options">
+                        ${stage.outcome.items.map((item) => `<li>${item}</li>`).join("")}
+                      </ul>
+                    </div>
+                  ` : ""}
+                </div>
               </article>
             `).join("")}
           </div>
@@ -697,35 +700,6 @@ function setupMotion() {
       return;
     }
     revealObserver.observe(target);
-  });
-  setupProjectCursor();
-}
-
-function setupProjectCursor() {
-  if (matchMedia("(pointer: coarse)").matches) return;
-
-  let bubble = document.querySelector(".cursor-bubble");
-  if (!bubble) {
-    bubble = document.createElement("div");
-    bubble.className = "cursor-bubble";
-    bubble.textContent = "read more";
-    document.body.appendChild(bubble);
-    document.body.classList.add("has-cursor-bubble");
-  }
-
-  app.querySelectorAll(".project-media").forEach((media) => {
-    media.addEventListener("pointerenter", (event) => {
-      bubble.style.left = `${event.clientX}px`;
-      bubble.style.top = `${event.clientY}px`;
-      bubble.classList.add("is-active");
-    });
-    media.addEventListener("pointerleave", () => {
-      bubble.classList.remove("is-active");
-    });
-    media.addEventListener("pointermove", (event) => {
-      bubble.style.left = `${event.clientX}px`;
-      bubble.style.top = `${event.clientY}px`;
-    });
   });
 }
 
