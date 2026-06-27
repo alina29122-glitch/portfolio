@@ -246,12 +246,14 @@ body.menu-open .menu-overlay a:nth-child(4) { transition-delay: 165ms; }
 
 .hero {
   align-items: end;
-  column-gap: clamp(36px, 5vw, 84px);
+  column-gap: clamp(24px, 4vw, 56px);
+  row-gap: clamp(20px, 3vw, 40px);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 360px);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto minmax(260px, auto) auto;
   min-height: 100vh;
-  padding-bottom: 56px;
-  padding-top: 118px;
+  padding-bottom: clamp(56px, 7vw, 104px);
+  padding-top: clamp(112px, 14vh, 156px);
 }
 
 .hero > * {
@@ -259,9 +261,7 @@ body.menu-open .menu-overlay a:nth-child(4) { transition-delay: 165ms; }
 }
 
 .hero-copy {
-  display: grid;
-  gap: clamp(28px, 4vw, 56px);
-  max-width: 1180px;
+  display: contents;
 }
 
 .hero-copy > * {
@@ -278,36 +278,47 @@ body.menu-open .menu-overlay a:nth-child(4) { transition-delay: 165ms; }
 
 .hero-title {
   color: #fff;
-  font-size: clamp(48px, 60px, 72px);
+  font-size: clamp(96px, 13.5vw, 188px);
   font-weight: 400;
+  grid-column: 1 / -1;
+  grid-row: 1 / 3;
   letter-spacing: 0;
-  line-height: 1.12;
+  line-height: 0.82;
   margin: 0;
+  max-width: 1180px;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-bottom {
-  align-items: end;
-  border-top: 1px solid var(--light-outline);
-  display: grid;
-  gap: 28px;
-  grid-template-columns: minmax(0, 720px) auto;
-  padding-top: 28px;
+  display: contents;
 }
 
 .hero-bio {
   color: var(--body-display);
   font-size: clamp(18px, 1.45vw, 24px);
   font-weight: 300;
+  grid-column: 8 / -1;
+  grid-row: 3;
+  justify-self: stretch;
   letter-spacing: 0;
   line-height: 1.55;
   margin: 0;
+  max-width: 560px;
+  position: relative;
+  z-index: 3;
 }
 
 .hero-social {
   align-items: center;
   display: flex;
   gap: 10px;
+  grid-column: 1 / 4;
+  grid-row: 3;
+  justify-self: start;
   margin-top: 4px;
+  position: relative;
+  z-index: 3;
 }
 
 .hero-social a {
@@ -360,9 +371,15 @@ body.menu-open .menu-overlay a:nth-child(4) { transition-delay: 165ms; }
   aspect-ratio: 4 / 5;
   border: 1px solid var(--light-outline);
   border-radius: 0;
+  grid-column: 4 / 8;
+  grid-row: 2 / 4;
+  justify-self: stretch;
   margin: 0;
+  margin-top: clamp(-88px, -6vw, -44px);
   overflow: hidden;
-  width: min(100%, 360px);
+  position: relative;
+  width: 100%;
+  z-index: 1;
 }
 
 .hero-media img {
@@ -879,8 +896,6 @@ body.menu-open .menu-overlay a:nth-child(4) { transition-delay: 165ms; }
   display: grid;
   gap: clamp(64px, 7vw, 112px);
   min-height: 0;
-  padding-left: 0;
-  padding-right: 0;
   padding-top: 88px;
 }
 
@@ -1260,12 +1275,25 @@ body.menu-open .menu-overlay a:nth-child(4) { transition-delay: 165ms; }
   .hero {
     gap: 48px;
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
     min-height: 100vh;
   }
 
   .hero-copy {
+    display: grid;
     gap: 28px;
     max-width: 720px;
+  }
+
+  .hero-bottom {
+    align-items: start;
+    border-top: 1px solid var(--light-outline);
+    display: grid;
+    grid-column: auto;
+    grid-template-columns: 1fr;
+    grid-row: auto;
+    max-width: 720px;
+    padding-top: 28px;
   }
 
   .hero-bottom,
@@ -1273,15 +1301,37 @@ body.menu-open .menu-overlay a:nth-child(4) { transition-delay: 165ms; }
     grid-template-columns: 1fr;
   }
 
+  .hero-title,
+  .hero-bio,
+  .hero-social {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .hero-title {
+    font-size: clamp(64px, 12vw, 112px);
+    line-height: 0.9;
+    max-width: none;
+  }
+
+  .hero-bio {
+    max-width: none;
+  }
+
   .hero-media {
     aspect-ratio: 4 / 3;
+    grid-column: auto;
+    grid-row: auto;
     justify-self: stretch;
+    margin-top: 0;
     width: 100%;
     max-width: none;
   }
 
   .page-title {
-    font-size: clamp(40px, 10vw, 72px);
+    font-size: clamp(40px, 8.2vw, 64px);
+    max-width: 100%;
+    overflow-wrap: break-word;
   }
 
   .section {
@@ -1342,6 +1392,11 @@ body.menu-open .menu-overlay a:nth-child(4) { transition-delay: 165ms; }
   .case-section .process-pipeline {
     max-width: none;
     width: 100%;
+  }
+
+  .case-hero {
+    padding-left: var(--grid-gutter);
+    padding-right: var(--grid-gutter);
   }
 
   .case-section .two-column > div:first-child {

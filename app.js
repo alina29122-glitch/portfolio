@@ -347,9 +347,9 @@ function renderHome() {
   app.innerHTML = `
     <section class="section hero">
       <div class="hero-copy">
-        <h1 class="hero-title">I’m Alina, Senior Product Designer who is always looking for exciting challenges, learning opportunities, and ways to grow — become a better designer (/human)</h1>
+        <h1 class="hero-title">I’m Alina, </h1>
         <div class="hero-bottom">
-          <p class="hero-bio">I design digital products and experiences across product discovery, UX strategy, interaction design, and shipped product work.</p>
+          <p class="hero-bio">Senior Product Designer who is always looking for exciting challenges, learning opportunities, and ways to grow — become a better designer (/human).I design digital products and experiences across product discovery, UX strategy, interaction design, and shipped product work.</p>
           <div class="hero-social">
             <a href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
               <img src="assets/linkedin.svg" alt="" />
