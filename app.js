@@ -4,12 +4,14 @@ const projects = [
     years: "2025 - 2026",
     company: "NDA",
     title: "Designing AI-powered educational products: From concept to growth",
-    image: "case-new",
+    image: "case-ai-education",
     summary:
-      "I led product design initiatives across several AI-powered educational products, exploring market opportunities, shaping product direction, defining user experiences, and driving products from concept to launch and continuous optimization.",
-    role: "Senior Product Designer",
-    delivered: "Product Discovery • UX Research • Product Design • Prototyping • Design Systems • AI Experience Design",
-    outcome: "A simplified learning experience for AI-powered educational products.",
+      "Owned the end-to-end product design process: from market research, opportunity discovery, and concept validation to UX design, AI-assisted MVP development, product launches, and post-release analysis and optimization.",
+    role:
+      "Worked across two cross-functional teams: R&D (Discovery & Validation) → Venture (Build, Launch & Growth). As the only Product Designer across both teams, I owned the entire product design process and lead design-oriented initiatives.",
+    delivered: "Product discovery, opportunity assessment, and concept validation for AI-powered educational products; end-to-end UX and product design for web and mobile applications; AI-assisted MVP development, usability testing, and iterative product optimization from launch through growth.",
+    outcome:
+      "<ul><li>Delivered end-to-end product design for AI-powered web and mobile learning products</li><li>Shaped the core AI generation workflow of the company's flagship product</li><li>Accelerated concept validation through AI-assisted MVP development and real-user testing</li></ul>",
     sections: [
       {
         title: "Intro",
@@ -479,10 +481,10 @@ function renderCase(slug) {
         <h1 class="page-title">${project.title}</h1>
       </div>
       <div class="case-meta">
-        <article><span>Team & role</span><p>${project.role}</p></article>
+        <article><span>Team & role</span><div class="case-meta-copy">${project.role}</div></article>
         <article><span>What I did</span><p>${project.summary}</p></article>
         <article><span>What I delivered</span><p>${project.delivered}</p></article>
-        <article><span>Outcome</span><p>${project.outcome}</p></article>
+        <article><span>Outcome</span><div class="case-meta-copy">${project.outcome}</div></article>
       </div>
     </section>
 

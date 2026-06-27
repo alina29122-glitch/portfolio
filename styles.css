@@ -932,12 +932,18 @@ body.menu-open .menu-overlay a:nth-child(4) { transition-delay: 165ms; }
   line-height: 1.5;
 }
 
-.case-meta p {
+.case-meta p,
+.case-meta-copy {
   color: var(--body-display);
   font-size: 16px;
   font-weight: 300;
   line-height: 1.6;
   margin: 0;
+}
+
+.case-meta-copy ul {
+  margin: 8px 0 16px;
+  padding-left: 20px;
 }
 
 .case-meta span {
