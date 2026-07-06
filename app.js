@@ -126,33 +126,66 @@ const projects = [
         ]
       },
       {
-        title: "Product Opportunities Explored",
-        eyebrow: "Opportunities",
+        title: "Five products. Five different learning problems.",
+        eyebrow: "PRODUCTS",
         body:
-          "Throughout the year, multiple opportunities within the educational AI space were investigated and evaluated. While each initiative addressed a different problem, they all shared a common goal: helping students learn more effectively through AI-powered experiences.",
+          "Over the year, I worked across five AI-powered educational products—from improving an established platform to designing and building new web and mobile experiences. The products are anonymized due to NDA restrictions.",
         bullets: [],
         opportunityCards: [
           {
-            title: "AI-Assisted Writing",
-            focus: "Exploring how AI could support students throughout the writing process-from idea generation and outlining to refinement, feedback, and quality improvement.",
-            themes: ["Academic writing workflows", "Content generation", "Writing assistance", "Feedback & evaluation", "Learning through writing"]
+            counter: "01",
+            title: "Core AI Learning Platform",
+            meta: "Established product · Web",
+            body: "An established educational platform helping students create academic content with AI. I redesigned a complex generation experience into a simpler one-click flow that became a core product workflow."
           },
           {
-            title: "AI-Powered Learning",
-            focus: "Investigating ways to transform educational content into more accessible and personalized learning experiences.",
-            themes: ["Content transformation", "Knowledge organization", "Personalized learning", "Learning materials", "Educational workflows"]
+            counter: "02",
+            title: "AI Math Learning App",
+            meta: "New product · iOS",
+            body: "A mobile learning app designed to help students solve math problems and understand the reasoning behind the answers. I designed the end-to-end product experience from early concept through launch."
           },
           {
-            title: "Practice & Retention",
-            focus: "Exploring how AI could improve active recall, exam preparation, and long-term knowledge retention.",
-            themes: ["Active recall", "Practice sessions", "Knowledge reinforcement", "Learning progress", "Study effectiveness"]
+            counter: "03",
+            title: "AI Writing Assistant",
+            meta: "New product · Mobile-first web",
+            body: "An AI-powered writing experience designed to help students move from a topic to a structured academic draft with less friction. I shaped the product experience and built a functional front-end MVP for real-user validation."
           },
           {
-            title: "Problem Solving & Guidance",
-            focus: "Researching AI-powered experiences that help students understand concepts, solve problems, and learn more independently.",
-            themes: ["Guided problem solving", "Concept explanation", "Mobile-first experiences", "Learning support", "AI assistance"]
+            counter: "04",
+            title: "AI Study & Practice Platform",
+            meta: "New product · Web & mobile",
+            body: "A learning platform that transformed students' own materials into personalized study experiences. I designed and built the product from scratch, exploring how AI could support active practice and knowledge retention."
+          },
+          {
+            counter: "05",
+            title: "AI Learning Companion",
+            meta: "New product · Web",
+            body: "A personalized learning experience focused on helping users build practical AI knowledge and skills. I shaped the product concept, designed the experience, and built a functional MVP to test its viability."
           }
         ]
+      },
+      {
+        title: "What a year of building AI products taught me",
+        eyebrow: "LEARNINGS",
+        body:
+          "Working across multiple products changed how I think about product design. The biggest challenge was rarely designing the experience itself—it was learning what evidence to trust, when to move faster, and when to stop investing in an idea.",
+        bullets: [],
+        lessonCards: [
+          {
+            title: "Validation is not the same as demand",
+            body: "A concept can test well, users can understand its value, and the experience can be usable—without becoming a product people return to or pay for. The strongest signals came from real behavior after launch."
+          },
+          {
+            title: "Speed changes what design can validate",
+            body: "AI-assisted development allowed me to move beyond prototypes and test functional products with real users. Instead of asking people to imagine the experience, we could observe how they actually used it."
+          },
+          {
+            title: "Launch is where another kind of validation begins",
+            body: "A promising product idea is only the beginning. After launch, positioning, onboarding, pricing, paywalls, and the product experience itself became part of the same question: can this product create enough value to become viable?"
+          }
+        ],
+        closingStatement:
+          "The biggest shift in my work was moving from designing solutions to continuously reducing uncertainty: about the problem, the product, and the business."
       }
     ]
   },
@@ -555,24 +588,41 @@ function renderCase(slug) {
               <div class="opportunity-cards">
                 ${section.opportunityCards.map((card) => `
                   <article class="opportunity-card">
-                    <span class="opportunity-marker" aria-hidden="true"></span>
+                    ${card.counter ? `<p class="opportunity-counter">${card.counter}</p>` : ""}
                     <h3>${card.title}</h3>
                     <div class="opportunity-card-body">
-                      <div>
-                        <p class="opportunity-label">Focus</p>
-                        <p>${card.focus}</p>
-                      </div>
-                      <div>
-                        <p class="opportunity-label">Key themes</p>
-                        <ul>
-                          ${card.themes.map((theme) => `<li>${theme}</li>`).join("")}
-                        </ul>
-                      </div>
+                      ${card.meta ? `<p class="opportunity-meta">${card.meta}</p>` : ""}
+                      ${card.body ? `<p>${card.body}</p>` : ""}
+                      ${card.focus ? `
+                        <div>
+                          <p class="opportunity-label">Focus</p>
+                          <p>${card.focus}</p>
+                        </div>
+                      ` : ""}
+                      ${card.themes ? `
+                        <div>
+                          <p class="opportunity-label">Key themes</p>
+                          <ul>
+                            ${card.themes.map((theme) => `<li>${theme}</li>`).join("")}
+                          </ul>
+                        </div>
+                      ` : ""}
                     </div>
                   </article>
                 `).join("")}
               </div>
             ` : ""}
+            ${section.lessonCards ? `
+              <div class="lesson-cards">
+                ${section.lessonCards.map((lesson) => `
+                  <article class="lesson-card">
+                    <h3>${lesson.title}</h3>
+                    <p>${lesson.body}</p>
+                  </article>
+                `).join("")}
+              </div>
+            ` : ""}
+            ${section.closingStatement ? `<p class="case-closing-statement">${section.closingStatement}</p>` : ""}
             ${section.cards ? `
               <div class="visual-cards${section.cardLayout === "compact" ? " visual-cards-compact" : ""}">
                 ${section.cards.map((card) => `
