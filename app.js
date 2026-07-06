@@ -3,25 +3,30 @@ const projects = [
     slug: "new-project",
     years: "2025 - 2026",
     company: "NDA",
-    title: "Designing AI-powered educational products: From concept to growth",
-    image: "case-new",
+    title: "Building the next generation of AI-powered learning experiences",
+    image: "case-ai-education",
     summary:
-      "I led product design initiatives across several AI-powered educational products, exploring market opportunities, shaping product direction, defining user experiences, and driving products from concept to launch and continuous optimization.",
-    role: "Senior Product Designer",
-    delivered: "Product Discovery • UX Research • Product Design • Prototyping • Design Systems • AI Experience Design",
-    outcome: "A simplified learning experience for AI-powered educational products.",
+      "Owned the end-to-end product design process: from market research, opportunity discovery, and concept validation to UX design, AI-assisted MVP development, product launches, and post-release analysis and optimization.",
+    role:
+      "Worked across two cross-functional teams: R&D (Discovery & Validation) → Venture (Build, Launch & Growth). As the only Product Designer across both teams, I owned the entire product design process and lead design-oriented initiatives.",
+    delivered: "Product discovery, opportunity assessment, and concept validation for AI-powered educational products; end-to-end UX and product design for web and mobile applications; AI-assisted MVP development, usability testing, and iterative product optimization from launch through growth.",
+    outcome:
+      "<ul><li>Delivered end-to-end product design for AI-powered web and mobile learning products</li><li>Shaped the core AI generation workflow of the company's flagship product</li><li>Accelerated concept validation through AI-assisted MVP development and real-user testing</li></ul>",
     sections: [
       {
-        title: "Intro",
+        title: "Building products under uncertainty",
+        eyebrow: "/Intro",
         body:  
-          "I helped shape and launch multiple <strong>AI-powered educational products</strong> for web and mobile platforms, working at the intersection of product strategy, user experience, and rapid experimentation.\n\n Due to strict confidentiality agreements (NDA), <strong>I cannot publicly share any specific details</strong> such as product names, interfaces, user flows, business metrics, or proprietary design artifacts. However, <strong>I can share the process behind the work.</strong>\n\n My involvement spanned the <strong>entire product lifecycle:</strong> from identifying and validating opportunities to defining product direction, supporting launches, and continuously improving products based on user feedback and performance insights.",
+          "In this case study, I showcase my work on designing and launching multiple AI-powered educational products across web and mobile platforms. My focus was on identifying promising product opportunities, validating assumptions through research and experimentation, and designing user experiences that balanced business goals with student needs.\n\n Due to strict confidentiality agreements (NDA), I cannot publicly share any specific details such as product names, interfaces, user flows, business metrics, or proprietary design artifacts. However, I can share the process and focus on the process, decisions, and lessons behind the work rather than the products themselves",
         bullets: []
       },
       {
         title: "What was the challenge?",
+        eyebrow: "/Challenge",
         body:
           "Building successful AI-powered educational products required more than designing interfaces. It involved making strategic product decisions under uncertainty, validating assumptions, accelerating execution, and maintaining a relentless focus on student outcomes. \n\nWhile each product was different, the underlying challenges remained remarkably consistent:",
         bullets: [],
+        cardLayout: "compact",
         cards: [
           {
             title: "Rapidly evolving market",
@@ -52,6 +57,7 @@ const projects = [
       },
       {
         title: "Journey behind every launch",
+        eyebrow: "Process",
         body:
           "Throughout the year, I continuously explored opportunities within the educational AI space. The goal wasn't to generate more ideas, but to identify opportunities with real user demand in long-term potential.\n\n As the only Product Designer within the R&D team, I partnered closely with Product managers and Market researchers to identify opportunities, validate concepts, and shape product direction from early discovery through launch and optimization. \n\n The process  followed these stages:",
         bullets: [],
@@ -59,41 +65,69 @@ const projects = [
           {
             title: "Analyze market signals",
             icon: "assets/icon-pipeline-graph.svg",
-            listStyle: "bullets",
-            items: ["Review of 50+ competitor products", "Educational AI trends analysis", "User interviews & surveys", "Product usage analysis", "Community feedback"]
+            goal: "Understand emerging student needs, market shifts, and gaps worth exploring.",
+            evidence: [
+              "50+ competitor products reviewed",
+              "Multiple educational AI categories analyzed",
+              "User interviews & surveys conducted",
+              "Product usage and community feedback analyzed"
+            ],
+            output: "Key market signals and promising problem spaces identified for further exploration."
           },
           {
             title: "Identify opportunities",
             icon: "assets/icon-pipeline-archery.svg",
-            label: "20+ potential directions discovered in different learning areas",
-            items: ["AI-assisted writing", "Personalized learning", "AI companion / AI tutoring experiences", "etc."]
+            goal: "Turn market and user signals into concrete product directions.",
+            evidence: [
+              "20+ potential product directions explored",
+              "4+ learning areas investigated",
+              "User problems and existing solutions mapped",
+              "Market gaps and emerging behaviors assessed"
+            ],
+            output: "A prioritized pipeline of opportunities with defined user problems and initial value propositions."
           },
           {
             title: "Validate demand",
             icon: "assets/icon-pipeline-kpi.svg",
-            body: "Conducted various validation activities, including concept validation, usability testing, positioning angle experiments, user surveys, and market fit assessment.",
-            outcome: {
-              label: "Outcome:",
-              items: ["Concepts evaluated", "User demand validated + core assumptions tested", "MVP scope and products launch pipeline defined"]
-            }
+            goal: "Reduce uncertainty before investing in product development.",
+            evidence: [
+              "10+ concepts evaluated",
+              "Concept and prototype testing",
+              "Usability tests & user surveys",
+              "Positioning and value proposition experiments",
+              "Market-fit assessment"
+            ],
+            output: "Strongest concepts selected, core assumptions tested, and MVP scope defined for launch."
           },
           {
             title: "Launch products",
             icon: "assets/icon-pipeline-rocket.svg",
-            listStyle: "bullets",
-            items: ["Core product enhancements", "New feature launches", "Web-based learning platforms", "Mobile apps", "Growth experiments"]
+            goal: "Turn validated opportunities into functional products used by real users.",
+            evidence: [
+              "3 web applications designed and AI-assisted developed",
+              "2 iOS application designed",
+              "Core workflows and product enhancements launched"
+            ],
+            output: "5+ product experiences shipped across web and mobile, from core product workflows to new standalone products."
           },
           {
             title: "Optimize performance",
             icon: "assets/icon-pipeline-infinity.svg",
-            listStyle: "bullets",
-            items: ["Product performance review", "Conversion experiments", "Pricing & paywall testing", "Positioning validation", "Continuous iterations"]
+            goal: "Determine whether launched products could create sustainable user and business value.",
+            evidence: [
+              "Product performance and user behavior analyzed",
+              "Multiple conversion experiments launched",
+              "Pricing & paywall approaches tested",
+              "Positioning angles validated",
+              "Continuous UX and product iterations"
+            ],
+            output: "Evidence-based decisions on what to improve, reposition, scale, or stop."
           }
         ]
       },
       {
         title: "Product Opportunities Explored",
-        eyebrow: "Overview",
+        eyebrow: "Opportunities",
         body:
           "Throughout the year, multiple opportunities within the educational AI space were investigated and evaluated. While each initiative addressed a different problem, they all shared a common goal: helping students learn more effectively through AI-powered experiences.",
         bullets: [],
@@ -347,9 +381,9 @@ function renderHome() {
   app.innerHTML = `
     <section class="section hero">
       <div class="hero-copy">
-        <h1 class="hero-title">I’m Alina, Senior Product Designer who is always looking for exciting challenges, learning opportunities, and ways to grow — become a better designer (/human)</h1>
+        <h1 class="hero-title">I’m Alina, </h1>
         <div class="hero-bottom">
-          <p class="hero-bio">I design digital products and experiences across product discovery, UX strategy, interaction design, and shipped product work.</p>
+          <p class="hero-bio">Senior Product Designer who is always looking for exciting challenges, learning opportunities, and ways to grow — become a better designer (/human).I design digital products and experiences across product discovery, UX strategy, interaction design, and shipped product work.</p>
           <div class="hero-social">
             <a href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
               <img src="assets/linkedin.svg" alt="" />
@@ -476,26 +510,15 @@ function renderCase(slug) {
         <span class="project-image ${project.image}"></span>
       </div>
       <div class="case-hero-title">
-        <p class="eyebrow">${project.years} / ${project.company}</p>
         <h1 class="page-title">${project.title}</h1>
       </div>
       <div class="case-meta">
-        <article><span>Team & role</span><p>${project.role}</p></article>
+        <article><span>Team & role</span><div class="case-meta-copy">${project.role}</div></article>
         <article><span>What I did</span><p>${project.summary}</p></article>
         <article><span>What I delivered</span><p>${project.delivered}</p></article>
-        <article><span>Outcome</span><p>${project.outcome}</p></article>
+        <article><span>Outcome</span><div class="case-meta-copy">${project.outcome}</div></article>
       </div>
     </section>
-
-    ${hasSectionNav ? `
-      <section class="section section-tight">
-        <nav class="case-section-nav" aria-label="Case study sections">
-          ${project.sections.map((section, i) => section.type !== "statement" ?
-            `<a href="#case-s-${i}">${section.title}</a>` : ""
-          ).join("")}
-        </nav>
-      </section>
-    ` : ""}
 
     ${project.stats ? `
       <section class="section section-tight">
@@ -515,79 +538,113 @@ function renderCase(slug) {
         <div class="two-column">
           <div>
             <p class="eyebrow">${eyebrows[index]}</p>
-            <h2>${section.title}</h2>
           </div>
           <div>
+            <h2>${section.title}</h2>
             ${section.body ? section.body.split("\n\n").map((paragraph) => `<p class="body-copy">${paragraph}</p>`).join("") : ""}
             ${section.bullets && section.bullets.length ? `<ul>${section.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>` : ""}
+            ${hasSectionNav && index === project.sections.findIndex((item) => item.type !== "statement") ? `
+              <nav class="case-section-nav" aria-label="Case study sections">
+                ${project.sections
+                  .map((item, i) => item.type !== "statement" ? `<a href="#case-s-${i}">${item.title}</a>` : "")
+                  .filter(Boolean)
+                  .join(`<span aria-hidden="true"> / </span>`)}
+              </nav>
+            ` : ""}
+            ${section.opportunityCards ? `
+              <div class="opportunity-cards">
+                ${section.opportunityCards.map((card) => `
+                  <article class="opportunity-card">
+                    <span class="opportunity-marker" aria-hidden="true"></span>
+                    <h3>${card.title}</h3>
+                    <div class="opportunity-card-body">
+                      <div>
+                        <p class="opportunity-label">Focus</p>
+                        <p>${card.focus}</p>
+                      </div>
+                      <div>
+                        <p class="opportunity-label">Key themes</p>
+                        <ul>
+                          ${card.themes.map((theme) => `<li>${theme}</li>`).join("")}
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                `).join("")}
+              </div>
+            ` : ""}
+            ${section.cards ? `
+              <div class="visual-cards${section.cardLayout === "compact" ? " visual-cards-compact" : ""}">
+                ${section.cards.map((card) => `
+                  <article class="visual-card">
+                    <span class="visual-card-icon" aria-hidden="true">${card.icon ? `<img src="${card.icon}" alt="" />` : ""}</span>
+                    <div class="visual-card-copy">
+                      <h3>${card.title}</h3>
+                      <p>${card.body}</p>
+                    </div>
+                  </article>
+                `).join("")}
+              </div>
+            ` : ""}
+            ${section.pipeline ? `
+              <div class="process-pipeline" aria-label="Opportunity Pipeline">
+                ${section.pipeline.map((stage, stageIndex) => `
+                  <article class="pipeline-card">
+                    <span class="pipeline-icon" aria-hidden="true">${stage.icon ? `<img src="${stage.icon}" alt="" />` : ""}</span>
+                    <div class="pipeline-heading">
+                      <p class="pipeline-number">/ ${String(stageIndex + 1).padStart(2, "0")}</p>
+                      <h4>${stage.title}</h4>
+                    </div>
+                    <div class="pipeline-copy">
+                      ${stage.goal ? `
+                        <div class="pipeline-detail">
+                          <p class="pipeline-label">Goal</p>
+                          <p class="pipeline-body">${stage.goal}</p>
+                        </div>
+                      ` : ""}
+                      ${stage.evidence ? `
+                        <div class="pipeline-detail">
+                          <p class="pipeline-label">Evidence</p>
+                          <ul class="pipeline-options">
+                            ${stage.evidence.map((item) => `<li>${item}</li>`).join("")}
+                          </ul>
+                        </div>
+                      ` : ""}
+                      ${stage.output ? `
+                        <div class="pipeline-detail">
+                          <p class="pipeline-label">Output</p>
+                          <p class="pipeline-body">${stage.output}</p>
+                        </div>
+                      ` : ""}
+                      ${stage.body ? `<p class="pipeline-body">${stage.body}</p>` : ""}
+                      ${stage.label ? `<p class="pipeline-label">${stage.label}</p>` : ""}
+                      ${stage.items ? `
+                        <ul class="${stage.label || stage.listStyle === "bullets" ? "pipeline-options" : ""}">
+                          ${stage.items.map((item) => typeof item === "string" ? `<li>${item}</li>` : `
+                            <li>
+                              ${item.label}
+                              <ul>
+                                ${item.items.map((subitem) => `<li>${subitem}</li>`).join("")}
+                              </ul>
+                            </li>
+                          `).join("")}
+                        </ul>
+                      ` : ""}
+                      ${stage.outcome ? `
+                        <div class="pipeline-outcome">
+                          <p class="pipeline-label">${stage.outcome.label}</p>
+                          <ul class="pipeline-options">
+                            ${stage.outcome.items.map((item) => `<li>${item}</li>`).join("")}
+                          </ul>
+                        </div>
+                      ` : ""}
+                    </div>
+                  </article>
+                `).join("")}
+              </div>
+            ` : ""}
           </div>
         </div>
-        ${section.cards ? `
-          <div class="visual-cards">
-            ${section.cards.map((card) => `
-              <article class="visual-card">
-                <span class="visual-card-icon" aria-hidden="true">${card.icon ? `<img src="${card.icon}" alt="" />` : ""}</span>
-                <div class="visual-card-copy">
-                  <h3>${card.title}</h3>
-                  <p>${card.body}</p>
-                </div>
-              </article>
-            `).join("")}
-          </div>
-        ` : ""}
-        ${section.opportunityCards ? `
-          <div class="opportunity-cards">
-            ${section.opportunityCards.map((card) => `
-              <article class="opportunity-card">
-                <h3>${card.title}</h3>
-                <div class="opportunity-card-body">
-                  <div>
-                    <p class="opportunity-label">Focus</p>
-                    <p>${card.focus}</p>
-                  </div>
-                  <div>
-                    <p class="opportunity-label">Key themes</p>
-                    <ul>
-                      ${card.themes.map((theme) => `<li>${theme}</li>`).join("")}
-                    </ul>
-                  </div>
-                </div>
-              </article>
-            `).join("")}
-          </div>
-        ` : ""}
-        ${section.pipeline ? `
-          <div class="process-pipeline" aria-label="Opportunity Pipeline">
-            ${section.pipeline.map((stage) => `
-              <article class="pipeline-card">
-                <span class="pipeline-icon" aria-hidden="true">${stage.icon ? `<img src="${stage.icon}" alt="" />` : ""}</span>
-                <h3>${stage.title}</h3>
-                ${stage.body ? `<p class="pipeline-body">${stage.body}</p>` : ""}
-                ${stage.label ? `<p class="pipeline-label">${stage.label}</p>` : ""}
-                ${stage.items ? `
-                  <ul class="${stage.label || stage.listStyle === "bullets" ? "pipeline-options" : ""}">
-                    ${stage.items.map((item) => typeof item === "string" ? `<li>${item}</li>` : `
-                      <li>
-                        ${item.label}
-                        <ul>
-                          ${item.items.map((subitem) => `<li>${subitem}</li>`).join("")}
-                        </ul>
-                      </li>
-                    `).join("")}
-                  </ul>
-                ` : ""}
-                ${stage.outcome ? `
-                  <div class="pipeline-outcome">
-                    <p class="pipeline-label">${stage.outcome.label}</p>
-                    <ul class="pipeline-options">
-                      ${stage.outcome.items.map((item) => `<li>${item}</li>`).join("")}
-                    </ul>
-                  </div>
-                ` : ""}
-              </article>
-            `).join("")}
-          </div>
-        ` : ""}
       </section>
     `).join("")}
 
@@ -697,35 +754,6 @@ function setupMotion() {
       return;
     }
     revealObserver.observe(target);
-  });
-  setupProjectCursor();
-}
-
-function setupProjectCursor() {
-  if (matchMedia("(pointer: coarse)").matches) return;
-
-  let bubble = document.querySelector(".cursor-bubble");
-  if (!bubble) {
-    bubble = document.createElement("div");
-    bubble.className = "cursor-bubble";
-    bubble.textContent = "read more";
-    document.body.appendChild(bubble);
-    document.body.classList.add("has-cursor-bubble");
-  }
-
-  app.querySelectorAll(".project-media").forEach((media) => {
-    media.addEventListener("pointerenter", (event) => {
-      bubble.style.left = `${event.clientX}px`;
-      bubble.style.top = `${event.clientY}px`;
-      bubble.classList.add("is-active");
-    });
-    media.addEventListener("pointerleave", () => {
-      bubble.classList.remove("is-active");
-    });
-    media.addEventListener("pointermove", (event) => {
-      bubble.style.left = `${event.clientX}px`;
-      bubble.style.top = `${event.clientY}px`;
-    });
   });
 }
 
