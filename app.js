@@ -8,16 +8,16 @@ const projects = [
     summary:
       "Led design across the full product lifecycle, from opportunity discovery and validation to post-release growth.",
     role:
-      "R&D — Product Designer (Discovery & Validation)\nVenture — Founding Product Designer & Design Engineer",
+      "R&D — Founding Product Designer;\nVenture — Product Designer, Design Engineer.",
     delivered: "Research & validation · Product strategy · Web & mobile product design · Functional MVPs · User testing · Growth experiments.",
     outcome:
-      "Launched AI-powered web and mobile products · Shaped the core AI workflow of the company’s flagship product · Accelerated product validation through functional MVPs and real-user testing.",
+      "Shaped the core AI workflow of the company’s flagship product. Launched AI-powered web and mobile products. Accelerated product validation through functional MVPs.",
     sections: [
       {
         title: "Building products under uncertainty",
         eyebrow: "/Intro",
         body:  
-          "In this case study, I showcase my work on designing and launching multiple AI-powered educational products across web and mobile platforms. My focus was on identifying promising product opportunities, validating assumptions through research and experimentation, and designing user experiences that balanced business goals with student needs.\n\n Due to strict confidentiality agreements (NDA), I cannot publicly share any specific details such as product names, interfaces, user flows, business metrics, or proprietary design artifacts. However, I can share the process and focus on the process, decisions, and lessons behind the work rather than the products themselves",
+          "In this case study, I showcase my work on designing and launching multiple AI-powered educational products across web and mobile platforms. My focus was on identifying promising product opportunities, validating assumptions through research and experimentation, and designing user experiences that balanced business goals with student needs.\n\n Due to strict confidentiality agreements (NDA), I cannot publicly share any specific details such as product names, interfaces, user flows, business metrics, or proprietary design artifacts. However, I can share the process and focus on the process, decisions, and lessons behind the work rather than the products themselves.",
         bullets: []
       },
       {
@@ -398,8 +398,7 @@ const motionQuery = [
   ".case-meta",
   ".visual-panel",
   ".case-section ul",
-  ".case-section-nav",
-  ".section > .eyebrow"
+  ".case-section-nav"
 ].join(",");
 
 let hasRendered = false;
@@ -436,14 +435,12 @@ function renderHome() {
     </section>
 
     <section class="section section-tight" id="projects">
-      <p class="eyebrow">/projects</p>
       <div class="projects-list">
         ${projects.map(projectCard).join("")}
       </div>
     </section>
 
     <section class="section testimonial">
-      <p class="eyebrow">/testimonials</p>
       <blockquote>It was a pleasure to work with Alina. She made an outstanding contribution as a UI/UX and Product designer. She helped establish user experience best practices and patterns for a DIY web presence solution used by millions of users. Her ability to conduct customer research to amplify the voice of the customer and to drive experimentation helped drive measurable product metric improvements.</blockquote>
       <cite>- Brent Viljoen, Co-founder and CEO - Yola</cite>
     </section>
@@ -475,7 +472,6 @@ function projectCard(project) {
 function renderAbout() {
   app.innerHTML = `
     <section class="section">
-      <p class="eyebrow">/a few words about me</p>
       <div class="two-column">
         <h1 class="lead">I’m an ally to people who use products I designed</h1>
         <div class="body-copy">
@@ -487,7 +483,6 @@ function renderAbout() {
     </section>
 
     <section class="section section-tight">
-      <p class="eyebrow">/experience</p>
       <div class="timeline">
         ${experience.map(([date, title, description]) => `
           <article class="timeline-item">
@@ -502,20 +497,18 @@ function renderAbout() {
     </section>
 
     <section class="section section-tight">
-      <p class="eyebrow">/services</p>
       <div class="two-column">
         <h2 class="lead">My work process & responsibilities</h2>
         <p class="body-copy">As a Product Designer, I work closely with product and engineering teams to improve platforms and develop new features from ideation to launch, including post-release support and analysis.</p>
       </div>
       <div class="process-grid">
-        <article class="process-card"><p class="eyebrow">/01</p><h3>Co-author</h3><p class="body-copy">Strategic planning, ideation, prioritization, product research, and requirements with the product team.</p></article>
-        <article class="process-card"><p class="eyebrow">/02</p><h3>Primary responsibilities</h3><p class="body-copy">User research, concept design, prototyping, testing, design artifacts, requirements, development support, and QA.</p></article>
-        <article class="process-card"><p class="eyebrow">/03</p><h3>Support & quality control</h3><p class="body-copy">Release support, announcements, product communication, user feedback loops, and post-release analysis.</p></article>
+        <article class="process-card"><h3>Co-author</h3><p class="body-copy">Strategic planning, ideation, prioritization, product research, and requirements with the product team.</p></article>
+        <article class="process-card"><h3>Primary responsibilities</h3><p class="body-copy">User research, concept design, prototyping, testing, design artifacts, requirements, development support, and QA.</p></article>
+        <article class="process-card"><h3>Support & quality control</h3><p class="body-copy">Release support, announcements, product communication, user feedback loops, and post-release analysis.</p></article>
       </div>
     </section>
 
     <section class="section testimonial">
-      <p class="eyebrow">/testimonials</p>
       <blockquote>Alina is a talented Product Designer with great empathy toward users. She advocates for users' needs and converts her knowledge into features that are useful for users and profitable for a company.</blockquote>
       <cite>- Andrei Karol, Vice President of Product - Yola</cite>
     </section>
@@ -531,17 +524,12 @@ function renderCase(slug) {
     return;
   }
 
-  let n = 0;
-  const eyebrows = project.sections.map((s) =>
-    s.type === "statement" ? null : (s.eyebrow || `/${String(++n).padStart(2, "0")}`)
-  );
   const hasSectionNav = project.sections.filter((s) => s.type !== "statement").length > 1;
 
   app.innerHTML = `
     <section class="section case-layout-section">
       <div class="case-layout">
         <aside class="case-fixed-panel" aria-label="${project.title} project details">
-          <p class="eyebrow case-panel-kicker">${project.years} / ${project.company}</p>
           <div class="case-panel-body">
             <div class="case-panel-heading">
               <h1 class="page-title">${project.title}</h1>
@@ -549,8 +537,22 @@ function renderCase(slug) {
             <div class="case-meta">
               <article><span>Team & role</span><div class="case-meta-copy">${project.role}</div></article>
               <article><span>What I did</span><p>${project.summary}</p></article>
-              <article><span>What I delivered</span><p>${project.delivered}</p></article>
               <article><span>Outcome</span><div class="case-meta-copy">${project.outcome}</div></article>
+              ${hasSectionNav ? `
+                <article>
+                  <span>Overview</span>
+                  <nav class="case-section-nav" aria-label="Case study sections">
+                    ${project.sections
+                      .map((item, i) => {
+                        if (item.type === "statement") return "";
+                        const label = (item.eyebrow || item.title).replace(/^\//, "");
+                        return `<a href="#case-s-${i}">${label}</a>`;
+                      })
+                        .filter(Boolean)
+                        .join('')}
+                  </nav>
+                </article>
+              ` : ""}
             </div>
           </div>
         </aside>
@@ -558,13 +560,9 @@ function renderCase(slug) {
           <div class="case-hero-visual" aria-label="${project.title} image">
             <span class="project-image ${project.image}"></span>
           </div>
-          <div class="case-content-intro">
-            <h2>${project.summary}</h2>
-          </div>
 
     ${project.stats ? `
       <section class="section section-tight">
-        <p class="eyebrow">/project outcome</p>
         <div class="stats-grid">
           ${project.stats.map(([value, label]) => `<article class="stat-card"><strong>${value}</strong><p>${label}</p></article>`).join("")}
         </div>
@@ -579,20 +577,9 @@ function renderCase(slug) {
       <section id="case-s-${index}" class="section section-tight case-section">
         <div class="two-column">
           <div>
-            <p class="eyebrow">${eyebrows[index]}</p>
-          </div>
-          <div>
             <h2>${section.title}</h2>
             ${section.body ? section.body.split("\n\n").map((paragraph) => `<p class="body-copy">${paragraph}</p>`).join("") : ""}
             ${section.bullets && section.bullets.length ? `<ul>${section.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>` : ""}
-            ${hasSectionNav && index === project.sections.findIndex((item) => item.type !== "statement") ? `
-              <nav class="case-section-nav" aria-label="Case study sections">
-                ${project.sections
-                  .map((item, i) => item.type !== "statement" ? `<a href="#case-s-${i}">${item.title}</a>` : "")
-                  .filter(Boolean)
-                  .join(`<span aria-hidden="true"> / </span>`)}
-              </nav>
-            ` : ""}
             ${section.opportunityCards ? `
               <div class="opportunity-cards">
                 ${section.opportunityCards.map((card) => `
@@ -720,7 +707,6 @@ function cta() {
   return `
     <section class="section cta-band">
       <div>
-        <p class="eyebrow">/Let's talk/</p>
         <h2>Want to create something great together?</h2>
       </div>
       <a class="button" href="https://ua.linkedin.com/in/alina-diadenko" target="_blank" rel="noreferrer">Contact me</a>
@@ -731,7 +717,6 @@ function cta() {
 function renderNotFound() {
   app.innerHTML = `
     <section class="section not-found">
-      <p class="eyebrow">/404</p>
       <h1 class="page-title">Page not found</h1>
       <p class="intro-text">This page does not exist yet.</p>
       <p><a class="button" href="#/">Go home</a></p>
@@ -763,6 +748,7 @@ function route() {
   const render = () => {
     const shouldScrollToProjects = renderCurrentRoute(hash);
     requestAnimationFrame(() => {
+      makeLinksSentenceCase();
       setupMotion();
       app.classList.remove("is-changing");
       if (shouldScrollToProjects) {
@@ -782,6 +768,31 @@ function route() {
 
   app.classList.add("is-changing");
   routeTimer = setTimeout(render, 180);
+}
+
+function toSentenceCase(str) {
+  if (!str) return str;
+  const s = String(str).trim().toLowerCase();
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+function makeLinksSentenceCase() {
+  const selectors = [
+    '.nav-links a',
+    '.menu-overlay nav a',
+    '.site-footer nav a',
+    '.case-section-nav a',
+    '.underline-link'
+  ];
+  const nodes = document.querySelectorAll(selectors.join(','));
+  nodes.forEach((a) => {
+    if (!a || a.dataset._caseNormalized) return;
+    if (a.querySelector('img, svg')) return;
+    const text = a.textContent || '';
+    const normalized = toSentenceCase(text);
+    if (normalized && normalized !== text) a.textContent = normalized;
+    a.dataset._caseNormalized = '1';
+  });
 }
 
 function setupMotion() {
