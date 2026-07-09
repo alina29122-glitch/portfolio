@@ -3,15 +3,15 @@ const projects = [
     slug: "new-project",
     years: "2025 - 2026",
     company: "NDA",
-    title: "Building the next generation of AI-powered learning experiences",
+    title: "Building what’s next in AI learning",
     image: "case-ai-education",
     summary:
-      "Owned the end-to-end product design process: from market research, opportunity discovery, and concept validation to UX design, AI-assisted MVP development, product launches, and post-release analysis and optimization.",
+      "Led design across the full product lifecycle, from opportunity discovery and validation to post-release growth.",
     role:
-      "Worked across two cross-functional teams: R&D (Discovery & Validation) → Venture (Build, Launch & Growth). As the only Product Designer across both teams, I owned the entire product design process and lead design-oriented initiatives.",
-    delivered: "Product discovery, opportunity assessment, and concept validation for AI-powered educational products; end-to-end UX and product design for web and mobile applications; AI-assisted MVP development, usability testing, and iterative product optimization from launch through growth.",
+      "R&D — Product Designer (Discovery & Validation)\nVenture — Founding Product Designer & Design Engineer",
+    delivered: "Research & validation · Product strategy · Web & mobile product design · Functional MVPs · User testing · Growth experiments.",
     outcome:
-      "<ul><li>Delivered end-to-end product design for AI-powered web and mobile learning products</li><li>Shaped the core AI generation workflow of the company's flagship product</li><li>Accelerated concept validation through AI-assisted MVP development and real-user testing</li></ul>",
+      "Launched AI-powered web and mobile products · Shaped the core AI workflow of the company’s flagship product · Accelerated product validation through functional MVPs and real-user testing.",
     sections: [
       {
         title: "Building products under uncertainty",
@@ -538,20 +538,29 @@ function renderCase(slug) {
   const hasSectionNav = project.sections.filter((s) => s.type !== "statement").length > 1;
 
   app.innerHTML = `
-    <section class="section case-hero">
-      <div class="case-hero-visual" aria-label="${project.title} image">
-        <span class="project-image ${project.image}"></span>
-      </div>
-      <div class="case-hero-title">
-        <h1 class="page-title">${project.title}</h1>
-      </div>
-      <div class="case-meta">
-        <article><span>Team & role</span><div class="case-meta-copy">${project.role}</div></article>
-        <article><span>What I did</span><p>${project.summary}</p></article>
-        <article><span>What I delivered</span><p>${project.delivered}</p></article>
-        <article><span>Outcome</span><div class="case-meta-copy">${project.outcome}</div></article>
-      </div>
-    </section>
+    <section class="section case-layout-section">
+      <div class="case-layout">
+        <aside class="case-fixed-panel" aria-label="${project.title} project details">
+          <p class="eyebrow case-panel-kicker">${project.years} / ${project.company}</p>
+          <div class="case-panel-body">
+            <div class="case-panel-heading">
+              <h1 class="page-title">${project.title}</h1>
+            </div>
+            <div class="case-meta">
+              <article><span>Team & role</span><div class="case-meta-copy">${project.role}</div></article>
+              <article><span>What I did</span><p>${project.summary}</p></article>
+              <article><span>What I delivered</span><p>${project.delivered}</p></article>
+              <article><span>Outcome</span><div class="case-meta-copy">${project.outcome}</div></article>
+            </div>
+          </div>
+        </aside>
+        <div class="case-scroll-content">
+          <div class="case-hero-visual" aria-label="${project.title} image">
+            <span class="project-image ${project.image}"></span>
+          </div>
+          <div class="case-content-intro">
+            <h2>${project.summary}</h2>
+          </div>
 
     ${project.stats ? `
       <section class="section section-tight">
@@ -697,11 +706,13 @@ function renderCase(slug) {
         </div>
       </section>
     `).join("")}
-
-    <section class="section section-tight">
-      <a class="button" href="#projects">← Back to projects</a>
+          <section class="section section-tight">
+            <a class="button" href="#projects">← Back to projects</a>
+          </section>
+          ${cta()}
+        </div>
+      </div>
     </section>
-    ${cta()}
   `;
 }
 
