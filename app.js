@@ -11,49 +11,44 @@ const projects = [
       "R&D — Founding Product Designer;\nVenture — Product Designer, Design Engineer.",
     delivered: "Research & validation · Product strategy · Web & mobile product design · Functional MVPs · User testing · Growth experiments.",
     outcome:
-      "Shaped the core AI workflow of the company’s flagship product. Launched AI-powered web and mobile products. Accelerated product validation through functional MVPs.",
+      "Shaped the core AI workflow of the company’s flagship product · Launched AI-powered web and mobile products · Accelerated product validation through functional MVPs.",
     sections: [
       {
-        title: "Building products under uncertainty",
+        title: "",
         eyebrow: "/Intro",
         body:  
-          "In this case study, I showcase my work on designing and launching multiple AI-powered educational products across web and mobile platforms. My focus was on identifying promising product opportunities, validating assumptions through research and experimentation, and designing user experiences that balanced business goals with student needs.\n\n Due to strict confidentiality agreements (NDA), I cannot publicly share any specific details such as product names, interfaces, user flows, business metrics, or proprietary design artifacts. However, I can share the process and focus on the process, decisions, and lessons behind the work rather than the products themselves.",
+          "I designed and launched AI-powered educational products across web and mobile, identifying promising opportunities, validating assumptions, and balancing student needs with business goals.\n\nDue to NDA restrictions, I can’t share product names, interfaces, metrics, or proprietary artifacts. Instead, this case focuses on the decisions, experiments, and lessons behind the work.",
         bullets: []
       },
       {
-        title: "What was the challenge?",
+        title: "The hardest part wasn’t building apps. It was deciding what was worth building.",
         eyebrow: "/Challenge",
         body:
-          "Building successful AI-powered educational products required more than designing interfaces. It involved making strategic product decisions under uncertainty, validating assumptions, accelerating execution, and maintaining a relentless focus on student outcomes. \n\nWhile each product was different, the underlying challenges remained remarkably consistent:",
+          "In a rapidly evolving AI market, we had to identify real student needs, validate opportunities quickly, and turn the strongest ones into products.",
         bullets: [],
         cardLayout: "compact",
         cards: [
           {
-            title: "Rapidly evolving market",
-            body: "New opportunities emerge constantly as AI capabilities evolve.",
+            title: "Keeping pace with a rapidly evolving AI market",
+            body: "",
             icon: "assets/icon-market.svg"
           },
           {
-            title: "Finding  right opportunities",
-            body: "Identifying unmet needs and promising product directions before competitors.",
+            title: "Finding unmet user needs before competitors do",
+            body: "",
             icon: "assets/icon-opportunities.svg"
           },
           {
-            title: "Learning outcomes first",
-            body: "The goal is not AI for AI's sake, but helping students achieve meaningful results.",
+            title: "Prioritizing learning outcomes over AI for AI’s sake",
+            body: "",
             icon: "assets/icon-learning.svg"
           },
           {
-            title: "Balancing speed and validation",
-            body: "Moving quickly while ensuring decisions are grounded in real market demand.",
+            title: "Moving fast without sacrificing real-world validation",
+            body: "",
             icon: "assets/icon-speed.svg"
-          
           }
         ]
-      },
-      {
-        type: "statement",
-        title: "The hardest part wasn't building products. It was deciding what was worth building."
       },
       {
         title: "Journey behind every launch",
@@ -532,6 +527,7 @@ function renderCase(slug) {
         <aside class="case-fixed-panel" aria-label="${project.title} project details">
           <div class="case-panel-body">
             <div class="case-panel-heading">
+              <p class="case-panel-eyebrow">${project.years} / ${project.company}</p>
               <h1 class="page-title">${project.title}</h1>
             </div>
             <div class="case-meta">
@@ -574,10 +570,10 @@ function renderCase(slug) {
         <h2>${section.title}</h2>
       </section>
     ` : `
-      <section id="case-s-${index}" class="section section-tight case-section">
+      <section id="case-s-${index}" class="section section-tight case-section${index === 0 ? " case-intro" : ""}">
         <div class="two-column">
           <div>
-            <h2>${section.title}</h2>
+            ${section.title ? `<h2>${section.title}</h2>` : ""}
             ${section.body ? section.body.split("\n\n").map((paragraph) => `<p class="body-copy">${paragraph}</p>`).join("") : ""}
             ${section.bullets && section.bullets.length ? `<ul>${section.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>` : ""}
             ${section.opportunityCards ? `
@@ -625,8 +621,8 @@ function renderCase(slug) {
                   <article class="visual-card">
                     <span class="visual-card-icon" aria-hidden="true">${card.icon ? `<img src="${card.icon}" alt="" />` : ""}</span>
                     <div class="visual-card-copy">
-                      <h3>${card.title}</h3>
-                      <p>${card.body}</p>
+                      <h4>${card.title}</h4>
+                      ${card.body ? `<p>${card.body}</p>` : ""}
                     </div>
                   </article>
                 `).join("")}
@@ -635,12 +631,12 @@ function renderCase(slug) {
             ${section.pipeline ? `
               <div class="process-pipeline" aria-label="Opportunity Pipeline">
                 ${section.pipeline.map((stage, stageIndex) => `
-                  <article class="pipeline-card">
-                    <span class="pipeline-icon" aria-hidden="true">${stage.icon ? `<img src="${stage.icon}" alt="" />` : ""}</span>
-                    <div class="pipeline-heading">
+                  <details class="pipeline-card">
+                    <summary class="pipeline-summary">
                       <p class="pipeline-number">/ ${String(stageIndex + 1).padStart(2, "0")}</p>
                       <h4>${stage.title}</h4>
-                    </div>
+                      <span class="pipeline-toggle" aria-hidden="true"></span>
+                    </summary>
                     <div class="pipeline-copy">
                       ${stage.goal ? `
                         <div class="pipeline-detail">
@@ -685,7 +681,7 @@ function renderCase(slug) {
                         </div>
                       ` : ""}
                     </div>
-                  </article>
+                  </details>
                 `).join("")}
               </div>
             ` : ""}
