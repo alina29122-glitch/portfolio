@@ -953,6 +953,16 @@ body.menu-open .menu-overlay a:nth-child(4) { transition-delay: 165ms; }
   gap: 24px;
 }
 
+.case-panel-eyebrow {
+  color: var(--body-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  margin: 0;
+  text-transform: uppercase;
+}
+
 .case-panel-heading .page-title {
   font-size: clamp(30px, 3vw, 44px);
   line-height: 1.04;

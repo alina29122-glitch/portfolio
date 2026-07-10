@@ -11,7 +11,7 @@ const projects = [
       "R&D — Founding Product Designer;\nVenture — Product Designer, Design Engineer.",
     delivered: "Research & validation · Product strategy · Web & mobile product design · Functional MVPs · User testing · Growth experiments.",
     outcome:
-      "Shaped the core AI workflow of the company’s flagship product. Launched AI-powered web and mobile products. Accelerated product validation through functional MVPs.",
+      "Shaped the core AI workflow of the company’s flagship product · Launched AI-powered web and mobile products · Accelerated product validation through functional MVPs.",
     sections: [
       {
         title: "Building products under uncertainty",
@@ -532,6 +532,7 @@ function renderCase(slug) {
         <aside class="case-fixed-panel" aria-label="${project.title} project details">
           <div class="case-panel-body">
             <div class="case-panel-heading">
+              <p class="case-panel-eyebrow">${project.years} / ${project.company}</p>
               <h1 class="page-title">${project.title}</h1>
             </div>
             <div class="case-meta">
