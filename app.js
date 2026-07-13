@@ -634,7 +634,7 @@ function renderCase(slug) {
                   <details class="pipeline-card">
                     <summary class="pipeline-summary">
                       <p class="pipeline-number">/ ${String(stageIndex + 1).padStart(2, "0")}</p>
-                      <h4>${stage.title}</h4>
+                      <h5>${stage.title}</h5>
                       <span class="pipeline-toggle" aria-hidden="true"></span>
                     </summary>
                     <div class="pipeline-copy">
@@ -646,7 +646,7 @@ function renderCase(slug) {
                       ` : ""}
                       ${stage.evidence ? `
                         <div class="pipeline-detail">
-                          <p class="pipeline-label">Evidence</p>
+                          <p class="pipeline-label">What I did</p>
                           <ul class="pipeline-options">
                             ${stage.evidence.map((item) => `<li>${item}</li>`).join("")}
                           </ul>
@@ -654,7 +654,7 @@ function renderCase(slug) {
                       ` : ""}
                       ${stage.output ? `
                         <div class="pipeline-detail">
-                          <p class="pipeline-label">Output</p>
+                          <p class="pipeline-label">Key insight</p>
                           <p class="pipeline-body">${stage.output}</p>
                         </div>
                       ` : ""}
@@ -745,6 +745,7 @@ function route() {
     const shouldScrollToProjects = renderCurrentRoute(hash);
     requestAnimationFrame(() => {
       makeLinksSentenceCase();
+      setupAccordions();
       setupMotion();
       app.classList.remove("is-changing");
       if (shouldScrollToProjects) {
@@ -791,9 +792,26 @@ function makeLinksSentenceCase() {
   });
 }
 
+function setupAccordions() {
+  app.querySelectorAll(".process-pipeline").forEach((pipeline) => {
+    const cards = [...pipeline.querySelectorAll(".pipeline-card")];
+
+    cards.forEach((card) => {
+      card.addEventListener("toggle", () => {
+        if (!card.open) return;
+        cards.forEach((otherCard) => {
+          if (otherCard !== card) otherCard.open = false;
+        });
+      });
+    });
+  });
+}
+
 function setupMotion() {
   revealObserver?.disconnect();
-  const targets = [...app.querySelectorAll(motionQuery)].filter((target) => !target.closest(".hero"));
+  const targets = [...app.querySelectorAll(motionQuery)].filter((target) => (
+    !target.closest(".hero") && !target.closest(".pipeline-copy")
+  ));
 
   if (!("IntersectionObserver" in window)) {
     targets.forEach((target) => target.classList.add("is-visible"));
