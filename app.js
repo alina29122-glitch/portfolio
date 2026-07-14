@@ -3,7 +3,7 @@ const projects = [
     slug: "new-project",
     years: "2025 - 2026",
     company: "NDA",
-    title: "Building what’s next in AI learning",
+    title: "Building AI products through rapid validation",
     image: "case-ai-education",
     summary:
       "Led design across the full product lifecycle, from opportunity discovery and validation to post-release growth.",
@@ -12,111 +12,52 @@ const projects = [
     delivered: "Research & validation · Product strategy · Web & mobile product design · Functional MVPs · User testing · Growth experiments.",
     outcome:
       "Shaped the core AI workflow of the company’s flagship product · Launched AI-powered web and mobile products · Accelerated product validation through functional MVPs.",
+    sidebarNote: {
+      label: "Note",
+      body: "Covered by NDA. This case focuses on the process rather than confidential details."
+    },
     sections: [
       {
         title: "",
         eyebrow: "/Intro",
         body:  
-          "I designed and launched AI-powered educational products across web and mobile, identifying promising opportunities, validating assumptions, and balancing student needs with business goals.\n\nDue to NDA restrictions, I can’t share product names, interfaces, metrics, or proprietary artifacts. Instead, this case focuses on the decisions, experiments, and lessons behind the work.",
+          "When I joined the company, I became part of the R&D team, exploring new opportunities in AI education. \n\n Every idea started as a hypothesis, shaped through research, validation, and rapid experimentation. Some ideas became products. Others stopped at an MVP. Many never made it past validation.\n\nAs the strongest concepts moved into Venture, I continued shaping them from validated concepts to launched products.",
         bullets: []
       },
       {
-        title: "The hardest part wasn’t building apps. It was deciding what was worth building.",
+        title: "Every idea had to earn its way forward",
         eyebrow: "/Challenge",
         body:
-          "In a rapidly evolving AI market, we had to identify real student needs, validate opportunities quickly, and turn the strongest ones into products.",
+          "Not every promising idea deserved to become a product. \n\nBuilding quickly wasn't enough. Before investing in a new opportunity, we needed confidence that it was worth building. \n\nEvery concept had to answer the same four questions before moving forward.",
         bullets: [],
-        cardLayout: "compact",
-        cards: [
+        questionEvidence: [
           {
-            title: "Keeping pace with a rapidly evolving AI market",
-            body: "",
-            icon: "assets/icon-market.svg"
+            question: "Is this solving a real user problem?",
+            category: "Problem validation",
+            heading: "Understand the problem before shaping the solution",
+            body: "We combined market research, competitor analysis, interviews, surveys, and behavioral insights to identify recurring student problems before designing a solution.",
+            methods: ["Market research", "Interviews", "Surveys", "Behavioral insights"]
           },
           {
-            title: "Finding unmet user needs before competitors do",
-            body: "",
-            icon: "assets/icon-opportunities.svg"
+            question: "Do users actually need this?",
+            category: "Demand validation",
+            heading: "Look for evidence of real demand",
+            body: "We validated concepts through interviews, surveys, prototype feedback, and landing-page experiments before investing in development.",
+            methods: ["Concept testing", "Prototype feedback", "Landing pages", "Surveys"]
           },
           {
-            title: "Prioritizing learning outcomes over AI for AI’s sake",
-            body: "",
-            icon: "assets/icon-learning.svg"
+            question: "Can AI make this meaningfully better?",
+            category: "Solution validation",
+            heading: "Use AI only where it creates clear value",
+            body: "We evaluated whether AI improved speed, quality, personalization, or accessibility rather than adding automation for its own sake.",
+            methods: ["AI prototyping", "Usability testing", "Workflow comparison", "Feasibility"]
           },
           {
-            title: "Moving fast without sacrificing real-world validation",
-            body: "",
-            icon: "assets/icon-speed.svg"
-          }
-        ]
-      },
-      {
-        title: "Journey behind every launch",
-        eyebrow: "Process",
-        body:
-          "Throughout the year, I continuously explored opportunities within the educational AI space. The goal wasn't to generate more ideas, but to identify opportunities with real user demand in long-term potential.\n\n As the only Product Designer within the R&D team, I partnered closely with Product managers and Market researchers to identify opportunities, validate concepts, and shape product direction from early discovery through launch and optimization. \n\n The process  followed these stages:",
-        bullets: [],
-        pipeline: [
-          {
-            title: "Analyze market signals",
-            icon: "assets/icon-pipeline-graph.svg",
-            goal: "Understand emerging student needs, market shifts, and gaps worth exploring.",
-            evidence: [
-              "50+ competitor products reviewed",
-              "Multiple educational AI categories analyzed",
-              "User interviews & surveys conducted",
-              "Product usage and community feedback analyzed"
-            ],
-            output: "Key market signals and promising problem spaces identified for further exploration."
-          },
-          {
-            title: "Identify opportunities",
-            icon: "assets/icon-pipeline-archery.svg",
-            goal: "Turn market and user signals into concrete product directions.",
-            evidence: [
-              "20+ potential product directions explored",
-              "4+ learning areas investigated",
-              "User problems and existing solutions mapped",
-              "Market gaps and emerging behaviors assessed"
-            ],
-            output: "A prioritized pipeline of opportunities with defined user problems and initial value propositions."
-          },
-          {
-            title: "Validate demand",
-            icon: "assets/icon-pipeline-kpi.svg",
-            goal: "Reduce uncertainty before investing in product development.",
-            evidence: [
-              "10+ concepts evaluated",
-              "Concept and prototype testing",
-              "Usability tests & user surveys",
-              "Positioning and value proposition experiments",
-              "Market-fit assessment"
-            ],
-            output: "Strongest concepts selected, core assumptions tested, and MVP scope defined for launch."
-          },
-          {
-            title: "Launch products",
-            icon: "assets/icon-pipeline-rocket.svg",
-            goal: "Turn validated opportunities into functional products used by real users.",
-            evidence: [
-              "3 web applications designed and AI-assisted developed",
-              "2 iOS application designed",
-              "Core workflows and product enhancements launched"
-            ],
-            output: "5+ product experiences shipped across web and mobile, from core product workflows to new standalone products."
-          },
-          {
-            title: "Optimize performance",
-            icon: "assets/icon-pipeline-infinity.svg",
-            goal: "Determine whether launched products could create sustainable user and business value.",
-            evidence: [
-              "Product performance and user behavior analyzed",
-              "Multiple conversion experiments launched",
-              "Pricing & paywall approaches tested",
-              "Positioning angles validated",
-              "Continuous UX and product iterations"
-            ],
-            output: "Evidence-based decisions on what to improve, reposition, scale, or stop."
+            question: "Is now the right time to build it?",
+            category: "Market validation",
+            heading: "Balance timing, feasibility, and strategic value",
+            body: "We considered market maturity, technical capabilities, competitive pressure, business priorities, and the strength of the available evidence before moving forward.",
+            methods: ["Market timing", "Technical feasibility", "Business fit", "Opportunity sizing"]
           }
         ]
       },
@@ -392,6 +333,7 @@ const motionQuery = [
   ".stat-card",
   ".case-meta",
   ".visual-panel",
+  ".question-evidence-row",
   ".case-section ul",
   ".case-section-nav"
 ].join(",");
@@ -534,7 +476,12 @@ function renderCase(slug) {
               <article><span>Team & role</span><div class="case-meta-copy">${project.role}</div></article>
               <article><span>What I did</span><p>${project.summary}</p></article>
               <article><span>Outcome</span><div class="case-meta-copy">${project.outcome}</div></article>
-              ${hasSectionNav ? `
+              ${project.sidebarNote ? `
+                <article>
+                  <span>${project.sidebarNote.label}</span>
+                  <div class="case-meta-copy">${project.sidebarNote.body}</div>
+                </article>
+              ` : hasSectionNav ? `
                 <article>
                   <span>Overview</span>
                   <nav class="case-section-nav" aria-label="Case study sections">
@@ -615,11 +562,31 @@ function renderCase(slug) {
               </div>
             ` : ""}
             ${section.closingStatement ? `<p class="case-closing-statement">${section.closingStatement}</p>` : ""}
+            ${section.questionEvidence ? `
+              <div class="question-evidence">
+                ${section.questionEvidence.map((item, itemIndex) => `
+                  <article class="question-evidence-row">
+                    <div class="question-evidence-question">
+                      <p class="question-evidence-label">${String(itemIndex + 1).padStart(2, "0")} — ${item.category}</p>
+                      <h3>${item.question}</h3>
+                    </div>
+                    <div class="question-evidence-answer">
+                      <p class="question-evidence-label">How we answered it</p>
+                      <h4>${item.heading}</h4>
+                      <p>${item.body}</p>
+                      <ul class="question-evidence-methods">
+                        ${item.methods.map((method) => `<li>${method}</li>`).join("")}
+                      </ul>
+                    </div>
+                  </article>
+                `).join("")}
+              </div>
+            ` : ""}
             ${section.cards ? `
               <div class="visual-cards${section.cardLayout === "compact" ? " visual-cards-compact" : ""}">
                 ${section.cards.map((card) => `
                   <article class="visual-card">
-                    <span class="visual-card-icon" aria-hidden="true">${card.icon ? `<img src="${card.icon}" alt="" />` : ""}</span>
+                    <span class="visual-card-icon" aria-hidden="true">${card.iconText ? `<span class="visual-card-icon-text">${card.iconText}</span>` : card.icon ? `<img src="${card.icon}" alt="" />` : ""}</span>
                     <div class="visual-card-copy">
                       <h4>${card.title}</h4>
                       ${card.body ? `<p>${card.body}</p>` : ""}

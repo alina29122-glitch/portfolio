@@ -1161,6 +1161,93 @@ h1.lead {
   margin-top: 8px;
 }
 
+.question-evidence {
+  border-top: 1px solid var(--light-outline);
+  display: grid;
+  margin-top: 56px;
+  width: 100%;
+}
+
+.question-evidence-row {
+  border-bottom: 1px solid var(--light-outline);
+  display: grid;
+  gap: clamp(32px, 5vw, 72px);
+  grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
+  padding: clamp(42px, 6vw, 76px) 0;
+}
+
+.question-evidence-question,
+.question-evidence-answer {
+  min-width: 0;
+}
+
+.question-evidence-label {
+  color: var(--body-display);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  margin: 0 0 22px;
+  text-transform: uppercase;
+}
+
+.question-evidence-question h3 {
+  color: transparent;
+  font-size: clamp(44px, 7.2vw, 112px);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 0.96;
+  margin: 0;
+  max-width: 820px;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.78);
+  text-stroke: 1px rgba(255, 255, 255, 0.78);
+}
+
+.question-evidence-answer {
+  align-self: center;
+}
+
+.question-evidence-answer h4 {
+  color: #fff;
+  font-size: clamp(22px, 2vw, 32px);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.18;
+  margin: 0;
+}
+
+.question-evidence-answer > p:not(.question-evidence-label) {
+  color: var(--body-display);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.65;
+  margin: 18px 0 0;
+}
+
+.case-section .question-evidence-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+}
+
+.case-section .question-evidence-methods li {
+  border: 1px solid var(--light-outline);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 0;
+  padding: 7px 10px;
+}
+
+.case-section .question-evidence-methods li + li {
+  margin-top: 0;
+}
+
 .visual-cards {
   display: grid;
   gap: 28px;
@@ -1211,6 +1298,13 @@ h1.lead {
   width: 24px;
 }
 
+.visual-card-icon-text {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+}
+
 .visual-card-copy {
   margin-top: auto;
 }
@@ -1240,11 +1334,11 @@ h1.lead {
 }
 
 .visual-cards-compact {
-  column-gap: clamp(48px, 7vw, 96px);
-  row-gap: clamp(56px, 7vw, 88px);
+  column-gap: clamp(36px, 5vw, 72px);
+  row-gap: clamp(36px, 5vw, 64px);
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: 48px;
-  padding-top: 8px;
+  margin-top: 36px;
+  padding-top: 4px;
 }
 
 .visual-cards-compact .visual-card {
@@ -1266,10 +1360,10 @@ h1.lead {
   content: "";
   display: block;
   height: 1px;
-  left: 54px;
+  left: 42px;
   position: absolute;
   right: 0;
-  top: 28px;
+  top: 22px;
 }
 
 .visual-cards-compact .visual-card-icon {
@@ -1278,35 +1372,40 @@ h1.lead {
   border: 1px solid var(--light-outline);
   border-radius: 999px;
   display: flex;
-  height: 56px;
+  height: 44px;
   justify-content: center;
   margin: 0;
   position: relative;
-  width: 56px;
+  width: 44px;
   z-index: 1;
 }
 
 .visual-cards-compact .visual-card-icon img {
   filter: brightness(0) invert(1);
-  height: 18px;
+  height: 16px;
   opacity: 0.9;
-  width: 18px;
+  width: 16px;
+}
+
+.visual-cards-compact .visual-card-icon-text {
+  font-size: 20px;
 }
 
 .visual-cards-compact .visual-card-copy {
   align-self: auto;
   display: grid;
   min-height: 0;
-  margin-top: 36px;
-  max-width: 520px;
-  padding-left: 64px;
+  margin-top: 24px;
+  max-width: 440px;
+  padding-left: 52px;
+  padding-right: 8px;
   text-align: left;
 }
 
 .visual-cards-compact .visual-card h4,
 .visual-cards-compact .visual-card h5 {
   color: #fff;
-  font-size: clamp(18px, 1.5vw, 24px);
+  font-size: clamp(17px, 1.25vw, 21px);
   letter-spacing: 0;
   line-height: 1.2;
   margin: 0;
@@ -1324,7 +1423,10 @@ h1.lead {
 .visual-cards-compact .visual-card p {
   color: var(--body-display);
   font-size: 15px;
+  font-style: italic;
+  font-weight: 300;
   line-height: 1.55;
+  margin-top: 16px;
 }
 
 .opportunity-cards {
@@ -1733,9 +1835,19 @@ h1.lead {
   .case-hero-title,
   .case-section .visual-cards,
   .case-section .opportunity-cards,
+  .case-section .question-evidence,
   .case-section .process-pipeline {
     max-width: none;
     width: 100%;
+  }
+
+  .question-evidence-row {
+    gap: 28px;
+    grid-template-columns: 1fr;
+  }
+
+  .question-evidence-question h3 {
+    max-width: 680px;
   }
 
   .visual-cards.visual-cards-compact {
@@ -1887,6 +1999,32 @@ h1.lead {
     max-width: 980px;
   }
 
+  .question-evidence {
+    margin-top: 40px;
+  }
+
+  .question-evidence-row {
+    padding: 40px 0;
+  }
+
+  .question-evidence-label {
+    margin-bottom: 16px;
+  }
+
+  .question-evidence-question h3 {
+    font-size: clamp(38px, 13vw, 64px);
+    line-height: 1;
+    -webkit-text-stroke-width: 0.8px;
+  }
+
+  .question-evidence-answer h4 {
+    font-size: clamp(21px, 6vw, 28px);
+  }
+
+  .question-evidence-answer > p:not(.question-evidence-label) {
+    font-size: 15px;
+  }
+
   .case-hero {
     gap: 48px;
     padding-left: var(--grid-gutter);
@@ -1954,9 +2092,9 @@ h1.lead {
   }
 
   .visual-cards-compact {
-    column-gap: 36px;
-    row-gap: 48px;
-    padding-top: 14px;
+    column-gap: 28px;
+    row-gap: 36px;
+    padding-top: 10px;
   }
 
   .visual-cards-compact .visual-card {
@@ -1967,30 +2105,35 @@ h1.lead {
 
   .visual-cards-compact .visual-card::before {
     display: block;
-    left: 48px;
-    top: 24px;
+    left: 40px;
+    top: 20px;
   }
 
   .visual-cards-compact .visual-card-icon {
     display: flex;
-    height: 48px;
+    height: 40px;
     margin: 0;
-    width: 48px;
+    width: 40px;
   }
 
   .visual-cards-compact .visual-card-icon img {
-    height: 16px;
-    width: 16px;
+    height: 14px;
+    width: 14px;
+  }
+
+  .visual-cards-compact .visual-card-icon-text {
+    font-size: 18px;
   }
 
   .visual-cards-compact .visual-card-copy {
-    margin-top: 28px;
-    padding-left: 56px;
+    margin-top: 20px;
+    padding-left: 48px;
+    padding-right: 8px;
   }
 
   .visual-cards-compact .visual-card h4,
   .visual-cards-compact .visual-card h5 {
-    font-size: clamp(18px, 4.5vw, 24px);
+    font-size: clamp(17px, 4vw, 21px);
     margin: 0;
   }
 
