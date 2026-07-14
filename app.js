@@ -34,29 +34,77 @@ const projects = [
           {
             question: "Is this solving a real user problem?",
             category: "Problem validation",
-            heading: "Understand the problem before shaping the solution",
-            body: "We combined market research, competitor analysis, interviews, surveys, and behavioral insights to identify recurring student problems before designing a solution.",
-            methods: ["Market research", "Interviews", "Surveys", "Behavioral insights"]
+            answerSections: [
+              {
+                heading: "What I did to find the answer",
+                items: [
+                  "Analyzed the market, competitors, and emerging AI capabilities",
+                  "Worked with Market Researchers and Product Managers to identify recurring student problems",
+                  "Turned research findings into product opportunities and initial hypotheses"
+                ]
+              },
+              {
+                heading: "Key insight",
+                body: "Recurring student problems became hypotheses worth validating further."
+              }
+            ],
+            methods: ["Concept testing", "Prototype feedback", "Landing pages", "Surveys"]
           },
           {
             question: "Do users actually need this?",
             category: "Demand validation",
-            heading: "Look for evidence of real demand",
-            body: "We validated concepts through interviews, surveys, prototype feedback, and landing-page experiments before investing in development.",
+            answerSections: [
+              {
+                heading: "What I did to find the answer",
+                items: [
+                  "Validated concepts through interviews, surveys, and prototype feedback",
+                  "Used landing-page experiments to test early demand signals",
+                  "Compared evidence before deciding whether to invest in development"
+                ]
+              },
+              {
+                heading: "Key insight",
+                body: "Evidence of demand helped separate promising ideas from concepts that only sounded useful."
+              }
+            ],
             methods: ["Concept testing", "Prototype feedback", "Landing pages", "Surveys"]
           },
           {
             question: "Can AI make this meaningfully better?",
             category: "Solution validation",
-            heading: "Use AI only where it creates clear value",
-            body: "We evaluated whether AI improved speed, quality, personalization, or accessibility rather than adding automation for its own sake.",
+            answerSections: [
+              {
+                heading: "What I did to find the answer",
+                items: [
+                  "Built AI prototypes to test real product value",
+                  "Compared AI-assisted workflows with existing user behavior",
+                  "Evaluated improvements in speed, quality, personalization, and accessibility"
+                ]
+              },
+              {
+                heading: "Key insight",
+                body: "AI was worth using only when it made the learning experience clearly faster, easier, or more effective."
+              }
+            ],
             methods: ["AI prototyping", "Usability testing", "Workflow comparison", "Feasibility"]
           },
           {
             question: "Is now the right time to build it?",
             category: "Market validation",
-            heading: "Balance timing, feasibility, and strategic value",
-            body: "We considered market maturity, technical capabilities, competitive pressure, business priorities, and the strength of the available evidence before moving forward.",
+            answerSections: [
+              {
+                heading: "What I did to find the answer",
+                items: [
+                  "Assessed market maturity, competitive pressure, and business priorities",
+                  "Checked technical feasibility against the product vision",
+                  "Compared opportunity size with the strength of available evidence"
+                ]
+              },
+              {
+                heading: "Key insight",
+                body: "The strongest opportunities balanced user need, technical feasibility, business fit, and timing."
+              }
+            ],
             methods: ["Market timing", "Technical feasibility", "Business fit", "Opportunity sizing"]
           }
         ]
@@ -567,16 +615,35 @@ function renderCase(slug) {
                 ${section.questionEvidence.map((item, itemIndex) => `
                   <article class="question-evidence-row">
                     <div class="question-evidence-question">
-                      <p class="question-evidence-label">${String(itemIndex + 1).padStart(2, "0")} — ${item.category}</p>
                       <h3>${item.question}</h3>
+                      <p class="question-evidence-category">${item.category}</p>
                     </div>
                     <div class="question-evidence-answer">
-                      <p class="question-evidence-label">How we answered it</p>
-                      <h4>${item.heading}</h4>
-                      <p>${item.body}</p>
-                      <ul class="question-evidence-methods">
-                        ${item.methods.map((method) => `<li>${method}</li>`).join("")}
-                      </ul>
+                      ${item.answerSections ? `
+                        <div class="question-evidence-answer-sections">
+                          ${item.answerSections.map((answerSection) => `
+                            <section class="question-evidence-answer-section">
+                              <h5>${answerSection.heading}</h5>
+                              ${answerSection.items ? `
+                                <ul class="question-evidence-answer-list">
+                                  ${answerSection.items.map((point) => `<li>${point}</li>`).join("")}
+                                </ul>
+                              ` : `<p>${answerSection.body}</p>`}
+                            </section>
+                          `).join("")}
+                        </div>
+                        ${item.methods ? `
+                          <ul class="question-evidence-methods">
+                            ${item.methods.map((method) => `<li>${method}</li>`).join("")}
+                          </ul>
+                        ` : ""}
+                      ` : `
+                        <h4>${item.heading}</h4>
+                        <p>${item.body}</p>
+                        <ul class="question-evidence-methods">
+                          ${item.methods.map((method) => `<li>${method}</li>`).join("")}
+                        </ul>
+                      `}
                     </div>
                   </article>
                 `).join("")}
