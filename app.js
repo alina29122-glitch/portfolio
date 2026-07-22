@@ -3,109 +3,51 @@ const projects = [
     slug: "new-project",
     years: "2025 - 2026",
     company: "NDA",
-    title: "Building AI products through rapid validation",
+    title: "Shaping the future of AI learning",
     image: "case-ai-education",
     summary:
-      "Led design across the full product lifecycle, from opportunity discovery and validation to post-release growth.",
+      "Led full product design lifecycle.",
     role:
-      "R&D — Founding Product Designer;\nVenture — Product Designer, Design Engineer.",
-    delivered: "Research & validation · Product strategy · Web & mobile product design · Functional MVPs · User testing · Growth experiments.",
-    outcome:
-      "Shaped the core AI workflow of the company’s flagship product · Launched AI-powered web and mobile products · Accelerated product validation through functional MVPs.",
+      "Founding Product Designer (R&D → Venture)",
+    delivered: "Designed AI-powered learning products under NDA, from core product improvements to new web/mobile MVPs, including a one-click AI flow that became part of the flagship experience.",
     sidebarNote: {
       label: "Note",
       body: "Covered by NDA. This case focuses on the process rather than confidential details."
     },
     sections: [
       {
-        title: "",
-        eyebrow: "/Intro",
+        title: "Across discovery, launch, and growth",
+        eyebrow: "Intro",
         body:  
-          "When I joined the company, I became part of the R&D team, exploring new opportunities in AI education. \n\n Every idea started as a hypothesis, shaped through research, validation, and rapid experimentation. Some ideas became products. Others stopped at an MVP. Many never made it past validation.\n\nAs the strongest concepts moved into Venture, I continued shaping them from validated concepts to launched products.",
+          "I joined the R&D team to explore new opportunities in AI-powered education. Every idea started as a hypothesis, shaped through research, validation, and rapid experimentation. Some became products. Some stopped at MVPs. Many never moved past validation.\n\nAs the strongest concepts moved into Venture, I continued shaping them from validated ideas into launched learning products. \n\nThis case is covered by NDA and focuses on process, decisions, and learnings rather than confidential details.",
         bullets: []
       },
       {
         title: "Every idea had to earn its way forward",
         eyebrow: "/Challenge",
         body:
-          "Not every promising idea deserved to become a product. \n\nBuilding quickly wasn't enough. Before investing in a new opportunity, we needed confidence that it was worth building. \n\nEvery concept had to answer the same four questions before moving forward.",
+          "Before investing in new AI learning opportunities, I helped the team reduce uncertainty through research, validation, and functional MVPs.",
         bullets: [],
         questionEvidence: [
           {
-            question: "Is this solving a real user problem?",
-            category: "Problem validation",
-            answerSections: [
-              {
-                heading: "What I did to find the answer",
-                items: [
-                  "Analyzed the market, competitors, and emerging AI capabilities",
-                  "Worked with Market Researchers and Product Managers to identify recurring student problems",
-                  "Turned research findings into product opportunities and initial hypotheses"
-                ]
-              },
-              {
-                heading: "Key insight",
-                body: "Recurring student problems became hypotheses worth validating further."
-              }
-            ],
-            methods: ["Concept testing", "Prototype feedback", "Landing pages", "Surveys"]
+            question: "Is this a real learning problem?",
+            reducedUncertainty: "<strong>Reviewed 50+ competitors</strong> across learning tools to identify repeated student pain points, market patterns, and product gaps — separating real opportunities from AI trend noise.",
+            methods: ["Market scan", "Competitive review", "Trend analysis"]
           },
           {
-            question: "Do users actually need this?",
-            category: "Demand validation",
-            answerSections: [
-              {
-                heading: "What I did to find the answer",
-                items: [
-                  "Validated concepts through interviews, surveys, and prototype feedback",
-                  "Used landing-page experiments to test early demand signals",
-                  "Compared evidence before deciding whether to invest in development"
-                ]
-              },
-              {
-                heading: "Key insight",
-                body: "Evidence of demand helped separate promising ideas from concepts that only sounded useful."
-              }
-            ],
-            methods: ["Concept testing", "Prototype feedback", "Landing pages", "Surveys"]
+            question: "Do students actually need this?",
+            reducedUncertainty: "<strong>Validated multiple MVPs with real users</strong> through concept testing and early product feedback — moving ideas forward only when users showed clear intent or repeated need.",
+            methods: ["Concept design", "Early A/B testing", "Surveys", "Feedback analysis"]
           },
           {
-            question: "Can AI make this meaningfully better?",
-            category: "Solution validation",
-            answerSections: [
-              {
-                heading: "What I did to find the answer",
-                items: [
-                  "Built AI prototypes to test real product value",
-                  "Compared AI-assisted workflows with existing user behavior",
-                  "Evaluated improvements in speed, quality, personalization, and accessibility"
-                ]
-              },
-              {
-                heading: "Key insight",
-                body: "AI was worth using only when it made the learning experience clearly faster, easier, or more effective."
-              }
-            ],
-            methods: ["AI prototyping", "Usability testing", "Workflow comparison", "Feasibility"]
+            question: "Does AI make it better?",
+            reducedUncertainty: "<strong>Explored 10+ product directions</strong> across study, writing, math, practice, and AI learning — focusing on flows where AI could reduce effort, improve quality, or make learning tasks easier.",
+            methods: ["Product discovery", "Flow design","Usability testing"]
           },
           {
             question: "Is now the right time to build it?",
-            category: "Market validation",
-            answerSections: [
-              {
-                heading: "What I did to find the answer",
-                items: [
-                  "Assessed market maturity, competitive pressure, and business priorities",
-                  "Checked technical feasibility against the product vision",
-                  "Compared opportunity size with the strength of available evidence"
-                ]
-              },
-              {
-                heading: "Key insight",
-                body: "The strongest opportunities balanced user need, technical feasibility, business fit, and timing."
-              }
-            ],
-            methods: ["Market timing", "Technical feasibility", "Business fit", "Opportunity sizing"]
+            reducedUncertainty: "<strong>Shaped 1 core AI flow</strong> for the flagship product and <strong>designed functional MVPs</strong> to test readiness — helping the team decide which concepts were strong enough to build.",
+            methods: ["MVP design", "AI rapid prototyping", "Feasibility validation"]
           }
         ]
       },
@@ -151,17 +93,16 @@ const projects = [
       {
         title: "What a year of building AI products taught me",
         eyebrow: "LEARNINGS",
-        body:
-          "Working across multiple products changed how I think about product design. The biggest challenge was rarely designing the experience itself—it was learning what evidence to trust, when to move faster, and when to stop investing in an idea.",
+        body: "",
         bullets: [],
         lessonCards: [
           {
             title: "Validation is not the same as demand",
-            body: "A concept can test well, users can understand its value, and the experience can be usable—without becoming a product people return to or pay for. The strongest signals came from real behavior after launch."
+            body: "A concept can test well, users can understand its value, and the experience can be usable, BUT without becoming a product people return to or pay for. The strongest signals came from real behavior after launch."
           },
           {
             title: "Speed changes what design can validate",
-            body: "AI-assisted development allowed me to move beyond prototypes and test functional products with real users. Instead of asking people to imagine the experience, we could observe how they actually used it."
+            body: "Functional MVPs helped us test behavior earlier, not just opinions about prototypes."
           },
           {
             title: "Launch is where another kind of validation begins",
@@ -381,7 +322,7 @@ const motionQuery = [
   ".stat-card",
   ".case-meta",
   ".visual-panel",
-  ".question-evidence-row",
+  ".other-case-card",
   ".case-section ul",
   ".case-section-nav"
 ].join(",");
@@ -389,6 +330,10 @@ const motionQuery = [
 let hasRendered = false;
 let routeTimer;
 let revealObserver;
+let caseSidebarRaf;
+let caseNavLockHref;
+let caseNavLockTimer;
+let heroFloatingCleanup;
 
 function projectUrl(slug) {
   return `#/case/${slug}`;
@@ -415,7 +360,7 @@ function renderHome() {
         </div>
       </div>
       <figure class="hero-media">
-        <img src="assets/photo.jpg" alt="Alina Diadenko" />
+        ${[0.5, 1, 2, 1, 1, 2, 4, 1].map((depth) => `<span class="hero-placeholder" data-depth="${depth}" aria-hidden="true"></span>`).join("")}
       </figure>
     </section>
 
@@ -445,12 +390,67 @@ function projectCard(project) {
           <p class="project-year">${project.years} / ${project.company}</p>
           <div>
             <h3>${project.title}</h3>
-            <p>${project.summary}</p>
+            <p>${project.delivered}</p>
           </div>
           <a class="underline-link" href="${projectUrl(project.slug)}">read more</a>
         </div>
       </div>
     </article>
+  `;
+}
+
+function otherCases(currentProject) {
+  const currentIndex = projects.findIndex((project) => project.slug === currentProject.slug);
+  const orderedProjects = [
+    ...projects.slice(currentIndex + 1),
+    ...projects.slice(0, currentIndex)
+  ].filter((project) => project.slug !== currentProject.slug);
+  const relatedProjects = orderedProjects.slice(0, 2);
+
+  if (!relatedProjects.length) return "";
+
+  return `
+    <section class="section section-tight other-cases">
+      <div>
+        <h2 class="other-cases-heading">Other cases.</h2>
+        <div class="other-cases-grid">
+          ${relatedProjects.map((project) => `
+            <a class="other-case-card" href="${projectUrl(project.slug)}" aria-label="${project.title}">
+              <span class="other-case-media">
+                <span class="project-image ${project.image}"></span>
+              </span>
+              <span class="other-case-caption">
+                <span>${project.title}</span>
+                <span>${project.years}</span>
+              </span>
+            </a>
+          `).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function sectionLabel(section, index) {
+  return (section.eyebrow || section.title || `Section ${index + 1}`).replace(/^\//, "");
+}
+
+function sectionIntroNav(project) {
+  const links = project.sections
+    .map((section, index) => ({ section, index, label: sectionLabel(section, index) }))
+    .filter(({ section, label }) => section.type !== "statement" && label);
+
+  if (!links.length) return "";
+
+  return `
+    <nav class="case-description-nav" aria-label="Case sections">
+      ${links.map(({ index, label }) => `
+        <a href="#case-s-${index}">
+          <span>${label}</span>
+          <img src="assets/arrow-bottom-right.svg" alt="" />
+        </a>
+      `).join("")}
+    </nav>
   `;
 }
 
@@ -509,11 +509,9 @@ function renderCase(slug) {
     return;
   }
 
-  const hasSectionNav = project.sections.filter((s) => s.type !== "statement").length > 1;
-
   app.innerHTML = `
     <section class="section case-layout-section">
-      <div class="case-layout">
+      <div class="case-layout case-description-container">
         <aside class="case-fixed-panel" aria-label="${project.title} project details">
           <div class="case-panel-body">
             <div class="case-panel-heading">
@@ -521,32 +519,17 @@ function renderCase(slug) {
               <h1 class="page-title">${project.title}</h1>
             </div>
             <div class="case-meta">
-              <article><span>Team & role</span><div class="case-meta-copy">${project.role}</div></article>
-              <article><span>What I did</span><p>${project.summary}</p></article>
-              <article><span>Outcome</span><div class="case-meta-copy">${project.outcome}</div></article>
-              ${project.sidebarNote ? `
-                <article>
-                  <span>${project.sidebarNote.label}</span>
-                  <div class="case-meta-copy">${project.sidebarNote.body}</div>
-                </article>
-              ` : hasSectionNav ? `
-                <article>
-                  <span>Overview</span>
-                  <nav class="case-section-nav" aria-label="Case study sections">
-                    ${project.sections
-                      .map((item, i) => {
-                        if (item.type === "statement") return "";
-                        const label = (item.eyebrow || item.title).replace(/^\//, "");
-                        return `<a href="#case-s-${i}">${label}</a>`;
-                      })
-                        .filter(Boolean)
-                        .join('')}
-                  </nav>
-                </article>
-              ` : ""}
+              <div class="case-meta-details">
+                <article><span>Team & role</span><div class="case-meta-copy">${project.role}</div></article>
+                <article><span>What I did</span><p>${project.summary}</p></article>
+                <article><span>Overview</span><div class="case-meta-copy">${project.delivered}</div></article>
+                ${project.outcome ? `<article><span>Outcome</span><div class="case-meta-copy">${project.outcome}</div></article>` : ""}
+              </div>
+              <article class="case-meta-sections">${sectionIntroNav(project)}</article>
             </div>
           </div>
         </aside>
+
         <div class="case-scroll-content">
           <div class="case-hero-visual" aria-label="${project.title} image">
             <span class="project-image ${project.image}"></span>
@@ -568,8 +551,8 @@ function renderCase(slug) {
       <section id="case-s-${index}" class="section section-tight case-section${index === 0 ? " case-intro" : ""}">
         <div class="two-column">
           <div>
-            ${section.title ? `<h2>${section.title}</h2>` : ""}
-            ${section.body ? section.body.split("\n\n").map((paragraph) => `<p class="body-copy">${paragraph}</p>`).join("") : ""}
+            ${section.title && index !== 0 ? `<h2>${section.title}</h2>` : ""}
+            ${section.body ? section.body.split("\n\n").map((paragraph) => index === 0 ? `<h4 class="case-intro-text">${paragraph}</h4>` : `<p class="body-copy">${paragraph}</p>`).join("") : ""}
             ${section.bullets && section.bullets.length ? `<ul>${section.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>` : ""}
             ${section.opportunityCards ? `
               <div class="opportunity-cards">
@@ -601,8 +584,9 @@ function renderCase(slug) {
             ` : ""}
             ${section.lessonCards ? `
               <div class="lesson-cards">
-                ${section.lessonCards.map((lesson) => `
+                ${section.lessonCards.map((lesson, lessonIndex) => `
                   <article class="lesson-card">
+                    <p class="lesson-card-number">${String(lessonIndex + 1).padStart(2, "0")}</p>
                     <h3>${lesson.title}</h3>
                     <p>${lesson.body}</p>
                   </article>
@@ -611,39 +595,18 @@ function renderCase(slug) {
             ` : ""}
             ${section.closingStatement ? `<p class="case-closing-statement">${section.closingStatement}</p>` : ""}
             ${section.questionEvidence ? `
-              <div class="question-evidence">
+              <div class="question-evidence" aria-label="Validation questions and evidence">
                 ${section.questionEvidence.map((item, itemIndex) => `
-                  <article class="question-evidence-row">
-                    <div class="question-evidence-question">
+                  <article class="question-evidence-item">
+                    <div class="question-evidence-marker" aria-hidden="true">${String(itemIndex + 1).padStart(2, "0")}</div>
+                    <div class="question-evidence-copy">
                       <h3>${item.question}</h3>
-                      <p class="question-evidence-category">${item.category}</p>
-                    </div>
-                    <div class="question-evidence-answer">
-                      ${item.answerSections ? `
-                        <div class="question-evidence-answer-sections">
-                          ${item.answerSections.map((answerSection) => `
-                            <section class="question-evidence-answer-section">
-                              <h5>${answerSection.heading}</h5>
-                              ${answerSection.items ? `
-                                <ul class="question-evidence-answer-list">
-                                  ${answerSection.items.map((point) => `<li>${point}</li>`).join("")}
-                                </ul>
-                              ` : `<p>${answerSection.body}</p>`}
-                            </section>
-                          `).join("")}
-                        </div>
-                        ${item.methods ? `
-                          <ul class="question-evidence-methods">
-                            ${item.methods.map((method) => `<li>${method}</li>`).join("")}
-                          </ul>
-                        ` : ""}
-                      ` : `
-                        <h4>${item.heading}</h4>
-                        <p>${item.body}</p>
+                      <p>${item.reducedUncertainty}</p>
+                      ${item.methods ? `
                         <ul class="question-evidence-methods">
                           ${item.methods.map((method) => `<li>${method}</li>`).join("")}
                         </ul>
-                      `}
+                      ` : ""}
                     </div>
                   </article>
                 `).join("")}
@@ -723,13 +686,11 @@ function renderCase(slug) {
         </div>
       </section>
     `).join("")}
-          <section class="section section-tight">
-            <a class="button" href="#projects">← Back to projects</a>
-          </section>
-          ${cta()}
         </div>
       </div>
     </section>
+    ${otherCases(project)}
+    ${cta()}
   `;
 }
 
@@ -781,12 +742,16 @@ function route() {
       makeLinksSentenceCase();
       setupAccordions();
       setupMotion();
+      setupHeroFloating();
       app.classList.remove("is-changing");
+      caseNavLockHref = "";
+      clearTimeout(caseNavLockTimer);
       if (shouldScrollToProjects) {
         document.querySelector("#projects")?.scrollIntoView({ behavior: hasRendered ? "smooth" : "auto" });
       } else if (hasRendered) {
         window.scrollTo({ top: 0, behavior: "auto" });
       }
+      requestCaseSidebarSync();
       hasRendered = true;
     });
   };
@@ -813,6 +778,7 @@ function makeLinksSentenceCase() {
     '.menu-overlay nav a',
     '.site-footer nav a',
     '.case-section-nav a',
+    '.case-description-nav a',
     '.underline-link'
   ];
   const nodes = document.querySelectorAll(selectors.join(','));
@@ -844,7 +810,9 @@ function setupAccordions() {
 function setupMotion() {
   revealObserver?.disconnect();
   const targets = [...app.querySelectorAll(motionQuery)].filter((target) => (
-    !target.closest(".hero") && !target.closest(".pipeline-copy")
+    !target.closest(".hero") &&
+    !target.closest(".pipeline-copy") &&
+    !target.closest(".question-evidence")
   ));
 
   if (!("IntersectionObserver" in window)) {
@@ -877,6 +845,177 @@ function setupMotion() {
   });
 }
 
+function setupHeroFloating() {
+  heroFloatingCleanup?.();
+  heroFloatingCleanup = null;
+
+  const container = app.querySelector(".hero-media");
+  const elements = [...app.querySelectorAll(".hero-placeholder")].map((element) => ({
+    element,
+    depth: parseFloat(element.dataset.depth || "1"),
+    current: { x: 0, y: 0 }
+  }));
+
+  if (!container || !elements.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  let mouse = { x: 0, y: 0 };
+  let frameId;
+
+  const updatePosition = (clientX, clientY) => {
+    const rect = container.getBoundingClientRect();
+    mouse = {
+      x: clientX - rect.left - rect.width / 2,
+      y: clientY - rect.top - rect.height / 2
+    };
+  };
+
+  const handleMouseMove = (event) => updatePosition(event.clientX, event.clientY);
+  const handleTouchMove = (event) => {
+    const touch = event.touches[0];
+    if (touch) updatePosition(touch.clientX, touch.clientY);
+  };
+
+  const animate = () => {
+    elements.forEach((item) => {
+      const strength = (item.depth * -1) / 20;
+      const targetX = mouse.x * strength;
+      const targetY = mouse.y * strength;
+
+      item.current.x += (targetX - item.current.x) * 0.05;
+      item.current.y += (targetY - item.current.y) * 0.05;
+      item.element.style.setProperty("--float-x", `${item.current.x}px`);
+      item.element.style.setProperty("--float-y", `${item.current.y}px`);
+    });
+
+    frameId = requestAnimationFrame(animate);
+  };
+
+  window.addEventListener("mousemove", handleMouseMove, { passive: true });
+  window.addEventListener("touchmove", handleTouchMove, { passive: true });
+  frameId = requestAnimationFrame(animate);
+
+  heroFloatingCleanup = () => {
+    cancelAnimationFrame(frameId);
+    window.removeEventListener("mousemove", handleMouseMove);
+    window.removeEventListener("touchmove", handleTouchMove);
+    elements.forEach((item) => {
+      item.element.style.removeProperty("--float-x");
+      item.element.style.removeProperty("--float-y");
+    });
+  };
+}
+
+function resetCaseSidebar(panel) {
+  panel.classList.remove("is-fixed", "is-hidden");
+  panel.style.left = "";
+  panel.style.top = "";
+  panel.style.width = "";
+}
+
+function syncCaseSidebar() {
+  const panel = app.querySelector(".case-fixed-panel");
+  const section = app.querySelector(".case-layout-section");
+  const layout = app.querySelector(".case-layout");
+
+  if (!panel || !section || !layout) return;
+
+  if (window.matchMedia("(max-width: 991px)").matches) {
+    resetCaseSidebar(panel);
+    return;
+  }
+
+  const topOffset = parseFloat(window.getComputedStyle(panel).top) || 104;
+  const sectionRect = section.getBoundingClientRect();
+  const layoutRect = layout.getBoundingClientRect();
+  const panelHeight = panel.offsetHeight;
+  const endOffset = topOffset + panelHeight + 24;
+
+  if (sectionRect.bottom <= endOffset) {
+    panel.classList.remove("is-fixed");
+    panel.classList.add("is-hidden");
+    panel.style.left = "";
+    panel.style.top = "";
+    panel.style.width = "";
+    return;
+  }
+
+  if (sectionRect.top <= topOffset) {
+    const sidebarWidth = window.getComputedStyle(layout).gridTemplateColumns.split(" ")[0];
+    panel.classList.add("is-fixed");
+    panel.classList.remove("is-hidden");
+    panel.style.left = `${layoutRect.left}px`;
+    panel.style.top = `${topOffset}px`;
+    panel.style.width = sidebarWidth;
+    return;
+  }
+
+  resetCaseSidebar(panel);
+}
+
+function setCaseSectionNavActive(links, activeLink) {
+  links.forEach((link) => {
+    const isActive = link === activeLink;
+    link.classList.toggle("is-active", isActive);
+    if (isActive) {
+      link.setAttribute("aria-current", "true");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+}
+
+function syncCaseSectionNav() {
+  const links = [...app.querySelectorAll(".case-description-nav a")];
+  if (!links.length) return;
+
+  if (caseNavLockHref) {
+    const lockedLink = links.find((link) => link.getAttribute("href") === caseNavLockHref);
+    if (lockedLink) setCaseSectionNavActive(links, lockedLink);
+    return;
+  }
+
+  const viewportTop = 72;
+  const viewportBottom = window.innerHeight;
+  let activeLink = links[0];
+  let activeVisibleArea = -1;
+
+  links.forEach((link) => {
+    const href = link.getAttribute("href") || "";
+    const section = href.startsWith("#") ? app.querySelector(href) : null;
+    if (!section) return;
+
+    const rect = section.getBoundingClientRect();
+    const visibleTop = Math.max(rect.top, viewportTop);
+    const visibleBottom = Math.min(rect.bottom, viewportBottom);
+    const visibleArea = Math.max(0, visibleBottom - visibleTop);
+
+    if (visibleArea > activeVisibleArea) {
+      activeVisibleArea = visibleArea;
+      activeLink = link;
+    }
+  });
+
+  setCaseSectionNavActive(links, activeLink);
+}
+
+function releaseCaseNavLockAfterScroll() {
+  if (!caseNavLockHref) return;
+  clearTimeout(caseNavLockTimer);
+  caseNavLockTimer = setTimeout(() => {
+    caseNavLockHref = "";
+    requestCaseSidebarSync();
+  }, 180);
+}
+
+function requestCaseSidebarSync() {
+  if (caseSidebarRaf) return;
+  caseSidebarRaf = requestAnimationFrame(() => {
+    caseSidebarRaf = null;
+    syncCaseSidebar();
+    syncCaseSectionNav();
+  });
+}
+
 function closeMenu() {
   document.body.classList.remove("menu-open");
   menuButton?.setAttribute("aria-expanded", "false");
@@ -886,7 +1025,11 @@ function closeMenu() {
 function setupGlobalInteractions() {
   window.addEventListener("scroll", () => {
     header?.classList.toggle("is-scrolled", window.scrollY > 12);
+    requestCaseSidebarSync();
+    releaseCaseNavLockAfterScroll();
   }, { passive: true });
+
+  window.addEventListener("resize", requestCaseSidebarSync);
 
   menuButton?.addEventListener("click", () => {
     const isOpen = document.body.classList.toggle("menu-open");
@@ -896,6 +1039,28 @@ function setupGlobalInteractions() {
 
   menuOverlay?.addEventListener("click", (event) => {
     if (event.target.closest("a")) closeMenu();
+  });
+
+  app.addEventListener("click", (event) => {
+    const link = event.target.closest(".case-description-nav a, .case-section-nav a");
+    if (!link) return;
+    const href = link.getAttribute("href") || "";
+    if (!href.startsWith("#case-s-")) return;
+
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    event.preventDefault();
+    caseNavLockHref = href;
+    const caseNavLinks = [...app.querySelectorAll(".case-description-nav a")];
+    const clickedCaseNavLink = caseNavLinks.find((navLink) => navLink.getAttribute("href") === href);
+    setCaseSectionNavActive(caseNavLinks, clickedCaseNavLink || link);
+    clearTimeout(caseNavLockTimer);
+    caseNavLockTimer = setTimeout(() => {
+      caseNavLockHref = "";
+      requestCaseSidebarSync();
+    }, 1200);
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
   window.addEventListener("keydown", (event) => {
