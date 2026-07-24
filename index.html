@@ -12,31 +12,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=challenge-compact" />
+    <link rel="stylesheet" href="styles.css?v=path-marquee-left-start" />
   </head>
   <body>
     <div class="page-shell">
-      <header class="site-header" data-header>
-        <a class="brand" href="#/" aria-label="Alina Diadenko home">Alina Diadenko</a>
-        <nav class="nav-links" aria-label="Main navigation">
-          <a href="#projects">Projects</a>
-          <a href="#/about">About me</a>
-          <a href="https://docs.google.com/document/d/1_92s3CKNwckTEHPxEddXWUKyN2wlX0kvHNI-qNUYcuQ/edit?usp=sharing" target="_blank" rel="noreferrer">Resume</a>
+      <header class="portfolio-header" data-header>
+        <nav class="portfolio-header-nav" aria-label="Main navigation">
+          <a href="#/about">
+            <strong>Info</strong>
+            <span>About me</span>
+          </a>
+          <a href="#projects">
+            <strong>Work</strong>
+            <span>Some cases</span>
+          </a>
+          <a href="#about-preview">
+            <strong>Workflow</strong>
+            <span>All the processes</span>
+          </a>
+          <a href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noreferrer">
+            <strong>Contact me</strong>
+            <span>For any collaborations</span>
+          </a>
         </nav>
-        <a class="contact-link" href="https://ua.linkedin.com/in/alina-diadenko" target="_blank" rel="noreferrer">Contact me</a>
-        <button class="menu-button" aria-label="menu" aria-expanded="false" data-menu-toggle>
-          <img src="assets/menu.svg" alt="" />
-        </button>
       </header>
-
-      <aside class="menu-overlay" data-menu-overlay aria-hidden="true">
-        <nav aria-label="Menu navigation">
-          <a href="#projects">Projects</a>
-          <a href="#/about">About me</a>
-          <a href="https://docs.google.com/document/d/1_92s3CKNwckTEHPxEddXWUKyN2wlX0kvHNI-qNUYcuQ/edit?usp=sharing" target="_blank" rel="noreferrer">Resume</a>
-          <a href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noreferrer">Contact</a>
-        </nav>
-      </aside>
 
       <main id="app"></main>
 
@@ -57,6 +56,6 @@
         <p class="copyright">© 2026 Alina Diadenko</p>
       </footer>
     </div>
-    <script src="app.js?v=challenge-compact" type="module"></script>
+    <script src="app.js?v=path-marquee-left-start" type="module"></script>
   </body>
 </html>
