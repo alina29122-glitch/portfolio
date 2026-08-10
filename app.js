@@ -332,26 +332,6 @@ let caseSidebarRaf;
 let caseNavLockHref;
 let caseNavLockTimer;
 let linkPreviewCleanup;
-let heroParallaxCleanup;
-
-const marqueeImages = [
-  "https://cdn.cosmos.so/b9909337-7a53-48bc-9672-33fbd0f040a1?format=jpeg",
-  "https://cdn.cosmos.so/ecdc9dd7-2862-4c28-abb1-dcc0947390f3?format=jpeg",
-  "https://cdn.cosmos.so/79de41ec-baa4-4ac0-a9a4-c090005ca640?format=jpeg",
-  "https://cdn.cosmos.so/1a18b312-21cd-4484-bce5-9fb7ed1c5e01?format=jpeg",
-  "https://cdn.cosmos.so/d765f64f-7a66-462f-8b2d-3d7bc8d7db55?format=jpeg",
-  "https://cdn.cosmos.so/6b9f08ea-f0c5-471f-a620-71221ff1fb65?format=jpeg",
-  "https://cdn.cosmos.so/40a09525-4b00-4666-86f0-3c45f5d77605?format=jpeg",
-  "https://cdn.cosmos.so/14f05ab6-b4d0-4605-9007-8a2190a249d0?format=jpeg",
-  "https://cdn.cosmos.so/d05009a2-a2f8-4a4c-a0de-e1b0379dddb8?format=jpeg",
-  "https://cdn.cosmos.so/ba646e35-efc2-494a-961b-b40f597e6fc9?format=jpeg",
-  "https://cdn.cosmos.so/e899f9c3-ed48-4899-8c16-fbd5a60705da?format=jpeg",
-  "https://cdn.cosmos.so/24e83c11-c607-45cd-88fb-5059960b56a0?format=jpeg",
-  "https://cdn.cosmos.so/cd346bce-f415-4ea7-8060-99c5f7c1741a?format=jpeg"
-];
-
-const marqueePath =
-  "M1.12756 531.57C28.0893 516.8 74.8013 483.241 115.862 435.167M115.862 435.167C142.71 403.734 167.142 366.095 182.056 323.447C229.212 188.604 -65.6747 303.582 53.6794 397.09C73.8056 412.858 94.5052 425.626 115.862 435.167ZM115.862 435.167C221.157 482.211 342.426 450.85 489.709 314.125C517.752 288.093 540.139 265.319 557.876 245.305M557.876 245.305C652.19 138.884 615.024 110.493 597.546 85.1004C576.782 54.9327 401.867 14.2899 417.559 188.351C424.308 263.214 481.985 261.608 557.876 245.305ZM557.876 245.305C646.667 226.232 760.389 187.041 846.65 226.667M846.65 226.667C858.081 231.918 869.031 238.554 879.376 246.804C1034.5 370.518 957.576 540.884 843.253 562.658C768.137 576.964 767.606 395.943 846.65 226.667ZM846.65 226.667C887.908 138.309 950.848 53.1511 1036.18 0.642822";
 
 function projectUrl(slug) {
   return `#/case/${slug}`;
@@ -360,67 +340,14 @@ function projectUrl(slug) {
 function renderHome() {
   app.innerHTML = `
     <section class="reference-hero">
-      <div class="reference-hero-grid" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
       <div class="reference-hero-orbit" aria-hidden="true"></div>
-      <div class="reference-floating-layer" aria-hidden="true">
-        <div class="reference-floating-item reference-floating-item-01" data-depth="0.5"><span class="reference-floating-card"><img src="assets/case-ai-education-header.png" alt="" /></span></div>
-        <div class="reference-floating-item reference-floating-item-02" data-depth="1"><span class="reference-floating-card"><img src="assets/case-06.png" alt="" /></span></div>
-        <div class="reference-floating-item reference-floating-item-03" data-depth="2"><span class="reference-floating-card reference-floating-card-wide"><img src="assets/case-05.png" alt="" /></span></div>
-        <div class="reference-floating-item reference-floating-item-04" data-depth="1"><span class="reference-floating-card"><img src="assets/case-02.png" alt="" /></span></div>
-        <div class="reference-floating-item reference-floating-item-05" data-depth="1"><span class="reference-floating-card"><img src="assets/case-03.png" alt="" /></span></div>
-        <div class="reference-floating-item reference-floating-item-06" data-depth="2"><span class="reference-floating-card reference-floating-card-wide"><img src="assets/case-01.png" alt="" /></span></div>
-        <div class="reference-floating-item reference-floating-item-07" data-depth="4"><span class="reference-floating-card reference-floating-card-wide"><img src="assets/case-04.png" alt="" /></span></div>
-        <div class="reference-floating-item reference-floating-item-08" data-depth="1"><span class="reference-floating-card"></span></div>
-      </div>
-      <div class="reference-hero-media" aria-hidden="true">
-        <img src="assets/photo.jpg" alt="" />
-      </div>
-      <h1 class="reference-hero-title" id="reference-hero-title">
-        <span>Alina</span>
-        <span>Diadenko</span>
-      </h1>
-      <div class="reference-hero-bottom">
-        <span>© 2026</span>
-        <nav aria-label="Social links">
-          <a href="https://medium.com/@alina.dyadenko" target="_blank" rel="noreferrer" data-preview-image="assets/preview-medium.png" data-preview-fallback="assets/photo.jpg">Medium</a>
-          <a href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noreferrer" data-preview-image="assets/preview-linkedin.png" data-preview-fallback="assets/photo.jpg">LinkedIn</a>
-        </nav>
-        <a class="reference-hero-resume" href="https://docs.google.com/document/d/1_92s3CKNwckTEHPxEddXWUKyN2wlX0kvHNI-qNUYcuQ/edit?usp=sharing" target="_blank" rel="noreferrer" data-preview-image="assets/preview-resume.png" data-preview-fallback="assets/photo.jpg">Resume</a>
-      </div>
-    </section>
-
-    ${renderPathMarquee()}
-
-    <section class="section launch-statement">
-      <h4><strong>From uncertainty to launch.</strong> I turn complex product problems into clear, scalable experiences: combining research, product thinking, and AI-assisted development to move quickly while staying grounded in real user needs.</h4>
-    </section>
-
-    <section class="section expertise-section">
-      <div class="expertise-grid">
-        <div class="expertise-heading">
-          <p class="eyebrow">Expertise</p>
+      <div class="reference-hero-layout">
+        <div class="reference-hero-copy">
+          <p class="reference-hero-kicker">/Hi there!</p>
+          <h1 class="reference-hero-title" id="reference-hero-title">I’m <span class="hero-hover-link" data-preview-image="assets/photo.jpg" data-preview-fallback="assets/photo.jpg" data-preview-title="Alina Diadenko" data-preview-subtitle="Senior Product Designer">Alina</span>, Senior Product Designer who is always looking for exciting challenges, new learning opportunities, and ways to grow—become a better designer (/human)</h1>
         </div>
-        <div class="expertise-list">
-          <article class="expertise-item">
-            <h3>Product Discovery & Strategy</h3>
-            <p>Opportunity discovery • Product direction • Prioritization</p>
-          </article>
-          <article class="expertise-item">
-            <h3>End-to-End Product Design</h3>
-            <p>UX/UI design • Prototyping • Design systems</p>
-          </article>
-          <article class="expertise-item">
-            <h3>Research & Validation</h3>
-            <p>User research • Usability testing • Product experiments</p>
-          </article>
-          <article class="expertise-item">
-            <h3>AI-Assisted MVP Development</h3>
-            <p>Functional MVPs • Rapid prototyping • Web & mobile</p>
-          </article>
+        <div class="reference-hero-media" aria-hidden="true">
+          <img src="assets/photo.jpg" alt="" />
         </div>
       </div>
     </section>
@@ -440,28 +367,6 @@ function renderHome() {
   `;
 }
 
-function renderPathMarquee() {
-  const repeatedImages = Array.from({ length: 4 }, () => marqueeImages).flat();
-
-  return `
-    <section class="path-marquee-section" aria-label="Visual inspiration">
-      <h2>scroll down</h2>
-      <div class="path-marquee-stage">
-        <svg class="path-marquee-svg" viewBox="0 0 1040 570" aria-hidden="true">
-          <path d="${marqueePath}"></path>
-        </svg>
-        <div class="path-marquee-track" aria-hidden="true">
-          ${repeatedImages.map((img, index) => `
-            <figure class="path-marquee-item" style="--path-index: ${index}; --path-count: ${repeatedImages.length};">
-              <img src="${img}" alt="" draggable="false" loading="lazy" />
-            </figure>
-          `).join("")}
-        </div>
-      </div>
-    </section>
-  `;
-}
-
 function projectCard(project) {
   return `
     <article class="project-card">
@@ -475,7 +380,10 @@ function projectCard(project) {
             <h3>${project.title}</h3>
             <p>${project.delivered}</p>
           </div>
-          <a class="underline-link" href="${projectUrl(project.slug)}">read more</a>
+          <a class="underline-link" href="${projectUrl(project.slug)}" data-preserve-label="true">
+            <span>Read more</span>
+            <span class="link-arrow" aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
     </article>
@@ -841,7 +749,6 @@ function route() {
       makeLinksSentenceCase();
       setupAccordions();
       setupMotion();
-      setupHeroParallax();
       setupHoverLinkPreviews();
       app.classList.remove("is-changing");
       caseNavLockHref = "";
@@ -883,7 +790,7 @@ function makeLinksSentenceCase() {
   ];
   const nodes = document.querySelectorAll(selectors.join(','));
   nodes.forEach((a) => {
-    if (!a || a.dataset._caseNormalized) return;
+    if (!a || a.dataset._caseNormalized || a.dataset.preserveLabel) return;
     if (a.querySelector('img, svg')) return;
     const text = a.textContent || '';
     const normalized = toSentenceCase(text);
@@ -949,16 +856,24 @@ function setupHoverLinkPreviews() {
   linkPreviewCleanup?.();
   linkPreviewCleanup = null;
 
-  const links = [...app.querySelectorAll("[data-preview-image]")];
+  const links = [...document.querySelectorAll("[data-preview-image]")];
   if (!links.length || window.matchMedia("(hover: none), (pointer: coarse)").matches) return;
 
   const preview = document.createElement("div");
   preview.className = "hover-link-preview";
   preview.setAttribute("aria-hidden", "true");
-  preview.innerHTML = `<img alt="" draggable="false" />`;
+  preview.innerHTML = `
+    <div class="hover-link-preview-inner">
+      <img alt="" draggable="false" />
+      <div class="hover-link-preview-title"></div>
+      <div class="hover-link-preview-subtitle"></div>
+    </div>
+  `;
   document.body.appendChild(preview);
 
   const image = preview.querySelector("img");
+  const title = preview.querySelector(".hover-link-preview-title");
+  const subtitle = preview.querySelector(".hover-link-preview-subtitle");
   const state = {
     currentX: 0,
     currentY: 0,
@@ -983,6 +898,10 @@ function setupHoverLinkPreviews() {
     image.dataset.fallback = link.dataset.previewFallback || "assets/photo.jpg";
     image.src = link.dataset.previewImage;
     image.alt = `${link.textContent.trim()} link preview`;
+    title.textContent = link.dataset.previewTitle || "";
+    subtitle.textContent = link.dataset.previewSubtitle || "";
+    title.hidden = !title.textContent;
+    subtitle.hidden = !subtitle.textContent;
     state.prevX = null;
     preview.classList.add("is-visible");
     movePreview(event);
@@ -1005,11 +924,23 @@ function setupHoverLinkPreviews() {
   };
 
   function movePreview(event) {
-    const previewWidth = 192;
-    const previewHeight = 112;
-    const offsetY = 40;
+    const previewWidth = 300;
+    const previewHeight = 250;
+    const offsetY = 20;
     state.targetX = event.clientX - previewWidth / 2;
     state.targetY = event.clientY - previewHeight - offsetY;
+
+    if (state.targetX + previewWidth > window.innerWidth - 20) {
+      state.targetX = window.innerWidth - previewWidth - 20;
+    }
+
+    if (state.targetX < 20) {
+      state.targetX = 20;
+    }
+
+    if (state.targetY < 20) {
+      state.targetY = event.clientY + offsetY;
+    }
 
     if (state.prevX !== null) {
       const deltaX = event.clientX - state.prevX;
@@ -1032,67 +963,6 @@ function setupHoverLinkPreviews() {
     });
     cancelAnimationFrame(state.frameId);
     preview.remove();
-  };
-}
-
-function setupHeroParallax() {
-  heroParallaxCleanup?.();
-  heroParallaxCleanup = null;
-
-  const hero = app.querySelector(".reference-hero");
-  const layer = hero?.querySelector(".reference-floating-layer");
-  const items = [...hero?.querySelectorAll(".reference-floating-item, .reference-hero-media[data-depth]") || []].map((element) => ({
-    element,
-    baseTransform: element.dataset.baseTransform || "",
-    depth: parseFloat(element.dataset.depth || "1"),
-    current: { x: 0, y: 0 }
-  }));
-
-  if (!hero || !layer || !items.length) return;
-
-  requestAnimationFrame(() => layer.classList.add("is-ready"));
-
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-  const pointer = { x: 0, y: 0 };
-  let frameId = 0;
-
-  const updatePointer = (clientX, clientY) => {
-    const rect = hero.getBoundingClientRect();
-    pointer.x = clientX - rect.left - rect.width / 2;
-    pointer.y = clientY - rect.top - rect.height / 2;
-  };
-
-  const handleMouseMove = (event) => updatePointer(event.clientX, event.clientY);
-  const handleTouchMove = (event) => {
-    const touch = event.touches[0];
-    if (touch) updatePointer(touch.clientX, touch.clientY);
-  };
-
-  const animate = () => {
-    items.forEach((item) => {
-      const strength = (item.depth * -1) / 20;
-      const targetX = pointer.x * strength;
-      const targetY = pointer.y * strength;
-      item.current.x += (targetX - item.current.x) * 0.05;
-      item.current.y += (targetY - item.current.y) * 0.05;
-      item.element.style.transform = `${item.baseTransform} translate3d(${item.current.x}px, ${item.current.y}px, 0)`.trim();
-    });
-
-    frameId = requestAnimationFrame(animate);
-  };
-
-  window.addEventListener("mousemove", handleMouseMove, { passive: true });
-  window.addEventListener("touchmove", handleTouchMove, { passive: true });
-  frameId = requestAnimationFrame(animate);
-
-  heroParallaxCleanup = () => {
-    cancelAnimationFrame(frameId);
-    window.removeEventListener("mousemove", handleMouseMove);
-    window.removeEventListener("touchmove", handleTouchMove);
-    items.forEach((item) => {
-      item.element.style.transform = item.baseTransform;
-    });
   };
 }
 
