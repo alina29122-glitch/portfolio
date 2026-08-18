@@ -12,41 +12,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=hero-container-align" />
+    <link rel="stylesheet" href="styles.css?v=work-page-cleanup" />
   </head>
   <body>
     <div class="page-shell">
       <header class="portfolio-header" data-header>
         <nav class="portfolio-header-nav" aria-label="Main navigation">
-          <a class="portfolio-header-brand" href="#/">Alina Diadenko</a>
-          <div class="portfolio-header-links">
-            <a href="#/projects">Projects</a>
-            <a href="#/about">About me</a>
-            <a href="https://docs.google.com/document/d/1_92s3CKNwckTEHPxEddXWUKyN2wlX0kvHNI-qNUYcuQ/edit?usp=sharing" target="_blank" rel="noreferrer">Resume</a>
-          </div>
-          <a class="portfolio-header-contact" href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noreferrer">Contact me</a>
+          <a class="portfolio-header-link" href="#/" data-nav-link="home"><span>Home</span></a>
+          <a class="portfolio-header-link" href="#/projects" data-nav-link="work"><span>Projects</span></a>
+          <a class="portfolio-header-link" href="#/about" data-nav-link="about"><span>About</span></a>
+          <a class="portfolio-header-link portfolio-header-talk" href="mailto:alina.dyadenko@gmail.com">
+            <span>Let’s talk</span>
+            <img src="assets/lets-talk-icon.svg" alt="" />
+          </a>
         </nav>
       </header>
 
       <main id="app"></main>
 
       <footer class="site-footer">
-        <nav aria-label="Footer navigation">
-          <a href="#/projects">Projects</a>
-          <a href="#/about">About</a>
-          <a href="https://docs.google.com/document/d/1_92s3CKNwckTEHPxEddXWUKyN2wlX0kvHNI-qNUYcuQ/edit?usp=sharing" target="_blank" rel="noreferrer">Resume</a>
-        </nav>
-        <div class="social-links">
-          <a href="https://medium.com/@alina.dyadenko" target="_blank" rel="noreferrer" aria-label="Medium">
-            <img src="assets/medium.svg" alt="" />
-          </a>
-          <a href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-            <img src="assets/linkedin.svg" alt="" />
-          </a>
-        </div>
         <p class="copyright">© 2026 Alina Diadenko</p>
       </footer>
     </div>
-    <script src="app.js?v=hero-container-align" type="module"></script>
+    <script src="app.js?v=work-page-cleanup" type="module"></script>
   </body>
 </html>

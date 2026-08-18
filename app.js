@@ -1,15 +1,16 @@
 const projects = [
   {
     slug: "new-project",
-    years: "2025 - 2026",
-    company: "NDA",
-    title: "Building the future of learning with AI",
+    years: "2025-2026",
+    company: "NDA · EdTech",
+    title: "Building AI learning products from 0→1",
     image: "case-ai-education",
     summary:
-      "Led end-to-end product design initiatives.",
+      "Exploring, validating, and launching AI-powered learning products: from improving a flagship experience to bringing new web and mobile products to market.",
     role:
       "Founding Product Designer (R&D → Venture)",
-    delivered: "Shaped the flagship product’s core AI workflow, designed educational products, and independently built functional MVPs with AI-assisted development to accelerate validation.",
+    delivered: "Exploring, validating, and launching AI-powered learning products — from improving a flagship experience to bringing new web and mobile products to market.",
+    whatIDid: ["Opportunity discovery", "Market research", "Product strategy", "Concept validation", "UX/UI", "AI-assisted MVP development", "Post-launch optimization"],
     sidebarNote: {
       label: "Note",
       body: "Covered by NDA. This case focuses on the process rather than confidential details."
@@ -117,13 +118,14 @@ const projects = [
   {
     slug: "mgid-feature-design",
     years: "2023-2024",
-    company: "MGID",
-    title: "Simplifying complex advertising workflows",
+    company: "MGID · AdTech",
+    title: "Driving smarter advertising for 850M+ monthly users",
     image: "case-06",
     summary:
-      "I designed and optimized end-to-end features for advertisers and publishers on the MGID platform, enhancing campaign management, ad performance, and monetization through scalable, user-centric solutions.",
+      "Improving a large-scale advertising platform: simplifying campaign setup, ad creation, and management while building scalable experiences across the product ecosystem.",
     role: "Senior Product Designer",
-    delivered: "Feature discovery, user flows, UX/UI design, prototypes, design requirements, QA support",
+    delivered: "Improving a large-scale advertising platform: simplifying campaign setup, ad creation, and management while building scalable experiences across the product ecosystem.",
+    whatIDid: ["Product discovery", "UX/UI", "Complex workflows", "Data analysis", "Design systems", "Design documentation", "A/B testing", "Post-release optimization"],
     outcome: "Scalable product improvements for campaign management, performance workflows, and monetization.",
     sections: [
       {
@@ -151,14 +153,15 @@ const projects = [
   {
     slug: "mgid-user-activation",
     years: "2023-2024",
-    company: "MGID",
-    title: "Boosting user activation & engagement at MGID",
+    company: "MGID · AdTech",
+    title: "Helping new advertisers succeed from day one",
     image: "case-05",
     summary:
-      "I developed a seamless onboarding experience and helped establish customer development as a core design practice.",
+      "Redesigned the first-time user journey: from signup and verification to a new onboarding strategy that reduced friction and increased user activation.",
     role: "Senior Product Designer",
     delivered:
-      "User interviews analysis, user-flow analysis, CJM, onboarding concept and design, onboarding setup, qualitative post-release analysis",
+      "Redesigned the first-time user journey: from signup and verification to a new onboarding strategy that reduced friction and increased user activation.",
+    whatIDid: ["User research", "CJM", "User flow redesign", "Onboarding strategy", "UX/UI", "Prototyping", "A/B testing", "Post-release analysis", "User feedback loop"],
     outcome:
       "A scalable onboarding strategy, improved first-time user experience, and measurable activation gains.",
     stats: [
@@ -202,13 +205,14 @@ const projects = [
   {
     slug: "yola-growth",
     years: "2021-2022",
-    company: "Yola",
-    title: "Driving acquisition, activation, and retention through design",
+    company: "Yola · Sitebuilder",
+    title: "Driving growth & monetization through product design",
     image: "case-02",
     summary:
-      "I worked as part of a product team across user activation, monetization, and acquisition projects.",
+      "Helped shape Yola’s growth strategy, turning user insights and funnel opportunities into product improvements across activation, retention, monetization, and acquisition.",
     role: "Product Designer",
-    delivered: "Growth experiments, funnel improvements, UX research, product concepts, UI design",
+    delivered: "Helped shape Yola’s growth strategy, turning user insights and funnel opportunities into product improvements across activation, retention, monetization, and acquisition.",
+    whatIDid: ["Growth strategy", "UX research", "Product data analysis", "Funnel analysis", "UX audit", "Opportunity discovery", "UX/UI", "A/B testing", "Post-release analysis"],
     outcome: "Design strategies that supported activation, monetization, and acquisition goals.",
     sections: [
       {
@@ -226,13 +230,14 @@ const projects = [
   {
     slug: "latitude-retention",
     years: "2021-2022",
-    company: "Yola",
-    title: "Improving early retention through better onboarding",
+    company: "Yola · Website Builder",
+    title: "Turning user JTBD into personalized experiences",
     image: "case-03",
     summary:
-      "I created wireframes, organized and conducted usability testing, analyzed data, and designed the final onboarding experience to increase Day-1 retention.",
+      "Redesigned the onboarding experience around real user behavior and JTBD, turning research insights into personalized guidance that improved Day-1 retention, activation, and site publishing rate.",
     role: "Product Designer",
-    delivered: "Wireframes, usability testing, research analysis, onboarding UX/UI",
+    delivered: "Redesigned the onboarding experience around real user behavior and JTBD, turning research insights into personalized guidance that improved Day-1 retention, activation, and site publishing rate.",
+    whatIDid: ["User interviews", "User research", "JTBD", "Journey mapping", "Usability testing", "UX/UI", "Prototyping", "Post-release analysis"],
     outcome: "126% increase in Day-1 user retention.",
     stats: [["126%", "Increase in Day-1 user retention"]],
     sections: [
@@ -251,13 +256,14 @@ const projects = [
   {
     slug: "sitebuilder-tools",
     years: "2018-2020",
-    company: "Yola",
-    title: "Shaping a new website builder through 65+ essential tools",
+    company: "Yola · Sitebuilder",
+    title: "Building a website builder from scratch to launch",
     image: "case-01",
     summary:
-      "I was part of the team that created a new platform from scratch, focusing on user-friendly tools for Sitebuilder+.",
+      "Helped shape a new site-building platform from early concept to MVP and launch, designing 65+ features and scalable patterns that made website creation simpler for users without technical expertise.",
     role: "UX/UI Designer",
-    delivered: "Feature design, tool UX, interface patterns, design system contribution",
+    delivered: "Helped shape a new site-building platform from early concept to MVP and launch, designing 65+ features and scalable patterns that made website creation simpler for users without technical expertise.",
+    whatIDid: ["UX research", "Product design", "UX/UI", "Prototyping", "Design systems", "Feature design", "Post-launch iteration"],
     outcome: "A broad suite of usable site-building tools for small-business users.",
     sections: [
       {
@@ -275,13 +281,14 @@ const projects = [
   {
     slug: "site-templates",
     years: "2018-2019",
-    company: "Yola",
-    title: "Helping users launch faster with 25+ flexible templates",
+    company: "Yola · Sitebuilder",
+    title: "Designing a template system from the ground up",
     image: "case-04",
     summary:
-      "I prepared responsive, customizable templates for various business niches, supporting higher conversion and retention.",
+      "Created Yola’s template system from scratch for the new sitebuilder, combining reusable blocks, flexible customization, and niche-specific templates to help users launch professional websites faster.",
     role: "UX/UI Designer",
-    delivered: "Responsive templates, UI layouts, visual design, niche-specific website structures",
+    delivered: "Created Yola’s template system from scratch for the new sitebuilder, combining reusable blocks, flexible customization, and niche-specific templates to help users launch professional websites faster.",
+    whatIDid: ["Template strategy", "UX/UI", "Design systems", "Component architecture", "Visual design", "Prototyping", "Design documentation"],
     outcome: "Reusable template starting points for different small-business categories.",
     sections: [
       {
@@ -307,12 +314,27 @@ const experience = [
   ["Oct 2014 - Dec 2017", "Freelance Web Designer", "Designed landing pages, websites, desktop apps, and mobile applications across domains."]
 ];
 
+const testimonials = [
+  {
+    quote: "It was a pleasure to work with Alina. She made an outstanding contribution as a UI/UX and Product designer. She helped establish user experience best practices and patterns for a DIY web presence solution used by millions of users. Her ability to conduct customer research to amplify the voice of the customer and to drive experimentation helped drive measurable product metric improvements.",
+    name: "Brent Viljoen",
+    role: "Co-founder and CEO - Yola",
+    initials: "BV"
+  },
+  {
+    quote: "Alina is a talented Product Designer with great empathy toward users. She advocates for users' needs and converts her knowledge into features that are useful for users and profitable for a company.",
+    name: "Andrei Karol",
+    role: "Vice President of Product - Yola",
+    initials: "AK"
+  }
+];
+
 const app = document.querySelector("#app");
 const header = document.querySelector("[data-header]");
 const motionQuery = [
   ".project-card",
-  ".testimonial blockquote",
-  ".testimonial cite",
+  ".featured-project-card",
+  ".testimonial-shell",
   ".cta-band > *",
   ".two-column",
   ".timeline-item",
@@ -332,27 +354,150 @@ let caseSidebarRaf;
 let caseNavLockHref;
 let caseNavLockTimer;
 let linkPreviewCleanup;
-let heroParallaxCleanup;
+let projectShowcaseCleanup;
+let testimonialsCleanup;
 
 function projectUrl(slug) {
   return `#/case/${slug}`;
 }
 
-function projectsSection(items, { showSeeAll = false } = {}) {
+function projectsSection(items, { showSeeAll = false, label = "/projects" } = {}) {
   return `
     <section class="section section-tight projects-section" id="projects">
       <div class="projects-shell">
-        <div class="projects-label">
-          <p class="project-year">/projects</p>
-        </div>
+        ${label ? `
+          <div class="projects-label">
+            <p class="project-year">${label}</p>
+          </div>
+        ` : ""}
         <div class="projects-list">
-          ${items.map(projectCard).join("")}
+          ${items.map((project, index) => projectCard(project, index)).join("")}
         </div>
         ${showSeeAll ? `
           <div class="projects-actions">
-            <a class="button" href="#/projects">See all</a>
+            <a class="button projects-see-all" href="#/projects">
+              <span>All cases here</span>
+              <img src="assets/lets-talk-icon.svg" alt="" />
+            </a>
           </div>
         ` : ""}
+      </div>
+    </section>
+  `;
+}
+
+function projectsBySlug(slugs) {
+  return slugs.map((slug) => projects.find((project) => project.slug === slug)).filter(Boolean);
+}
+
+function workProjectGroups() {
+  return [
+    {
+      year: "2025-2026",
+      label: "AI · EdTech",
+      items: projectsBySlug(["new-project"])
+    },
+    {
+      year: "2023-2024",
+      label: "MGID · AdTech",
+      items: projectsBySlug(["mgid-feature-design", "mgid-user-activation"])
+    },
+    {
+      year: "2018-2022",
+      label: "Yola · Site Builder",
+      items: projectsBySlug(["yola-growth", "latitude-retention", "sitebuilder-tools", "site-templates"])
+    }
+  ];
+}
+
+function groupedProjectsSection(groups) {
+  return `
+    <section class="section section-tight projects-section work-timeline-section" id="projects">
+      <div class="projects-shell work-timeline-shell">
+        <div class="work-project-groups">
+          ${groups.map((group) => `
+            <section class="work-project-group" aria-label="${group.year} ${group.label}">
+              <div class="work-project-group-meta">
+                <p class="work-project-group-year">${group.year}</p>
+                <p class="work-project-group-label">${group.label}</p>
+              </div>
+              <div class="work-project-group-list">
+                ${group.items.map((project) => projectCard(project)).join("")}
+              </div>
+            </section>
+          `).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function featuredProjectsSection(items, { showSeeAll = false } = {}) {
+  return `
+    <section class="section section-tight featured-projects-section" id="projects">
+      <div class="featured-projects-shell">
+        <div class="projects-label">
+          <p class="project-year">Selected works</p>
+        </div>
+        <div class="featured-projects-list">
+          ${items.map((project) => `
+            <a class="featured-project-card" href="${projectUrl(project.slug)}" aria-label="${project.title}">
+              <span class="featured-project-media">
+                <span class="project-image ${project.image}"></span>
+              </span>
+              <span class="featured-project-copy">
+                <span class="project-year">${project.years} / ${project.company}</span>
+                <span class="featured-project-text">
+                  <h3>${project.title}</h3>
+                  <span>${project.delivered}</span>
+                </span>
+                <span class="featured-project-link">Read case ↗</span>
+              </span>
+            </a>
+          `).join("")}
+        </div>
+        ${showSeeAll ? `
+          <div class="projects-actions featured-projects-actions">
+            <a class="button projects-see-all" href="#/projects">
+              <span>All cases here</span>
+            </a>
+          </div>
+        ` : ""}
+      </div>
+    </section>
+  `;
+}
+
+function testimonialsSection() {
+  return `
+    <section class="section testimonial" data-testimonials>
+      <div class="testimonial-shell">
+        <p class="project-year">Testimonials</p>
+        <div class="testimonial-quotes">
+          ${testimonials.map((testimonial, index) => `
+            <blockquote class="testimonial-quote${index === 0 ? " is-active" : ""}" data-testimonial-quote data-testimonial-index="${index}">
+              ${testimonial.quote}
+            </blockquote>
+          `).join("")}
+        </div>
+        <div class="testimonial-author-row">
+          <div class="testimonial-author-buttons" aria-label="Testimonials">
+            ${testimonials.map((testimonial, index) => `
+              <button class="testimonial-author-button${index === 0 ? " is-active" : ""}" type="button" data-testimonial-trigger data-testimonial-index="${index}" aria-label="Show testimonial from ${testimonial.name}" aria-pressed="${index === 0 ? "true" : "false"}">
+                <span>${testimonial.initials}</span>
+              </button>
+            `).join("")}
+          </div>
+          <span class="testimonial-divider" aria-hidden="true"></span>
+          <div class="testimonial-author-info">
+            ${testimonials.map((testimonial, index) => `
+              <cite class="testimonial-author-panel${index === 0 ? " is-active" : ""}" data-testimonial-author data-testimonial-index="${index}">
+                <span>${testimonial.name}</span>
+                <span>${testimonial.role}</span>
+              </cite>
+            `).join("")}
+          </div>
+        </div>
       </div>
     </section>
   `;
@@ -363,82 +508,49 @@ function renderHome() {
 
   app.innerHTML = `
     <section class="minimal-hero" aria-labelledby="minimal-hero-title">
-      <nav class="minimal-hero-nav" aria-label="Featured navigation">
-        <a href="#/">Home</a>
-        <a href="#/projects">Work</a>
-        <a href="#projects">Work</a>
-        <a href="mailto:alina.dyadenko@gmail.com">Contact me</a>
-      </nav>
-      <p class="minimal-hero-copy">Hi there! I’m a Senior Product Designer who is always looking for exciting challenges, new opportunities, and ways to become a better designer (/human)</p>
+      <div class="minimal-hero-intro">
+        <p class="minimal-hero-copy">I’m a Senior Product Designer shaping products from early discovery to launch — always learning how to build better products and become a better designer (/human)</p>
+      </div>
       <h1 class="minimal-hero-title" id="minimal-hero-title">
         <span>Alina</span>
         <span class="minimal-hero-photo"><img src="assets/photo.jpg" alt="" /></span>
         <span>Diadenko</span>
       </h1>
       <div class="minimal-hero-bottom">
-        <span>2026</span>
+        <span class="minimal-hero-location">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M15.5 11C15.5 12.933 13.933 14.5 12 14.5C10.067 14.5 8.5 12.933 8.5 11C8.5 9.067 10.067 7.5 12 7.5C13.933 7.5 15.5 9.067 15.5 11Z"></path>
+            <path d="M12 2C16.8706 2 21 6.03298 21 10.9258C21 15.8965 16.8033 19.3847 12.927 21.7567C12.6445 21.9162 12.325 22 12 22C11.675 22 11.3555 21.9162 11.073 21.7567C7.2039 19.3616 3 15.9137 3 10.9258C3 6.03298 7.12944 2 12 2Z"></path>
+          </svg>
+          <span>Lviv, Ukraine</span>
+        </span>
         <nav aria-label="Social links">
-          <a href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noreferrer" data-preview-image="assets/preview-linkedin.png" data-preview-fallback="assets/photo.jpg">LinkedIn</a>
-          <span>/</span>
-          <a href="https://medium.com/@alina.dyadenko" target="_blank" rel="noreferrer" data-preview-image="assets/preview-medium.png" data-preview-fallback="assets/photo.jpg">Medium</a>
+          <a class="minimal-hero-preview-link" href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noreferrer">
+            <span>LinkedIn</span>
+            <span class="minimal-hero-preview-thumb" aria-hidden="true">
+              <img src="assets/preview-linkedin.png" alt="" />
+            </span>
+          </a>
+          <span class="minimal-hero-dot" aria-hidden="true">·</span>
+          <a class="minimal-hero-preview-link" href="https://medium.com/@alina.dyadenko" target="_blank" rel="noreferrer">
+            <span>Medium</span>
+            <span class="minimal-hero-preview-thumb" aria-hidden="true">
+              <img src="assets/preview-medium.png" alt="" />
+            </span>
+          </a>
         </nav>
-        <a href="https://docs.google.com/document/d/1_92s3CKNwckTEHPxEddXWUKyN2wlX0kvHNI-qNUYcuQ/edit?usp=sharing" target="_blank" rel="noreferrer" data-preview-image="assets/preview-resume.png" data-preview-fallback="assets/photo.jpg">CV/Resume</a>
+        <a class="minimal-hero-preview-link minimal-hero-resume-link" href="https://docs.google.com/document/d/1_92s3CKNwckTEHPxEddXWUKyN2wlX0kvHNI-qNUYcuQ/edit?usp=sharing" target="_blank" rel="noreferrer">
+          <span>Resume</span>
+          <span class="minimal-hero-preview-thumb" aria-hidden="true">
+            <img src="assets/preview-resume.png" alt="" />
+          </span>
+        </a>
       </div>
     </section>
 
-    <section class="reference-hero" aria-labelledby="reference-hero-title">
-      <div class="reference-hero-topline">
-        <nav aria-label="Hero links">
-          <a href="#about"><span>Info</span></a>
-          <a href="#/projects"><span>Work</span></a>
-          <a href="#projects"><span>Workflow</span></a>
-          <a href="mailto:alina.dyadenko@gmail.com"><span>Contact me</span></a>
-        </nav>
-      </div>
-      <div class="reference-hero-grid" aria-hidden="true">
-        <span>01</span>
-        <span>02</span>
-        <span>03</span>
-        <span>07</span>
-        <span>08</span>
-        <span>09</span>
-      </div>
-      <div class="reference-hero-orbit" aria-hidden="true"></div>
-      <div class="reference-hero-media" data-depth="0.2" data-base-transform="translate(-50%, -50%)">
-        <img src="assets/photo.jpg" alt="" />
-      </div>
-      <h1 class="reference-hero-title" id="reference-hero-title">
-        <span>Alina</span>
-        <span>Diadenko</span>
-      </h1>
-      <a class="reference-showreel" href="#projects">
-        <span>View selected work ↘</span>
-      </a>
-      <div class="reference-services">
-        <p>See projects</p>
-        <ul>
-          <li>Product discovery</li>
-          <li>0→1 product development</li>
-          <li>Growth & optimization</li>
-        </ul>
-      </div>
-      <div class="reference-hero-bottom">
-        <span>In red</span>
-        <nav aria-label="Social links">
-          <a href="https://medium.com/@alina.dyadenko" target="_blank" rel="noreferrer" data-preview-image="assets/preview-medium.png" data-preview-fallback="assets/photo.jpg">Medium</a>
-          <a href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noreferrer" data-preview-image="assets/preview-linkedin.png" data-preview-fallback="assets/photo.jpg">LinkedIn</a>
-          <a href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noreferrer" data-preview-image="assets/preview-linkedin.png" data-preview-fallback="assets/photo.jpg">Twitter</a>
-        </nav>
-        <a class="reference-hero-resume" href="https://docs.google.com/document/d/1_92s3CKNwckTEHPxEddXWUKyN2wlX0kvHNI-qNUYcuQ/edit?usp=sharing" target="_blank" rel="noreferrer" data-preview-image="assets/preview-resume.png" data-preview-fallback="assets/photo.jpg">In light</a>
-      </div>
-    </section>
+    ${projectsSection(latestProjects, { showSeeAll: projects.length > latestProjects.length, label: "Selected works" })}
 
-    ${projectsSection(latestProjects, { showSeeAll: projects.length > latestProjects.length })}
-
-    <section class="section testimonial">
-      <blockquote>It was a pleasure to work with Alina. She made an outstanding contribution as a UI/UX and Product designer. She helped establish user experience best practices and patterns for a DIY web presence solution used by millions of users. Her ability to conduct customer research to amplify the voice of the customer and to drive experimentation helped drive measurable product metric improvements.</blockquote>
-      <cite>- Brent Viljoen, Co-founder and CEO - Yola</cite>
-    </section>
+    ${testimonialsSection()}
 
     ${cta()}
   `;
@@ -446,13 +558,12 @@ function renderHome() {
 
 function renderProjects() {
   app.innerHTML = `
-    <section class="section page-intro-section">
-      <div>
-        <p class="project-year">/portfolio cases</p>
-        <h1 class="page-title">All projects</h1>
+    <section class="section work-page-intro">
+      <div class="work-page-intro-shell">
+        <p class="intro-text">A selection of projects shaped through<br /><span>thoughtful design, clear strategy,</span><br /><span>and measurable impact.</span></p>
       </div>
     </section>
-    ${projectsSection(projects)}
+    ${groupedProjectsSection(workProjectGroups())}
     ${cta()}
   `;
 }
@@ -467,12 +578,20 @@ function projectCard(project) {
         <div class="card-info">
           <p class="project-year">${project.years} / ${project.company}</p>
           <div>
-            <h3>${project.title}</h3>
+            <h3><a class="project-title-link" href="${projectUrl(project.slug)}">${project.title}</a></h3>
             <p>${project.delivered}</p>
+            ${project.whatIDid ? `
+              <div class="project-scope">
+                <span>What I did</span>
+                <ul>
+                  ${project.whatIDid.map((item) => `<li>${item}</li>`).join("")}
+                </ul>
+              </div>
+            ` : ""}
           </div>
           <a class="underline-link" href="${projectUrl(project.slug)}" data-preserve-label="true">
-            <span>Read more</span>
-            <span class="link-arrow" aria-hidden="true">↗</span>
+            <span>Explore case</span>
+            <img src="assets/lets-talk-icon.svg" alt="" />
           </a>
         </div>
       </div>
@@ -572,11 +691,6 @@ function renderAbout() {
         <article class="process-card"><h3>Primary responsibilities</h3><p class="body-copy">User research, concept design, prototyping, testing, design artifacts, requirements, development support, and QA.</p></article>
         <article class="process-card"><h3>Support & quality control</h3><p class="body-copy">Release support, announcements, product communication, user feedback loops, and post-release analysis.</p></article>
       </div>
-    </section>
-
-    <section class="section testimonial">
-      <blockquote>Alina is a talented Product Designer with great empathy toward users. She advocates for users' needs and converts her knowledge into features that are useful for users and profitable for a company.</blockquote>
-      <cite>- Andrei Karol, Vice President of Product - Yola</cite>
     </section>
 
     ${cta()}
@@ -782,10 +896,15 @@ function renderCase(slug) {
 function cta() {
   return `
     <section class="section cta-band">
-      <div>
-        <h2>Want to create something great together?</h2>
+      <div class="cta-content">
+        <div class="cta-copy">
+          <p class="project-year">/Let's talk/</p>
+          <h2>Want to create something great together?</h2>
+        </div>
+        <a class="button cta-contact-button" href="https://ua.linkedin.com/in/alina-diadenko" target="_blank" rel="noreferrer">
+          <span>Contact me</span>
+        </a>
       </div>
-      <a class="button" href="https://ua.linkedin.com/in/alina-diadenko" target="_blank" rel="noreferrer">Contact me</a>
     </section>
   `;
 }
@@ -831,6 +950,17 @@ function route() {
     ? "#/"
     : window.location.hash || "#/";
   document.body.classList.toggle("is-home-route", ["#/", "#projects", "#about-preview"].includes(hash));
+  document.body.classList.toggle("is-work-route", hash === "#/projects");
+
+  document.querySelectorAll("[data-nav-link]").forEach((link) => {
+    const isActive = link.dataset.navLink === "work" && hash === "#/projects";
+    link.classList.toggle("is-active", isActive);
+    if (isActive) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
 
   if (isInitialRender && hash === "#/" && ["#projects", "#about-preview"].includes(window.location.hash)) {
     history.replaceState(null, "", `${window.location.pathname}${window.location.search}#/`);
@@ -842,8 +972,9 @@ function route() {
       makeLinksSentenceCase();
       setupAccordions();
       setupMotion();
+      setupProjectShowcaseHover();
+      setupTestimonials();
       setupHoverLinkPreviews();
-      setupHeroParallax();
       app.classList.remove("is-changing");
       caseNavLockHref = "";
       clearTimeout(caseNavLockTimer);
@@ -951,7 +1082,7 @@ function setupHoverLinkPreviews() {
   linkPreviewCleanup = null;
 
   const links = [...document.querySelectorAll("[data-preview-image]")];
-  if (!links.length || window.matchMedia("(hover: none), (pointer: coarse)").matches) return;
+  if (!links.length) return;
 
   const preview = document.createElement("div");
   preview.className = "hover-link-preview";
@@ -976,6 +1107,7 @@ function setupHoverLinkPreviews() {
     rotate: 0,
     targetRotate: 0,
     prevX: null,
+    lastPointer: null,
     frameId: 0
   };
 
@@ -1010,6 +1142,13 @@ function setupHoverLinkPreviews() {
     image.src = image.dataset.fallback || "assets/photo.jpg";
   });
 
+  image.addEventListener("load", () => {
+    if (!preview.classList.contains("is-visible") || !state.lastPointer) return;
+    movePreview(state.lastPointer);
+    state.currentX = state.targetX;
+    state.currentY = state.targetY;
+  });
+
   const hidePreview = () => {
     preview.classList.remove("is-visible");
     state.prevX = null;
@@ -1018,8 +1157,8 @@ function setupHoverLinkPreviews() {
   };
 
   function movePreview(event) {
-    const previewWidth = 300;
-    const previewHeight = 250;
+    const previewWidth = preview.offsetWidth || 296;
+    const previewHeight = preview.offsetHeight || 176;
     const offsetY = 20;
     state.targetX = event.clientX - previewWidth / 2;
     state.targetY = event.clientY - previewHeight - offsetY;
@@ -1041,6 +1180,7 @@ function setupHoverLinkPreviews() {
       state.targetRotate = Math.max(-15, Math.min(15, deltaX * 1.2));
     }
     state.prevX = event.clientX;
+    state.lastPointer = { clientX: event.clientX, clientY: event.clientY };
   }
 
   links.forEach((link) => {
@@ -1060,61 +1200,171 @@ function setupHoverLinkPreviews() {
   };
 }
 
-function setupHeroParallax() {
-  heroParallaxCleanup?.();
-  heroParallaxCleanup = null;
+function setupProjectShowcaseHover() {
+  projectShowcaseCleanup?.();
+  projectShowcaseCleanup = null;
 
-  const hero = app.querySelector(".reference-hero");
-  const items = [...hero?.querySelectorAll(".reference-hero-media[data-depth]") || []].map((element) => ({
-    element,
-    baseTransform: element.dataset.baseTransform || "",
-    depth: parseFloat(element.dataset.depth || "1"),
-    current: { x: 0, y: 0 }
-  }));
+  const section = app.querySelector("[data-project-showcase]");
+  if (!section || window.matchMedia("(hover: none), (pointer: coarse)").matches) return;
 
-  if (!hero || !items.length) return;
+  const rows = [...section.querySelectorAll("[data-project-showcase-row]")];
+  const preview = section.querySelector("[data-project-showcase-preview]");
+  const previewImages = [...section.querySelectorAll("[data-project-showcase-image]")];
+  if (!rows.length || !preview || !previewImages.length) return;
 
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-  const pointer = { x: 0, y: 0 };
-  let frameId = 0;
-
-  const updatePointer = (clientX, clientY) => {
-    const rect = hero.getBoundingClientRect();
-    pointer.x = clientX - rect.left - rect.width / 2;
-    pointer.y = clientY - rect.top - rect.height / 2;
+  const state = {
+    currentX: 0,
+    currentY: 0,
+    frameId: 0,
+    targetX: 0,
+    targetY: 0
   };
 
-  const handleMouseMove = (event) => updatePointer(event.clientX, event.clientY);
-  const handleTouchMove = (event) => {
-    const touch = event.touches[0];
-    if (touch) updatePointer(touch.clientX, touch.clientY);
-  };
-
-  const animate = () => {
-    items.forEach((item) => {
-      const strength = (item.depth * -1) / 20;
-      const targetX = pointer.x * strength;
-      const targetY = pointer.y * strength;
-      item.current.x += (targetX - item.current.x) * 0.05;
-      item.current.y += (targetY - item.current.y) * 0.05;
-      item.element.style.transform = `${item.baseTransform} translate3d(${item.current.x}px, ${item.current.y}px, 0)`.trim();
+  const setActiveProject = (index) => {
+    rows.forEach((row) => {
+      row.classList.toggle("is-active", row.dataset.projectIndex === String(index));
     });
 
-    frameId = requestAnimationFrame(animate);
+    previewImages.forEach((image) => {
+      image.classList.toggle("is-active", image.dataset.projectIndex === String(index));
+    });
   };
 
-  window.addEventListener("mousemove", handleMouseMove, { passive: true });
-  window.addEventListener("touchmove", handleTouchMove, { passive: true });
-  frameId = requestAnimationFrame(animate);
+  const animatePreview = () => {
+    state.currentX += (state.targetX - state.currentX) * 0.16;
+    state.currentY += (state.targetY - state.currentY) * 0.16;
+    preview.style.transform = `translate3d(${state.currentX.toFixed(1)}px, ${state.currentY.toFixed(1)}px, 0)`;
+    state.frameId = requestAnimationFrame(animatePreview);
+  };
 
-  heroParallaxCleanup = () => {
-    cancelAnimationFrame(frameId);
-    window.removeEventListener("mousemove", handleMouseMove);
-    window.removeEventListener("touchmove", handleTouchMove);
-    items.forEach((item) => {
-      item.element.style.transform = item.baseTransform;
+  const movePreview = (event) => {
+    const width = preview.offsetWidth || 560;
+    const height = preview.offsetHeight || 360;
+    const offset = 22;
+    const minEdge = 18;
+    const sourceRect = event.currentTarget?.getBoundingClientRect();
+    const clientX = Number.isFinite(event.clientX)
+      ? event.clientX
+      : (sourceRect ? sourceRect.right : window.innerWidth / 2);
+    const clientY = Number.isFinite(event.clientY)
+      ? event.clientY
+      : (sourceRect ? sourceRect.top + sourceRect.height / 2 : window.innerHeight / 2);
+
+    state.targetX = Math.min(
+      window.innerWidth - width - minEdge,
+      Math.max(minEdge, clientX + offset)
+    );
+    state.targetY = Math.min(
+      window.innerHeight - height - minEdge,
+      Math.max(minEdge, clientY - height / 2)
+    );
+  };
+
+  const showPreview = (event) => {
+    setActiveProject(event.currentTarget.dataset.projectIndex);
+    movePreview(event);
+
+    if (!preview.classList.contains("is-visible")) {
+      state.currentX = state.targetX;
+      state.currentY = state.targetY;
+      preview.style.transform = `translate3d(${state.currentX.toFixed(1)}px, ${state.currentY.toFixed(1)}px, 0)`;
+      preview.classList.add("is-visible");
+    }
+
+    if (!state.frameId) {
+      state.frameId = requestAnimationFrame(animatePreview);
+    }
+  };
+
+  const hidePreview = () => {
+    preview.classList.remove("is-visible");
+    rows.forEach((row) => row.classList.remove("is-active"));
+    cancelAnimationFrame(state.frameId);
+    state.frameId = 0;
+  };
+
+  rows.forEach((row) => {
+    row.addEventListener("mouseenter", showPreview);
+    row.addEventListener("focus", showPreview);
+    row.addEventListener("mousemove", movePreview);
+    row.addEventListener("mouseleave", hidePreview);
+    row.addEventListener("blur", hidePreview);
+  });
+
+  projectShowcaseCleanup = () => {
+    rows.forEach((row) => {
+      row.removeEventListener("mouseenter", showPreview);
+      row.removeEventListener("focus", showPreview);
+      row.removeEventListener("mousemove", movePreview);
+      row.removeEventListener("mouseleave", hidePreview);
+      row.removeEventListener("blur", hidePreview);
+      row.classList.remove("is-active");
     });
+    preview.classList.remove("is-visible");
+    preview.style.transform = "";
+    cancelAnimationFrame(state.frameId);
+  };
+}
+
+function setupTestimonials() {
+  testimonialsCleanup?.();
+  testimonialsCleanup = null;
+
+  const cleanupTasks = [];
+
+  app.querySelectorAll("[data-testimonials]").forEach((section) => {
+    const triggers = [...section.querySelectorAll("[data-testimonial-trigger]")];
+    const quotes = [...section.querySelectorAll("[data-testimonial-quote]")];
+    const authors = [...section.querySelectorAll("[data-testimonial-author]")];
+    if (triggers.length < 2) return;
+
+    let activeIndex = triggers.findIndex((trigger) => trigger.classList.contains("is-active"));
+    if (activeIndex < 0) activeIndex = 0;
+    let intervalId = 0;
+
+    const setActive = (index) => {
+      activeIndex = Number(index);
+
+      triggers.forEach((trigger) => {
+        const isActive = trigger.dataset.testimonialIndex === String(activeIndex);
+        trigger.classList.toggle("is-active", isActive);
+        trigger.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      quotes.forEach((quote) => {
+        quote.classList.toggle("is-active", quote.dataset.testimonialIndex === String(activeIndex));
+      });
+
+      authors.forEach((author) => {
+        author.classList.toggle("is-active", author.dataset.testimonialIndex === String(activeIndex));
+      });
+    };
+
+    const showNext = () => setActive((activeIndex + 1) % triggers.length);
+
+    const startCarousel = () => {
+      clearInterval(intervalId);
+      intervalId = window.setInterval(showNext, 10000);
+    };
+
+    const handleClick = (event) => {
+      setActive(event.currentTarget.dataset.testimonialIndex);
+      startCarousel();
+    };
+
+    triggers.forEach((trigger) => trigger.addEventListener("click", handleClick));
+    startCarousel();
+
+    cleanupTasks.push(() => {
+      clearInterval(intervalId);
+      triggers.forEach((trigger) => {
+        trigger.removeEventListener("click", handleClick);
+      });
+    });
+  });
+
+  testimonialsCleanup = () => {
+    cleanupTasks.forEach((cleanup) => cleanup());
   };
 }
 
@@ -1230,13 +1480,29 @@ function requestCaseSidebarSync() {
 }
 
 function setupGlobalInteractions() {
+  const getHeaderScrollThreshold = () => {
+    const hero = app.querySelector(".minimal-hero");
+    if (document.body.classList.contains("is-home-route") && hero) {
+      return Math.max(12, hero.offsetTop + hero.offsetHeight - 1);
+    }
+
+    return 12;
+  };
+
+  const syncHeaderState = () => {
+    header?.classList.toggle("is-scrolled", window.scrollY > getHeaderScrollThreshold());
+  };
+
   window.addEventListener("scroll", () => {
-    header?.classList.toggle("is-scrolled", window.scrollY > 12);
+    syncHeaderState();
     requestCaseSidebarSync();
     releaseCaseNavLockAfterScroll();
   }, { passive: true });
 
-  window.addEventListener("resize", requestCaseSidebarSync);
+  window.addEventListener("resize", () => {
+    syncHeaderState();
+    requestCaseSidebarSync();
+  });
 
   app.addEventListener("click", (event) => {
     const link = event.target.closest(".case-description-nav a, .case-section-nav a");
@@ -1260,7 +1526,7 @@ function setupGlobalInteractions() {
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
-  header?.classList.toggle("is-scrolled", window.scrollY > 12);
+  syncHeaderState();
 }
 
 setupGlobalInteractions();
