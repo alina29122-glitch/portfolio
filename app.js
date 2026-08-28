@@ -117,36 +117,129 @@ const projects = [
   },
   {
     slug: "mgid-feature-design",
-    years: "2023-2024",
+    years: "2023–2024",
     company: "MGID · AdTech",
     title: "Driving smarter advertising for 850M+ monthly users",
     image: "case-06",
+    caseHeroImage: "mgid-dashboard-hero-gif",
     summary:
       "Improving a large-scale advertising platform: simplifying campaign setup, ad creation, and management while building scalable experiences across the product ecosystem.",
-    role: "Senior Product Designer",
-    delivered: "Improving a large-scale advertising platform: simplifying campaign setup, ad creation, and management while building scalable experiences across the product ecosystem.",
+    role: "Senior Product Designer · Advertiser, Publisher, Compliance & Antifraud teams",
+    scope: "End-to-end feature design · User research · Design systems · A/B testing · Post-release data analysis · Iterative improvements",
+    team: "Product · Engineering · Compliance · Antifraud",
+    delivered: "Campaign management improvements · Tracking and integrations · 60+ native ad formats",
     whatIDid: ["Product discovery", "UX/UI", "Complex workflows", "Data analysis", "Design systems", "Design documentation", "A/B testing", "Post-release optimization"],
-    outcome: "Scalable product improvements for campaign management, performance workflows, and monetization.",
+    outcome: "Improved advertiser workflows · Expanded publisher monetization · Built a scalable widget system",
     sections: [
       {
-        title: "Designing across a complex advertising platform",
+        eyebrow: "/TL;DR",
         body:
-          "MGID is a global native advertising platform connecting publishers, advertisers, and content creators. My work focused on turning complex platform needs into understandable workflows that supported business outcomes and user goals.",
-        bullets: [
-          "Partnered with product managers and engineering on feature discovery and prioritization.",
-          "Mapped user flows, edge cases, and product requirements before interface design.",
-          "Created prototypes and design specs that helped teams move from concept to launch."
+          "MGID connects advertisers running campaigns with publishers monetizing content across their websites. Designing for both sides meant balancing advertiser control and performance with publisher revenue and audience trust within an already data-heavy platform.\n\nI improved campaign management, tracking, integrations, and traffic controls for advertisers, and led the design of 60+ native ad formats and built a scalable widget system for publishers. I owned features end to end, partnering with product and engineering from research through post-release analysis.",
+        ecosystemDiagram: {
+          items: [
+            {
+              title: "Advertisers",
+              body: "Launch and optimize campaigns."
+            },
+            {
+              title: "MGID platform",
+              body: "Matches campaigns with audiences and publisher placements through AI and real-time bidding.",
+              emphasis: true
+            },
+            {
+              title: "Publishers",
+              body: "Monetize content through native ad placements."
+            }
+          ]
+        },
+        bullets: []
+      },
+      {
+        title: "Designing scalable advertiser workflows",
+        eyebrow: "/ADVERTISERS",
+        challenge: {
+          label: "Challenge",
+          statement: "Advertisers manage performance, budgets, tracking, and traffic controls in one data-heavy dashboard. As the platform evolved, new capabilities had to fit into existing workflows without making frequent tasks harder to complete."
+        },
+        bullets: [],
+        featureLayout: "grid",
+        caseFeatureRows: [
+          {
+            label: "Campaign management",
+            title: "Managing campaigns at scale",
+            context: "The dashboard combined real-time performance analytics, budget tracking, and targeting controls in one data-heavy workspace.",
+            solution: "Working with the team, I improved frequent workflows through smarter filtering, bulk actions, CPC controls, and clearer budget tracking.",
+            image: "mgid-dashboard-feature-01"
+          },
+          {
+            label: "Tracking & integrations",
+            title: "Simplifying performance tracking",
+            context: "The platform supported pixels, postbacks, webhooks, UTM parameters, conversion goals, and native integrations.",
+            solution: "I simplified how these methods were organized and configured, reducing manual setup and making campaign performance easier to track.",
+            image: "mgid-dashboard-feature-02"
+          },
+          {
+            label: "Transparency & control",
+            title: "Giving advertisers greater control",
+            context: "Advertisers needed greater visibility into campaign placements and more control over traffic quality, brand safety, and spend.",
+            solution: "I designed bid adjustments and blocklist tools across placements, geographies, devices, and traffic sources.",
+            image: "mgid-dashboard-feature-04"
+          }
         ]
       },
       {
-        title: "From concept to production",
+        title: "Designing 60+ native ad formats",
+        eyebrow: "/PUBLISHERS",
         body:
-          "The work covered the full product-design cycle: understanding user context, shaping feature concepts, testing assumptions, designing detailed UI states, and supporting implementation.",
-        bullets: [
-          "Improved campaign-management flows for advertisers.",
-          "Supported publisher monetization workflows with clearer interaction patterns.",
-          "Reviewed developed functionality against design requirements before release."
+          "I combined behavioral research, performance data, and publisher feedback to understand how placement and presentation affected engagement.",
+        challenge: {
+          label: "The challenge",
+          statement: "Publishers need ad formats that generate revenue and remain visible without interrupting how people consume content. Each publisher also has different layouts, customization needs, and monetization goals, making one fixed format impossible to scale.",
+          question: "How might we create flexible native ad formats that support monetization while preserving the reading experience?"
+        },
+        bullets: [],
+        researchLabel: "Research & validation",
+        researchTags: [
+          "Heatmaps",
+          "Session recordings",
+          "A/B testing",
+          "Performance analytics",
+          "Publisher feedback"
+        ],
+        closingLabel: "Scaling the system",
+        closingTitle: "Turning insights into a scalable system",
+        closingStatement: "I built MGID’s widget design system from scratch, giving the team a consistent framework for creating, customizing, testing, and implementing new formats across publisher platforms.",
+        featureLayout: "stack",
+        caseFeatureRows: [
+          {
+            label: "Smart widgets",
+            title: "Personalized layouts for stronger engagement",
+            context: "Publishers needed ad formats that could adapt to different content environments while keeping recommendations relevant to readers.",
+            solution: "I designed AI-powered layouts that personalized content and ad presentation, balancing engagement with monetization.",
+            image: "mgid-widget-01"
+          },
+          {
+            label: "In-article & under-article widgets",
+            title: "Native placements within the reading experience",
+            context: "Ad placements needed to remain visible without interrupting how users consumed editorial content.",
+            solution: "I designed native formats for in-article and post-article placements that integrated naturally into the reading experience.",
+            image: "mgid-widget-02"
+          },
+          {
+            label: "Additional widget formats",
+            title: "Supporting diverse publisher layouts",
+            context: "Different page structures and monetization strategies could not be supported by a single placement model.",
+            solution: "I expanded the library with header, sidebar, pop-up, notification, and sticky formats, giving publishers greater flexibility across layouts.",
+            image: "mgid-widget-03"
+          }
         ]
+      },
+      {
+        title: "Lessons learned",
+        eyebrow: "/retrospective",
+        body:
+          "Working across both sides of the platform taught me that changes made for one audience can reshape the experience of the other. The strongest solutions came from balancing advertiser control, publisher monetization, and audience trust rather than optimizing any one metric in isolation.\n\nThe project also reinforced the value of combining behavioral research with post-release data and building systems flexible enough to evolve with the product.",
+        bullets: []
       }
     ]
   },
@@ -343,19 +436,21 @@ const motionQuery = [
   ".case-meta",
   ".visual-panel",
   ".other-case-card",
-  ".case-section ul",
-  ".case-section-nav"
+  ".case-section ul"
 ].join(",");
 
 let hasRendered = false;
 let routeTimer;
 let revealObserver;
-let caseSidebarRaf;
-let caseNavLockHref;
-let caseNavLockTimer;
 let linkPreviewCleanup;
 let projectShowcaseCleanup;
 let testimonialsCleanup;
+let caseLightboxCleanup;
+let caseHeroParallaxCleanup;
+let caseSectionNavCleanup;
+let caseSectionNavObserver;
+let previousCaseScrollRestoration;
+let caseScrollRestorationIsManual = false;
 
 function projectUrl(slug) {
   return `#/case/${slug}`;
@@ -635,21 +730,76 @@ function sectionLabel(section, index) {
   return (section.eyebrow || section.title || `Section ${index + 1}`).replace(/^\//, "");
 }
 
-function sectionIntroNav(project) {
-  const links = project.sections
-    .map((section, index) => ({ section, index, label: sectionLabel(section, index) }))
-    .filter(({ section, label }) => section.type !== "statement" && label);
+function caseHeroInfo(project) {
+  if (project.slug === "mgid-feature-design") {
+    return [
+      { label: "Role & teams", text: project.role },
+      { label: "Scope", text: project.scope },
+      { label: "Delivered", text: project.delivered }
+    ];
+  }
+
+  return [
+    { label: "Role", text: project.role },
+    { label: "Scope", text: project.delivered || project.summary },
+    { label: "Approach", text: project.whatIDid?.join(" · ") }
+  ].filter((item) => item.text);
+}
+
+function caseSectionId(project, section, index) {
+  if (project.slug === "mgid-feature-design") {
+    const key = sectionLabel(section, index);
+      const idOverrides = {
+        Context: "context",
+        "TL;DR": "context",
+      "dashboard features": "advertisers",
+      "for advertisers": "advertisers",
+      ADVERTISERS: "advertisers",
+      "ad widgets": "publishers",
+      PUBLISHERS: "publishers",
+      retrospective: "reflection"
+    };
+    if (idOverrides[key]) return idOverrides[key];
+  }
+
+  return `case-s-${index}`;
+}
+
+function caseSideLabel(project, section, index) {
+  const label = sectionLabel(section, index);
+  if (project.slug === "mgid-feature-design") {
+    const labelOverrides = {
+      Context: "Context",
+      "dashboard features": "Advertiser experience",
+      "for advertisers": "/for advertisers",
+      ADVERTISERS: "/ADVERTISERS",
+      "ad widgets": "Publisher experience",
+      PUBLISHERS: "/PUBLISHERS",
+      retrospective: "Reflection"
+    };
+    return labelOverrides[label] || label;
+  }
+
+  return label;
+}
+
+function caseReferenceNav(project, sections) {
+  const links = sections
+    .map((section, sectionIndex) => {
+      const index = sectionIndex + 1;
+      const label = caseSideLabel(project, section, index).replace(/^\//, "");
+      return {
+        href: `#${caseSectionId(project, section, index)}`,
+        label
+      };
+    })
+    .filter((item) => item.label);
 
   if (!links.length) return "";
 
   return `
-    <nav class="case-description-nav" aria-label="Case sections">
-      ${links.map(({ index, label }) => `
-        <a href="#case-s-${index}">
-          <span>${label}</span>
-          <img src="assets/arrow-bottom-right.svg" alt="" />
-        </a>
-      `).join("")}
+    <nav class="case-section-nav" aria-label="Case sections">
+      ${links.map((link) => `<a href="${link.href}">${link.label}</a>`).join("")}
     </nav>
   `;
 }
@@ -697,202 +847,6 @@ function renderAbout() {
   `;
 }
 
-function renderCase(slug) {
-  const project = projects.find((item) => item.slug === slug);
-  if (!project) {
-    renderNotFound();
-    return;
-  }
-
-  app.innerHTML = `
-    <section class="section case-layout-section">
-      <div class="case-layout case-description-container">
-        <aside class="case-fixed-panel" aria-label="${project.title} project details">
-          <div class="case-panel-body">
-            <div class="case-panel-heading">
-              <p class="case-panel-eyebrow">${project.years} / ${project.company}</p>
-              <h1 class="page-title">${project.title}</h1>
-            </div>
-            <div class="case-meta">
-              <div class="case-meta-details">
-                <article><span>Team & role</span><div class="case-meta-copy">${project.role}</div></article>
-                <article><span>Scope</span><p>${project.summary}</p></article>
-                <article><span>Overview</span><div class="case-meta-copy">${project.delivered}</div></article>
-                ${project.outcome ? `<article><span>Outcome</span><div class="case-meta-copy">${project.outcome}</div></article>` : ""}
-              </div>
-              <article class="case-meta-sections">${sectionIntroNav(project)}</article>
-            </div>
-          </div>
-        </aside>
-
-        <div class="case-scroll-content">
-          <div class="case-hero-visual" aria-label="${project.title} image">
-            <span class="project-image ${project.image}"></span>
-          </div>
-
-    ${project.stats ? `
-      <section class="section section-tight">
-        <div class="stats-grid">
-          ${project.stats.map(([value, label]) => `<article class="stat-card"><strong>${value}</strong><p>${label}</p></article>`).join("")}
-        </div>
-      </section>
-    ` : ""}
-
-    ${project.sections.map((section, index) => section.type === "statement" ? `
-      <section id="case-s-${index}" class="section section-tight case-section case-statement">
-        <h2>${section.title}</h2>
-      </section>
-    ` : `
-      <section id="case-s-${index}" class="section section-tight case-section${index === 0 ? " case-intro" : ""}">
-        <div class="two-column">
-          <div>
-            ${section.title && index !== 0 ? `<h2>${section.title}</h2>` : ""}
-            ${section.body ? section.body.split("\n\n").map((paragraph) => index === 0 ? `<h4 class="case-intro-text">${paragraph}</h4>` : `<p class="body-copy">${paragraph}</p>`).join("") : ""}
-            ${section.bullets && section.bullets.length ? `<ul>${section.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>` : ""}
-            ${section.opportunityCards ? `
-              <div class="opportunity-cards">
-                ${section.opportunityCards.map((card) => `
-                  <article class="opportunity-card">
-                    ${card.counter ? `<p class="opportunity-counter">${card.counter}</p>` : ""}
-                    <h3>${card.title}</h3>
-                    <div class="opportunity-card-body">
-                      ${card.meta ? `<p class="opportunity-meta">${card.meta}</p>` : ""}
-                      ${card.body ? `<p>${card.body}</p>` : ""}
-                      ${card.focus ? `
-                        <div>
-                          <p class="opportunity-label">Focus</p>
-                          <p>${card.focus}</p>
-                        </div>
-                      ` : ""}
-                      ${card.themes ? `
-                        <div>
-                          <p class="opportunity-label">Key themes</p>
-                          <ul>
-                            ${card.themes.map((theme) => `<li>${theme}</li>`).join("")}
-                          </ul>
-                        </div>
-                      ` : ""}
-                    </div>
-                  </article>
-                `).join("")}
-              </div>
-            ` : ""}
-            ${section.lessonCards ? `
-              <div class="lesson-cards">
-                ${section.lessonCards.map((lesson, lessonIndex) => `
-                  <article class="lesson-card">
-                    <p class="lesson-card-number">${String(lessonIndex + 1).padStart(2, "0")}</p>
-                    <h3>${lesson.title}</h3>
-                    <p>${lesson.body}</p>
-                  </article>
-                `).join("")}
-              </div>
-            ` : ""}
-            ${section.closingStatement ? `<p class="case-closing-statement">${section.closingStatement}</p>` : ""}
-            ${section.questionEvidence ? `
-              <div class="question-evidence" aria-label="Validation questions and evidence">
-                ${section.questionEvidence.map((item, itemIndex) => `
-                  <article class="question-evidence-item">
-                    <div class="question-evidence-copy">
-                      <h3>${item.question}</h3>
-                      <p>${item.reducedUncertainty}</p>
-                      ${item.methods ? `
-                        <ul class="question-evidence-methods">
-                          ${item.methods.map((method) => `<li>${method}</li>`).join("")}
-                        </ul>
-                      ` : ""}
-                    </div>
-                    <div class="question-evidence-funnel" aria-hidden="true">
-                      <span class="question-evidence-segment">
-                        <span class="question-evidence-marker">${String(itemIndex + 1).padStart(2, "0")}</span>
-                      </span>
-                    </div>
-                  </article>
-                `).join("")}
-              </div>
-            ` : ""}
-            ${section.cards ? `
-              <div class="visual-cards${section.cardLayout === "compact" ? " visual-cards-compact" : ""}">
-                ${section.cards.map((card) => `
-                  <article class="visual-card">
-                    <span class="visual-card-icon" aria-hidden="true">${card.iconText ? `<span class="visual-card-icon-text">${card.iconText}</span>` : card.icon ? `<img src="${card.icon}" alt="" />` : ""}</span>
-                    <div class="visual-card-copy">
-                      <h4>${card.title}</h4>
-                      ${card.body ? `<p>${card.body}</p>` : ""}
-                    </div>
-                  </article>
-                `).join("")}
-              </div>
-            ` : ""}
-            ${section.pipeline ? `
-              <div class="process-pipeline" aria-label="Opportunity Pipeline">
-                ${section.pipeline.map((stage, stageIndex) => `
-                  <details class="pipeline-card">
-                    <summary class="pipeline-summary">
-                      <p class="pipeline-number">/ ${String(stageIndex + 1).padStart(2, "0")}</p>
-                      <h5>${stage.title}</h5>
-                      <span class="pipeline-toggle" aria-hidden="true"></span>
-                    </summary>
-                    <div class="pipeline-copy">
-                      ${stage.goal ? `
-                        <div class="pipeline-detail">
-                          <p class="pipeline-label">Goal</p>
-                          <p class="pipeline-body">${stage.goal}</p>
-                        </div>
-                      ` : ""}
-                      ${stage.evidence ? `
-                        <div class="pipeline-detail">
-                          <p class="pipeline-label">What I did</p>
-                          <ul class="pipeline-options">
-                            ${stage.evidence.map((item) => `<li>${item}</li>`).join("")}
-                          </ul>
-                        </div>
-                      ` : ""}
-                      ${stage.output ? `
-                        <div class="pipeline-detail">
-                          <p class="pipeline-label">Key insight</p>
-                          <p class="pipeline-body">${stage.output}</p>
-                        </div>
-                      ` : ""}
-                      ${stage.body ? `<p class="pipeline-body">${stage.body}</p>` : ""}
-                      ${stage.label ? `<p class="pipeline-label">${stage.label}</p>` : ""}
-                      ${stage.items ? `
-                        <ul class="${stage.label || stage.listStyle === "bullets" ? "pipeline-options" : ""}">
-                          ${stage.items.map((item) => typeof item === "string" ? `<li>${item}</li>` : `
-                            <li>
-                              ${item.label}
-                              <ul>
-                                ${item.items.map((subitem) => `<li>${subitem}</li>`).join("")}
-                              </ul>
-                            </li>
-                          `).join("")}
-                        </ul>
-                      ` : ""}
-                      ${stage.outcome ? `
-                        <div class="pipeline-outcome">
-                          <p class="pipeline-label">${stage.outcome.label}</p>
-                          <ul class="pipeline-options">
-                            ${stage.outcome.items.map((item) => `<li>${item}</li>`).join("")}
-                          </ul>
-                        </div>
-                      ` : ""}
-                    </div>
-                  </details>
-                `).join("")}
-              </div>
-            ` : ""}
-          </div>
-        </div>
-      </section>
-    `).join("")}
-        </div>
-      </div>
-    </section>
-    ${otherCases(project)}
-    ${cta()}
-  `;
-}
-
 function cta() {
   return `
     <section class="section cta-band">
@@ -909,6 +863,282 @@ function cta() {
   `;
 }
 
+function renderCase(slug) {
+  const project = projects.find((item) => item.slug === slug);
+  if (!project) {
+    renderNotFound();
+    return;
+  }
+
+  const caseHeroTitle = project.slug === "mgid-feature-design"
+    ? project.title.replace("850M+ monthly users", "<br />850M+ monthly users")
+    : project.title;
+  const contentSections = project.sections;
+
+  const renderBodyWithEcosystemDiagram = (section) => {
+    if (!section.body) return "";
+
+    const paragraphs = section.body.split("\n\n");
+    const bodyMarkup = paragraphs.map((paragraph) => `<p class="body-copy">${paragraph}</p>`);
+
+    if (section.ecosystemDiagram && bodyMarkup.length > 1) {
+      bodyMarkup.splice(1, 0, `
+        <div class="case-ecosystem-diagram">
+          ${section.ecosystemDiagram.label ? `<p class="case-ecosystem-label">${section.ecosystemDiagram.label}</p>` : ""}
+          <div class="case-ecosystem-row">
+            ${section.ecosystemDiagram.items.map((item, itemIndex) => `
+              ${itemIndex > 0 ? `<span class="case-ecosystem-connector" aria-hidden="true">↔</span>` : ""}
+              <div class="case-ecosystem-item${item.emphasis ? " is-emphasized" : ""}">
+                <h3>${item.title}</h3>
+                <p>${item.body}</p>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `);
+    }
+
+    return bodyMarkup.join("");
+  };
+
+  const renderSectionContent = (section) => `
+    <div class="case-reference-content">
+      ${section.title ? `<h2>${section.title}</h2>` : ""}
+      ${section.lead ? `<p class="case-section-lead">${section.lead}</p>` : ""}
+      ${section.challenge ? `
+        <div class="case-challenge-block">
+          <p class="case-challenge-label">${section.challenge.label}</p>
+          <p class="case-challenge-statement">${section.challenge.statement}</p>
+          ${section.challenge.question ? `<p class="case-challenge-question">${section.challenge.question}</p>` : ""}
+        </div>
+      ` : ""}
+      ${renderBodyWithEcosystemDiagram(section)}
+      ${section.bullets && section.bullets.length ? `<ul>${section.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>` : ""}
+      ${section.researchTags ? `
+        <div class="case-research-tags">
+          <p class="case-research-tags-label">${section.researchLabel}</p>
+          <div class="case-research-tags-list">
+            ${section.researchTags.map((tag) => `<span>${tag}</span>`).join("")}
+          </div>
+        </div>
+      ` : ""}
+      ${section.textBlocks ? `
+        <div class="case-text-blocks">
+          ${section.textBlocks.map((block, blockIndex) => `
+            <article class="case-text-block">
+              <p class="case-feature-label">${String(blockIndex + 1).padStart(2, "0")} / ${block.label}</p>
+              <h3>${block.title}</h3>
+              <p>${block.body}</p>
+            </article>
+          `).join("")}
+        </div>
+      ` : ""}
+      ${section.infoCards ? `
+        <div class="case-info-card-grid">
+          ${section.infoCards.map((card) => `
+            <article class="case-info-card">
+              <span class="case-info-card-icon" aria-hidden="true"></span>
+              <h4>${card.title}</h4>
+              <ul>
+                ${card.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}
+              </ul>
+            </article>
+          `).join("")}
+        </div>
+      ` : ""}
+      ${section.opportunityCards ? `
+        <div class="opportunity-cards">
+          ${section.opportunityCards.map((card) => `
+            <article class="opportunity-card">
+              ${card.counter ? `<p class="opportunity-counter">${card.counter}</p>` : ""}
+              <h3>${card.title}</h3>
+              <div class="opportunity-card-body">
+                ${card.meta ? `<p class="opportunity-meta">${card.meta}</p>` : ""}
+                ${card.body ? `<p>${card.body}</p>` : ""}
+              </div>
+            </article>
+          `).join("")}
+        </div>
+      ` : ""}
+      ${section.lessonCards ? `
+        <div class="lesson-cards">
+          ${section.lessonCards.map((lesson, lessonIndex) => `
+            <article class="lesson-card">
+              <p class="lesson-card-number">${String(lessonIndex + 1).padStart(2, "0")}</p>
+              <h3>${lesson.title}</h3>
+              <p>${lesson.body}</p>
+            </article>
+          `).join("")}
+        </div>
+      ` : ""}
+      ${section.closingStatement ? section.closingTitle ? `
+        <div class="case-scaling-step">
+          <p class="case-scaling-step-label">${section.closingLabel}</p>
+          <h3>${section.closingTitle}</h3>
+          <p>${section.closingStatement}</p>
+        </div>
+      ` : `<p class="case-closing-statement">${section.closingStatement}</p>` : ""}
+      ${section.featureGrid ? `
+        <div class="case-feature-grid">
+          ${section.featureGrid.map((item) => `
+            <article class="case-feature-grid-item">
+              ${item.image ? `
+                <button
+                  class="case-feature-grid-media"
+                  type="button"
+                  data-lightbox-image="assets/${item.image}.png"
+                  data-lightbox-caption="${item.title}"
+                  aria-label="Open ${item.title} image fullscreen"
+                >
+                  <span class="project-image ${item.image}"></span>
+                </button>
+              ` : ""}
+              <div class="case-feature-grid-copy">
+                <h3>${item.title}</h3>
+                <p>${item.body}</p>
+              </div>
+            </article>
+          `).join("")}
+        </div>
+      ` : ""}
+      ${section.caseFeatureRows ? `
+        <div class="${section.featureLayout ? "case-feature-list case-feature-list-grid" : "case-feature-list"}">
+          ${section.caseFeatureRows.map((item) => `
+            <article class="${section.featureLayout ? "case-feature-row case-feature-card case-feature-card-detailed" : "case-feature-row"}">
+              <div class="case-feature-copy">
+                <p class="case-feature-label">${item.label}</p>
+                ${section.featureLayout ? `
+                  <div class="case-feature-bottom-group">
+                    <h3>${item.title}</h3>
+                    <div class="case-feature-body-group">
+                      ${item.context && item.solution
+                        ? `<p>${item.context}</p><p>${item.solution}</p>`
+                        : item.body.split("\n\n").map((paragraph) => `<p>${paragraph}</p>`).join("")}
+                    </div>
+                  </div>
+                ` : `
+                  <h3>${item.title}</h3>
+                  ${item.body.split("\n\n").map((paragraph) => `<p>${paragraph}</p>`).join("")}
+                `}
+              </div>
+              <button
+                class="case-feature-media"
+                type="button"
+                data-lightbox-image="assets/${item.image}.png"
+                data-lightbox-caption="${item.title}"
+                aria-label="Open ${item.title} image fullscreen"
+              >
+                <img class="case-feature-image" src="assets/${item.image}.png" alt="" />
+              </button>
+            </article>
+          `).join("")}
+        </div>
+      ` : ""}
+      ${section.questionEvidence ? `
+        <div class="question-evidence" aria-label="Validation questions and evidence">
+          ${section.questionEvidence.map((item, itemIndex) => `
+            <article class="question-evidence-item">
+              <div class="question-evidence-copy">
+                <h3>${item.question}</h3>
+                <p>${item.reducedUncertainty}</p>
+                ${item.methods ? `
+                  <ul class="question-evidence-methods">
+                    ${item.methods.map((method) => `<li>${method}</li>`).join("")}
+                  </ul>
+                ` : ""}
+              </div>
+              <div class="question-evidence-funnel" aria-hidden="true">
+                <span class="question-evidence-segment">
+                  <span class="question-evidence-marker">${String(itemIndex + 1).padStart(2, "0")}</span>
+                </span>
+              </div>
+            </article>
+          `).join("")}
+        </div>
+      ` : ""}
+      ${section.cards ? `
+        <div class="visual-cards${section.cardLayout === "compact" ? " visual-cards-compact" : ""}">
+          ${section.cards.map((card) => `
+            <article class="visual-card">
+              <span class="visual-card-icon" aria-hidden="true">${card.iconText ? `<span class="visual-card-icon-text">${card.iconText}</span>` : card.icon ? `<img src="${card.icon}" alt="" />` : ""}</span>
+              <div class="visual-card-copy">
+                <h4>${card.title}</h4>
+                ${card.body ? `<p>${card.body}</p>` : ""}
+              </div>
+            </article>
+          `).join("")}
+        </div>
+      ` : ""}
+    </div>
+  `;
+
+  app.innerHTML = `
+    <article class="case-page case-page-${project.slug}">
+    <section class="section case-layout-section">
+      <div class="case-layout case-hero-layout">
+        <div class="case-hero-copy">
+          <div class="case-panel-heading">
+            <p class="case-panel-eyebrow">${project.years} / ${project.company.toUpperCase()}</p>
+            <h1 class="page-title">${caseHeroTitle}</h1>
+          </div>
+        </div>
+        <div class="case-hero-content">
+          <div class="case-hero-details">
+            ${caseHeroInfo(project).map((item) => `<article><span>${item.label}</span><p>${item.text}</p></article>`).join("")}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section case-visual-section">
+      <div class="case-visual-container">
+        <div class="case-hero-visual" aria-label="${project.title} image">
+          <span class="project-image ${project.caseHeroImage || project.image}"></span>
+        </div>
+      </div>
+    </section>
+
+    <div class="case-study-layout case-study-body">
+      <aside class="case-section-nav-shell case-study-sidebar" aria-label="Case navigation">
+        ${caseReferenceNav(project, contentSections)}
+      </aside>
+      <main class="case-study-main case-study-content">
+        ${project.stats ? `
+          <section class="section section-tight">
+            <div class="stats-grid">
+              ${project.stats.map(([value, label]) => `<article class="stat-card"><strong>${value}</strong><p>${label}</p></article>`).join("")}
+            </div>
+          </section>
+        ` : ""}
+
+        ${contentSections.map((section, sectionIndex) => {
+          const index = sectionIndex + 1;
+          const sectionId = caseSectionId(project, section, index);
+          const sectionLayoutClass = section.featureLayout ? " case-feature-layout-section" : "";
+          return section.type === "statement" ? `
+            <section id="${sectionId}" class="section section-tight case-reference-section case-section case-study-section case-statement">
+              <div class="case-reference-grid">
+                <div class="case-reference-content">
+                  <h2>${section.title}</h2>
+                </div>
+              </div>
+            </section>
+          ` : `
+            <section id="${sectionId}" class="section section-tight case-reference-section case-section case-study-section${sectionLayoutClass}">
+              <div class="case-reference-grid">
+                ${renderSectionContent(section)}
+              </div>
+            </section>
+          `;
+        }).join("")}
+      </main>
+    </div>
+    ${otherCases(project)}
+    ${cta()}
+    </article>
+  `;
+}
+
 function renderNotFound() {
   app.innerHTML = `
     <section class="section not-found">
@@ -920,6 +1150,8 @@ function renderNotFound() {
 }
 
 function renderCurrentRoute(hash) {
+  const caseMatch = hash.match(/^#\/case\/([^/#]+)(?:(?:\/|#)([^/]+))?/);
+
   if (hash === "#/" || hash === "") {
     renderHome();
     return "";
@@ -929,8 +1161,8 @@ function renderCurrentRoute(hash) {
   } else if (hash === "#/about") {
     renderAbout();
     return "";
-  } else if (hash.startsWith("#/case/")) {
-    renderCase(hash.replace("#/case/", ""));
+  } else if (caseMatch) {
+    renderCase(caseMatch[1]);
     return "";
   } else if (hash === "#projects") {
     renderHome();
@@ -938,6 +1170,15 @@ function renderCurrentRoute(hash) {
   } else if (hash === "#about-preview") {
     renderHome();
     return "#about-preview";
+  } else if (/^#(context|advertisers|publishers|reflection|advertiser-experience|publisher-experience)$/.test(hash)) {
+    const anchorAlias = {
+      "#advertiser-experience": "#advertisers",
+      "#publisher-experience": "#publishers"
+    };
+    const targetHash = anchorAlias[hash] || hash;
+    if (!app.querySelector(targetHash)) renderCase("mgid-feature-design");
+    history.replaceState(null, "", `${window.location.pathname}${window.location.search}#/case/mgid-feature-design`);
+    return targetHash;
   } else {
     renderNotFound();
     return "";
@@ -946,17 +1187,52 @@ function renderCurrentRoute(hash) {
 
 function route() {
   const isInitialRender = !hasRendered;
-  const hash = isInitialRender && ["#projects", "#about-preview"].includes(window.location.hash)
+  const caseSectionAnchorPattern = /^#(context|advertisers|publishers|reflection|advertiser-experience|publisher-experience)$/;
+  const staleCaseSectionAnchor = isInitialRender && caseSectionAnchorPattern.test(window.location.hash);
+  const isInitialMgidCase = isInitialRender && (
+    staleCaseSectionAnchor ||
+    window.location.hash.startsWith("#/case/mgid-feature-design")
+  );
+  if (isInitialMgidCase && "scrollRestoration" in history) {
+    previousCaseScrollRestoration = history.scrollRestoration;
+    caseScrollRestorationIsManual = true;
+    history.scrollRestoration = "manual";
+  }
+  if (staleCaseSectionAnchor) {
+    history.replaceState(null, "", `${window.location.pathname}${window.location.search}#/case/mgid-feature-design`);
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    });
+  }
+
+  const hash = staleCaseSectionAnchor
+    ? "#/case/mgid-feature-design"
+    : isInitialRender && ["#projects", "#about-preview"].includes(window.location.hash)
     ? "#/"
     : window.location.hash || "#/";
+  const isCaseSectionAnchor = caseSectionAnchorPattern.test(hash);
+  const isMgidCaseRoute = hash.startsWith("#/case/mgid-feature-design") || isCaseSectionAnchor;
+  if (!isMgidCaseRoute && caseScrollRestorationIsManual && "scrollRestoration" in history) {
+    history.scrollRestoration = previousCaseScrollRestoration || "auto";
+    caseScrollRestorationIsManual = false;
+  }
   document.body.classList.toggle("is-home-route", ["#/", "#projects", "#about-preview"].includes(hash));
-  document.body.classList.toggle("is-work-route", hash === "#/projects");
+  document.body.classList.toggle("is-work-route", hash === "#/projects" || hash.startsWith("#/case/") || isCaseSectionAnchor);
 
+  const getActiveNavItem = () => {
+    if (hash === "#/" || hash === "" || hash === "#projects" || hash === "#about-preview") return "home";
+    if (hash === "#/projects" || hash.startsWith("#/case/") || isCaseSectionAnchor) return "work";
+    if (hash === "#/about") return "about";
+    return "";
+  };
+
+  const activeNavItem = getActiveNavItem();
   document.querySelectorAll("[data-nav-link]").forEach((link) => {
-    const isActive = link.dataset.navLink === "work" && hash === "#/projects";
+    const isActive = link.dataset.navLink === activeNavItem;
     link.classList.toggle("is-active", isActive);
     if (isActive) {
-      link.setAttribute("aria-current", "page");
+      link.setAttribute("aria-current", hash.startsWith("#/case/") ? "location" : "page");
     } else {
       link.removeAttribute("aria-current");
     }
@@ -975,23 +1251,37 @@ function route() {
       setupProjectShowcaseHover();
       setupTestimonials();
       setupHoverLinkPreviews();
+      setupCaseLightbox();
+      setupCaseSectionNav();
       app.classList.remove("is-changing");
-      caseNavLockHref = "";
-      clearTimeout(caseNavLockTimer);
-      if (scrollTarget && !isInitialRender) {
-        document.querySelector(scrollTarget)?.scrollIntoView({ behavior: hasRendered ? "smooth" : "auto" });
-      } else if (hasRendered) {
+      if (scrollTarget && hasRendered) {
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        document.querySelector(scrollTarget)?.scrollIntoView({
+          behavior: prefersReducedMotion ? "auto" : "smooth",
+          block: "start"
+        });
+      } else if (!scrollTarget && hasRendered) {
         window.scrollTo({ top: 0, behavior: "auto" });
-      } else {
-        window.scrollTo({ top: 0, behavior: "auto" });
+      } else if (!hasRendered) {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        if (isInitialMgidCase) {
+          requestAnimationFrame(() => {
+            window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+          });
+        }
       }
-      requestCaseSidebarSync();
+      setupCaseHeroParallax();
       hasRendered = true;
     });
   };
 
   clearTimeout(routeTimer);
   if (!hasRendered) {
+    render();
+    return;
+  }
+
+  if (isCaseSectionAnchor) {
     render();
     return;
   }
@@ -1009,8 +1299,6 @@ function toSentenceCase(str) {
 function makeLinksSentenceCase() {
   const selectors = [
     '.site-footer nav a',
-    '.case-section-nav a',
-    '.case-description-nav a',
     '.underline-link'
   ];
   const nodes = document.querySelectorAll(selectors.join(','));
@@ -1037,6 +1325,140 @@ function setupAccordions() {
       });
     });
   });
+}
+
+function updateCaseSectionNavActive() {
+  const nav = app.querySelector(".case-section-nav");
+  if (!nav) return;
+
+  const links = [...nav.querySelectorAll('a[href^="#"]:not([href="#/projects"])')];
+  const sections = links
+    .map((link) => ({ link, section: document.querySelector(link.getAttribute("href")) }))
+    .filter((item) => item.section);
+
+  if (!sections.length) return;
+
+  const anchorOffset = window.innerHeight * 0.28;
+  const active = sections.reduce((current, item) => {
+    const top = item.section.getBoundingClientRect().top;
+    return top <= anchorOffset ? item : current;
+  }, sections[0]);
+
+  links.forEach((link) => {
+    const isActive = link === active.link;
+    link.classList.toggle("is-active", isActive);
+    if (isActive) {
+      link.setAttribute("aria-current", "location");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+}
+
+function setupCaseSectionNav() {
+  caseSectionNavCleanup?.();
+  caseSectionNavObserver?.disconnect();
+  const nav = app.querySelector(".case-section-nav");
+  if (!nav) {
+    caseSectionNavCleanup = null;
+    caseSectionNavObserver = null;
+    return;
+  }
+
+  const links = [...nav.querySelectorAll('a[href^="#"]:not([href="#/projects"])')];
+  const sectionById = new Map(
+    links
+      .map((link) => {
+        const id = link.getAttribute("href")?.slice(1);
+        const section = id ? app.querySelector(`#${id}`) : null;
+        return section ? [id, { link, section }] : null;
+      })
+      .filter(Boolean)
+  );
+
+  const setActiveLink = (id) => {
+    links.forEach((link) => {
+      const isActive = link.getAttribute("href") === `#${id}`;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  };
+
+  const handleNavClick = (event) => {
+    const href = event.currentTarget.getAttribute("href");
+    if (!href || href === "#/projects") return;
+    event.preventDefault();
+    const sectionId = href.slice(1);
+    const section = document.getElementById(sectionId);
+    if (!section) {
+      console.error(`Missing case-study section: ${sectionId}`);
+      return;
+    }
+
+    setActiveLink(sectionId);
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    section.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "start"
+    });
+    const casePage = app.querySelector(".case-page");
+    const caseSlug = casePage?.className.match(/case-page-([a-z0-9-]+)/)?.[1] || "mgid-feature-design";
+    history.replaceState(null, "", `${window.location.pathname}${window.location.search}#/case/${caseSlug}`);
+  };
+
+  links.forEach((link) => link.addEventListener("click", handleNavClick));
+
+  const handleBodyEndActiveState = () => {
+    const body = app.querySelector(".case-study-body");
+    const lastSectionId = Array.from(sectionById.keys()).pop();
+    if (!body || !lastSectionId) return;
+    if (body.getBoundingClientRect().bottom <= window.innerHeight + 2) {
+      setActiveLink(lastSectionId);
+    }
+  };
+
+  window.addEventListener("scroll", handleBodyEndActiveState, { passive: true });
+
+  if ("IntersectionObserver" in window) {
+    caseSectionNavObserver = new IntersectionObserver((entries) => {
+      const visibleEntries = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
+      if (!visibleEntries.length) return;
+      setActiveLink(visibleEntries[0].target.id);
+    }, {
+      rootMargin: "-20% 0px -65% 0px",
+      threshold: 0
+    });
+
+    sectionById.forEach(({ section }) => caseSectionNavObserver.observe(section));
+  } else {
+    const handleScroll = () => updateCaseSectionNavActive();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+    caseSectionNavCleanup = () => {
+      links.forEach((link) => link.removeEventListener("click", handleNavClick));
+      window.removeEventListener("scroll", handleBodyEndActiveState);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+    updateCaseSectionNavActive();
+    return;
+  }
+
+  const currentAnchor = window.location.hash.replace("#", "");
+  setActiveLink(sectionById.has(currentAnchor) ? currentAnchor : sectionById.keys().next().value);
+
+  caseSectionNavCleanup = () => {
+    links.forEach((link) => link.removeEventListener("click", handleNavClick));
+    window.removeEventListener("scroll", handleBodyEndActiveState);
+    caseSectionNavObserver?.disconnect();
+    caseSectionNavObserver = null;
+  };
 }
 
 function setupMotion() {
@@ -1368,115 +1790,119 @@ function setupTestimonials() {
   };
 }
 
-function resetCaseSidebar(panel) {
-  panel.classList.remove("is-fixed", "is-hidden");
-  panel.style.left = "";
-  panel.style.top = "";
-  panel.style.width = "";
-}
+function setupCaseLightbox() {
+  caseLightboxCleanup?.();
+  caseLightboxCleanup = null;
 
-function syncCaseSidebar() {
-  const panel = app.querySelector(".case-fixed-panel");
-  const section = app.querySelector(".case-layout-section");
-  const layout = app.querySelector(".case-layout");
+  const triggers = [...app.querySelectorAll("[data-lightbox-image]")];
+  if (!triggers.length) return;
 
-  if (!panel || !section || !layout) return;
+  const lightbox = document.createElement("div");
+  lightbox.className = "case-lightbox";
+  lightbox.setAttribute("role", "dialog");
+  lightbox.setAttribute("aria-modal", "true");
+  lightbox.setAttribute("aria-hidden", "true");
+  lightbox.innerHTML = `
+    <button class="case-lightbox-close" type="button" aria-label="Close fullscreen image">×</button>
+    <figure class="case-lightbox-figure">
+      <img alt="" draggable="false" />
+      <figcaption></figcaption>
+    </figure>
+  `;
+  document.body.appendChild(lightbox);
 
-  if (window.matchMedia("(max-width: 991px)").matches) {
-    resetCaseSidebar(panel);
-    return;
-  }
+  const closeButton = lightbox.querySelector(".case-lightbox-close");
+  const image = lightbox.querySelector("img");
+  const caption = lightbox.querySelector("figcaption");
+  let previousFocus = null;
 
-  const topOffset = parseFloat(window.getComputedStyle(panel).top) || 104;
-  const sectionRect = section.getBoundingClientRect();
-  const layoutRect = layout.getBoundingClientRect();
-  const panelHeight = panel.offsetHeight;
-  const endOffset = topOffset + panelHeight + 24;
+  const openLightbox = (event) => {
+    const trigger = event.currentTarget;
+    previousFocus = document.activeElement;
+    image.src = trigger.dataset.lightboxImage;
+    image.alt = trigger.dataset.lightboxCaption || "Project feature image";
+    caption.textContent = trigger.dataset.lightboxCaption || "";
+    caption.hidden = !caption.textContent;
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("is-lightbox-open");
+    closeButton.focus({ preventScroll: true });
+  };
 
-  if (sectionRect.bottom <= endOffset) {
-    panel.classList.remove("is-fixed");
-    panel.classList.add("is-hidden");
-    panel.style.left = "";
-    panel.style.top = "";
-    panel.style.width = "";
-    return;
-  }
-
-  if (sectionRect.top <= topOffset) {
-    const sidebarWidth = window.getComputedStyle(layout).gridTemplateColumns.split(" ")[0];
-    panel.classList.add("is-fixed");
-    panel.classList.remove("is-hidden");
-    panel.style.left = `${layoutRect.left}px`;
-    panel.style.top = `${topOffset}px`;
-    panel.style.width = sidebarWidth;
-    return;
-  }
-
-  resetCaseSidebar(panel);
-}
-
-function setCaseSectionNavActive(links, activeLink) {
-  links.forEach((link) => {
-    const isActive = link === activeLink;
-    link.classList.toggle("is-active", isActive);
-    if (isActive) {
-      link.setAttribute("aria-current", "true");
-    } else {
-      link.removeAttribute("aria-current");
+  const closeLightbox = () => {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("is-lightbox-open");
+    image.removeAttribute("src");
+    if (previousFocus && typeof previousFocus.focus === "function") {
+      previousFocus.focus({ preventScroll: true });
     }
-  });
-}
+  };
 
-function syncCaseSectionNav() {
-  const links = [...app.querySelectorAll(".case-description-nav a")];
-  if (!links.length) return;
+  const handleBackdropClick = (event) => {
+    if (event.target === lightbox) closeLightbox();
+  };
 
-  if (caseNavLockHref) {
-    const lockedLink = links.find((link) => link.getAttribute("href") === caseNavLockHref);
-    if (lockedLink) setCaseSectionNavActive(links, lockedLink);
-    return;
-  }
-
-  const viewportTop = 72;
-  const viewportBottom = window.innerHeight;
-  let activeLink = links[0];
-  let activeVisibleArea = -1;
-
-  links.forEach((link) => {
-    const href = link.getAttribute("href") || "";
-    const section = href.startsWith("#") ? app.querySelector(href) : null;
-    if (!section) return;
-
-    const rect = section.getBoundingClientRect();
-    const visibleTop = Math.max(rect.top, viewportTop);
-    const visibleBottom = Math.min(rect.bottom, viewportBottom);
-    const visibleArea = Math.max(0, visibleBottom - visibleTop);
-
-    if (visibleArea > activeVisibleArea) {
-      activeVisibleArea = visibleArea;
-      activeLink = link;
+  const handleKeydown = (event) => {
+    if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+      closeLightbox();
     }
-  });
+  };
 
-  setCaseSectionNavActive(links, activeLink);
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", openLightbox);
+  });
+  closeButton.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", handleBackdropClick);
+  document.addEventListener("keydown", handleKeydown);
+
+  caseLightboxCleanup = () => {
+    triggers.forEach((trigger) => {
+      trigger.removeEventListener("click", openLightbox);
+    });
+    closeButton.removeEventListener("click", closeLightbox);
+    lightbox.removeEventListener("click", handleBackdropClick);
+    document.removeEventListener("keydown", handleKeydown);
+    document.body.classList.remove("is-lightbox-open");
+    lightbox.remove();
+  };
 }
 
-function releaseCaseNavLockAfterScroll() {
-  if (!caseNavLockHref) return;
-  clearTimeout(caseNavLockTimer);
-  caseNavLockTimer = setTimeout(() => {
-    caseNavLockHref = "";
-    requestCaseSidebarSync();
-  }, 180);
-}
+function setupCaseHeroParallax() {
+  caseHeroParallaxCleanup?.();
+  caseHeroParallaxCleanup = null;
 
-function requestCaseSidebarSync() {
-  if (caseSidebarRaf) return;
-  caseSidebarRaf = requestAnimationFrame(() => {
-    caseSidebarRaf = null;
-    syncCaseSidebar();
-    syncCaseSectionNav();
-  });
+  const visual = app.querySelector(".case-visual-section .case-hero-visual");
+  const image = visual?.querySelector(".project-image");
+  if (!visual || !image || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  let frameId = 0;
+
+  const syncParallax = () => {
+    frameId = 0;
+    const rect = visual.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
+    const clamped = Math.max(0, Math.min(1, progress));
+    const translateY = (clamped - 0.5) * -56;
+    image.style.transform = `translate3d(0, ${translateY.toFixed(1)}px, 0) scale(1.06)`;
+  };
+
+  const requestSync = () => {
+    if (frameId) return;
+    frameId = requestAnimationFrame(syncParallax);
+  };
+
+  window.addEventListener("scroll", requestSync, { passive: true });
+  window.addEventListener("resize", requestSync);
+  syncParallax();
+
+  caseHeroParallaxCleanup = () => {
+    window.removeEventListener("scroll", requestSync);
+    window.removeEventListener("resize", requestSync);
+    cancelAnimationFrame(frameId);
+    image.style.transform = "";
+  };
 }
 
 function setupGlobalInteractions() {
@@ -1495,40 +1921,16 @@ function setupGlobalInteractions() {
 
   window.addEventListener("scroll", () => {
     syncHeaderState();
-    requestCaseSidebarSync();
-    releaseCaseNavLockAfterScroll();
   }, { passive: true });
 
   window.addEventListener("resize", () => {
     syncHeaderState();
-    requestCaseSidebarSync();
-  });
-
-  app.addEventListener("click", (event) => {
-    const link = event.target.closest(".case-description-nav a, .case-section-nav a");
-    if (!link) return;
-    const href = link.getAttribute("href") || "";
-    if (!href.startsWith("#case-s-")) return;
-
-    const target = document.querySelector(href);
-    if (!target) return;
-
-    event.preventDefault();
-    caseNavLockHref = href;
-    const caseNavLinks = [...app.querySelectorAll(".case-description-nav a")];
-    const clickedCaseNavLink = caseNavLinks.find((navLink) => navLink.getAttribute("href") === href);
-    setCaseSectionNavActive(caseNavLinks, clickedCaseNavLink || link);
-    clearTimeout(caseNavLockTimer);
-    caseNavLockTimer = setTimeout(() => {
-      caseNavLockHref = "";
-      requestCaseSidebarSync();
-    }, 1200);
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
   syncHeaderState();
 }
 
 setupGlobalInteractions();
+window.addEventListener("popstate", route);
 window.addEventListener("hashchange", route);
 route();
