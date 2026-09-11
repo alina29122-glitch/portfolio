@@ -158,9 +158,10 @@ const projects = [
         title: "Designing scalable advertiser workflows",
         eyebrow: "/ADVERTISERS",
         challenge: {
-          label: "Challenge",
-          statement: "Advertisers manage performance, budgets, tracking, and traffic controls in one data-heavy dashboard. As the platform evolved, new capabilities had to fit into existing workflows without making frequent tasks harder to complete."
+          label: "CHALLENGE",
+          statement: "Advertisers manage performance, budgets, tracking, and traffic controls in one data-heavy platform. As MGID evolved, new capabilities had to fit into existing workflows without making frequent tasks harder to complete."
         },
+        body: "I designed advertiser-focused features to improve campaign management, performance tracking, integrations, and targeting precision. My goal was to help advertisers launch, optimize, and scale campaigns efficiently while making data-backed decision-making intuitive and accessible.",
         bullets: [],
         featureLayout: "grid",
         caseFeatureRows: [
@@ -191,46 +192,27 @@ const projects = [
         title: "Designing 60+ native ad formats",
         eyebrow: "/PUBLISHERS",
         body:
-          "I combined behavioral research, performance data, and publisher feedback to understand how placement and presentation affected engagement.",
+          "I led the end-to-end design of 60+ native ad widget formats, balancing monetization, visibility, and engagement while integrating ads naturally into publisher content.\n\nUsing heatmaps, session recordings, performance analytics, A/B testing, and publisher feedback, I evaluated how placement and presentation affected engagement. I also built MGID’s widget design system from scratch, turning recurring design decisions into reusable rules for creating and adapting new formats across publisher platforms.",
         challenge: {
-          label: "The challenge",
-          statement: "Publishers need ad formats that generate revenue and remain visible without interrupting how people consume content. Each publisher also has different layouts, customization needs, and monetization goals, making one fixed format impossible to scale.",
-          question: "How might we create flexible native ad formats that support monetization while preserving the reading experience?"
+          label: "CHALLENGE",
+          statement: "Publishers needed ad formats that generated revenue and remained visible without disrupting how people consumed content. Different page structures, customization needs, and monetization goals made one fixed format impossible to scale."
         },
         bullets: [],
-        researchLabel: "Research & validation",
-        researchTags: [
-          "Heatmaps",
-          "Session recordings",
-          "A/B testing",
-          "Performance analytics",
-          "Publisher feedback"
-        ],
-        closingLabel: "Scaling the system",
-        closingTitle: "Turning insights into a scalable system",
-        closingStatement: "I built MGID’s widget design system from scratch, giving the team a consistent framework for creating, customizing, testing, and implementing new formats across publisher platforms.",
         featureLayout: "stack",
         caseFeatureRows: [
           {
             label: "Smart widgets",
-            title: "Personalized layouts for stronger engagement",
-            context: "Publishers needed ad formats that could adapt to different content environments while keeping recommendations relevant to readers.",
-            solution: "I designed AI-powered layouts that personalized content and ad presentation, balancing engagement with monetization.",
+            title: "Optimizing formats for engagement",
+            context: "Publishers needed ad formats that could adapt to different content environments and audience behaviors while keeping recommendations relevant and engaging.",
+            solution: "I designed flexible, AI-powered widget layouts that adjusted content hierarchy and presentation to improve engagement while supporting publisher monetization.",
             image: "mgid-widget-01"
           },
           {
-            label: "In-article & under-article widgets",
-            title: "Native placements within the reading experience",
-            context: "Ad placements needed to remain visible without interrupting how users consumed editorial content.",
-            solution: "I designed native formats for in-article and post-article placements that integrated naturally into the reading experience.",
+            label: "Native placements",
+            title: "Preserving the reading experience",
+            context: "Ads needed to remain visible and effective without disrupting how people consumed content on publisher websites.",
+            solution: "I designed native placements that integrated recommendations into the reading flow, balancing ad visibility and engagement with audience trust.",
             image: "mgid-widget-02"
-          },
-          {
-            label: "Additional widget formats",
-            title: "Supporting diverse publisher layouts",
-            context: "Different page structures and monetization strategies could not be supported by a single placement model.",
-            solution: "I expanded the library with header, sidebar, pop-up, notification, and sticky formats, giving publishers greater flexibility across layouts.",
-            image: "mgid-widget-03"
           }
         ]
       },
@@ -238,7 +220,23 @@ const projects = [
         title: "Lessons learned",
         eyebrow: "/retrospective",
         body:
-          "Working across both sides of the platform taught me that changes made for one audience can reshape the experience of the other. The strongest solutions came from balancing advertiser control, publisher monetization, and audience trust rather than optimizing any one metric in isolation.\n\nThe project also reinforced the value of combining behavioral research with post-release data and building systems flexible enough to evolve with the product.",
+          "Improving advertiser control could affect publisher monetization and audience trust. The strongest solutions came from evaluating each change across the entire ecosystem rather than optimizing one metric in isolation.",
+        accentBody: "One platform. Two audiences. No decision made in isolation.",
+        lessonCardsLayout: "editorial",
+        lessonCards: [
+          {
+            title: "What changed my approach",
+            body: "Behavioral research explained user needs, while post-release data showed how solutions performed in real conditions."
+          },
+          {
+            title: "What made the work scale",
+            body: "The widget design system turned repeated decisions into reusable rules, making new formats faster and more consistent to deliver."
+          },
+          {
+            title: "What I’d explore next",
+            body: "If I revisited the project, I would explore deeper personalization around the distinct jobs-to-be-done of advertisers and publishers."
+          }
+        ],
         bullets: []
       }
     ]
@@ -870,9 +868,7 @@ function renderCase(slug) {
     return;
   }
 
-  const caseHeroTitle = project.slug === "mgid-feature-design"
-    ? project.title.replace("850M+ monthly users", "<br />850M+ monthly users")
-    : project.title;
+  const caseHeroTitle = project.title;
   const contentSections = project.sections;
 
   const renderBodyWithEcosystemDiagram = (section) => {
@@ -907,11 +903,11 @@ function renderCase(slug) {
       ${section.lead ? `<p class="case-section-lead">${section.lead}</p>` : ""}
       ${section.challenge ? `
         <div class="case-challenge-block">
-          <p class="case-challenge-label">${section.challenge.label}</p>
-          <p class="case-challenge-statement">${section.challenge.statement}</p>
+          <p class="case-challenge-statement"><span class="case-challenge-label">${section.challenge.label}</span> ${section.challenge.statement}</p>
           ${section.challenge.question ? `<p class="case-challenge-question">${section.challenge.question}</p>` : ""}
         </div>
       ` : ""}
+      ${section.accentBody ? `<p class="case-section-accent">${section.accentBody}</p>` : ""}
       ${renderBodyWithEcosystemDiagram(section)}
       ${section.bullets && section.bullets.length ? `<ul>${section.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>` : ""}
       ${section.researchTags ? `
@@ -961,16 +957,17 @@ function renderCase(slug) {
         </div>
       ` : ""}
       ${section.lessonCards ? `
-        <div class="lesson-cards">
+        <div class="lesson-cards${section.lessonCardsLayout === "editorial" ? " lesson-cards-editorial" : ""}">
           ${section.lessonCards.map((lesson, lessonIndex) => `
             <article class="lesson-card">
-              <p class="lesson-card-number">${String(lessonIndex + 1).padStart(2, "0")}</p>
+              ${section.lessonCardsLayout === "editorial" ? "" : `<p class="lesson-card-number">${String(lessonIndex + 1).padStart(2, "0")}</p>`}
               <h3>${lesson.title}</h3>
               <p>${lesson.body}</p>
             </article>
           `).join("")}
         </div>
       ` : ""}
+      ${section.closingBody ? `<p class="body-copy case-closing-body">${section.closingBody}</p>` : ""}
       ${section.closingStatement ? section.closingTitle ? `
         <div class="case-scaling-step">
           <p class="case-scaling-step-label">${section.closingLabel}</p>
@@ -1388,6 +1385,45 @@ function setupCaseSectionNav() {
     });
   };
 
+  const caseBody = app.querySelector(".case-page-mgid-feature-design .case-study-body");
+  const sidebar = caseBody?.querySelector(".case-study-sidebar");
+  const syncStickyPosition = () => {
+    if (!caseBody || !sidebar) return;
+    if (window.matchMedia("(max-width: 1199px)").matches) {
+      const navTop = Math.ceil((header?.getBoundingClientRect().height || 74) + 12);
+      caseBody.style.setProperty("--case-sticky-offset", `${navTop}px`);
+      sectionById.forEach(({ section }) => {
+        section.style.setProperty("--case-anchor-offset", `${navTop + sidebar.offsetHeight + 24}px`);
+      });
+      return;
+    }
+
+    const headerHeight = header?.getBoundingClientRect().height || 74;
+    const initialGap = parseFloat(getComputedStyle(caseBody).paddingTop) || 0;
+    const availableTop = window.innerHeight - sidebar.offsetHeight - 24;
+    const stickyTop = Math.round(Math.max(headerHeight + 24, Math.min(headerHeight + initialGap, availableTop)));
+    caseBody.style.setProperty("--case-sticky-offset", `${stickyTop}px`);
+    sectionById.forEach(({ section }) => {
+      const style = getComputedStyle(section);
+      const contentInset = parseFloat(style.paddingTop) + parseFloat(style.borderTopWidth);
+      section.style.setProperty("--case-anchor-offset", `${stickyTop - contentInset}px`);
+    });
+  };
+  const stickyResizeObserver = caseBody && "ResizeObserver" in window
+    ? new ResizeObserver(syncStickyPosition)
+    : null;
+  if (caseBody) {
+    window.addEventListener("resize", syncStickyPosition);
+    [header, sidebar, caseBody].filter(Boolean).forEach((element) => stickyResizeObserver?.observe(element));
+    syncStickyPosition();
+  }
+  const cleanupStickyPosition = () => {
+    stickyResizeObserver?.disconnect();
+    window.removeEventListener("resize", syncStickyPosition);
+    caseBody?.style.removeProperty("--case-sticky-offset");
+    sectionById.forEach(({ section }) => section.style.removeProperty("--case-anchor-offset"));
+  };
+
   const handleNavClick = (event) => {
     const href = event.currentTarget.getAttribute("href");
     if (!href || href === "#/projects") return;
@@ -1400,6 +1436,7 @@ function setupCaseSectionNav() {
     }
 
     setActiveLink(sectionId);
+    syncStickyPosition();
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     section.scrollIntoView({
       behavior: prefersReducedMotion ? "auto" : "smooth",
@@ -1441,6 +1478,7 @@ function setupCaseSectionNav() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll);
     caseSectionNavCleanup = () => {
+      cleanupStickyPosition();
       links.forEach((link) => link.removeEventListener("click", handleNavClick));
       window.removeEventListener("scroll", handleBodyEndActiveState);
       window.removeEventListener("scroll", handleScroll);
@@ -1454,6 +1492,7 @@ function setupCaseSectionNav() {
   setActiveLink(sectionById.has(currentAnchor) ? currentAnchor : sectionById.keys().next().value);
 
   caseSectionNavCleanup = () => {
+    cleanupStickyPosition();
     links.forEach((link) => link.removeEventListener("click", handleNavClick));
     window.removeEventListener("scroll", handleBodyEndActiveState);
     caseSectionNavObserver?.disconnect();

@@ -1,5 +1,6 @@
 :root {
-  --site-container-gutter: clamp(72px, 5.3vw, 110px);
+  /* Reference grid: a centered 1400px column with minimum 5vw gutters. */
+  --site-container-gutter: max(5vw, calc((100% - var(--grid-max)) / 2));
   --dark: #161a20;
   --extra-dark: #12151a;
   --body-display: #a0a1af;
@@ -8,10 +9,10 @@
   --background: #fafbfc;
   --bright-pink: #ee98ad;
   --red: #ff5a2f;
-  --grid-max: 1320px;
+  --grid-max: 1400px;
   --main-container-width: var(--grid-max);
   --page-max-width: var(--main-container-width);
-  --grid-gutter: clamp(24px, 4vw, 72px);
+  --grid-gutter: 5vw;
   --page-gutter: var(--grid-gutter);
   --grid-gap: 28px;
   --header-height: 72px;
@@ -3926,8 +3927,8 @@ h1.lead {
 
 .other-cases-heading {
   color: #fff;
-  font-size: clamp(54px, 7vw, 104px);
-  font-weight: 400;
+  font-size: 80px;
+  font-weight: 300;
   letter-spacing: 0;
   line-height: 0.95;
   margin: 0 0 clamp(48px, 6vw, 84px);
@@ -3948,7 +3949,7 @@ h1.lead {
 .other-case-media {
   aspect-ratio: 1.37 / 1;
   background: rgba(255, 255, 255, 0.04);
-  border-radius: 8px;
+  border-radius: 2px;
   display: block;
   overflow: hidden;
   position: relative;
@@ -4096,20 +4097,6 @@ h1.lead {
     translate: none;
   }
 
-}
-
-@media screen and (min-width: 1440px) {
-  :root {
-    --grid-max: 1320px;
-    --grid-gutter: 72px;
-  }
-}
-
-@media screen and (min-width: 1280px) and (max-width: 1439px) {
-  :root {
-    --grid-max: 1320px;
-    --grid-gutter: clamp(48px, 5vw, 64px);
-  }
 }
 
 @media screen and (min-width: 1100px) {
@@ -4262,11 +4249,6 @@ h1.lead {
 }
 
 @media screen and (max-width: 991px) {
-  :root {
-    --grid-max: 728px;
-    --grid-gutter: 32px;
-  }
-
   .portfolio-header {
     padding: 12px var(--grid-gutter) 16px;
   }
@@ -4658,11 +4640,6 @@ h1.lead {
 }
 
 @media screen and (max-width: 767px) {
-  :root {
-    --grid-max: none;
-    --grid-gutter: 24px;
-  }
-
   .portfolio-header {
     padding: 0 var(--grid-gutter) 14px;
   }
@@ -5413,10 +5390,6 @@ h1.lead {
 }
 
 @media screen and (max-width: 479px) {
-  :root {
-    --grid-gutter: 20px;
-  }
-
   .section {
     padding-bottom: 80px;
     padding-top: 80px;
@@ -5504,7 +5477,7 @@ h1.lead {
   gap: clamp(56px, 4.5vw, 72px);
   grid-template-columns: 1fr;
   grid-template-rows: auto minmax(0, 1fr);
-  max-width: calc(var(--main-container-width) + 24px);
+  max-width: var(--main-container-width);
   min-height: calc(100svh - clamp(144px, 18vh, 208px));
 }
 
@@ -5531,7 +5504,7 @@ h1.lead {
 
 .case-hero-copy .page-title {
   color: #fff;
-  font-size: clamp(48px, 4.8vw, 80px);
+  font-size: 80px;
   font-weight: 300;
   letter-spacing: -0.01em;
   line-height: 1.14;
@@ -5659,6 +5632,7 @@ h1.lead {
 
 .case-hero-visual {
   aspect-ratio: auto;
+  border-radius: 2px;
   height: min(calc(62svh + 120px), 800px);
   margin-left: auto;
   margin-right: auto;
@@ -6160,6 +6134,7 @@ body.is-lightbox-open {
   aspect-ratio: 1.48 / 1;
   background: transparent;
   border: 0;
+  border-radius: 2px;
   color: inherit;
   cursor: zoom-in;
   display: block;
@@ -6212,17 +6187,19 @@ body.is-lightbox-open {
 }
 
 .case-page-mgid-feature-design .case-study-body {
-  --case-section-gap: 84px;
+  --case-section-gap: 108px;
   --header-height: 74px;
   --case-sticky-offset: calc(var(--header-height) + 24px);
   display: grid;
   column-gap: clamp(64px, 5.4vw, 80px);
   grid-template-columns: minmax(200px, 220px) minmax(0, 1fr);
-  max-width: none;
-  padding-left: var(--grid-gutter);
-  padding-right: var(--grid-gutter);
+  max-width: var(--main-container-width);
+  padding-left: 0;
+  padding-right: 0;
   padding-top: clamp(120px, 10vw, 140px);
-  width: 100%;
+  padding-bottom: 0;
+  margin-bottom: clamp(88px, 10vw, 148px);
+  width: calc(100% - (var(--grid-gutter) * 2));
 }
 
 .case-page-mgid-feature-design .case-study-content {
@@ -6239,7 +6216,7 @@ body.is-lightbox-open {
   height: fit-content;
   margin: 0;
   position: sticky;
-  top: calc(var(--header-height) + 24px);
+  top: var(--case-sticky-offset);
   transform: none;
   transition: none;
   will-change: auto;
@@ -6315,11 +6292,13 @@ body.is-lightbox-open {
 .case-page-mgid-feature-design #context .case-reference-content > .body-copy {
   color: var(--body-display);
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 28px;
   max-width: 1050px;
 }
 
-.case-page-mgid-feature-design #context .case-reference-content > .body-copy:first-of-type {
+.case-page-mgid-feature-design #context .case-reference-content > .body-copy:first-of-type,
+.case-page-mgid-feature-design .case-section-accent,
+.case-page-mgid-feature-design .case-challenge-statement {
   color: #fff;
   font-size: 24px;
   line-height: 1.4;
@@ -6421,7 +6400,7 @@ body.is-lightbox-open {
 
 .case-page-mgid-feature-design .case-study-body .case-section {
   padding: var(--case-section-gap) 0;
-  scroll-margin-top: var(--case-sticky-offset);
+  scroll-margin-top: var(--case-anchor-offset, var(--case-sticky-offset));
 }
 
 .case-page-mgid-feature-design #advertisers .case-reference-content {
@@ -6468,20 +6447,25 @@ body.is-lightbox-open {
 }
 
 .case-page-mgid-feature-design .case-challenge-label {
-  color: var(--body-display);
-  font-size: clamp(13px, 0.9vw, 14px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #fff;
+  border-radius: 999px;
+  color: #fff;
+  display: inline-block;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.08em;
   line-height: 1.3;
-  margin: 0 0 clamp(24px, 2vw, 32px);
+  margin: 0 10px 0 0;
+  padding: 2px 12px;
   text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 
 .case-page-mgid-feature-design .case-challenge-statement {
   color: #fff;
-  font-size: clamp(32px, 2.5vw, 40px);
   font-weight: 300;
-  line-height: 1.22;
   margin: 0;
   max-width: 1040px;
 }
@@ -6616,13 +6600,13 @@ body.is-lightbox-open {
   color: var(--body-display);
   font-size: 18px;
   font-weight: 300;
-  line-height: 1.6;
+  line-height: 28px;
   max-width: 1040px;
 }
 
 .case-page-mgid-feature-design #publishers .body-copy {
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 28px;
 }
 
 .case-page-mgid-feature-design #publishers .body-copy,
@@ -6690,7 +6674,7 @@ body.is-lightbox-open {
 .case-page-mgid-feature-design .case-feature-card .case-feature-label {
   color: var(--body-display);
   display: block;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.08em;
   line-height: 1.25;
@@ -6699,14 +6683,13 @@ body.is-lightbox-open {
 }
 
 .case-page-mgid-feature-design .case-feature-card h3 {
-  font-size: clamp(24px, 2vw, 36px);
-  line-height: 1.15;
+  font-size: 36px;
+  line-height: 44px;
   margin: 0;
   max-width: 420px;
 }
 
 .case-page-mgid-feature-design .case-feature-card-detailed h3 {
-  font-size: clamp(28px, 2.4vw, 44px);
   max-width: 520px;
 }
 
@@ -6730,15 +6713,15 @@ body.is-lightbox-open {
 
 .case-page-mgid-feature-design .case-feature-card p:not(.case-feature-label):not(.case-feature-detail-label) {
   color: var(--body-display);
-  font-size: clamp(14px, 0.94vw, 16px);
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 28px;
   margin: 0;
   max-width: 620px;
 }
 
 .case-page-mgid-feature-design .case-feature-card-detailed p:not(.case-feature-label):not(.case-feature-detail-label) {
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 28px;
 }
 
 .case-page-mgid-feature-design .case-feature-detail {
@@ -6761,7 +6744,7 @@ body.is-lightbox-open {
   .case-hero-layout {
     gap: 64px;
     grid-template-columns: 1fr;
-    max-width: min(calc(100vw - (var(--grid-gutter) * 2)), calc(var(--main-container-width) + 24px));
+    max-width: var(--main-container-width);
     min-height: calc(100svh - clamp(144px, 18vh, 208px));
     width: calc(100vw - (var(--grid-gutter) * 2));
   }
@@ -6964,7 +6947,7 @@ body.is-lightbox-open {
     display: grid;
     gap: 48px;
     grid-template-columns: 1fr;
-    max-width: min(calc(100vw - (var(--grid-gutter) * 2)), calc(var(--main-container-width) + 24px));
+    max-width: var(--main-container-width);
     min-height: calc(100svh - 124px);
     width: calc(100vw - (var(--grid-gutter) * 2));
   }
@@ -7102,7 +7085,7 @@ body.is-lightbox-open {
     font-size: clamp(28px, 8vw, 40px);
   }
 
-  .case-page-mgid-feature-design #publishers .case-reference-content > h2 {
+  .case-page-mgid-feature-design :is(#advertisers, #publishers) .case-reference-content > h2 {
     font-size: clamp(28px, 8vw, 40px);
   }
 
@@ -7139,7 +7122,7 @@ body.is-lightbox-open {
   }
 
   .case-page-mgid-feature-design #context .case-reference-content > .body-copy {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .case-page-mgid-feature-design .case-feature-card .case-feature-copy {
@@ -7156,4 +7139,228 @@ body.is-lightbox-open {
     aspect-ratio: auto;
   }
 
+}
+
+/* Keep navigation and the full-height hero on the shared content grid. */
+.portfolio-header-nav {
+  margin-inline: auto;
+  max-width: var(--main-container-width);
+}
+
+.minimal-hero {
+  padding-inline: var(--site-container-gutter);
+}
+
+.minimal-hero-bottom {
+  left: var(--site-container-gutter);
+  right: var(--site-container-gutter);
+}
+
+@media screen and (min-width: 992px) {
+  .minimal-hero-title {
+    --hero-name-size: clamp(132px, 12.8vw, 199px);
+  }
+}
+
+/* Advertiser and publisher introductions share typography and spacing. */
+.case-page-mgid-feature-design :is(#advertisers, #publishers) .case-reference-content {
+  gap: 0;
+}
+
+.case-page-mgid-feature-design :is(#advertisers, #publishers) .case-challenge-block {
+  margin-top: clamp(40px, 3vw, 48px);
+  max-width: 1050px;
+}
+
+.case-page-mgid-feature-design :is(#advertisers, #publishers) .case-challenge-statement {
+  max-width: 1050px;
+}
+
+.case-page-mgid-feature-design :is(#advertisers, #publishers) .case-challenge-label {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #fff;
+  border-radius: 999px;
+  display: inline-block;
+  font-size: 11px;
+  line-height: 16px;
+  margin: 0 10px 0 0;
+  padding: 2px 12px;
+}
+
+.case-page-mgid-feature-design :is(#advertisers, #publishers) .case-reference-content > .body-copy {
+  font-size: 18px;
+  line-height: 28px;
+  margin: 32px 0 0;
+  max-width: 1050px;
+}
+
+.case-page-mgid-feature-design :is(#advertisers, #publishers) .case-feature-list-grid {
+  margin-top: clamp(80px, 6vw, 96px);
+}
+
+.case-page-mgid-feature-design :is(#advertisers, #publishers) .case-feature-card:first-child .case-feature-label {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.case-page-mgid-feature-design :is(#advertisers, #publishers) .case-feature-card:first-child .case-feature-body-group p {
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.case-page-mgid-feature-design #reflection .case-reference-content > .body-copy {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.case-page-mgid-feature-design #reflection .case-section-accent {
+  font-weight: 300;
+  margin: 8px 0 0;
+}
+
+.lesson-cards-editorial {
+  align-items: start;
+}
+
+.lesson-cards-editorial .lesson-card {
+  border-top: 0;
+  gap: 14px;
+  min-width: 0;
+  padding: 0;
+}
+
+.lesson-cards-editorial .lesson-card h3 {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 22px;
+  line-height: 28px;
+  padding-bottom: 14px;
+  text-transform: none;
+}
+
+.lesson-cards-editorial .lesson-card p {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Consistent chapter transitions and stronger supporting copy in the MGID case. */
+.case-page-mgid-feature-design .case-study-body :is(#advertisers, #publishers, #reflection) {
+  border-top: 1px solid var(--light-outline);
+  margin-top: 0;
+  padding-block: var(--case-section-gap);
+}
+
+.case-page-mgid-feature-design .case-feature-body-group,
+.case-page-mgid-feature-design #reflection {
+  --body-display: #b5b6c2;
+}
+
+.case-page-mgid-feature-design > .cta-band {
+  padding-block: clamp(48px, 6.65vw, 104px);
+}
+
+body:has(.case-page-mgid-feature-design) .site-footer {
+  padding-top: 24px;
+}
+
+/* Let short viewports grow with the hero's content instead of overlapping it. */
+.case-page-mgid-feature-design .case-layout-section {
+  height: auto;
+}
+
+.case-page-mgid-feature-design .case-hero-copy {
+  transform: none;
+}
+
+.case-page-mgid-feature-design .case-hero-details p {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+body:has(.case-page-mgid-feature-design) .case-lightbox img {
+  max-height: calc(100svh - 140px);
+}
+
+@media (max-width: 1199px) {
+  .case-page-mgid-feature-design .case-study-body {
+    --case-section-gap: clamp(64px, 8vw, 96px);
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .case-page-mgid-feature-design .case-study-sidebar,
+  .case-page-mgid-feature-design .case-study-main {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .case-page-mgid-feature-design .case-study-sidebar {
+    background: var(--dark);
+    border-block: 1px solid var(--light-outline);
+    margin: 0;
+    max-height: none;
+    overflow: visible;
+    padding: 8px 0;
+    width: 100%;
+    z-index: 60;
+  }
+
+  .case-page-mgid-feature-design .case-section-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 20px;
+    min-width: 0;
+  }
+
+  .case-page-mgid-feature-design .case-section-nav a {
+    align-items: center;
+    display: inline-flex;
+    min-height: 44px;
+  }
+
+  .case-page-mgid-feature-design #context {
+    padding-top: 40px;
+  }
+
+  .case-page-mgid-feature-design #context::before {
+    content: none;
+  }
+
+  .case-page-mgid-feature-design .case-feature-card,
+  .case-page-mgid-feature-design .case-feature-card:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .case-page-mgid-feature-design .case-feature-card .case-feature-copy,
+  .case-page-mgid-feature-design .case-feature-card .case-feature-media {
+    grid-column: 1;
+    grid-row: auto;
+    max-width: 100%;
+  }
+
+  .case-page-mgid-feature-design .case-feature-card-detailed .case-feature-copy {
+    height: auto;
+    grid-template-rows: auto;
+  }
+
+  .case-page-mgid-feature-design .case-hero-copy .page-title {
+    font-size: clamp(36px, 5.2vw, 62px);
+  }
+}
+
+@media (max-width: 599px) {
+  .case-page-mgid-feature-design .case-ecosystem-row,
+  .case-page-mgid-feature-design .lesson-cards-editorial {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .case-page-mgid-feature-design .case-ecosystem-connector {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+
+  .case-page-mgid-feature-design #context .case-reference-content > h2 {
+    font-size: clamp(28px, 8vw, 40px);
+  }
 }
