@@ -1,0 +1,634 @@
+/* Only the MGID Onboarding page: shared case layout and components stay intact. */
+.case-page-mgid-user-activation {
+  --onboarding-copy: #b5b6c2;
+  --onboarding-block-gap: clamp(80px, 6vw, 96px);
+}
+
+.case-page-mgid-user-activation :is(#tldr, #research, #activation, #outcome, #reflection) .case-reference-content {
+  gap: 0;
+}
+
+.case-page-mgid-user-activation :is(#tldr, #research, #activation, #outcome, #reflection) .case-reference-content > h2 {
+  font-size: 48px;
+  line-height: 52px;
+  margin: 0;
+  max-width: 1040px;
+}
+
+.case-page-mgid-user-activation :is(#tldr, #research, #activation, #outcome, #reflection) .case-reference-content > .body-copy {
+  color: var(--onboarding-copy);
+  font-size: 18px;
+  line-height: 28px;
+  margin: 32px 0 0;
+  max-width: 1050px;
+}
+
+.case-page-mgid-user-activation .onboarding-lead {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 34px;
+  margin: 0;
+  max-width: 1050px;
+}
+
+.case-page-mgid-user-activation #tldr .onboarding-lead,
+.case-page-mgid-user-activation #outcome .onboarding-lead {
+  font-size: 24px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.case-page-mgid-user-activation .onboarding-visual {
+  aspect-ratio: 3 / 2;
+  border-radius: 2px;
+  min-width: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.case-page-mgid-user-activation .onboarding-visual.case-hero-visual {
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
+.case-page-mgid-user-activation #research [data-onboarding-visual="research"] {
+  aspect-ratio: 5 / 2;
+  margin: 0;
+}
+
+.case-page-mgid-user-activation #research .onboarding-research-artifact {
+  display: grid;
+  gap: 16px;
+  margin: clamp(40px, 3vw, 48px) 0 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.case-page-mgid-user-activation #research .onboarding-research-board {
+  appearance: none;
+  cursor: zoom-in;
+  background: transparent;
+  border: 0;
+  border-radius: 2px;
+  display: block;
+  padding: 0;
+  width: 100%;
+}
+
+.case-page-mgid-user-activation #research .onboarding-research-board:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 4px;
+}
+
+.case-page-mgid-user-activation #research .onboarding-research-board img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.case-page-mgid-user-activation #research .onboarding-research-artifact figcaption {
+  color: var(--body-display);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.case-page-mgid-user-activation #research .case-reference-content > .onboarding-research-transition {
+  margin-top: var(--onboarding-block-gap);
+  max-width: 960px;
+}
+
+.case-page-mgid-user-activation #activation .case-reference-content > .onboarding-lead {
+  margin-top: 0;
+}
+
+.case-page-mgid-user-activation .onboarding-placeholder {
+  align-items: center;
+  background: var(--extra-dark);
+  color: var(--body-display);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  width: 100%;
+}
+
+.case-page-mgid-user-activation .onboarding-placeholder span {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 18px;
+  max-width: 360px;
+  overflow-wrap: anywhere;
+}
+
+.case-page-mgid-user-activation .onboarding-visual img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.case-page-mgid-user-activation .case-feature-card .case-feature-media {
+  aspect-ratio: 3 / 2;
+  cursor: default;
+}
+
+.case-page-mgid-user-activation .onboarding-metrics,
+.case-page-mgid-user-activation .onboarding-columns {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: var(--onboarding-block-gap);
+}
+
+.case-page-mgid-user-activation .onboarding-metric,
+.case-page-mgid-user-activation .onboarding-column {
+  border-top: 1px solid var(--light-outline);
+  min-width: 0;
+  padding-top: 20px;
+}
+
+.case-page-mgid-user-activation .onboarding-metric strong {
+  color: #fff;
+  display: block;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 44px;
+  margin-bottom: 12px;
+}
+
+.case-page-mgid-user-activation .onboarding-research-method {
+  margin-top: clamp(40px, 3vw, 48px);
+}
+
+.case-page-mgid-user-activation .onboarding-research-method .onboarding-column {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.case-page-mgid-user-activation #tldr .onboarding-metric,
+.case-page-mgid-user-activation #outcome .onboarding-metric {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.case-page-mgid-user-activation #tldr .onboarding-metric strong {
+  font-size: 48px;
+  line-height: 56px;
+}
+
+.case-page-mgid-user-activation .onboarding-metrics-primary {
+  margin-block: calc(var(--onboarding-block-gap) - 24px);
+}
+
+.case-page-mgid-user-activation .onboarding-metrics-primary strong {
+  font-size: 64px;
+  line-height: 72px;
+}
+
+.case-page-mgid-user-activation #outcome .case-reference-content {
+  gap: var(--onboarding-block-gap);
+}
+
+.case-page-mgid-user-activation #outcome .onboarding-metrics-primary {
+  margin: 0;
+}
+
+.case-page-mgid-user-activation .onboarding-metric p,
+.case-page-mgid-user-activation .onboarding-column p {
+  color: var(--onboarding-copy);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  margin: 0;
+}
+
+.case-page-mgid-user-activation .onboarding-column h3,
+.case-page-mgid-user-activation .onboarding-research-method h6 {
+  color: #fff;
+  font-size: var(--category-label-size);
+  font-weight: var(--category-label-weight);
+  letter-spacing: 1px;
+  line-height: 20px;
+  margin: 0 0 14px;
+}
+
+.case-page-mgid-user-activation .onboarding-next {
+  display: grid;
+  justify-items: start;
+  gap: 24px;
+  margin-top: calc(var(--onboarding-block-gap) - 24px);
+}
+
+.case-page-mgid-user-activation .onboarding-next .case-challenge-label,
+.case-page-mgid-user-activation .onboarding-next .onboarding-lead {
+  margin: 0;
+}
+
+/* Use integer font sizes at the established case breakpoints. */
+.case-page-mgid-user-activation .case-section-nav {
+  font-size: 12px;
+}
+
+.case-page-mgid-user-activation .case-hero-copy .page-title {
+  font-size: 80px;
+}
+
+@media (max-width: 1199px) {
+  .case-page-mgid-user-activation .case-hero-copy .page-title {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  .case-page-mgid-user-activation .case-hero-copy .page-title {
+    font-size: 36px;
+  }
+
+  .case-page-mgid-user-activation :is(#tldr, #research, #activation, #outcome, #reflection) .case-reference-content > h2 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .case-page-mgid-user-activation .onboarding-metrics,
+  .case-page-mgid-user-activation .onboarding-columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .case-page-mgid-user-activation .onboarding-lead {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .case-page-mgid-user-activation #tldr .case-reference-content > .body-copy {
+    margin-top: 24px;
+  }
+
+  .case-page-mgid-user-activation .onboarding-placeholder {
+    padding: 16px;
+  }
+
+}
+
+/* Each solution presents its text above a full-column artifact. */
+.case-page-mgid-user-activation .case-feature-card.onboarding-solution-feature {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.case-page-mgid-user-activation .onboarding-solution-feature .case-feature-copy {
+  grid-column: 1;
+  grid-row: 1;
+  max-width: none;
+  gap: clamp(10px, 1vw, 14px);
+}
+
+.case-page-mgid-user-activation .onboarding-solution-feature h3 {
+  max-width: 800px;
+}
+
+.case-page-mgid-user-activation #solution-access h3 {
+  max-width: none;
+  width: 100%;
+}
+
+.case-page-mgid-user-activation .onboarding-solution-feature .onboarding-solution-description {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px 72px;
+  margin-top: calc(clamp(20px, 1.5vw, 24px) - clamp(10px, 1vw, 14px));
+  max-width: 100%;
+  min-width: 0;
+}
+
+.case-page-mgid-user-activation .onboarding-solution-feature .onboarding-solution-description p {
+  max-width: 60ch;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.case-page-mgid-user-activation .onboarding-friction,
+.case-page-mgid-user-activation .onboarding-changes {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  min-width: 0;
+}
+
+.case-page-mgid-user-activation .onboarding-changes ul {
+  color: var(--body-display);
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.58;
+  margin: 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.case-page-mgid-user-activation .onboarding-changes li + li {
+  margin-top: 8px;
+}
+
+.case-page-mgid-user-activation .onboarding-solution-feature .case-feature-media {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.case-page-mgid-user-activation .onboarding-decision-copy strong {
+  color: #fff;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
+}
+
+@media (max-width: 1199px) {
+  .case-page-mgid-user-activation .onboarding-solution-feature .onboarding-solution-description {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+}
+
+.case-page-mgid-user-activation .onboarding-solution-feature [data-onboarding-visual="verification"] {
+  aspect-ratio: auto;
+}
+
+.case-page-mgid-user-activation .onboarding-verification-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  padding-top: 12px;
+  color: var(--onboarding-copy);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+}
+
+.case-page-mgid-user-activation .onboarding-verification-legend > span {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+}
+
+.case-page-mgid-user-activation .onboarding-verification-legend i {
+  flex: 0 0 28px;
+  border-top: 2px solid currentColor;
+  align-self: start;
+  margin-top: 8px;
+}
+
+.case-page-mgid-user-activation .onboarding-verification-legend .onboarding-path-before {
+  border-top-style: dashed;
+}
+
+.case-page-mgid-user-activation .onboarding-solution-feature [data-onboarding-visual="verification"] img,
+.case-page-mgid-user-activation .onboarding-solution-feature video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.case-page-mgid-user-activation .onboarding-solution-feature [data-onboarding-visual="guidance"] {
+  aspect-ratio: auto;
+}
+
+@media (max-width: 767px) {
+  .case-page-mgid-user-activation .onboarding-solution-feature .onboarding-solution-description {
+    max-width: 100%;
+  }
+}
+
+.case-page-mgid-user-activation .case-feature-card .onboarding-comparison,
+.onboarding-comparison-dialog .onboarding-comparison {
+  position: relative;
+  aspect-ratio: 2668 / 1324;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 2px;
+  user-select: none;
+}
+.case-page-mgid-user-activation .onboarding-comparison img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+.case-page-mgid-user-activation .onboarding-comparison-after {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 calc(100% - var(--comparison-position)) 0 0);
+}
+.case-page-mgid-user-activation .onboarding-comparison-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--comparison-position);
+  width: 1px;
+  transform: translateX(-50%);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.case-page-mgid-user-activation .onboarding-comparison-divider span {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  border-radius: 50%;
+  background: #fff;
+  color: #30343c;
+  display: grid;
+  place-items: center;
+  font: 24px/1 sans-serif;
+  box-shadow: 0 2px 8px #0004;
+}
+.case-page-mgid-user-activation .onboarding-comparison:focus-within .onboarding-comparison-divider span {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+.case-page-mgid-user-activation .onboarding-comparison-range {
+  position: absolute;
+  inset: 0 auto 0 -22px;
+  width: calc(100% + 44px);
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  touch-action: pan-y;
+  appearance: none;
+  background: transparent;
+}
+.case-page-mgid-user-activation .onboarding-comparison-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 44px;
+  height: 44px;
+}
+.case-page-mgid-user-activation .onboarding-comparison-range::-moz-range-thumb {
+  width: 44px;
+  height: 44px;
+  border: 0;
+}
+.case-page-mgid-user-activation .onboarding-comparison-label {
+  position: absolute;
+  top: 12px;
+  padding: 4px 8px;
+  border-radius: 2px;
+  background: #161a21cc;
+  color: #fff;
+  font-size: 12px;
+  line-height: 18px;
+  pointer-events: none;
+}
+.case-page-mgid-user-activation .onboarding-comparison-label-after { right: 12px; }
+.case-page-mgid-user-activation .onboarding-comparison-label-before { left: 12px; }
+
+.case-page-mgid-user-activation .onboarding-comparison-expand {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 2px;
+  background: #161a21cc;
+  color: #fff;
+  font-size: 24px;
+  cursor: zoom-in;
+}
+@media (hover: hover) {
+  .case-page-mgid-user-activation .onboarding-comparison:hover .onboarding-comparison-divider span {
+    transform: scale(1.08);
+    box-shadow: 0 2px 12px #0006;
+  }
+}
+.onboarding-comparison-dialog {
+  width: 96vw;
+  max-width: none;
+  max-height: 96dvh;
+  padding: 48px 0 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+.onboarding-comparison-dialog::backdrop { background: #080b10ed; }
+.onboarding-comparison-dialog .onboarding-comparison {
+  width: min(96vw, calc((96dvh - 48px) * 2668 / 1324));
+  margin: auto;
+}
+.onboarding-comparison-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  color: #fff;
+  background: transparent;
+  font-size: 32px;
+  cursor: pointer;
+}
+@media (prefers-reduced-motion: reduce) {
+  .case-page-mgid-user-activation .onboarding-comparison-divider span { transition: none; }
+}
+
+.case-page-mgid-user-activation .onboarding-video-illustration {
+  position: relative;
+  aspect-ratio: 1490 / 720;
+}
+.case-page-mgid-user-activation .onboarding-video-illustration video {
+  height: 100%;
+  object-fit: contain;
+}
+.case-page-mgid-user-activation .onboarding-video-poster {
+  display: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.case-page-mgid-user-activation .onboarding-video-open {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+.case-page-mgid-user-activation .onboarding-video-toggle,
+.onboarding-video-close {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 2px;
+  background: #161a21cc;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+.case-page-mgid-user-activation .onboarding-video-toggle {
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+.case-page-mgid-user-activation .onboarding-video-control-icon {
+  width: 24px;
+  height: 24px;
+  background: currentColor;
+  -webkit-mask: url("assets/redo-stroke-rounded.svg") center / contain no-repeat;
+  mask: url("assets/redo-stroke-rounded.svg") center / contain no-repeat;
+}
+.case-page-mgid-user-activation .onboarding-video-toggle.is-playing .onboarding-video-control-icon {
+  -webkit-mask-image: url("assets/pause-circle-stroke-rounded.svg");
+  mask-image: url("assets/pause-circle-stroke-rounded.svg");
+}
+.case-page-mgid-user-activation .onboarding-video-open:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -4px;
+}
+.case-page-mgid-user-activation .onboarding-video-toggle:focus-visible,
+.onboarding-video-close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+.case-page-mgid-user-activation .is-reduced-motion .onboarding-video-poster {
+  display: block;
+}
+.case-page-mgid-user-activation .is-reduced-motion .onboarding-video-toggle {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .case-page-mgid-user-activation .onboarding-video-poster { display: block; }
+  .case-page-mgid-user-activation .onboarding-video-toggle { display: none; }
+}
+.onboarding-video-dialog {
+  width: min(96vw, calc((92dvh - 56px) * 1490 / 720));
+  max-width: none;
+  max-height: 96dvh;
+  padding: 56px 0 0;
+  border: 0;
+  background: transparent;
+}
+.onboarding-video-dialog::backdrop { background: #080b10ed; }
+.onboarding-video-dialog video {
+  display: block;
+  width: 100%;
+  max-height: calc(92dvh - 56px);
+}
+.onboarding-video-close {
+  top: 0;
+  bottom: auto;
+  right: 0;
+  font-size: 32px;
+}

@@ -1,3 +1,6 @@
+import { renderMgidOnboarding, setupMgidOnboardingNavigation } from "./mgid-onboarding.js?v=account-access-20260913";
+import { yolaGrowthCase } from "./yola-growth.js?v=hero-revision-6";
+
 const projects = [
   {
     slug: "new-project",
@@ -96,6 +99,7 @@ const projects = [
         eyebrow: "LEARNINGS",
         body: "",
         bullets: [],
+        lessonCardsLayout: "editorial",
         lessonCards: [
           {
             title: "Validation is not the same as demand",
@@ -217,11 +221,12 @@ const projects = [
         ]
       },
       {
-        title: "Lessons learned",
+        title: "",
         eyebrow: "/retrospective",
-        body:
-          "Improving advertiser control could affect publisher monetization and audience trust. The strongest solutions came from evaluating each change across the entire ecosystem rather than optimizing one metric in isolation.",
-        accentBody: "One platform. Two audiences. No decision made in isolation.",
+        challenge: {
+          label: "KEY LESSON",
+          statement: "Designing for a two-sided platform meant that no decision could be made in isolation. Improving advertiser control could affect publisher monetization and audience trust, so the strongest solutions came from evaluating each change across the entire ecosystem."
+        },
         lessonCardsLayout: "editorial",
         lessonCards: [
           {
@@ -297,7 +302,7 @@ const projects = [
     slug: "yola-growth",
     years: "2021-2022",
     company: "Yola · Sitebuilder",
-    title: "Driving growth & monetization through product design",
+    title: "Product design that drives growth",
     image: "case-02",
     summary:
       "Helped shape Yola’s growth strategy, turning user insights and funnel opportunities into product improvements across activation, retention, monetization, and acquisition.",
@@ -729,6 +734,7 @@ function sectionLabel(section, index) {
 }
 
 function caseHeroInfo(project) {
+  if (project.metadata) return project.metadata;
   if (project.slug === "mgid-feature-design") {
     return [
       { label: "Role & teams", text: project.role },
@@ -745,6 +751,7 @@ function caseHeroInfo(project) {
 }
 
 function caseSectionId(project, section, index) {
+  if (section.id) return section.id;
   if (project.slug === "mgid-feature-design") {
     const key = sectionLabel(section, index);
       const idOverrides = {
@@ -862,13 +869,20 @@ function cta() {
 }
 
 function renderCase(slug) {
-  const project = projects.find((item) => item.slug === slug);
-  if (!project) {
+  const sourceProject = projects.find((item) => item.slug === slug);
+  if (!sourceProject) {
     renderNotFound();
     return;
   }
 
-  const caseHeroTitle = project.title;
+  const project = slug === "yola-growth" ? { ...sourceProject, ...yolaGrowthCase } : sourceProject;
+
+  if (slug === "mgid-user-activation") {
+    app.innerHTML = renderMgidOnboarding(project, otherCases, cta);
+    return;
+  }
+
+  const caseHeroTitle = project.heroTitle || project.title;
   const contentSections = project.sections;
 
   const renderBodyWithEcosystemDiagram = (section) => {
@@ -899,7 +913,9 @@ function renderCase(slug) {
 
   const renderSectionContent = (section) => `
     <div class="case-reference-content">
+      ${section.chapterLabel ? `<p class="case-feature-label">${section.chapterLabel}</p>` : ""}
       ${section.title ? `<h2>${section.title}</h2>` : ""}
+      ${section.summary ? `<p class="case-challenge-statement case-summary">${section.summary}</p>` : ""}
       ${section.lead ? `<p class="case-section-lead">${section.lead}</p>` : ""}
       ${section.challenge ? `
         <div class="case-challenge-block">
@@ -908,7 +924,15 @@ function renderCase(slug) {
         </div>
       ` : ""}
       ${section.accentBody ? `<p class="case-section-accent">${section.accentBody}</p>` : ""}
+      ${section.bodyTitle ? `<h2 class="case-body-title">${section.bodyTitle}</h2>` : ""}
       ${renderBodyWithEcosystemDiagram(section)}
+      ${section.approach ? `<div class="case-challenge-block"><p class="case-challenge-statement"><span class="case-challenge-label">Approach</span> ${section.approach}</p></div>` : ""}
+      ${section.growthStages ? `<div class="case-growth-stages" aria-label="Connected stages of product growth">${section.growthStages.map((stage, index) => `${index ? '<span aria-hidden="true">→</span>' : ''}<span>${stage}</span>`).join("")}</div>` : ""}
+      ${section.valueJourneys ? `<p class="body-copy case-value-journeys">${section.valueJourneys.map(journey => `${journey.title}: <span class="case-value-steps">${journey.steps}</span>`).join("<br>")}</p>${section.valueJourneysClosing ? `<p class="body-copy case-value-closing">${section.valueJourneysClosing}</p>` : ""}` : ""}
+      ${section.opportunity ? `<div class="case-opportunity-columns"><div><h3>Opportunity:</h3><p>${section.opportunity}</p></div><div><h3>What I did:</h3><ul>${section.changes.map(change => `<li>${change}</li>`).join("")}</ul></div></div>` : ""}
+      ${section.changes && !section.opportunity ? `<div class="case-changes"><p class="case-feature-label">${section.changesLabel || "What changed"}</p><ul>${section.changes.map(change => `<li>${change}</li>`).join("")}</ul></div>` : ""}
+      ${section.media ? `<div class="case-evidence">${section.media.map(item => item.src ? `<button class="case-feature-media" type="button" data-lightbox-image="${item.src}" data-lightbox-caption="${item.alt}" aria-label="Open image: ${item.alt}"><img class="case-feature-image" src="${item.src}" alt="${item.alt}" loading="lazy" width="1242" height="807" /></button>` : `<div class="case-media-placeholder" role="img" aria-label="${item.placeholder}"><span>${item.placeholder}</span></div>`).join("")}</div>` : ""}
+      ${section.metrics ? `<div class="case-result-metrics" aria-label="Results">${section.metrics.map(([value, label]) => `<div><strong>${value}</strong><p>${label}</p></div>`).join("")}</div>` : ""}
       ${section.bullets && section.bullets.length ? `<ul>${section.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>` : ""}
       ${section.researchTags ? `
         <div class="case-research-tags">
@@ -968,6 +992,7 @@ function renderCase(slug) {
         </div>
       ` : ""}
       ${section.closingBody ? `<p class="body-copy case-closing-body">${section.closingBody}</p>` : ""}
+      ${section.next ? `<p class="case-challenge-statement case-next"><span class="case-challenge-label">NEXT</span> ${section.next}</p>` : ""}
       ${section.closingStatement ? section.closingTitle ? `
         <div class="case-scaling-step">
           <p class="case-scaling-step-label">${section.closingLabel}</p>
@@ -1008,7 +1033,9 @@ function renderCase(slug) {
                   <div class="case-feature-bottom-group">
                     <h3>${item.title}</h3>
                     <div class="case-feature-body-group">
-                      ${item.context && item.solution
+                      ${item.changes
+                        ? `<div class="case-feature-detail"><h4>What I did:</h4><ul>${item.changes.map(change => `<li>${change}</li>`).join("")}</ul></div>${item.result ? `<div class="case-feature-detail"><h4>Result:</h4><p>${item.result}</p></div>` : ""}`
+                        : item.context && item.solution
                         ? `<p>${item.context}</p><p>${item.solution}</p>`
                         : item.body.split("\n\n").map((paragraph) => `<p>${paragraph}</p>`).join("")}
                     </div>
@@ -1018,7 +1045,7 @@ function renderCase(slug) {
                   ${item.body.split("\n\n").map((paragraph) => `<p>${paragraph}</p>`).join("")}
                 `}
               </div>
-              <button
+              ${item.image ? `<button
                 class="case-feature-media"
                 type="button"
                 data-lightbox-image="assets/${item.image}.png"
@@ -1026,7 +1053,7 @@ function renderCase(slug) {
                 aria-label="Open ${item.title} image fullscreen"
               >
                 <img class="case-feature-image" src="assets/${item.image}.png" alt="" />
-              </button>
+              </button>` : `<div class="case-feature-media case-media-placeholder" role="img" aria-label="${item.placeholder}"><span>${item.placeholder}</span></div>`}
             </article>
           `).join("")}
         </div>
@@ -1077,6 +1104,7 @@ function renderCase(slug) {
           <div class="case-panel-heading">
             <p class="case-panel-eyebrow">${project.years} / ${project.company.toUpperCase()}</p>
             <h1 class="page-title">${caseHeroTitle}</h1>
+            ${project.heroSubtitle ? `<p class="body-copy case-hero-subtitle">${project.heroSubtitle}</p>` : ""}
           </div>
         </div>
         <div class="case-hero-content">
@@ -1090,7 +1118,7 @@ function renderCase(slug) {
     <section class="section case-visual-section">
       <div class="case-visual-container">
         <div class="case-hero-visual" aria-label="${project.title} image">
-          <span class="project-image ${project.caseHeroImage || project.image}"></span>
+          ${project.heroPlaceholder ? `<div class="case-media-placeholder" role="img" aria-label="${project.heroPlaceholder}"><span>${project.heroPlaceholder}</span></div>` : `<span class="project-image ${project.caseHeroImage || project.image}"></span>`}
         </div>
       </div>
     </section>
@@ -1111,7 +1139,12 @@ function renderCase(slug) {
         ${contentSections.map((section, sectionIndex) => {
           const index = sectionIndex + 1;
           const sectionId = caseSectionId(project, section, index);
-          const sectionLayoutClass = section.featureLayout ? " case-feature-layout-section" : "";
+          const sectionLayoutClass = [
+            section.featureLayout ? "case-feature-layout-section" : "",
+            sectionIndex === 0 && !project.stats ? "case-section-intro" : "",
+            section.lessonCards ? "case-section-reflection" : "",
+            (sectionIndex > 0 || project.stats) && !section.lessonCards ? "case-section-chapter" : ""
+          ].filter(Boolean).map((name) => ` ${name}`).join("");
           return section.type === "statement" ? `
             <section id="${sectionId}" class="section section-tight case-reference-section case-section case-study-section case-statement">
               <div class="case-reference-grid">
@@ -1250,6 +1283,10 @@ function route() {
       setupHoverLinkPreviews();
       setupCaseLightbox();
       setupCaseSectionNav();
+      if (app.querySelector(".case-page-mgid-user-activation")) {
+        caseSectionNavObserver?.disconnect();
+      }
+      setupMgidOnboardingNavigation();
       app.classList.remove("is-changing");
       if (scrollTarget && hasRendered) {
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1385,7 +1422,7 @@ function setupCaseSectionNav() {
     });
   };
 
-  const caseBody = app.querySelector(".case-page-mgid-feature-design .case-study-body");
+  const caseBody = app.querySelector(".case-page .case-study-body");
   const sidebar = caseBody?.querySelector(".case-study-sidebar");
   const syncStickyPosition = () => {
     if (!caseBody || !sidebar) return;
