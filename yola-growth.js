@@ -26,7 +26,7 @@ export const yolaGrowthCase = {
         { title: "First value", steps: "Define the goal → Set up the site → Build → Publish" },
         { title: "Ongoing value", steps: "Return → Discover more value → Expand usage → Upgrade" }
       ],
-      valueJourneysClosing: "This framework guided the work that followed: personalizing setup, providing contextual guidance, reducing friction in core editing tasks, and creating a clearer path to publishing.",
+      valueJourneysClosing: "These stages shaped the activation work that followed: personalized setup, contextual guidance, and a clearer path to publishing.",
       featureLayout: true,
       caseFeatureRows: [
         {

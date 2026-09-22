@@ -1,6 +1,8 @@
 import { renderMgidOnboarding, setupMgidOnboardingNavigation } from "./mgid-onboarding.js?v=account-access-20260913";
 import { yolaGrowthCase } from "./yola-growth.js?v=hero-revision-6";
 
+import { edtechCase } from "./edtech-case.js";
+
 const projects = [
   {
     slug: "new-project",
@@ -9,115 +11,15 @@ const projects = [
     title: "Building AI learning products from 0→1",
     image: "case-ai-education",
     summary:
-      "Exploring, validating, and launching AI-powered learning products: from improving a flagship experience to bringing new web and mobile products to market.",
+      "Exploring AI learning opportunities through research, concept validation, product strategy, and end-to-end design for web and mobile experiences.",
     role:
-      "Founding Product Designer (R&D → Venture)",
-    delivered: "Exploring, validating, and launching AI-powered learning products — from improving a flagship experience to bringing new web and mobile products to market.",
+      "Product Designer · Founding Product Designer · R&D & Venture",
+    delivered: "Research, concept validation, product strategy, UX/UI, functional prototyping, and post-release iteration.",
     whatIDid: ["Opportunity discovery", "Market research", "Product strategy", "Concept validation", "UX/UI", "AI-assisted MVP development", "Post-launch optimization"],
     sidebarNote: {
       label: "Note",
       body: "Covered by NDA. This case focuses on the process rather than confidential details."
     },
-    sections: [
-      {
-        title: "Across discovery, launch, and growth",
-        eyebrow: "Intro",
-        body:  
-          "I joined the R&D team to explore new opportunities in AI-powered education. Every idea started as a hypothesis, shaped through research, validation, and rapid experimentation. Some became products. Some stopped at MVPs. Many never moved past validation.\n\nAs the strongest concepts moved into Venture, I continued shaping them from validated ideas into launched learning products. \n\nThis case is covered by NDA and focuses on process, decisions, and learnings rather than confidential details.",
-        bullets: []
-      },
-      {
-        title: "Every idea had to earn its way forward",
-        eyebrow: "/Challenge",
-        body:
-          "Before investing in new AI learning opportunities, I helped the team reduce uncertainty through research, validation, and functional MVPs.",
-        bullets: [],
-        questionEvidence: [
-          {
-            question: "Is this a real learning problem?",
-            reducedUncertainty: "<strong>Reviewed 50+ competitors</strong> across learning tools to identify repeated student pain points, market patterns, and product gaps — separating real opportunities from AI trend noise.",
-            methods: ["Market scan", "Competitive review", "Trend analysis"]
-          },
-          {
-            question: "Do students actually need this?",
-            reducedUncertainty: "<strong>Validated multiple MVPs with real users</strong> through concept testing and early product feedback — moving ideas forward only when users showed clear intent or repeated need.",
-            methods: ["Concept design", "Early A/B testing", "Surveys", "Feedback analysis"]
-          },
-          {
-            question: "Does AI make it better?",
-            reducedUncertainty: "<strong>Explored 10+ product directions</strong> across study, writing, math, practice, and AI learning — focusing on flows where AI could reduce effort, improve quality, or make learning tasks easier.",
-            methods: ["Product discovery", "Flow design","Usability testing"]
-          },
-          {
-            question: "Is now the right time to build it?",
-            reducedUncertainty: "<strong>Shaped 1 core AI flow</strong> for the flagship product and <strong>designed functional MVPs</strong> to test readiness — helping the team decide which concepts were strong enough to build.",
-            methods: ["MVP design", "AI rapid prototyping", "Feasibility validation"]
-          }
-        ]
-      },
-      {
-        title: "Five products. Five different learning problems.",
-        eyebrow: "PRODUCTS",
-        body:
-          "Over the year, I worked across five AI-powered educational products—from improving an established platform to designing and building new web and mobile experiences. The products are anonymized due to NDA restrictions.",
-        bullets: [],
-        opportunityCards: [
-          {
-            counter: "01",
-            title: "Core AI Learning Platform",
-            meta: "Established product · Web",
-            body: "An established educational platform helping students create academic content with AI. I redesigned a complex generation experience into a simpler one-click flow that became a core product workflow."
-          },
-          {
-            counter: "02",
-            title: "AI Math Learning App",
-            meta: "New product · iOS",
-            body: "A mobile learning app designed to help students solve math problems and understand the reasoning behind the answers. I designed the end-to-end product experience from early concept through launch."
-          },
-          {
-            counter: "03",
-            title: "AI Writing Assistant",
-            meta: "New product · Mobile-first web",
-            body: "An AI-powered writing experience designed to help students move from a topic to a structured academic draft with less friction. I shaped the product experience and built a functional front-end MVP for real-user validation."
-          },
-          {
-            counter: "04",
-            title: "AI Study & Practice Platform",
-            meta: "New product · Web & mobile",
-            body: "A learning platform that transformed students' own materials into personalized study experiences. I designed and built the product from scratch, exploring how AI could support active practice and knowledge retention."
-          },
-          {
-            counter: "05",
-            title: "AI Learning Companion",
-            meta: "New product · Web",
-            body: "A personalized learning experience focused on helping users build practical AI knowledge and skills. I shaped the product concept, designed the experience, and built a functional MVP to test its viability."
-          }
-        ]
-      },
-      {
-        title: "What a year of building AI products taught me",
-        eyebrow: "LEARNINGS",
-        body: "",
-        bullets: [],
-        lessonCardsLayout: "editorial",
-        lessonCards: [
-          {
-            title: "Validation is not the same as demand",
-            body: "A concept can test well, users can understand its value, and the experience can be usable, BUT without becoming a product people return to or pay for. The strongest signals came from real behavior after launch."
-          },
-          {
-            title: "Speed changes what design can validate",
-            body: "Functional MVPs helped us test behavior earlier, not just opinions about prototypes."
-          },
-          {
-            title: "Launch is where another kind of validation begins",
-            body: "A promising product idea is only the beginning. After launch, positioning, onboarding, pricing, paywalls, and the product experience itself became part of the same question: can this product create enough value to become viable?"
-          }
-        ],
-        closingStatement:
-          "The biggest shift in my work was moving from designing solutions to continuously reducing uncertainty: about the problem, the product, and the business."
-      }
-    ]
   },
   {
     slug: "mgid-feature-design",
@@ -427,6 +329,28 @@ const testimonials = [
 
 const app = document.querySelector("#app");
 const header = document.querySelector("[data-header]");
+const menuToggle = document.querySelector(".portfolio-menu-toggle");
+function setNavigationOpen(open) {
+  header?.classList.toggle("is-menu-open", open);
+  menuToggle?.setAttribute("aria-expanded", String(open));
+  menuToggle?.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+}
+menuToggle?.addEventListener("click", () => {
+  setNavigationOpen(menuToggle.getAttribute("aria-expanded") !== "true");
+});
+header?.addEventListener("click", (event) => {
+  if (event.target.closest("a")) setNavigationOpen(false);
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && header?.classList.contains("is-menu-open")) {
+    setNavigationOpen(false);
+    menuToggle?.focus();
+  }
+});
+document.addEventListener("click", (event) => {
+  if (!header?.contains(event.target)) setNavigationOpen(false);
+});
+window.matchMedia("(min-width: 992px)").addEventListener("change", () => setNavigationOpen(false));
 const motionQuery = [
   ".project-card",
   ".featured-project-card",
@@ -875,7 +799,8 @@ function renderCase(slug) {
     return;
   }
 
-  const project = slug === "yola-growth" ? { ...sourceProject, ...yolaGrowthCase } : sourceProject;
+  const caseContent = { "yola-growth": yolaGrowthCase, "new-project": edtechCase }[slug];
+  const project = caseContent ? { ...sourceProject, ...caseContent } : sourceProject;
 
   if (slug === "mgid-user-activation") {
     app.innerHTML = renderMgidOnboarding(project, otherCases, cta);
@@ -911,6 +836,15 @@ function renderCase(slug) {
     return bodyMarkup.join("");
   };
 
+  const renderResearchTags = (section) => section.researchTags ? `
+        <div class="case-research-tags">
+          <p class="case-research-tags-label">${section.researchLabel}</p>
+          <div class="case-research-tags-list">
+            ${section.researchTags.map((tag) => `<span>${tag}</span>`).join("")}
+          </div>
+        </div>
+      ` : "";
+
   const renderSectionContent = (section) => `
     <div class="case-reference-content">
       ${section.chapterLabel ? `<p class="case-feature-label">${section.chapterLabel}</p>` : ""}
@@ -926,6 +860,8 @@ function renderCase(slug) {
       ${section.accentBody ? `<p class="case-section-accent">${section.accentBody}</p>` : ""}
       ${section.bodyTitle ? `<h2 class="case-body-title">${section.bodyTitle}</h2>` : ""}
       ${renderBodyWithEcosystemDiagram(section)}
+      ${section.note ? `<aside class="case-disclosure" aria-label="${section.noteLabel || "Project note"}"><img src="assets/lock.svg" width="16" height="16" alt="" />${section.noteLabel ? `<p class="case-disclosure-label">${section.noteLabel}</p>` : ""}<p class="case-disclosure-copy">${section.note}</p></aside>` : ""}
+      ${section.phases ? `<div class="case-phases">${section.phases.map(phase => `<article class="case-ecosystem-item"><h3>${phase.title}</h3><p>${phase.role}</p><ul>${phase.focus.map(item => `<li>${item}</li>`).join("")}</ul></article>`).join("")}</div>` : ""}
       ${section.approach ? `<div class="case-challenge-block"><p class="case-challenge-statement"><span class="case-challenge-label">Approach</span> ${section.approach}</p></div>` : ""}
       ${section.growthStages ? `<div class="case-growth-stages" aria-label="Connected stages of product growth">${section.growthStages.map((stage, index) => `${index ? '<span aria-hidden="true">→</span>' : ''}<span>${stage}</span>`).join("")}</div>` : ""}
       ${section.valueJourneys ? `<p class="body-copy case-value-journeys">${section.valueJourneys.map(journey => `${journey.title}: <span class="case-value-steps">${journey.steps}</span>`).join("<br>")}</p>${section.valueJourneysClosing ? `<p class="body-copy case-value-closing">${section.valueJourneysClosing}</p>` : ""}` : ""}
@@ -934,14 +870,7 @@ function renderCase(slug) {
       ${section.media ? `<div class="case-evidence">${section.media.map(item => item.src ? `<button class="case-feature-media" type="button" data-lightbox-image="${item.src}" data-lightbox-caption="${item.alt}" aria-label="Open image: ${item.alt}"><img class="case-feature-image" src="${item.src}" alt="${item.alt}" loading="lazy" width="1242" height="807" /></button>` : `<div class="case-media-placeholder" role="img" aria-label="${item.placeholder}"><span>${item.placeholder}</span></div>`).join("")}</div>` : ""}
       ${section.metrics ? `<div class="case-result-metrics" aria-label="Results">${section.metrics.map(([value, label]) => `<div><strong>${value}</strong><p>${label}</p></div>`).join("")}</div>` : ""}
       ${section.bullets && section.bullets.length ? `<ul>${section.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>` : ""}
-      ${section.researchTags ? `
-        <div class="case-research-tags">
-          <p class="case-research-tags-label">${section.researchLabel}</p>
-          <div class="case-research-tags-list">
-            ${section.researchTags.map((tag) => `<span>${tag}</span>`).join("")}
-          </div>
-        </div>
-      ` : ""}
+      ${!section.researchTagsAfterEvidence ? renderResearchTags(section) : ""}
       ${section.textBlocks ? `
         <div class="case-text-blocks">
           ${section.textBlocks.map((block, blockIndex) => `
@@ -1026,15 +955,18 @@ function renderCase(slug) {
       ${section.caseFeatureRows ? `
         <div class="${section.featureLayout ? "case-feature-list case-feature-list-grid" : "case-feature-list"}">
           ${section.caseFeatureRows.map((item) => `
-            <article class="${section.featureLayout ? "case-feature-row case-feature-card case-feature-card-detailed" : "case-feature-row"}">
+            <article class="${section.featureLayout ? "case-feature-row case-feature-card case-feature-card-detailed" : "case-feature-row"}${section.featureLayout === "full-width" ? " case-feature-card-full-width" : ""}">
               <div class="case-feature-copy">
                 <p class="case-feature-label">${item.label}</p>
                 ${section.featureLayout ? `
                   <div class="case-feature-bottom-group">
+                    ${item.platform && item.platformAboveTitle ? `<p class="case-feature-platform">${item.platform}</p>` : ""}
                     <h3>${item.title}</h3>
+                    ${item.platform && !item.platformAboveTitle ? `<p class="case-feature-platform${item.platformPill ? " case-feature-platform-pill" : ""}">${item.platform}</p>` : ""}
                     <div class="case-feature-body-group">
+                      ${item.description ? item.descriptionLabel ? `<div class="case-feature-detail"><h4>${item.descriptionLabel}:</h4><p>${item.description}</p></div>` : `<p>${item.description}</p>` : ""}
                       ${item.changes
-                        ? `<div class="case-feature-detail"><h4>What I did:</h4><ul>${item.changes.map(change => `<li>${change}</li>`).join("")}</ul></div>${item.result ? `<div class="case-feature-detail"><h4>Result:</h4><p>${item.result}</p></div>` : ""}`
+                        ? `<div class="case-feature-detail"><h4>${item.changesLabel || "What I did"}:</h4><ul>${item.changes.map(change => `<li>${change}</li>`).join("")}</ul></div>${item.result ? `<div class="case-feature-detail"><h4>${item.resultLabel || "Result"}:</h4><p>${item.result}</p></div>` : ""}`
                         : item.context && item.solution
                         ? `<p>${item.context}</p><p>${item.solution}</p>`
                         : item.body.split("\n\n").map((paragraph) => `<p>${paragraph}</p>`).join("")}
@@ -1059,11 +991,16 @@ function renderCase(slug) {
         </div>
       ` : ""}
       ${section.questionEvidence ? `
-        <div class="question-evidence" aria-label="Validation questions and evidence">
-          ${section.questionEvidence.map((item, itemIndex) => `
+        <div class="question-evidence${section.questionEvidenceLayout === "editorial" ? " question-evidence-editorial lesson-cards lesson-cards-editorial" : ""}" aria-label="Validation questions and evidence">
+          ${section.questionEvidence.map((item, itemIndex) => section.questionEvidenceLayout === "editorial" ? `
+            <article class="question-evidence-item lesson-card">
+              <p class="question-evidence-stage">${String(itemIndex + 1).padStart(2, "0")} / ${item.stage}</p>
+              ${item.question ? `<h3>${item.question}</h3>` : ""}
+              <div class="question-evidence-copy">${item.reducedUncertainty ? `<p>${item.reducedUncertainty}</p>` : ""}${item.points ? `<ul class="question-evidence-points">${item.points.map(point => `<li>${point}</li>`).join("")}</ul>` : ""}${item.methods ? `<ul class="question-evidence-methods-list">${item.methods.map(method => `<li>${method}</li>`).join("")}</ul>` : ""}</div>
+            </article>` : `
             <article class="question-evidence-item">
               <div class="question-evidence-copy">
-                <h3>${item.question}</h3>
+                <h3>${section.questionEvidenceLayout === "editorial" ? `<span class="case-question-number">${String(itemIndex + 1).padStart(2, "0")}</span> ` : ""}${item.question}</h3>
                 <p>${item.reducedUncertainty}</p>
                 ${item.methods ? `
                   <ul class="question-evidence-methods">
@@ -1071,15 +1008,16 @@ function renderCase(slug) {
                   </ul>
                 ` : ""}
               </div>
-              <div class="question-evidence-funnel" aria-hidden="true">
+              ${section.questionEvidenceLayout === "editorial" ? "" : `<div class="question-evidence-funnel" aria-hidden="true">
                 <span class="question-evidence-segment">
                   <span class="question-evidence-marker">${String(itemIndex + 1).padStart(2, "0")}</span>
                 </span>
-              </div>
+              </div>`}
             </article>
           `).join("")}
         </div>
       ` : ""}
+      ${section.researchTagsAfterEvidence ? renderResearchTags(section) : ""}
       ${section.cards ? `
         <div class="visual-cards${section.cardLayout === "compact" ? " visual-cards-compact" : ""}">
           ${section.cards.map((card) => `
@@ -1542,7 +1480,8 @@ function setupMotion() {
   const targets = [...app.querySelectorAll(motionQuery)].filter((target) => (
     !target.closest(".hero") &&
     !target.closest(".pipeline-copy") &&
-    !target.closest(".question-evidence")
+    !target.closest(".question-evidence") &&
+    !target.closest(".case-page-new-project .case-feature-detail")
   ));
 
   if (!("IntersectionObserver" in window)) {

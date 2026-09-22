@@ -18,15 +18,18 @@
   <body>
     <div class="page-shell">
       <header class="portfolio-header" data-header>
-        <nav class="portfolio-header-nav" aria-label="Main navigation">
-          <a class="portfolio-header-link" href="#/" data-nav-link="home"><span>Home</span></a>
+        <div class="portfolio-header-inner">
+          <a class="portfolio-header-brand" href="#/">Alina Diadenko</a>
+        <nav id="portfolio-navigation" class="portfolio-header-nav" aria-label="Main navigation">
           <a class="portfolio-header-link" href="#/projects" data-nav-link="work"><span>Projects</span></a>
-          <a class="portfolio-header-link" href="#/about" data-nav-link="about"><span>About</span></a>
-          <a class="portfolio-header-link portfolio-header-talk" href="mailto:alina.dyadenko@gmail.com">
-            <span>Let’s talk</span>
-            <img src="assets/lets-talk-icon.svg" alt="" />
-          </a>
+          <a class="portfolio-header-link" href="#/about" data-nav-link="about"><span>About me</span></a>
+          <a class="portfolio-header-link" href="https://docs.google.com/document/d/1_92s3CKNwckTEHPxEddXWUKyN2wlX0kvHNI-qNUYcuQ/edit?usp=sharing" target="_blank" rel="noopener noreferrer"><span>Resume</span></a>
         </nav>
+          <div class="portfolio-header-actions">
+            <a class="portfolio-header-contact" href="https://www.linkedin.com/in/alina-diadenko/">Contact me</a>
+            <button class="portfolio-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="portfolio-navigation"><span></span><span></span><span></span></button>
+          </div>
+        </div>
       </header>
 
       <main id="app"></main>
