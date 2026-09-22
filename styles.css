@@ -7743,6 +7743,10 @@ body:has(.case-page) .case-lightbox img {
   margin: 0;
 }
 
+.case-page-new-project .case-disclosure-label {
+  font-size: 16px;
+}
+
 .case-page .case-disclosure-copy {
   grid-column: 2;
   color: var(--body-display);
@@ -7867,6 +7871,7 @@ body:has(.case-page) .case-lightbox img {
   color: var(--body-display);
   font-size: 18px;
   line-height: 28px;
+  margin-top: 24px;
 }
 
 .case-page-new-project .case-result-metrics strong {
@@ -7942,6 +7947,19 @@ body:has(.case-page) .case-lightbox img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+@media (min-width: 1200px) {
+  .case-page-new-project .case-study-body {
+    column-gap: 56px;
+  }
+}
+
+@media (min-width: 1360px) {
+  .case-page-new-project #products .case-feature-card {
+    column-gap: 48px;
+    grid-template-columns: 602px minmax(0, 1fr);
+  }
 }
 
 /* Product stories: context and contributions, then a full-width visual. */

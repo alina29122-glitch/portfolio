@@ -8,7 +8,7 @@ const projects = [
     slug: "new-project",
     years: "2025-2026",
     company: "NDA · EdTech",
-    title: "Building AI learning products from 0→1",
+    title: "From product opportunity to AI learning experience",
     image: "case-ai-education",
     summary:
       "Exploring AI learning opportunities through research, concept validation, product strategy, and end-to-end design for web and mobile experiences.",

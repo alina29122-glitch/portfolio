@@ -2,7 +2,7 @@
 export const edtechCase = {
   "years": "2025–2026",
   "company": "NDA · AI EdTech",
-  "heroTitle": "Building AI learning products from 0→1",
+  "heroTitle": "From product opportunity to AI learning experience",
   "heroPlaceholder": "AI LEARNING PRODUCTS — HERO VISUAL PLACEHOLDER",
   "metadata": [
     {
@@ -10,22 +10,22 @@ export const edtechCase = {
       "text": "R&D: Product Designer (Discovery & Validation) · Venture: Founding Product Designer"
     },
     {
-      "label": "Focus",
-      "text": "Opportunity discovery · Product strategy · UX/UI · Functional prototyping · Validation · Post-release iteration"
+      "label": "Scope",
+      "text": "Discovery & strategy · User research & validation · End-to-end UX/UI · MVP development · Post-launch iteration"
     },
     {
-      "label": "Scope",
-      "text": "Web and mobile learning experiences · End-to-end product design · Functional prototypes and learning experiments"
+      "label": "Delivered",
+      "text": "AI-powered learning experiences across web and mobile · Functional MVPs · Product, growth, and monetization experiments"
     }
   ],
   "sections": [
     {
       "id": "tldr",
       "eyebrow": "TL;DR",
-      "summary": "I worked across R&D and Venture teams, exploring where AI could solve meaningful learning problems and evaluating which concepts were worth pursuing.",
-      "body": "My role spanned market and user research, concept validation, product strategy, UX/UI, functional prototyping, and post-release iteration.",
-      "noteLabel": "Portfolio note",
-      "note": "This case presents an anonymized overview of my role and process. Company and product names, original product assets, confidential metrics, and non-public details are omitted. All visuals are independent conceptual reconstructions created for portfolio purposes. They do not reproduce production interfaces."
+      "summary": "Across multiple product initiatives, I identified learning problems worth exploring, shaped them into testable concepts, and helped carry the selected directions through MVP development and launch.",
+      "body": "Moving from R&D to Venture changed the questions we were answering: from whether an opportunity was worth pursuing to whether the product could deliver clear value, earn trust, and give students a reason to return.",
+      "noteLabel": "This case is anonymized",
+      "note": "Company and product names, confidential metrics, non-public details, and original assets are omitted. All visuals are independent conceptual reconstructions and do not reproduce production interfaces."
     },
     {
       "id": "validation",
