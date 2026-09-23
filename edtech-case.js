@@ -32,20 +32,10 @@ export const edtechCase = {
       "eyebrow": "VALIDATION",
       "challenge": {
         "label": "CHALLENGE",
-        "statement": "Finding promising ideas wasn’t the hard part. Knowing which ones were likely to create real value and therefore worth building was."
+        "statement": "Finding ideas wasn’t the hard part. The challenge was knowing which ones could create enough value to build."
       },
-      "body": "To reduce uncertainty before committing time and development resources, I evaluated concepts against a real problem, clear demand, meaningful AI value, and enough evidence to justify deeper investment.",
-      "researchLabel": "Methods",
-      "researchTagsAfterEvidence": true,
-      "researchTags": [
-        "Market research",
-        "Competitive analysis",
-        "Concept testing",
-        "Surveys",
-        "A/B testing",
-        "Usability testing",
-        "AI-assisted prototyping"
-      ],
+      "body": "We explored a wide range of AI-powered learning ideas. To decide where to focus, we evaluated each direction through four questions.",
+      "questionEvidenceClosing": "Only concepts with clear evidence across all four areas moved forward into functional MVP development.",
       "questionEvidenceLayout": "editorial",
       "questionEvidence": [
         {
@@ -64,7 +54,7 @@ export const edtechCase = {
           "reducedUncertainty": "I explored different directions to identify where AI could reduce effort or meaningfully improve learning."
         },
         {
-          "stage": "BUILD CONFIDENCE",
+          "stage": "EVIDENCE",
           "question": "Is there enough evidence to build it?",
           "reducedUncertainty": "I turned selected concepts into functional prototypes to evaluate usability and feasibility before deeper investment."
         }
@@ -73,8 +63,10 @@ export const edtechCase = {
     {
       "id": "products",
       "eyebrow": "PRODUCTS",
-      "title": "Four products. Four learning problems.",
-      "body": "Each required a different product approach across web and mobile. The visuals below are independent conceptual reconstructions created to communicate the product thinking without revealing original interfaces or proprietary details.",
+      "title": "Different learning problems. Different product approaches.",
+      "body": "I worked across a range of AI-powered learning products on web and mobile, translating different user needs into focused product experiences. The selected examples show my work across product definition, core flows, validation, MVP delivery, and iteration.",
+      "noteLabel": "Visuals note",
+      "note": "Each visual is an independent conceptual reconstruction created to communicate the product thinking without revealing original interfaces or proprietary details.",
       "featureLayout": "stack",
       "caseFeatureRows": [
         {

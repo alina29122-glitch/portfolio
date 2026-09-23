@@ -2,6 +2,7 @@ import { renderMgidOnboarding, setupMgidOnboardingNavigation } from "./mgid-onbo
 import { yolaGrowthCase } from "./yola-growth.js?v=hero-revision-6";
 
 import { edtechCase } from "./edtech-case.js";
+import { CustomCursor, cursorShapes } from "./components/CustomCursor.js";
 
 const projects = [
   {
@@ -393,7 +394,7 @@ function projectsSection(items, { showSeeAll = false, label = "/projects" } = {}
           </div>
         ` : ""}
         <div class="projects-list">
-          ${items.map((project, index) => projectCard(project, index)).join("")}
+          ${items.map((project) => projectCard(project)).join("")}
         </div>
         ${showSeeAll ? `
           <div class="projects-actions">
@@ -529,44 +530,29 @@ function renderHome() {
   const latestProjects = projects.slice(0, 4);
 
   app.innerHTML = `
-    <section class="minimal-hero" aria-labelledby="minimal-hero-title">
-      <div class="minimal-hero-intro">
-        <p class="minimal-hero-copy">I’m a Senior Product Designer shaping products from early discovery to launch — always learning how to build better products and become a better designer (/human)</p>
-      </div>
-      <h1 class="minimal-hero-title" id="minimal-hero-title">
-        <span>Alina</span>
-        <span class="minimal-hero-photo"><img src="assets/photo.jpg" alt="" /></span>
-        <span>Diadenko</span>
-      </h1>
-      <div class="minimal-hero-bottom">
-        <span class="minimal-hero-location">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M15.5 11C15.5 12.933 13.933 14.5 12 14.5C10.067 14.5 8.5 12.933 8.5 11C8.5 9.067 10.067 7.5 12 7.5C13.933 7.5 15.5 9.067 15.5 11Z"></path>
-            <path d="M12 2C16.8706 2 21 6.03298 21 10.9258C21 15.8965 16.8033 19.3847 12.927 21.7567C12.6445 21.9162 12.325 22 12 22C11.675 22 11.3555 21.9162 11.073 21.7567C7.2039 19.3616 3 15.9137 3 10.9258C3 6.03298 7.12944 2 12 2Z"></path>
-          </svg>
-          <span>Lviv, Ukraine</span>
-        </span>
-        <nav aria-label="Social links">
-          <a class="minimal-hero-preview-link" href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noreferrer">
-            <span>LinkedIn</span>
-            <span class="minimal-hero-preview-thumb" aria-hidden="true">
-              <img src="assets/preview-linkedin.png" alt="" />
-            </span>
-          </a>
-          <span class="minimal-hero-dot" aria-hidden="true">·</span>
-          <a class="minimal-hero-preview-link" href="https://medium.com/@alina.dyadenko" target="_blank" rel="noreferrer">
-            <span>Medium</span>
-            <span class="minimal-hero-preview-thumb" aria-hidden="true">
-              <img src="assets/preview-medium.png" alt="" />
-            </span>
-          </a>
-        </nav>
-        <a class="minimal-hero-preview-link minimal-hero-resume-link" href="https://docs.google.com/document/d/1_92s3CKNwckTEHPxEddXWUKyN2wlX0kvHNI-qNUYcuQ/edit?usp=sharing" target="_blank" rel="noreferrer">
-          <span>Resume</span>
-          <span class="minimal-hero-preview-thumb" aria-hidden="true">
-            <img src="assets/preview-resume.png" alt="" />
-          </span>
-        </a>
+    <section class="minimal-hero opportunity-hero" aria-labelledby="opportunity-hero-title">
+      <div class="opportunity-hero-shell">
+        <div class="opportunity-hero-copy">
+          <h1 id="opportunity-hero-title"><span>I’m a Senior Product Designer shaping products from early discovery to launch</span> always learning how to build better products and become a better designer (/human)</h1>
+        </div>
+        <img class="opportunity-hero-artwork" src="assets/hero-sticker-portrait-v3.png" alt="Alina holding a laptop and iced coffee" width="1024" height="1536" fetchpriority="high" />
+        <div class="opportunity-hero-facts" aria-label="Portfolio overview">
+          <div class="opportunity-hero-fact">
+            <span class="opportunity-hero-fact-label">Selected work</span>
+            <p>${projects.length} case studies across web and mobile</p>
+            <a href="#projects">View projects <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="opportunity-hero-fact">
+            <span class="opportunity-hero-fact-label">Experience</span>
+            <p>10+ years in product design · B2B · B2C</p>
+            <span aria-hidden="true">—</span>
+          </div>
+          <div class="opportunity-hero-fact">
+            <span class="opportunity-hero-fact-label">Contact</span>
+            <p>Open to opportunities</p>
+            <a href="mailto:alina.dyadenko@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -590,10 +576,10 @@ function renderProjects() {
   `;
 }
 
-function projectCard(project) {
+function projectCard(project, { cursorVariant = project.cursorVariant || Object.keys(cursorShapes)[projects.indexOf(project) % Object.keys(cursorShapes).length] } = {}) {
   return `
     <article class="project-card">
-      <a class="project-media" href="${projectUrl(project.slug)}" aria-label="${project.title}">
+      <a class="project-media"${cursorVariant ? ` data-cursor="${cursorVariant}"` : ""} href="${projectUrl(project.slug)}" aria-label="${project.title}">
         <span class="project-image ${project.image}"></span>
       </a>
       <div class="project-card-info">
@@ -1017,6 +1003,7 @@ function renderCase(slug) {
           `).join("")}
         </div>
       ` : ""}
+      ${section.questionEvidenceClosing ? `<p class="body-copy question-evidence-closing">${section.questionEvidenceClosing}</p>` : ""}
       ${section.researchTagsAfterEvidence ? renderResearchTags(section) : ""}
       ${section.cards ? `
         <div class="visual-cards${section.cardLayout === "compact" ? " visual-cards-compact" : ""}">
@@ -1154,6 +1141,7 @@ function renderCurrentRoute(hash) {
 }
 
 function route() {
+  projectCursor.hide();
   const isInitialRender = !hasRendered;
   const caseSectionAnchorPattern = /^#(context|advertisers|publishers|reflection|advertiser-experience|publisher-experience)$/;
   const staleCaseSectionAnchor = isInitialRender && caseSectionAnchorPattern.test(window.location.hash);
@@ -1946,6 +1934,7 @@ function setupGlobalInteractions() {
 }
 
 setupGlobalInteractions();
+const projectCursor = new CustomCursor({ selector: '.projects-section .project-media[data-cursor]' });
 window.addEventListener("popstate", route);
 window.addEventListener("hashchange", route);
 route();
