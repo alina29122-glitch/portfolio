@@ -1,8 +1,9 @@
 // Add new variants here; project cards select them through data-cursor.
 export const cursorShapes = {
-  'eight-star': { size: 44, svg: '<path d="M24 0l5.5 14.5L41 7l-7.5 11.5L48 24l-14.5 5.5L41 41l-11.5-7.5L24 48l-5.5-14.5L7 41l7.5-11.5L0 24l14.5-5.5L7 7l11.5 7.5Z"/>' },
-  circle: { size: 38, svg: '<circle cx="24" cy="24" r="24"/>' },
-  'soft-star': { size: 46, svg: '<path d="M24 1C28 1 27 13 33 15S47 20 47 24 35 27 33 33 28 47 24 47 21 35 15 33 1 28 1 24 13 21 15 15 20 1 24 1Z"/>' }
+  "star-10": { size: 46, svg: "<path d=\"M36.0718 23.0444C30.1828 22.477 25.523 17.8194 24.9563 11.9354L24 2L23.0437 11.9354C22.477 17.8204 17.8172 22.478 11.9282 23.0444L2 24L11.9282 24.9556C17.8172 25.523 22.477 30.1806 23.0437 36.0646L24 46L24.9563 36.0646C25.523 30.1796 30.1828 25.522 36.0718 24.9556L46 24L36.0718 23.0444Z\"/>" },
+  "star-23": { size: 46, svg: "<path d=\"M30.7233 25.3452L46 20.3197L29.9125 20.7809L38.3597 7.18684L26.3352 17.803L23.9995 2L21.6648 17.803L9.64035 7.18684L18.0875 20.7809L2 20.3197L17.2767 25.3452L4.65383 35.2528L19.6114 29.3583L16.3592 45L23.9995 30.9438L31.6408 45L28.3886 29.3583L43.3462 35.2528L30.7233 25.3452Z\"/>" },
+  "star-20": { size: 46, svg: "<path d=\"M43 13L27.3526 18.1769L24 2L20.6474 18.1769L5 13L17.2948 24L5 35L20.6474 29.8221L24 46L27.3526 29.8221L43 35L30.7042 24L43 13Z\"/>" },
+  "star-18": { size: 46, svg: "<path d=\"M46 2L24 14.4911L2 2L14.4911 24L2 46L24 33.5075L46 46L33.5075 24L46 2Z\"/>" }
 };
 
 export class CustomCursor {
@@ -14,7 +15,7 @@ export class CustomCursor {
     this.element = document.createElement('div');
     this.element.className = 'custom-cursor';
     this.element.setAttribute('aria-hidden', 'true');
-    this.element.innerHTML = '<div class="custom-cursor-graphic"></div>';
+    this.element.innerHTML = '<div class="custom-cursor-graphic"></div><span class="custom-cursor-label">View</span>';
     this.graphic = this.element.firstElementChild;
     document.body.append(this.element);
     const options = { signal: this.controller.signal, passive: true };
@@ -47,12 +48,15 @@ export class CustomCursor {
     if (this.variant !== variant) {
       this.variant = variant;
       this.element.dataset.variant = variant;
+      this.element.style.setProperty('--cursor-size', `${shape.size}px`);
       this.graphic.style.width = `${shape.size}px`;
       this.graphic.style.height = `${shape.size}px`;
       this.graphic.innerHTML = `<svg viewBox="0 0 48 48" aria-hidden="true">${shape.svg}</svg>`;
     }
-    // No position easing: track the actual pointer without trailing behind it.
+    // Snap to the entry point before enabling the short movement transition.
+    const entering = !this.element.classList.contains('is-visible');
     this.element.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
+    if (entering) this.element.getBoundingClientRect();
     this.element.classList.add('is-visible');
   }
 

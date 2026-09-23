@@ -2,7 +2,7 @@ import { renderMgidOnboarding, setupMgidOnboardingNavigation } from "./mgid-onbo
 import { yolaGrowthCase } from "./yola-growth.js?v=hero-revision-6";
 
 import { edtechCase } from "./edtech-case.js";
-import { CustomCursor, cursorShapes } from "./components/CustomCursor.js";
+import { CustomCursor, cursorShapes } from "./components/CustomCursor.js?v=custom-stars-5";
 
 const projects = [
   {
@@ -375,6 +375,7 @@ let projectShowcaseCleanup;
 let testimonialsCleanup;
 let caseLightboxCleanup;
 let caseHeroParallaxCleanup;
+let homeHeroScrollCleanup;
 let caseSectionNavCleanup;
 let caseSectionNavObserver;
 let previousCaseScrollRestoration;
@@ -528,33 +529,58 @@ function testimonialsSection() {
 
 function renderHome() {
   const latestProjects = projects.slice(0, 4);
+  const floatingImages = [
+    ["edtech-math-solver-v2.png", 5, 18, 180],
+    ["mgid-dashboard-feature-01.png", 71, 4, 220],
+    ["yola-editing-publishing.png", 34, 38, 170],
+    ["edtech-study-practice-v2.png", 89, 48, 150],
+    ["mgid-widget-02.png", 17, 66, 190],
+    ["yola-product-guidance.png", 58, 85, 200],
+    ["edtech-learning-companion-v3.png", 4, 112, 170],
+    ["mgid-dashboard-feature-03.png", 81, 133, 210],
+    ["yola-domain-purchase.png", 38, 155, 180],
+    ["edtech-academic-writing-v2.png", 65, 180, 170],
+    ["mgid-widget-01.png", 13, 197, 200],
+    ["yola-checkout.png", 90, 218, 170],
+  ];
 
   app.innerHTML = `
+    <div class="home-hero-scroll">
     <section class="minimal-hero opportunity-hero" aria-labelledby="opportunity-hero-title">
       <div class="opportunity-hero-shell">
         <div class="opportunity-hero-copy">
-          <h1 id="opportunity-hero-title"><span>I’m a Senior Product Designer shaping products from early discovery to launch</span> always learning how to build better products and become a better designer (/human)</h1>
+          <h1 id="opportunity-hero-title"><span>I’m a Senior Product Designer shaping products from discovery to launch.</span> Always learning to make better products and grow as a designer (/human)</h1>
         </div>
-        <img class="opportunity-hero-artwork" src="assets/hero-sticker-portrait-v3.png" alt="Alina holding a laptop and iced coffee" width="1024" height="1536" fetchpriority="high" />
+        <div class="opportunity-hero-photo-placeholder" aria-hidden="true"><span>Photo</span></div>
         <div class="opportunity-hero-facts" aria-label="Portfolio overview">
-          <div class="opportunity-hero-fact">
-            <span class="opportunity-hero-fact-label">Selected work</span>
-            <p>${projects.length} case studies across web and mobile</p>
-            <a href="#projects">View projects <span aria-hidden="true">↗</span></a>
+          <div class="opportunity-hero-fact opportunity-hero-experience">
+            <span class="opportunity-hero-fact-label">Experience</span>
+            <p>10+ years in product design · B2B &amp; B2C · SaaS</p>
+            <a class="opportunity-hero-cta" href="#projects"><span>View work</span><span aria-hidden="true">↗</span></a>
           </div>
           <div class="opportunity-hero-fact">
-            <span class="opportunity-hero-fact-label">Experience</span>
-            <p>10+ years in product design · B2B · B2C</p>
-            <span aria-hidden="true">—</span>
+            <span class="opportunity-hero-fact-label">Domains</span>
+            <p>AdTech · EdTech · Website builders</p>
           </div>
           <div class="opportunity-hero-fact">
             <span class="opportunity-hero-fact-label">Contact</span>
-            <p>Open to opportunities</p>
-            <a href="mailto:alina.dyadenko@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a>
+            <p class="opportunity-hero-contact-links">
+              <a href="mailto:alina.dyadenko@gmail.com">alina.dyadenko@gmail.com</a>
+              <a href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            </p>
+            <a class="opportunity-hero-cta" href="mailto:alina.dyadenko@gmail.com"><span>Let’s talk</span><span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </div>
+      <div class="home-hero-float-layer" aria-hidden="true">
+        ${floatingImages.map(([src, x, offset, width], index) => `
+          <img class="home-hero-float-card" src="assets/${src}" alt="" decoding="async"
+            style="--card-x: ${x}%; --card-width: ${width}px"
+            data-offset="${offset}" data-speed="${0.9 + (index % 3) * 0.08}" />
+        `).join("")}
+      </div>
     </section>
+    </div>
 
     ${projectsSection(latestProjects, { showSeeAll: projects.length > latestProjects.length, label: "Selected works" })}
 
@@ -1204,6 +1230,7 @@ function route() {
       makeLinksSentenceCase();
       setupAccordions();
       setupMotion();
+      // Hero scroll animation is temporarily disabled.
       setupProjectShowcaseHover();
       setupTestimonials();
       setupHoverLinkPreviews();
@@ -1868,6 +1895,62 @@ function setupCaseLightbox() {
     document.removeEventListener("keydown", handleKeydown);
     document.body.classList.remove("is-lightbox-open");
     lightbox.remove();
+  };
+}
+
+function setupHomeHeroScroll() {
+  homeHeroScrollCleanup?.();
+  homeHeroScrollCleanup = null;
+  const stage = app.querySelector(".home-hero-scroll");
+  if (!stage) return;
+  const hero = stage.querySelector(".opportunity-hero");
+  const cards = [...stage.querySelectorAll(".home-hero-float-card")];
+  const motion = window.matchMedia("(min-width: 768px) and (min-height: 600px) and (prefers-reduced-motion: no-preference)");
+  let frame = 0;
+  let start = 0;
+  let travel = 0;
+  let viewport = 0;
+  const clamp = (value) => Math.max(0, Math.min(1, value));
+
+  const paint = () => {
+    frame = 0;
+    if (!motion.matches) return;
+    const progress = clamp((window.scrollY - start) / travel);
+    // Cards cross the pinned hero in staggered lanes, like the video reference.
+    cards.forEach((card) => {
+      const y = viewport * (1.12 + Number(card.dataset.offset) / 100 - progress * 4 * Number(card.dataset.speed));
+      card.style.transform = `translate3d(-50%, ${y.toFixed(1)}px, 0)`;
+    });
+    hero.style.setProperty("--float-opacity", String(clamp(progress * 12) * clamp((1 - progress) * 10)));
+    hero.style.setProperty("--portrait-opacity", String(1 - Math.sin(progress * Math.PI) * 0.78));
+  };
+  const schedule = () => {
+    if (!frame) frame = requestAnimationFrame(paint);
+  };
+  const measure = () => {
+    stage.classList.toggle("is-scroll-active", motion.matches);
+    if (!motion.matches) return;
+    viewport = window.innerHeight;
+    const height = hero.offsetHeight;
+    travel = viewport * 1.6;
+    start = stage.getBoundingClientRect().top + window.scrollY + Math.max(0, height - viewport);
+    stage.style.setProperty("--hero-pin-height", `${height}px`);
+    stage.style.setProperty("--hero-scroll-travel", `${travel}px`);
+    stage.style.setProperty("--hero-pin-top", `${Math.min(0, viewport - height)}px`);
+    schedule();
+  };
+  const observer = new ResizeObserver(measure);
+  observer.observe(hero);
+  window.addEventListener("scroll", schedule, { passive: true });
+  window.addEventListener("resize", measure);
+  motion.addEventListener("change", measure);
+  measure();
+  homeHeroScrollCleanup = () => {
+    cancelAnimationFrame(frame);
+    observer.disconnect();
+    window.removeEventListener("scroll", schedule);
+    window.removeEventListener("resize", measure);
+    motion.removeEventListener("change", measure);
   };
 }
 

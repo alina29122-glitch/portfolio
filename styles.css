@@ -2421,7 +2421,7 @@ h4 {
   margin-top: 0;
 }
 
-.is-work-route .project-card .underline-link {
+.is-work-route :is(.project-card, .opportunity-hero-fact) .underline-link {
   align-self: end;
   grid-row: 2;
 }
@@ -2553,17 +2553,17 @@ h4 {
   color: #fff;
 }
 
-.project-card .underline-link {
+:is(.project-card, .opportunity-hero-fact) .underline-link {
   align-self: end;
   gap: 8px;
   width: fit-content;
 }
 
-.project-card .underline-link span:first-child {
+:is(.project-card, .opportunity-hero-fact) .underline-link span:first-child {
   line-height: 1;
 }
 
-.project-card .underline-link img {
+:is(.project-card, .opportunity-hero-fact) .underline-link img {
   filter: invert(1);
   height: 1.08em;
   transform: scale(1);
@@ -2574,8 +2574,8 @@ h4 {
   width: 1.08em;
 }
 
-.project-card .underline-link:hover img,
-.project-card .underline-link:focus-visible img {
+:is(.project-card, .opportunity-hero-fact) .underline-link:hover img,
+:is(.project-card, .opportunity-hero-fact) .underline-link:focus-visible img {
   transform: scale(1.18);
 }
 
@@ -4502,7 +4502,7 @@ h1.lead {
     max-width: 920px;
   }
 
-  .project-card .underline-link {
+  :is(.project-card, .opportunity-hero-fact) .underline-link {
     align-self: start;
     width: fit-content;
   }
@@ -5076,7 +5076,7 @@ h1.lead {
     line-height: 1.5;
   }
 
-  .project-card .underline-link {
+  :is(.project-card, .opportunity-hero-fact) .underline-link {
     margin-top: 2px;
   }
 
@@ -8301,6 +8301,8 @@ body:has(.case-page) .case-lightbox img {
   isolation: isolate;
 }
 .opportunity-hero-shell {
+  --hero-copy-width: 58%;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -8311,7 +8313,7 @@ body:has(.case-page) .case-lightbox img {
 .opportunity-hero-copy {
   position: relative;
   z-index: 2;
-  width: 58%;
+  width: var(--hero-copy-width);
   padding-top: 56px;
 }
 .opportunity-hero-eyebrow,
@@ -8340,7 +8342,7 @@ body:has(.case-page) .case-lightbox img {
 .opportunity-hero-artwork {
   position: absolute;
   z-index: 1;
-  right: var(--site-container-gutter);
+  right: calc(var(--site-container-gutter) - 32px);
   bottom: 12px;
   height: calc(100% - 88px);
   width: 43%;
@@ -8349,33 +8351,63 @@ body:has(.case-page) .case-lightbox img {
   object-position: center bottom;
   pointer-events: none;
 }
-.opportunity-hero-facts { margin-top: 80px; position: relative; }
+.opportunity-hero-facts { margin-top: 80px; position: relative; width: var(--hero-copy-width); }
 .opportunity-hero-fact {
+  position: relative;
   display: grid;
-  grid-template-columns: 140px minmax(0, 300px) 130px;
+  grid-template-columns: 90px minmax(0, 1fr) auto;
   align-items: center;
   gap: 24px;
   padding-block: 24px;
-  border-top: 1px solid var(--medium-outline);
+  border-top: 1px solid transparent;
 }
-.opportunity-hero-fact:last-child { border-bottom: 1px solid var(--medium-outline); }
+.opportunity-hero-fact:last-child { border-bottom: 1px solid transparent; }
+/* Full-width dividers stay independent of the text and button positions. */
+.opportunity-hero-fact::before,
+.opportunity-hero-fact:last-child::after {
+  content: "";
+  position: absolute;
+  inset-inline: -100vw;
+  height: 1px;
+  background: var(--medium-outline);
+  pointer-events: none;
+}
+.opportunity-hero-fact::before { top: -1px; }
+.opportunity-hero-fact:last-child::after { bottom: -1px; }
 .opportunity-hero-fact > * { position: relative; z-index: 2; }
-.opportunity-hero-fact p { margin: 0; font-size: 16px; line-height: 1.5; }
-.opportunity-hero-fact a { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; display: inline-flex; gap: 12px; align-items: center; }
-.opportunity-hero-fact a:hover { color: var(--red); }
+.opportunity-hero-fact p { margin: 0; font-size: 16px; line-height: 1.5; text-align: left; }
+.opportunity-hero-contact-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.opportunity-hero-contact-links a { font: inherit; overflow-wrap: anywhere; }
+.opportunity-hero-contact-links a:hover { color: var(--red); }
+.opportunity-hero-contact-links a:focus-visible { outline: 2px solid var(--red); outline-offset: 4px; }
+.opportunity-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-self: end;
+  gap: 8px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.opportunity-hero-cta:hover { color: var(--red); }
+.opportunity-hero-cta:focus-visible { outline: 2px solid var(--red); outline-offset: 6px; }
 
 @media (max-width: 1199px) {
-  .opportunity-hero-fact { grid-template-columns: 120px minmax(0, 240px) 110px; gap: 16px; }
+  .opportunity-hero-fact { gap: 16px; }
   .opportunity-hero-artwork { right: 0; width: 40%; }
 }
 @media (max-width: 991px) {
   .opportunity-hero-facts { z-index: 2; background: var(--dark); }
-  .opportunity-hero-fact { grid-template-columns: 140px minmax(0, 1fr) 130px; }
   .opportunity-hero-artwork { bottom: 260px; height: calc(100% - 350px); }
 }
 @media (max-width: 767px) {
   .opportunity-hero { padding-top: 124px; min-height: 100svh; }
-  .opportunity-hero-shell { min-height: 0; }
+  .opportunity-hero-shell { --hero-copy-width: 100%; min-height: 0; }
   .opportunity-hero-copy { width: 100%; padding-top: 28px; }
   .opportunity-hero-artwork { position: relative; right: auto; bottom: auto; width: 100%; height: 460px; margin: 24px auto 0; }
   .opportunity-hero-facts { margin-top: 32px; }
@@ -8385,6 +8417,68 @@ body:has(.case-page) .case-lightbox img {
 }
 
 .opportunity-hero h1 { margin: 0; }
+
+.opportunity-hero-photo-placeholder {
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: 1;
+  width: calc(100% - var(--hero-copy-width) - 64px);
+  display: grid;
+  place-items: center;
+  background: #1c1f20;
+  border: 1px solid var(--light-outline);
+  color: var(--body-display);
+  font-size: 14px;
+}
+@media (max-width: 767px) {
+  .opportunity-hero-photo-placeholder {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    margin-top: 32px;
+  }
+}
+
+/* The opening layout stays intact; case thumbnails pass through it on scroll. */
+.home-hero-scroll.is-scroll-active {
+  height: calc(var(--hero-pin-height) + var(--hero-scroll-travel));
+}
+.home-hero-scroll.is-scroll-active .opportunity-hero {
+  position: sticky;
+  top: var(--hero-pin-top, 0px);
+}
+.home-hero-float-layer { display: none; }
+.is-scroll-active .home-hero-float-layer {
+  display: block;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 5;
+  pointer-events: none;
+  opacity: var(--float-opacity, 0);
+}
+.home-hero-float-card {
+  position: absolute;
+  top: 0;
+  left: var(--card-x);
+  width: min(var(--card-width), 16vw);
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+  transform: translate3d(-50%, 120vh, 0);
+  will-change: transform;
+  box-shadow: 0 12px 40px #0003;
+}
+.is-scroll-active .opportunity-hero-artwork {
+  opacity: var(--portrait-opacity, 1);
+}
+@media (prefers-reduced-motion: reduce), (max-width: 767px), (max-height: 599px) {
+  .home-hero-scroll.is-scroll-active { height: auto; }
+  .home-hero-scroll.is-scroll-active .opportunity-hero { position: relative; top: auto; }
+  .is-scroll-active .home-hero-float-layer { display: none; }
+  .is-scroll-active .opportunity-hero-artwork { opacity: 1; }
+}
 
 /* Custom cursor only replaces the native pointer on an active project image. */
 .custom-cursor {
@@ -8398,16 +8492,31 @@ body:has(.case-page) .case-lightbox img {
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.7);
   transition: opacity 80ms ease, transform 80ms ease;
-  filter: drop-shadow(0 1px 2px #0009) drop-shadow(0 0 1px #000);
 }
-.custom-cursor-graphic svg { display: block; width: 100%; height: 100%; fill: #f7f5ef; }
+.custom-cursor-graphic svg { display: block; width: 100%; height: 100%; fill: var(--red); stroke: none; }
+.custom-cursor-label {
+  position: absolute;
+  top: 0;
+  left: calc(var(--cursor-size, 44px) / 2 + 12px);
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: var(--category-label-size, 11px);
+  font-weight: var(--category-label-weight, 400);
+  letter-spacing: 1px;
+  line-height: 1.3;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 80ms ease;
+}
+.custom-cursor.is-visible .custom-cursor-label { opacity: 1; transition-duration: 140ms; }
 .custom-cursor.is-visible .custom-cursor-graphic {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
   transition-duration: 140ms;
 }
-.custom-cursor.is-visible:not([data-variant="circle"]) .custom-cursor-graphic {
-  transform: translate(-50%, -50%) scale(1) rotate(12deg);
+.custom-cursor.is-visible {
+  transition: transform 70ms ease-out;
 }
 @media (hover: hover) and (pointer: fine) {
   .custom-cursor-target,
@@ -8417,10 +8526,17 @@ body:has(.case-page) .case-lightbox img {
   .custom-cursor { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .custom-cursor.is-visible { transition: none; }
+  .custom-cursor .custom-cursor-label { transition: none; }
   .custom-cursor .custom-cursor-graphic,
-  .custom-cursor.is-visible .custom-cursor-graphic,
-  .custom-cursor.is-visible:not([data-variant="circle"]) .custom-cursor-graphic {
+  .custom-cursor.is-visible .custom-cursor-graphic {
     transition: none;
     transform: translate(-50%, -50%);
   }
+}
+
+.opportunity-hero-fact .opportunity-hero-contact-button:hover {
+  background: #ff754f;
+  border-color: #ff754f;
+  color: var(--dark);
 }
