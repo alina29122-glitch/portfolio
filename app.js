@@ -1,8 +1,8 @@
 import { renderMgidOnboarding, setupMgidOnboardingNavigation } from "./mgid-onboarding.js?v=account-access-20260913";
 import { yolaGrowthCase } from "./yola-growth.js?v=hero-revision-6";
 
-import { edtechCase } from "./edtech-case.js";
-import { CustomCursor, cursorShapes } from "./components/CustomCursor.js?v=custom-stars-5";
+import { edtechCase } from "./edtech-case.js?v=hero-video-2";
+import { CustomCursor, cursorShapes } from "./components/CustomCursor.js?v=cursor-follow-6";
 
 const projects = [
   {
@@ -1069,7 +1069,7 @@ function renderCase(slug) {
     <section class="section case-visual-section">
       <div class="case-visual-container">
         <div class="case-hero-visual" aria-label="${project.title} image">
-          ${project.heroPlaceholder ? `<div class="case-media-placeholder" role="img" aria-label="${project.heroPlaceholder}"><span>${project.heroPlaceholder}</span></div>` : `<span class="project-image ${project.caseHeroImage || project.image}"></span>`}
+          ${project.heroVideo ? `<video class="case-hero-video" autoplay muted loop playsinline preload="metadata" aria-label="${project.title}"><source src="${project.heroVideo}" type="video/mp4"></video>` : project.heroPlaceholder ? `<div class="case-media-placeholder" role="img" aria-label="${project.heroPlaceholder}"><span>${project.heroPlaceholder}</span></div>` : `<span class="project-image ${project.caseHeroImage || project.image}"></span>`}
         </div>
       </div>
     </section>

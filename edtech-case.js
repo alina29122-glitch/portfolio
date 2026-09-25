@@ -3,7 +3,7 @@ export const edtechCase = {
   "years": "2025–2026",
   "company": "NDA · AI EdTech",
   "heroTitle": "From product opportunity to AI learning experience",
-  "heroPlaceholder": "AI LEARNING PRODUCTS — HERO VISUAL PLACEHOLDER",
+  "heroVideo": "assets/edtech-hero-recording.mp4",
   "metadata": [
     {
       "label": "Role & teams",

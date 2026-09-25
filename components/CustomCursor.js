@@ -12,11 +12,15 @@ export class CustomCursor {
     this.selector = selector;
     this.media = window.matchMedia('(hover: hover) and (pointer: fine)');
     this.controller = new AbortController();
+    this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    this.follow = { x: 0, y: 0, vx: 0, vy: 0 };
+    this.frame = null;
     this.element = document.createElement('div');
     this.element.className = 'custom-cursor';
     this.element.setAttribute('aria-hidden', 'true');
-    this.element.innerHTML = '<div class="custom-cursor-graphic"></div><span class="custom-cursor-label">View</span>';
+    this.element.innerHTML = '<div class="custom-cursor-graphic"></div><div class="custom-cursor-follow"><span class="custom-cursor-label">VIEW</span></div>';
     this.graphic = this.element.firstElementChild;
+    this.follower = this.element.lastElementChild;
     document.body.append(this.element);
     const options = { signal: this.controller.signal, passive: true };
     root.addEventListener('pointerover', event => this.update(event), options);
@@ -30,6 +34,7 @@ export class CustomCursor {
     window.addEventListener('resize', () => this.hide(), options);
     document.addEventListener('visibilitychange', () => this.hide(), options);
     this.media.addEventListener('change', () => this.hide(), options);
+    this.reducedMotion.addEventListener('change', () => this.hide(), options);
   }
 
   update(event) {
@@ -53,14 +58,56 @@ export class CustomCursor {
       this.graphic.style.height = `${shape.size}px`;
       this.graphic.innerHTML = `<svg viewBox="0 0 48 48" aria-hidden="true">${shape.svg}</svg>`;
     }
-    // Snap to the entry point before enabling the short movement transition.
     const entering = !this.element.classList.contains('is-visible');
-    this.element.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
+    this.graphic.style.left = `${event.clientX}px`;
+    this.graphic.style.top = `${event.clientY}px`;
+    this.destination = {
+      x: event.clientX + shape.size / 2 + 15,
+      y: event.clientY + shape.size / 2 + 15
+    };
+    if (entering || this.reducedMotion.matches) {
+      this.follow = { ...this.destination, vx: 0, vy: 0 };
+      this.renderFollower();
+    }
     if (entering) this.element.getBoundingClientRect();
     this.element.classList.add('is-visible');
+    if (!this.reducedMotion.matches && this.frame === null) {
+      this.lastTime = performance.now();
+      this.frame = requestAnimationFrame(time => this.animateFollower(time));
+    }
+  }
+
+  renderFollower() {
+    this.follower.style.transform = `translate3d(${this.follow.x}px, ${this.follow.y}px, 0)`;
+  }
+
+  animateFollower(time) {
+    this.frame = null;
+    // Match the reference spring (stiffness 500, damping 50, mass 1).
+    // Small integration steps keep the motion stable across refresh rates.
+    let remaining = Math.min((time - this.lastTime) / 1000, 0.064);
+    this.lastTime = time;
+    while (remaining > 0) {
+      const dt = Math.min(remaining, 1 / 240);
+      for (const axis of ['x', 'y']) {
+        const velocity = axis === 'x' ? 'vx' : 'vy';
+        this.follow[velocity] += (500 * (this.destination[axis] - this.follow[axis]) - 50 * this.follow[velocity]) * dt;
+        this.follow[axis] += this.follow[velocity] * dt;
+      }
+      remaining -= dt;
+    }
+    const settled = Math.hypot(this.destination.x - this.follow.x, this.destination.y - this.follow.y) < 0.1
+      && Math.hypot(this.follow.vx, this.follow.vy) < 0.1;
+    if (settled) this.follow = { ...this.destination, vx: 0, vy: 0 };
+    this.renderFollower();
+    if (!settled && this.active) {
+      this.frame = requestAnimationFrame(nextTime => this.animateFollower(nextTime));
+    }
   }
 
   hide() {
+    if (this.frame !== null) cancelAnimationFrame(this.frame);
+    this.frame = null;
     this.active?.classList.remove('custom-cursor-target');
     this.active = null;
     this.element.classList.remove('is-visible');
