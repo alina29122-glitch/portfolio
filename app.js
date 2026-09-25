@@ -1,16 +1,21 @@
 import { renderMgidOnboarding, setupMgidOnboardingNavigation } from "./mgid-onboarding.js?v=account-access-20260913";
 import { yolaGrowthCase } from "./yola-growth.js?v=hero-revision-6";
 
-import { edtechCase } from "./edtech-case.js?v=hero-video-2";
+import { edtechCase } from "./edtech-case.js?v=math-solver-3";
 import { CustomCursor, cursorShapes } from "./components/CustomCursor.js?v=cursor-follow-6";
 
 const projects = [
   {
     slug: "new-project",
+    cardEyebrow: "2025–2026 / NDA · EDTECH",
+    cardTitle: "From product opportunity to AI learning experience",
+    cardSummary: "Worked across a portfolio of AI-powered education products, from a flagship learning experience to new web and mobile tools for studying, writing, and problem-solving.",
     years: "2025-2026",
     company: "NDA · EdTech",
     title: "From product opportunity to AI learning experience",
     image: "case-ai-education",
+    previewVideo: "assets/nda-case-hero.mp4",
+    previewPoster: "assets/nda-case-preview.jpg",
     summary:
       "Exploring AI learning opportunities through research, concept validation, product strategy, and end-to-end design for web and mobile experiences.",
     role:
@@ -24,6 +29,9 @@ const projects = [
   },
   {
     slug: "mgid-feature-design",
+    cardEyebrow: "2023–2024 / MGID · ADTECH",
+    cardTitle: "Driving smarter advertising for 850M+ monthly users",
+    cardSummary: "MGID is a global native advertising platform connecting advertisers and publishers. I designed and improved core workflows for campaign management, tracking, integrations, targeting, and monetization across the platform.",
     years: "2023–2024",
     company: "MGID · AdTech",
     title: "Driving smarter advertising for 850M+ monthly users",
@@ -151,6 +159,9 @@ const projects = [
   },
   {
     slug: "mgid-user-activation",
+    cardEyebrow: "2023–2024 / MGID · ADTECH",
+    cardTitle: "Turning first-time users into active advertisers",
+    cardSummary: "For MGID’s advertiser platform, I redesigned the journey from signup and verification to first campaign setup. The goal was to make onboarding clearer and help new users reach value faster.",
     years: "2023-2024",
     company: "MGID · AdTech",
     title: "Helping new advertisers succeed from day one",
@@ -203,6 +214,9 @@ const projects = [
   },
   {
     slug: "yola-growth",
+    cardEyebrow: "YOLA · GROWTH",
+    cardTitle: "Designing growth across the customer journey",
+    cardSummary: "Yola is a website-building platform for small businesses and creators. I worked across acquisition, activation, and monetization to improve how users discovered the product, started building, and moved toward paid plans.",
     years: "2021-2022",
     company: "Yola · Sitebuilder",
     title: "Product design that drives growth",
@@ -228,6 +242,9 @@ const projects = [
   },
   {
     slug: "latitude-retention",
+    cardEyebrow: "YOLA · ONBOARDING",
+    cardTitle: "Helping new users succeed from day one",
+    cardSummary: "For Yola’s website builder, I redesigned early product experiences to help first-time users understand the platform, start building with confidence, and reach meaningful progress sooner.",
     years: "2021-2022",
     company: "Yola · Website Builder",
     title: "Turning user JTBD into personalized experiences",
@@ -254,6 +271,9 @@ const projects = [
   },
   {
     slug: "sitebuilder-tools",
+    cardEyebrow: "YOLA · WEBSITE BUILDER",
+    cardTitle: "Building the foundation of a new website builder",
+    cardSummary: "Helped shape a new generation of Yola’s website-building product. I designed core creation tools and reusable patterns that made building and editing websites simpler and more scalable.",
     years: "2018-2020",
     company: "Yola · Sitebuilder",
     title: "Building a website builder from scratch to launch",
@@ -279,6 +299,9 @@ const projects = [
   },
   {
     slug: "site-templates",
+    cardEyebrow: "YOLA · TEMPLATES",
+    cardTitle: "Helping users go from blank page to published website",
+    cardSummary: "Designed and evolved Yola’s template experience to give users a stronger starting point. The work helped people choose, customize, and launch websites with less effort.",
     years: "2018-2019",
     company: "Yola · Sitebuilder",
     title: "Designing a template system from the ground up",
@@ -376,6 +399,7 @@ let testimonialsCleanup;
 let caseLightboxCleanup;
 let caseHeroParallaxCleanup;
 let homeHeroScrollCleanup;
+let projectPreviewCleanup;
 let caseSectionNavCleanup;
 let caseSectionNavObserver;
 let previousCaseScrollRestoration;
@@ -395,7 +419,7 @@ function projectsSection(items, { showSeeAll = false, label = "/projects" } = {}
           </div>
         ` : ""}
         <div class="projects-list">
-          ${items.map((project) => projectCard(project)).join("")}
+          ${items.map((project) => projectCard(project, { home: true })).join("")}
         </div>
         ${showSeeAll ? `
           <div class="projects-actions">
@@ -551,7 +575,7 @@ function renderHome() {
         <div class="opportunity-hero-copy">
           <h1 id="opportunity-hero-title"><span>I’m a Senior Product Designer shaping products from discovery to launch.</span> Always learning to make better products and grow as a designer (/human)</h1>
         </div>
-        <div class="opportunity-hero-photo-placeholder" aria-hidden="true"><span>Photo</span></div>
+        <div class="opportunity-hero-photo-placeholder"><img class="opportunity-hero-photo" src="assets/home-hero-portrait.png" alt="Alina Diadenko" width="1122" height="1402" fetchpriority="high" /></div>
         <div class="opportunity-hero-facts" aria-label="Portfolio overview">
           <div class="opportunity-hero-fact opportunity-hero-experience">
             <span class="opportunity-hero-fact-label">Experience</span>
@@ -602,19 +626,24 @@ function renderProjects() {
   `;
 }
 
-function projectCard(project, { cursorVariant = project.cursorVariant || Object.keys(cursorShapes)[projects.indexOf(project) % Object.keys(cursorShapes).length] } = {}) {
+function projectCard(project, { home = false, cursorVariant = project.cursorVariant || Object.keys(cursorShapes)[projects.indexOf(project) % Object.keys(cursorShapes).length] } = {}) {
+  const homeNda = home && project.slug === "new-project";
+  const cardTitle = home ? project.cardTitle || project.title : project.title;
   return `
-    <article class="project-card">
-      <a class="project-media"${cursorVariant ? ` data-cursor="${cursorVariant}"` : ""} href="${projectUrl(project.slug)}" aria-label="${project.title}">
-        <span class="project-image ${project.image}"></span>
+    <article class="project-card${homeNda ? " project-card-home-nda" : ""}">
+      <a class="project-media"${cursorVariant ? ` data-cursor="${cursorVariant}"` : ""} href="${projectUrl(project.slug)}" aria-label="${cardTitle}">
+        ${project.previewVideo ? `
+          <img class="project-image project-preview-poster" src="${project.previewPoster}" alt="" loading="lazy" />
+          <video class="project-preview-video" data-preview-src="${project.previewVideo}" muted loop playsinline preload="none" aria-hidden="true"></video>
+        ` : `<span class="project-image ${project.image}"></span>`}
       </a>
       <div class="project-card-info">
         <div class="card-info">
-          <p class="project-year">${project.years} / ${project.company}</p>
+          <p class="project-year">${home && project.cardEyebrow ? project.cardEyebrow : `${project.years} / ${project.company}`}</p>
           <div>
-            <h3><a class="project-title-link" href="${projectUrl(project.slug)}">${project.title}</a></h3>
-            <p>${project.delivered}</p>
-            ${project.whatIDid ? `
+            <h3><a class="project-title-link" href="${projectUrl(project.slug)}">${homeNda ? "From product<br>opportunity to AI<br>learning experience" : cardTitle}</a></h3>
+            <p>${home && project.cardSummary ? project.cardSummary : project.delivered}</p>
+            ${!home && project.whatIDid ? `
               <div class="project-scope">
                 <span>What I did</span>
                 <ul>
@@ -622,6 +651,7 @@ function projectCard(project, { cursorVariant = project.cursorVariant || Object.
                 </ul>
               </div>
             ` : ""}
+
           </div>
           <a class="underline-link" href="${projectUrl(project.slug)}" data-preserve-label="true">
             <span>Explore case</span>
@@ -1168,6 +1198,7 @@ function renderCurrentRoute(hash) {
 
 function route() {
   projectCursor.hide();
+  projectPreviewCleanup?.();
   const isInitialRender = !hasRendered;
   const caseSectionAnchorPattern = /^#(context|advertisers|publishers|reflection|advertiser-experience|publisher-experience)$/;
   const staleCaseSectionAnchor = isInitialRender && caseSectionAnchorPattern.test(window.location.hash);
@@ -1232,6 +1263,7 @@ function route() {
       setupMotion();
       // Hero scroll animation is temporarily disabled.
       setupProjectShowcaseHover();
+      setupProjectVideoPreviews();
       setupTestimonials();
       setupHoverLinkPreviews();
       setupCaseLightbox();
@@ -1649,6 +1681,59 @@ function setupHoverLinkPreviews() {
     });
     cancelAnimationFrame(state.frameId);
     preview.remove();
+  };
+}
+
+function setupProjectVideoPreviews() {
+  projectPreviewCleanup?.();
+  const controller = new AbortController();
+  const options = { signal: controller.signal };
+  const hover = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const stops = [];
+  app.querySelectorAll(".project-preview-video").forEach(video => {
+    const card = video.closest(".project-card");
+    let hovered = false;
+    let focused = false;
+    let generation = 0;
+    const stop = () => {
+      generation++;
+      video.classList.remove("is-playing");
+      video.pause();
+      if (video.readyState > 0) video.currentTime = 0;
+    };
+    const sync = () => {
+      if ((!hovered && !focused) || reduced.matches || document.hidden) {
+        stop();
+        return;
+      }
+      const request = ++generation;
+      if (!video.getAttribute("src")) video.src = video.dataset.previewSrc;
+      video.muted = true;
+      video.play().then(() => {
+        if (generation === request) video.classList.add("is-playing");
+      }).catch(() => {
+        if (generation === request) stop();
+      });
+    };
+    card.addEventListener("pointerenter", event => {
+      hovered = hover.matches && event.pointerType !== "touch";
+      sync();
+    }, options);
+    card.addEventListener("pointerleave", () => { hovered = false; sync(); }, options);
+    card.addEventListener("focusin", () => { focused = true; sync(); }, options);
+    card.addEventListener("focusout", event => {
+      if (!card.contains(event.relatedTarget)) { focused = false; sync(); }
+    }, options);
+    window.addEventListener("blur", stop, options);
+    document.addEventListener("visibilitychange", stop, options);
+    reduced.addEventListener("change", sync, options);
+    hover.addEventListener("change", () => { hovered = false; sync(); }, options);
+    stops.push(stop);
+  });
+  projectPreviewCleanup = () => {
+    controller.abort();
+    stops.forEach(stop => stop());
   };
 }
 

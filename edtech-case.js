@@ -3,7 +3,7 @@ export const edtechCase = {
   "years": "2025–2026",
   "company": "NDA · AI EdTech",
   "heroTitle": "From product opportunity to AI learning experience",
-  "heroVideo": "assets/edtech-hero-recording.mp4",
+  "heroVideo": "assets/nda-case-hero.mp4",
   "metadata": [
     {
       "label": "Role & teams",
@@ -78,7 +78,7 @@ export const edtechCase = {
             "Connected brief, sources, outline, and draft",
             "Integrated quality and originality checks"
           ],
-          "image": "edtech-academic-writing-v2",
+          "image": "edtech-academic-writing-v3",
           "changesLabel": "What I focused on"
         },
         {
@@ -90,7 +90,7 @@ export const edtechCase = {
             "Structured answers into clear steps",
             "Designed history and repeat solving"
           ],
-          "image": "edtech-math-solver-v2",
+          "image": "edtech-math-solver-v3",
           "changesLabel": "What I focused on"
         },
         {
@@ -102,7 +102,7 @@ export const edtechCase = {
             "Designed upload, customization, and review",
             "Built quizzes, flashcards, and AI notes"
           ],
-          "image": "edtech-study-practice-v2",
+          "image": "edtech-study-practice-v5",
           "changesLabel": "What I focused on"
         },
         {
@@ -114,7 +114,7 @@ export const edtechCase = {
             "Designed guided learning paths",
             "Created the mobile visual system"
           ],
-          "image": "edtech-learning-companion-v3",
+          "image": "edtech-learning-companion-v4",
           "changesLabel": "What I focused on"
         }
       ]
