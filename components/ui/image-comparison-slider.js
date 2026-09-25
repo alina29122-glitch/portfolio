@@ -1,8 +1,8 @@
 // Native range controls provide touch, mouse, and keyboard support without dependencies.
 export function imageComparison() {
   return `<div class="case-feature-media onboarding-comparison" data-onboarding-visual="access" style="--comparison-position:50%">
-    <img src="assets/mgid-signup-after.png" width="2668" height="1324" alt="After: redesigned MGID signup with guided steps and clearer navigation" draggable="false" />
-    <div class="onboarding-comparison-after"><img src="assets/mgid-signup-before.png" width="2668" height="1324" alt="Before: MGID signup and login with annotated usability issues" draggable="false" /></div>
+    <img src="/assets/mgid-signup-after.png" width="2668" height="1324" alt="After: redesigned MGID signup with guided steps and clearer navigation" draggable="false" />
+    <div class="onboarding-comparison-after"><img src="/assets/mgid-signup-before.png" width="2668" height="1324" alt="Before: MGID signup and login with annotated usability issues" draggable="false" /></div>
     <span class="onboarding-comparison-label onboarding-comparison-label-after">After</span>
     <span class="onboarding-comparison-label onboarding-comparison-label-before">Before</span>
     <div class="onboarding-comparison-divider" aria-hidden="true"><span>‹ ›</span></div>

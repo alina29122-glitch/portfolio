@@ -1,0 +1,12 @@
+{
+  "name": "alina-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/serve.mjs",
+    "preview": "node scripts/serve.mjs dist",
+    "test": "node --test scripts/routing.test.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

@@ -119,7 +119,7 @@ export const yolaGrowthCase = {
         "Built a repeatable design-to-launch process",
         "Created 20+ SEO-ready templates across 16 verticals"
       ],
-      media: [{ src: "assets/case-02.png", alt: "Yola skincare business template example with a product page and search result preview" }]
+      media: [{ src: "/assets/case-02.png", alt: "Yola skincare business template example with a product page and search result preview" }]
     },
     {
       id: "outcome", eyebrow: "OUTCOME",

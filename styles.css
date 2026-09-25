@@ -3926,7 +3926,7 @@ h1.lead {
   color: #fff;
 }
 
-.case-section-nav a[href="#/projects"] {
+.case-section-nav a[href="/projects"] {
   color: #fff;
 }
 
@@ -7722,11 +7722,11 @@ body:has(.case-page) .case-lightbox img {
   display: grid;
   grid-template-columns: 16px minmax(0, 1fr);
   align-items: center;
-  gap: 4px 10px;
+  gap: 8px 14px;
   background: rgba(255, 255, 255, 0.035);
   border: 1px solid var(--light-outline);
   border-radius: 4px;
-  padding: 14px 16px;
+  padding: 18px 16px;
   max-width: 1050px;
   margin: 32px 0 0;
 }
@@ -8600,4 +8600,40 @@ body:has(.case-page) .case-lightbox img {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+/* Shared case rhythm: equal space on either side of each chapter divider. */
+#app .case-page .case-study-body {
+  margin-top: var(--case-section-gap);
+  padding-top: var(--case-section-gap);
+}
+
+#app .case-page .case-study-body::before {
+  content: "";
+  top: 0;
+}
+
+#app .case-page .case-study-main > .section {
+  margin-block: 0;
+  padding-block: var(--case-section-gap);
+}
+
+#app .case-page .case-study-main > .section:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+#app .case-page .case-reference-content > :first-child {
+  margin-top: 0;
+}
+
+#app .case-page .case-reference-content > :last-child {
+  margin-bottom: 0;
+}
+
+#app .case-page .case-study-body :is(.case-section-lead, .case-summary, .case-challenge-statement, .case-section-accent, .onboarding-lead),
+#app .case-page .case-section-intro .case-reference-content > .body-copy:first-of-type,
+#app .case-page #context .case-reference-content > .body-copy:first-of-type {
+  font-size: 28px;
+  line-height: 1.4;
 }

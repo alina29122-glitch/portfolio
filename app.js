@@ -1,7 +1,7 @@
-import { renderMgidOnboarding, setupMgidOnboardingNavigation } from "./mgid-onboarding.js?v=account-access-20260913";
-import { yolaGrowthCase } from "./yola-growth.js?v=hero-revision-6";
+import { renderMgidOnboarding, setupMgidOnboardingNavigation } from "./mgid-onboarding.js?v=clean-routes-1";
+import { yolaGrowthCase } from "./yola-growth.js?v=clean-routes-1";
 
-import { edtechCase } from "./edtech-case.js?v=math-solver-3";
+import { edtechCase } from "./edtech-case.js?v=clean-routes-1";
 import { CustomCursor, cursorShapes } from "./components/CustomCursor.js?v=cursor-follow-6";
 
 const projects = [
@@ -14,8 +14,8 @@ const projects = [
     company: "NDA · EdTech",
     title: "From product opportunity to AI learning experience",
     image: "case-ai-education",
-    previewVideo: "assets/nda-case-hero.mp4",
-    previewPoster: "assets/nda-case-preview.jpg",
+    previewVideo: "/assets/nda-case-hero.mp4",
+    previewPoster: "/assets/nda-case-preview.jpg",
     summary:
       "Exploring AI learning opportunities through research, concept validation, product strategy, and end-to-end design for web and mobile experiences.",
     role:
@@ -351,30 +351,33 @@ const testimonials = [
   }
 ];
 
-const app = document.querySelector("#app");
-const header = document.querySelector("[data-header]");
-const menuToggle = document.querySelector(".portfolio-menu-toggle");
+const isBrowser = typeof document !== "undefined";
+const app = isBrowser ? document.querySelector("#app") : { innerHTML: "" };
+const header = isBrowser ? document.querySelector("[data-header]") : null;
+const menuToggle = isBrowser ? document.querySelector(".portfolio-menu-toggle") : null;
 function setNavigationOpen(open) {
   header?.classList.toggle("is-menu-open", open);
   menuToggle?.setAttribute("aria-expanded", String(open));
   menuToggle?.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
 }
-menuToggle?.addEventListener("click", () => {
-  setNavigationOpen(menuToggle.getAttribute("aria-expanded") !== "true");
-});
-header?.addEventListener("click", (event) => {
-  if (event.target.closest("a")) setNavigationOpen(false);
-});
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && header?.classList.contains("is-menu-open")) {
-    setNavigationOpen(false);
-    menuToggle?.focus();
-  }
-});
-document.addEventListener("click", (event) => {
-  if (!header?.contains(event.target)) setNavigationOpen(false);
-});
-window.matchMedia("(min-width: 992px)").addEventListener("change", () => setNavigationOpen(false));
+if (isBrowser) {
+  menuToggle?.addEventListener("click", () => {
+    setNavigationOpen(menuToggle.getAttribute("aria-expanded") !== "true");
+  });
+  header?.addEventListener("click", (event) => {
+    if (event.target.closest("a")) setNavigationOpen(false);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && header?.classList.contains("is-menu-open")) {
+      setNavigationOpen(false);
+      menuToggle?.focus();
+    }
+  });
+  document.addEventListener("click", (event) => {
+    if (!header?.contains(event.target)) setNavigationOpen(false);
+  });
+  window.matchMedia("(min-width: 992px)").addEventListener("change", () => setNavigationOpen(false));
+}
 const motionQuery = [
   ".project-card",
   ".featured-project-card",
@@ -402,11 +405,10 @@ let homeHeroScrollCleanup;
 let projectPreviewCleanup;
 let caseSectionNavCleanup;
 let caseSectionNavObserver;
-let previousCaseScrollRestoration;
-let caseScrollRestorationIsManual = false;
+
 
 function projectUrl(slug) {
-  return `#/case/${slug}`;
+  return `/case/${slug}`;
 }
 
 function projectsSection(items, { showSeeAll = false, label = "/projects" } = {}) {
@@ -423,9 +425,9 @@ function projectsSection(items, { showSeeAll = false, label = "/projects" } = {}
         </div>
         ${showSeeAll ? `
           <div class="projects-actions">
-            <a class="button projects-see-all" href="#/projects">
+            <a class="button projects-see-all" href="/projects">
               <span>All cases here</span>
-              <img src="assets/lets-talk-icon.svg" alt="" />
+              <img src="/assets/lets-talk-icon.svg" alt="" />
             </a>
           </div>
         ` : ""}
@@ -506,7 +508,7 @@ function featuredProjectsSection(items, { showSeeAll = false } = {}) {
         </div>
         ${showSeeAll ? `
           <div class="projects-actions featured-projects-actions">
-            <a class="button projects-see-all" href="#/projects">
+            <a class="button projects-see-all" href="/projects">
               <span>All cases here</span>
             </a>
           </div>
@@ -575,7 +577,7 @@ function renderHome() {
         <div class="opportunity-hero-copy">
           <h1 id="opportunity-hero-title"><span>I’m a Senior Product Designer shaping products from discovery to launch.</span> Always learning to make better products and grow as a designer (/human)</h1>
         </div>
-        <div class="opportunity-hero-photo-placeholder"><img class="opportunity-hero-photo" src="assets/home-hero-portrait.png" alt="Alina Diadenko" width="1122" height="1402" fetchpriority="high" /></div>
+        <div class="opportunity-hero-photo-placeholder"><img class="opportunity-hero-photo" src="/assets/home-hero-portrait.png" alt="Alina Diadenko" width="1122" height="1402" fetchpriority="high" /></div>
         <div class="opportunity-hero-facts" aria-label="Portfolio overview">
           <div class="opportunity-hero-fact opportunity-hero-experience">
             <span class="opportunity-hero-fact-label">Experience</span>
@@ -598,7 +600,7 @@ function renderHome() {
       </div>
       <div class="home-hero-float-layer" aria-hidden="true">
         ${floatingImages.map(([src, x, offset, width], index) => `
-          <img class="home-hero-float-card" src="assets/${src}" alt="" decoding="async"
+          <img class="home-hero-float-card" src="/assets/${src}" alt="" decoding="async"
             style="--card-x: ${x}%; --card-width: ${width}px"
             data-offset="${offset}" data-speed="${0.9 + (index % 3) * 0.08}" />
         `).join("")}
@@ -655,7 +657,7 @@ function projectCard(project, { home = false, cursorVariant = project.cursorVari
           </div>
           <a class="underline-link" href="${projectUrl(project.slug)}" data-preserve-label="true">
             <span>Explore case</span>
-            <img src="assets/lets-talk-icon.svg" alt="" />
+            <img src="/assets/lets-talk-icon.svg" alt="" />
           </a>
         </div>
       </div>
@@ -902,7 +904,7 @@ function renderCase(slug) {
       ${section.accentBody ? `<p class="case-section-accent">${section.accentBody}</p>` : ""}
       ${section.bodyTitle ? `<h2 class="case-body-title">${section.bodyTitle}</h2>` : ""}
       ${renderBodyWithEcosystemDiagram(section)}
-      ${section.note ? `<aside class="case-disclosure" aria-label="${section.noteLabel || "Project note"}"><img src="assets/lock.svg" width="16" height="16" alt="" />${section.noteLabel ? `<p class="case-disclosure-label">${section.noteLabel}</p>` : ""}<p class="case-disclosure-copy">${section.note}</p></aside>` : ""}
+      ${section.note ? `<aside class="case-disclosure" aria-label="${section.noteLabel || "Project note"}"><img src="/assets/lock.svg" width="16" height="16" alt="" />${section.noteLabel ? `<p class="case-disclosure-label">${section.noteLabel}</p>` : ""}<p class="case-disclosure-copy">${section.note}</p></aside>` : ""}
       ${section.phases ? `<div class="case-phases">${section.phases.map(phase => `<article class="case-ecosystem-item"><h3>${phase.title}</h3><p>${phase.role}</p><ul>${phase.focus.map(item => `<li>${item}</li>`).join("")}</ul></article>`).join("")}</div>` : ""}
       ${section.approach ? `<div class="case-challenge-block"><p class="case-challenge-statement"><span class="case-challenge-label">Approach</span> ${section.approach}</p></div>` : ""}
       ${section.growthStages ? `<div class="case-growth-stages" aria-label="Connected stages of product growth">${section.growthStages.map((stage, index) => `${index ? '<span aria-hidden="true">→</span>' : ''}<span>${stage}</span>`).join("")}</div>` : ""}
@@ -979,7 +981,7 @@ function renderCase(slug) {
                 <button
                   class="case-feature-grid-media"
                   type="button"
-                  data-lightbox-image="assets/${item.image}.png"
+                  data-lightbox-image="/assets/${item.image}.png"
                   data-lightbox-caption="${item.title}"
                   aria-label="Open ${item.title} image fullscreen"
                 >
@@ -1022,11 +1024,11 @@ function renderCase(slug) {
               ${item.image ? `<button
                 class="case-feature-media"
                 type="button"
-                data-lightbox-image="assets/${item.image}.png"
+                data-lightbox-image="/assets/${item.image}.png"
                 data-lightbox-caption="${item.title}"
                 aria-label="Open ${item.title} image fullscreen"
               >
-                <img class="case-feature-image" src="assets/${item.image}.png" alt="" />
+                <img class="case-feature-image" src="/assets/${item.image}.png" alt="" />
               </button>` : `<div class="case-feature-media case-media-placeholder" role="img" aria-label="${item.placeholder}"><span>${item.placeholder}</span></div>`}
             </article>
           `).join("")}
@@ -1155,158 +1157,137 @@ function renderNotFound() {
     <section class="section not-found">
       <h1 class="page-title">Page not found</h1>
       <p class="intro-text">This page does not exist yet.</p>
-      <p><a class="button" href="#/">Go home</a></p>
+      <p><a class="button" href="/">Go home</a></p>
     </section>
   `;
 }
 
-function renderCurrentRoute(hash) {
-  const caseMatch = hash.match(/^#\/case\/([^/#]+)(?:(?:\/|#)([^/]+))?/);
+export const pagePaths = ["/", "/projects", "/about", ...projects.map(project => projectUrl(project.slug))];
 
-  if (hash === "#/" || hash === "") {
-    renderHome();
-    return "";
-  } else if (hash === "#/projects") {
-    renderProjects();
-    return "";
-  } else if (hash === "#/about") {
-    renderAbout();
-    return "";
-  } else if (caseMatch) {
-    renderCase(caseMatch[1]);
-    return "";
-  } else if (hash === "#projects") {
-    renderHome();
-    return "#projects";
-  } else if (hash === "#about-preview") {
-    renderHome();
-    return "#about-preview";
-  } else if (/^#(context|advertisers|publishers|reflection|advertiser-experience|publisher-experience)$/.test(hash)) {
-    const anchorAlias = {
-      "#advertiser-experience": "#advertisers",
-      "#publisher-experience": "#publishers"
-    };
-    const targetHash = anchorAlias[hash] || hash;
-    if (!app.querySelector(targetHash)) renderCase("mgid-feature-design");
-    history.replaceState(null, "", `${window.location.pathname}${window.location.search}#/case/mgid-feature-design`);
-    return targetHash;
-  } else {
-    renderNotFound();
-    return "";
+export function pageMetadata(path) {
+  const project = projects.find(item => projectUrl(item.slug) === path);
+  const content = project && ({ "new-project": edtechCase, "yola-growth": yolaGrowthCase }[project.slug] || project);
+  return {
+    title: project ? `${content.heroTitle || project.title} | Alina Diadenko` :
+      path === "/projects" ? "Projects | Alina Diadenko" :
+      path === "/about" ? "About | Alina Diadenko" :
+      path === "/" ? "Alina Diadenko | Product Designer Portfolio" : "Page not found | Alina Diadenko",
+    description: project ? project.cardSummary || project.summary :
+      "Alina Diadenko, Senior Product Designer portfolio: case studies, experience, design process, and contact details.",
+    canonical: `https://alina-di.com${path === "/" ? "/" : path}`
+  };
+}
+
+function renderCurrentRoute(path) {
+  const caseMatch = path.match(/^\/case\/([^/]+)$/);
+  if (path === "/") renderHome();
+  else if (path === "/projects") renderProjects();
+  else if (path === "/about") renderAbout();
+  else if (caseMatch) renderCase(caseMatch[1]);
+  else renderNotFound();
+}
+
+// The build and the browser use exactly the same semantic page markup.
+export function renderPage(path) {
+  renderCurrentRoute(path);
+  return app.innerHTML;
+}
+
+function updatePageMetadata(path) {
+  const meta = pageMetadata(path);
+  document.title = meta.title;
+  document.querySelector('meta[name="description"]').content = meta.description;
+  document.querySelector('link[rel="canonical"]').href = meta.canonical;
+  document.querySelector('meta[name="robots"]').content = pagePaths.includes(path) ? "index, follow" : "noindex";
+}
+
+function currentPath() {
+  return window.location.pathname.replace(/\/+$/, "") || "/";
+}
+
+// One-time compatibility for bookmarks shared before the clean-URL migration.
+function migrateLegacyUrl() {
+  const fragment = window.location.hash;
+  if (fragment.startsWith("#/")) {
+    const legacy = fragment.slice(1);
+    const match = legacy.match(/^(\/case\/[^/#]+)(?:[/#]([^/]+))?$/);
+    const target = match ? match[1] + (match[2] ? `#${match[2]}` : "") : legacy;
+    history.replaceState(null, "", target);
+  } else if (currentPath() === "/" && /^#(context|advertisers|publishers|reflection|advertiser-experience|publisher-experience)$/.test(fragment)) {
+    const anchor = fragment.replace("advertiser-experience", "advertisers").replace("publisher-experience", "publishers");
+    history.replaceState(null, "", `/case/mgid-feature-design${anchor}`);
   }
 }
 
+let renderedPath;
 function route() {
+  const path = currentPath();
+  // Fragment navigation stays within the current document; it never remounts a case.
+  if (hasRendered && renderedPath === path && !app.classList.contains("is-changing")) return;
   projectCursor.hide();
   projectPreviewCleanup?.();
-  const isInitialRender = !hasRendered;
-  const caseSectionAnchorPattern = /^#(context|advertisers|publishers|reflection|advertiser-experience|publisher-experience)$/;
-  const staleCaseSectionAnchor = isInitialRender && caseSectionAnchorPattern.test(window.location.hash);
-  const isInitialMgidCase = isInitialRender && (
-    staleCaseSectionAnchor ||
-    window.location.hash.startsWith("#/case/mgid-feature-design")
-  );
-  if (isInitialMgidCase && "scrollRestoration" in history) {
-    previousCaseScrollRestoration = history.scrollRestoration;
-    caseScrollRestorationIsManual = true;
-    history.scrollRestoration = "manual";
-  }
-  if (staleCaseSectionAnchor) {
-    history.replaceState(null, "", `${window.location.pathname}${window.location.search}#/case/mgid-feature-design`);
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-    requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-    });
-  }
-
-  const hash = staleCaseSectionAnchor
-    ? "#/case/mgid-feature-design"
-    : isInitialRender && ["#projects", "#about-preview"].includes(window.location.hash)
-    ? "#/"
-    : window.location.hash || "#/";
-  const isCaseSectionAnchor = caseSectionAnchorPattern.test(hash);
-  const isMgidCaseRoute = hash.startsWith("#/case/mgid-feature-design") || isCaseSectionAnchor;
-  if (!isMgidCaseRoute && caseScrollRestorationIsManual && "scrollRestoration" in history) {
-    history.scrollRestoration = previousCaseScrollRestoration || "auto";
-    caseScrollRestorationIsManual = false;
-  }
-  document.body.classList.toggle("is-home-route", ["#/", "#projects", "#about-preview"].includes(hash));
-  document.body.classList.toggle("is-work-route", hash === "#/projects" || hash.startsWith("#/case/") || isCaseSectionAnchor);
-
-  const getActiveNavItem = () => {
-    if (hash === "#/" || hash === "" || hash === "#projects" || hash === "#about-preview") return "home";
-    if (hash === "#/projects" || hash.startsWith("#/case/") || isCaseSectionAnchor) return "work";
-    if (hash === "#/about") return "about";
-    return "";
-  };
-
-  const activeNavItem = getActiveNavItem();
-  document.querySelectorAll("[data-nav-link]").forEach((link) => {
-    const isActive = link.dataset.navLink === activeNavItem;
-    link.classList.toggle("is-active", isActive);
-    if (isActive) {
-      link.setAttribute("aria-current", hash.startsWith("#/case/") ? "location" : "page");
-    } else {
-      link.removeAttribute("aria-current");
-    }
+  setNavigationOpen(false);
+  document.body.classList.toggle("is-home-route", path === "/");
+  document.body.classList.toggle("is-work-route", path === "/projects" || path.startsWith("/case/"));
+  const activeNavItem = path === "/about" ? "about" : path === "/" ? "home" : "work";
+  document.querySelectorAll("[data-nav-link]").forEach(link => {
+    const active = link.dataset.navLink === activeNavItem;
+    link.classList.toggle("is-active", active);
+    if (active) link.setAttribute("aria-current", path.startsWith("/case/") ? "location" : "page");
+    else link.removeAttribute("aria-current");
   });
-
-  if (isInitialRender && hash === "#/" && ["#projects", "#about-preview"].includes(window.location.hash)) {
-    history.replaceState(null, "", `${window.location.pathname}${window.location.search}#/`);
-  }
-
   const render = () => {
-    const scrollTarget = renderCurrentRoute(hash);
+    renderCurrentRoute(path);
+    updatePageMetadata(path);
     requestAnimationFrame(() => {
       makeLinksSentenceCase();
       setupAccordions();
       setupMotion();
-      // Hero scroll animation is temporarily disabled.
       setupProjectShowcaseHover();
       setupProjectVideoPreviews();
       setupTestimonials();
       setupHoverLinkPreviews();
       setupCaseLightbox();
       setupCaseSectionNav();
-      if (app.querySelector(".case-page-mgid-user-activation")) {
-        caseSectionNavObserver?.disconnect();
-      }
+      if (app.querySelector(".case-page-mgid-user-activation")) caseSectionNavObserver?.disconnect();
       setupMgidOnboardingNavigation();
       app.classList.remove("is-changing");
-      if (scrollTarget && hasRendered) {
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        document.querySelector(scrollTarget)?.scrollIntoView({
-          behavior: prefersReducedMotion ? "auto" : "smooth",
-          block: "start"
-        });
-      } else if (!scrollTarget && hasRendered) {
-        window.scrollTo({ top: 0, behavior: "auto" });
-      } else if (!hasRendered) {
-        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-        if (isInitialMgidCase) {
-          requestAnimationFrame(() => {
-            window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-          });
-        }
-      }
+      const anchor = window.location.hash.slice(1);
+      const target = anchor ? document.getElementById(anchor) : null;
+      if (target) target.scrollIntoView({ behavior: "instant", block: "start" });
+      else window.scrollTo({ top: 0, left: 0, behavior: "instant" });
       setupCaseHeroParallax();
+      renderedPath = path;
       hasRendered = true;
     });
   };
-
   clearTimeout(routeTimer);
-  if (!hasRendered) {
-    render();
-    return;
+  if (!hasRendered) render();
+  else {
+    app.classList.add("is-changing");
+    routeTimer = setTimeout(render, 180);
   }
+}
 
-  if (isCaseSectionAnchor) {
-    render();
-    return;
-  }
-
-  app.classList.add("is-changing");
-  routeTimer = setTimeout(render, 180);
+function setupHistoryNavigation() {
+  document.addEventListener("click", event => {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const link = event.target.closest("a[href]");
+    if (!link || link.hasAttribute("download") || (link.target && link.target !== "_self")) return;
+    const url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+    const path = url.pathname.replace(/\/+$/, "") || "/";
+    if (!pagePaths.includes(path)) return;
+    if (path === currentPath() && url.hash) return;
+    event.preventDefault();
+    if (path === currentPath()) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    history.pushState(null, "", url.pathname + url.search + url.hash);
+    route();
+  });
+  window.addEventListener("popstate", route);
 }
 
 function toSentenceCase(str) {
@@ -1350,7 +1331,7 @@ function updateCaseSectionNavActive() {
   const nav = app.querySelector(".case-section-nav");
   if (!nav) return;
 
-  const links = [...nav.querySelectorAll('a[href^="#"]:not([href="#/projects"])')];
+  const links = [...nav.querySelectorAll('a[href^="#"]:not([href="/projects"])')];
   const sections = links
     .map((link) => ({ link, section: document.querySelector(link.getAttribute("href")) }))
     .filter((item) => item.section);
@@ -1384,7 +1365,7 @@ function setupCaseSectionNav() {
     return;
   }
 
-  const links = [...nav.querySelectorAll('a[href^="#"]:not([href="#/projects"])')];
+  const links = [...nav.querySelectorAll('a[href^="#"]:not([href="/projects"])')];
   const sectionById = new Map(
     links
       .map((link) => {
@@ -1448,7 +1429,7 @@ function setupCaseSectionNav() {
 
   const handleNavClick = (event) => {
     const href = event.currentTarget.getAttribute("href");
-    if (!href || href === "#/projects") return;
+    if (!href || href === "/projects") return;
     event.preventDefault();
     const sectionId = href.slice(1);
     const section = document.getElementById(sectionId);
@@ -1464,9 +1445,7 @@ function setupCaseSectionNav() {
       behavior: prefersReducedMotion ? "auto" : "smooth",
       block: "start"
     });
-    const casePage = app.querySelector(".case-page");
-    const caseSlug = casePage?.className.match(/case-page-([a-z0-9-]+)/)?.[1] || "mgid-feature-design";
-    history.replaceState(null, "", `${window.location.pathname}${window.location.search}#/case/${caseSlug}`);
+    history.replaceState(null, "", `${window.location.pathname}${window.location.search}#${sectionId}`);
   };
 
   links.forEach((link) => link.addEventListener("click", handleNavClick));
@@ -1605,7 +1584,7 @@ function setupHoverLinkPreviews() {
 
   const showPreview = (event) => {
     const link = event.currentTarget;
-    image.dataset.fallback = link.dataset.previewFallback || "assets/photo.jpg";
+    image.dataset.fallback = link.dataset.previewFallback || "/assets/photo.jpg";
     image.src = link.dataset.previewImage;
     image.alt = `${link.textContent.trim()} link preview`;
     title.textContent = link.dataset.previewTitle || "";
@@ -1623,7 +1602,7 @@ function setupHoverLinkPreviews() {
 
   image.addEventListener("error", () => {
     if (image.src.endsWith(image.dataset.fallback || "")) return;
-    image.src = image.dataset.fallback || "assets/photo.jpg";
+    image.src = image.dataset.fallback || "/assets/photo.jpg";
   });
 
   image.addEventListener("load", () => {
@@ -2101,8 +2080,12 @@ function setupGlobalInteractions() {
   syncHeaderState();
 }
 
-setupGlobalInteractions();
-const projectCursor = new CustomCursor({ selector: '.projects-section .project-media[data-cursor]' });
-window.addEventListener("popstate", route);
-window.addEventListener("hashchange", route);
-route();
+let projectCursor;
+if (isBrowser) {
+  migrateLegacyUrl();
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  setupGlobalInteractions();
+  projectCursor = new CustomCursor({ selector: '.projects-section .project-media[data-cursor]' });
+  setupHistoryNavigation();
+  route();
+}

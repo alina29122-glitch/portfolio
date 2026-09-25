@@ -1,13 +1,13 @@
-import { imageComparison, setupImageComparisons } from "./components/ui/image-comparison-slider.js?v=2";
+import { imageComparison, setupImageComparisons } from "./components/ui/image-comparison-slider.js?v=clean-routes-1";
 import { videoIllustration, setupVideoIllustrations } from "./components/ui/video-illustration.js";
 
 // Page-only content. Set a visual's src and alt when the final asset is ready.
 const visuals = {
   hero: { label: "HERO VISUAL — FIRST-TIME USER JOURNEY", src: "", alt: "" },
-  research: { label: "[IMAGE PLACEHOLDER — FULL USER FEEDBACK SYNTHESIS BOARD]", src: "assets/mgid-onboarding-feedback-board.png", alt: "Full user feedback synthesis board from usability tests and interviews" },
+  research: { label: "[IMAGE PLACEHOLDER — FULL USER FEEDBACK SYNTHESIS BOARD]", src: "/assets/mgid-onboarding-feedback-board.png", alt: "Full user feedback synthesis board from usability tests and interviews" },
   access: { label: "PRODUCT VISUAL — SIGNUP AND LOGIN", src: "", alt: "" },
-  verification: { label: "PRODUCT VISUAL — VERIFICATION FLOW", src: "assets/mgid-verification-flow.png", alt: "Users can move from signup or login to campaign and ad creation, completing account verification before campaign launch" },
-  guidance: { label: "PRODUCT VIDEO — GUIDED ONBOARDING", type: "video", src: "assets/mgid-guided-onboarding.mp4", alt: "Guided onboarding walkthrough" }
+  verification: { label: "PRODUCT VISUAL — VERIFICATION FLOW", src: "/assets/mgid-verification-flow.png", alt: "Users can move from signup or login to campaign and ad creation, completing account verification before campaign launch" },
+  guidance: { label: "PRODUCT VIDEO — GUIDED ONBOARDING", type: "video", src: "/assets/mgid-guided-onboarding.mp4", alt: "Guided onboarding walkthrough" }
 };
 
 const results = [
@@ -61,7 +61,7 @@ function visual(key, className = "") {
   return `<div class="onboarding-visual ${className}" data-onboarding-visual="${key}">
     ${item.src
       ? item.type === "video"
-        ? videoIllustration(item.src, "assets/mgid-guided-onboarding-poster.jpg", item.alt)
+        ? videoIllustration(item.src, "/assets/mgid-guided-onboarding-poster.jpg", item.alt)
         : `<img src="${item.src}" alt="${item.alt}" />`
       : `<div class="onboarding-placeholder" role="img" aria-label="${item.label}"><span>${item.label}</span></div>`}
     ${key === "verification" ? `<div class="onboarding-verification-legend" aria-label="Verification journey paths">
