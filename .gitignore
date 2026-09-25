@@ -5,3 +5,8 @@
 .env*
 node_modules/
 dist/
+
+# Generated route entry points for VS Code Live Preview
+/case/
+/projects/
+/about/

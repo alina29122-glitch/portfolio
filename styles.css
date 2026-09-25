@@ -7726,9 +7726,9 @@ body:has(.case-page) .case-lightbox img {
   background: rgba(255, 255, 255, 0.035);
   border: 1px solid var(--light-outline);
   border-radius: 4px;
-  padding: 18px 16px;
+  padding: 18px 24px;
   max-width: 1050px;
-  margin: 32px 0 0;
+  margin: 40px 0 0;
 }
 
 .case-page .case-disclosure > img {
@@ -7910,7 +7910,7 @@ body:has(.case-page) .case-lightbox img {
 }
 
 .case-page-new-project #validation .question-evidence-item {
-  grid-template-columns: minmax(110px, 0.35fr) minmax(0, 1.1fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(110px, 0.35fr) minmax(0, 0.9fr) minmax(0, 1.4fr);
   grid-template-areas: "stage question body";
   grid-template-rows: auto;
   grid-row: auto;
@@ -7934,7 +7934,7 @@ body:has(.case-page) .case-lightbox img {
 
 .case-page-new-project #validation .question-evidence-item h3 {
   grid-area: question;
-  font-size: clamp(20px, calc(2.2vw - 4px), 28px);
+  font-size: 24px;
   line-height: 1.25;
   padding-bottom: 0;
 }

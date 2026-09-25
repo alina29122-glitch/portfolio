@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { pagePaths, pageMetadata, renderPage } from '../app.js';
 
@@ -21,6 +21,14 @@ for (const path of pagePaths) {
   const file = resolve(output, path === '/' ? 'index.html' : `${path.slice(1)}.html`);
   await mkdir(dirname(file), { recursive: true });
   await writeFile(file, html);
+  // VS Code Live Preview serves the source workspace without SPA rewrites.
+  // Keep directory entry points outside dist so rebuilds never remove them.
+  if (path !== '/') {
+    const previewFile = resolve(`.${path}`, 'index.html');
+    await mkdir(dirname(previewFile), { recursive: true });
+    await writeFile(previewFile + '.tmp', html);
+    await rename(previewFile + '.tmp', previewFile);
+  }
 }
 await writeFile(resolve(output, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pagePaths.map(path => `<url><loc>${pageMetadata(path).canonical}</loc></url>`).join('')}</urlset>\n`);
 await writeFile(resolve(output, 'robots.txt'), 'User-agent: *\nAllow: /\nSitemap: https://alina-di.com/sitemap.xml\n');

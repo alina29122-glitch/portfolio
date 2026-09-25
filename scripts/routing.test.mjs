@@ -10,6 +10,10 @@ test('every route contains complete semantic HTML and its own canonical metadata
     const file = path === '/' ? 'dist/index.html' : `dist${path}.html`;
     const html = await readFile(file, 'utf8');
     assert(html.includes(renderPage(path)), `${path}: shared renderer content missing`);
+    if (path !== '/') {
+      const preview = await readFile(`.${path}/index.html`, 'utf8');
+      assert.equal(preview, html, `${path}: Live Preview entry point must match the build`);
+    }
     if (path.startsWith('/case/')) assert(html.includes('<h1'), `${path}: heading missing`);
     assert(html.includes(`href="${pageMetadata(path).canonical}"`));
     assert(!html.includes('href="#/'));

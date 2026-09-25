@@ -1,7 +1,7 @@
 import { renderMgidOnboarding, setupMgidOnboardingNavigation } from "./mgid-onboarding.js?v=clean-routes-1";
 import { yolaGrowthCase } from "./yola-growth.js?v=clean-routes-1";
 
-import { edtechCase } from "./edtech-case.js?v=clean-routes-1";
+import { edtechCase } from "./edtech-case.js?v=writing-contributions-7";
 import { CustomCursor, cursorShapes } from "./components/CustomCursor.js?v=cursor-follow-6";
 
 const projects = [

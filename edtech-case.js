@@ -22,7 +22,7 @@ export const edtechCase = {
     {
       "id": "tldr",
       "eyebrow": "TL;DR",
-      "summary": "Across multiple product initiatives, I identified learning problems worth exploring, shaped them into testable concepts, and helped carry the selected directions through MVP development and launch.",
+      "summary": "Across multiple product initiatives, I identified learning problems worth exploring, shaped them into testable concepts, and carried selected directions through MVP development and launch.",
       "body": "Moving from R&D to Venture changed the questions we were answering: from whether an opportunity was worth pursuing to whether the product could deliver clear value, earn trust, and give students a reason to return.",
       "noteLabel": "This case is anonymized",
       "note": "Company and product names, confidential metrics, non-public details, and original assets are omitted. All visuals are independent conceptual reconstructions and do not reproduce production interfaces."
@@ -34,8 +34,8 @@ export const edtechCase = {
         "label": "CHALLENGE",
         "statement": "Finding ideas wasn’t the hard part. The challenge was knowing which ones could create enough value to build."
       },
-      "body": "We explored a wide range of AI-powered learning ideas. To decide where to focus, we evaluated each direction through four questions.",
-      "questionEvidenceClosing": "Only concepts with clear evidence across all four areas moved forward into functional MVP development.",
+      "body": "We looked beyond individual product ideas to understand the broader learning landscape: emerging trends, how students study, and their everyday challenges. From there, we identified promising opportunities and used four key questions to help us decide where to focus.",
+      "questionEvidenceClosing": "Together, these questions helped us filter ideas and identify which opportunities were worth taking further.",
       "questionEvidenceLayout": "editorial",
       "questionEvidence": [
         {
@@ -55,7 +55,7 @@ export const edtechCase = {
         },
         {
           "stage": "EVIDENCE",
-          "question": "Is there enough evidence to build it?",
+          "question": "Does it hold up in practice?",
           "reducedUncertainty": "I turned selected concepts into functional prototypes to evaluate usability and feasibility before deeper investment."
         }
       ]
@@ -64,7 +64,7 @@ export const edtechCase = {
       "id": "products",
       "eyebrow": "PRODUCTS",
       "title": "Different learning problems. Different product approaches.",
-      "body": "I worked across a range of AI-powered learning products on web and mobile, translating different user needs into focused product experiences. The selected examples show my work across product definition, core flows, validation, MVP delivery, and iteration.",
+      "body": "I worked across a range of AI-powered learning products on web and mobile, turning specific learning needs into focused product experiences. The selected examples show my work across product definition, core flows, validation, MVP delivery, and iteration.",
       "noteLabel": "Visuals note",
       "note": "Each visual is an independent conceptual reconstruction created to communicate the product thinking without revealing original interfaces or proprietary details.",
       "featureLayout": "stack",
@@ -74,48 +74,49 @@ export const edtechCase = {
           "title": "Guiding students from a blank page to a structured draft",
           "description": "Students under time pressure needed a clearer way to develop academic drafts while staying confident in their sources, quality, and originality.",
           "changes": [
-            "Tailored entry paths to writing concerns",
-            "Connected brief, sources, outline, and draft",
-            "Integrated quality and originality checks"
+            "Designed end-to-end writing flows",
+            "Integrated quality & originality checks",
+            "Tested monetization & paywall flows"
           ],
           "image": "edtech-academic-writing-v3",
-          "changesLabel": "What I focused on"
+          "changesLabel": "What I did"
         },
         {
           "label": "MATH SOLVER · iOS",
           "title": "Instant step-by-step math help",
-          "description": "Students needed more than a final answer. They needed to capture a problem quickly, understand each step, and continue solving without losing context.",
+          "description": "Students needed more than quick AI answers. They needed reliable help with explanations they could use anywhere. We explored a mobile-first way to capture problems and understand how to solve them.",
           "changes": [
             "Simplified capture, crop, and rescan",
-            "Structured answers into clear steps",
-            "Designed history and repeat solving"
+            "Designed clear step-by-step solution flows",
+            "Designed history and repeat solving",
+            "Created and validated a product mascot"
           ],
           "image": "edtech-math-solver-v3",
-          "changesLabel": "What I focused on"
+          "changesLabel": "What I did"
         },
         {
-          "label": "STUDY & PRACTICE · WEB",
+          "label": "STUDY & PRACTICE · WEB & MOBILE",
           "title": "From study materials to active practice",
-          "description": "Students had plenty of learning materials but no quick way to turn them into focused practice. The MVP transformed different sources into useful study formats with minimal setup.",
+          "description": "Students had plenty of study materials, but preparing for exams meant jumping between scattered sources and losing context. We explored how to turn everything they already had into one connected study experience.",
           "changes": [
             "Validated demand with real users",
             "Designed upload, customization, and review",
             "Built quizzes, flashcards, and AI notes"
           ],
           "image": "edtech-study-practice-v5",
-          "changesLabel": "What I focused on"
+          "changesLabel": "What I did"
         },
         {
           "label": "PRE-LAUNCH DESIGN · MOBILE",
           "title": "Structuring AI learning into guided programs",
-          "description": "People interested in AI faced a scattered mix of tools and skills with little guidance on what to learn next. The concept organized them into structured learning programs.",
+          "description": "People with little technical or AI experience struggled to use AI for real tasks in their own fields. We designed a guided, hands-on way to build practical AI skills step by step.",
           "changes": [
-            "Defined tools, skills, and programs",
+            "Structured tools, skills & programs",
             "Designed guided learning paths",
-            "Created the mobile visual system"
+            "Explored positioning angles for audiences"
           ],
           "image": "edtech-learning-companion-v4",
-          "changesLabel": "What I focused on"
+          "changesLabel": "What I did"
         }
       ]
     },

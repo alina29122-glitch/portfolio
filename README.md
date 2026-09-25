@@ -33,3 +33,7 @@ The existing project is linked to Vercel. `vercel.json` explicitly runs `npm run
 Deploy through the existing Vercel workflow; do not publish the unbuilt source folder. The configuration takes effect on the next deployment. No production deployment is performed by the build command.
 
 Browser navigation uses the History API, preserves page transitions and starts a newly opened case at the top. Section fragments remain ordinary in-page anchors. Old hash-route bookmarks are converted once on load to their clean equivalent. Existing case slugs are preserved (the MGID dashboard case is `/case/mgid-feature-design`).
+
+## VS Code Live Preview
+
+Run `npm run build` once before opening clean routes in VS Code Live Preview (port 3000). The build also generates ignored `case/*/index.html`, `projects/index.html` and `about/index.html` entry points in the source workspace for this static server. They use the current source assets and remain available while `dist` is rebuilt. Subsequent builds replace them atomically, so refreshes do not encounter a missing route file. Production continues to serve only `dist`.
