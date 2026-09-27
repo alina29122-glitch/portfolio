@@ -8634,6 +8634,41 @@ body:has(.case-page) .case-lightbox img {
 #app .case-page .case-study-body :is(.case-section-lead, .case-summary, .case-challenge-statement, .case-section-accent, .onboarding-lead),
 #app .case-page .case-section-intro .case-reference-content > .body-copy:first-of-type,
 #app .case-page #context .case-reference-content > .body-copy:first-of-type {
-  font-size: 28px;
+  font-size: 32px;
   line-height: 1.4;
+}
+
+/* NDA reflection: paired title/description rows. */
+.case-page-new-project #reflection .lesson-cards-editorial {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
+.case-page-new-project #reflection .lesson-cards-editorial .lesson-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  align-items: start;
+  gap: 48px;
+  padding: 32px 0;
+  border-top: 1px solid var(--light-outline);
+}
+
+.case-page-new-project #reflection .lesson-cards-editorial .lesson-card:last-child {
+  border-bottom: 1px solid var(--light-outline);
+}
+
+.case-page-new-project #reflection .lesson-card h3 {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.case-page-new-project #reflection .lesson-card p { margin: 0; }
+
+@media (max-width: 767px) {
+  .case-page-new-project #reflection .lesson-cards-editorial .lesson-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    padding: 24px 0;
+  }
 }

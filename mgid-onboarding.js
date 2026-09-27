@@ -3,7 +3,7 @@ import { videoIllustration, setupVideoIllustrations } from "./components/ui/vide
 
 // Page-only content. Set a visual's src and alt when the final asset is ready.
 const visuals = {
-  hero: { label: "HERO VISUAL — FIRST-TIME USER JOURNEY", src: "", alt: "" },
+  hero: { label: "HERO VISUAL — FIRST-TIME USER JOURNEY", type: "video", src: "/assets/mgid-onboarding-hero.mp4", alt: "MGID first-time advertiser onboarding journey" },
   research: { label: "[IMAGE PLACEHOLDER — FULL USER FEEDBACK SYNTHESIS BOARD]", src: "/assets/mgid-onboarding-feedback-board.png", alt: "Full user feedback synthesis board from usability tests and interviews" },
   access: { label: "PRODUCT VISUAL — SIGNUP AND LOGIN", src: "", alt: "" },
   verification: { label: "PRODUCT VISUAL — VERIFICATION FLOW", src: "/assets/mgid-verification-flow.png", alt: "Users can move from signup or login to campaign and ad creation, completing account verification before campaign launch" },
@@ -61,7 +61,9 @@ function visual(key, className = "") {
   return `<div class="onboarding-visual ${className}" data-onboarding-visual="${key}">
     ${item.src
       ? item.type === "video"
-        ? videoIllustration(item.src, "/assets/mgid-guided-onboarding-poster.jpg", item.alt)
+        ? key === "hero"
+          ? `<video class="case-hero-video" autoplay muted loop playsinline preload="metadata" aria-label="${item.alt}"><source src="${item.src}" type="video/mp4"></video>`
+          : videoIllustration(item.src, "/assets/mgid-guided-onboarding-poster.jpg", item.alt)
         : `<img src="${item.src}" alt="${item.alt}" />`
       : `<div class="onboarding-placeholder" role="img" aria-label="${item.label}"><span>${item.label}</span></div>`}
     ${key === "verification" ? `<div class="onboarding-verification-legend" aria-label="Verification journey paths">

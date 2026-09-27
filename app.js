@@ -1,7 +1,7 @@
 import { renderMgidOnboarding, setupMgidOnboardingNavigation } from "./mgid-onboarding.js?v=clean-routes-1";
 import { yolaGrowthCase } from "./yola-growth.js?v=clean-routes-1";
 
-import { edtechCase } from "./edtech-case.js?v=writing-contributions-7";
+import { edtechCase } from "./edtech-case.js?v=guided-programs-copy-10";
 import { CustomCursor, cursorShapes } from "./components/CustomCursor.js?v=cursor-follow-6";
 
 const projects = [
@@ -36,7 +36,9 @@ const projects = [
     company: "MGID · AdTech",
     title: "Driving smarter advertising for 850M+ monthly users",
     image: "case-06",
-    caseHeroImage: "mgid-dashboard-hero-gif",
+    heroVideo: "/assets/mgid-features-2.mp4",
+    previewVideo: "/assets/mgid-features-2.mp4",
+    previewPoster: "/assets/mgid-features-2-preview-1s.jpg",
     summary:
       "Improving a large-scale advertising platform: simplifying campaign setup, ad creation, and management while building scalable experiences across the product ecosystem.",
     role: "Senior Product Designer · Advertiser, Publisher, Compliance & Antifraud teams",
@@ -166,6 +168,8 @@ const projects = [
     company: "MGID · AdTech",
     title: "Helping new advertisers succeed from day one",
     image: "case-05",
+    previewVideo: "/assets/mgid-onboarding-hero.mp4",
+    previewPoster: "/assets/mgid-onboarding-preview.jpg",
     summary:
       "Redesigned the first-time user journey: from signup and verification to a new onboarding strategy that reduced friction and increased user activation.",
     role: "Senior Product Designer",

@@ -111,9 +111,9 @@ export const edtechCase = {
           "title": "Structuring AI learning into guided programs",
           "description": "People with little technical or AI experience struggled to use AI for real tasks in their own fields. We designed a guided, hands-on way to build practical AI skills step by step.",
           "changes": [
-            "Structured tools, skills & programs",
+            "Structured tools, skills, and programs",
             "Designed guided learning paths",
-            "Explored positioning angles for audiences"
+            "Explored positioning for different needs"
           ],
           "image": "edtech-learning-companion-v4",
           "changesLabel": "What I did"
@@ -121,17 +121,11 @@ export const edtechCase = {
       ]
     },
     {
-      "id": "learnings",
-      "eyebrow": "LEARNINGS",
-      "summary": "The most important lessons came after the products reached users.",
-      "body": "Post-release behavior exposed gaps that early research and concept testing could not fully predict. Seemingly small moments of friction affected whether users understood the value, trusted the experience, and returned to it.\n\nThis made me more rigorous about connecting early validation with observable behavior after launch."
-    },
-    {
       "id": "reflection",
       "eyebrow": "REFLECTION",
       "challenge": {
         "label": "KEY LESSON",
-        "statement": "Launching the products revealed what validation alone could not: trust, recurring value, and monetization had to be designed together."
+        "statement": "Launching products showed me what early validation could not: real value emerges through behavior, trust, and reasons to return."
       },
       "lessonCardsLayout": "editorial",
       "lessonCards": [
@@ -141,11 +135,11 @@ export const edtechCase = {
         },
         {
           "title": "Trust matters as much as speed",
-          "body": "Students needed more than fast AI outputs. Clear steps, reliable sources, editing controls, and quality signals made the results feel more useful and trustworthy."
+          "body": "Students needed more than fast AI outputs. Clear steps, reliable sources, editing controls, and quality signals made results more useful and trustworthy."
         },
         {
           "title": "Useful once is not enough",
-          "body": "Solving an immediate task could drive initial use, but sustainable growth depended on giving people a reason to return and connecting recurring value with monetization."
+          "body": "Solving an immediate task could drive initial use, but sustainable growth depended on giving people a reason to return."
         }
       ]
     }
