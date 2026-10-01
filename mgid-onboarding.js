@@ -1,5 +1,6 @@
 import { imageComparison, setupImageComparisons } from "./components/ui/image-comparison-slider.js?v=clean-routes-1";
 import { videoIllustration, setupVideoIllustrations } from "./components/ui/video-illustration.js";
+import { caseContextFor, renderCaseContext } from "./components/ui/case-context.js";
 
 // Page-only content. Set a visual's src and alt when the final asset is ready.
 const visuals = {
@@ -123,7 +124,8 @@ export function renderMgidOnboarding(project, otherCases, cta) {
       <main class="case-study-main case-study-content">
         ${section("tldr", "", `
           <p class="onboarding-lead">After MGID launched its modernized advertising platform, feedback and behavioral data revealed friction across signup, verification, and early product exploration. Users were dropping off before they could understand the platform’s value.</p>
-          <p class="body-copy">I redesigned the first-time journey as a guided path from signup to activation—simplifying account access, reordering verification, and introducing contextual onboarding. These changes reduced drop-offs and helped users reach product value sooner.</p>`, "case-section-intro")}
+          ${renderCaseContext(caseContextFor("mgid-user-activation"))}
+          <p class="body-copy">I redesigned the first-time journey as a guided path from signup to activation—simplifying account access, reordering verification, and introducing contextual onboarding. These changes reduced drop-offs and helped users reach product value sooner.</p>`, "case-section-intro case-tldr")}
         ${section("research", "Understanding where activation broke down", `
           <p class="body-copy">Friction extended across the first-time journey: from account creation to early product exploration. Working with UX research, I combined interviews and think-aloud usability tests with funnel drop-offs and session recordings to understand where users lost momentum.</p>
           ${columns([

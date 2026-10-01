@@ -23,7 +23,21 @@ export const edtechCase = {
       "id": "tldr",
       "eyebrow": "TL;DR",
       "summary": "Across multiple product initiatives, I identified learning problems worth exploring, shaped them into testable concepts, and carried selected directions through MVP development and launch.",
-      "body": "Moving from R&D to Venture changed the questions we were answering: from whether an opportunity was worth pursuing to whether the product could deliver clear value, earn trust, and give students a reason to return.",
+      "contextColumns": [
+        {
+          "title": "USERS",
+          "body": "People learning for school, work, or personal growth."
+        },
+        {
+          "title": "BUSINESS CONTEXT",
+          "body": "Evolving an existing product while exploring new AI opportunities."
+        },
+        {
+          "title": "CONSTRAINTS",
+          "body": "Validate fast before investing in development."
+        }
+      ],
+      "body": "Moving from R&D to Venture changed the questions we were answering: from whether an opportunity was worth pursuing to whether the product could deliver clear value, earn trust, and give learners a reason to return.",
       "noteLabel": "This case is anonymized",
       "note": "Company and product names, confidential metrics, non-public details, and original assets are omitted. All visuals are independent conceptual reconstructions and do not reproduce production interfaces."
     },

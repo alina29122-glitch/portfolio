@@ -3,10 +3,28 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build:ui": "node scripts/build-ui.mjs",
+    "prebuild": "npm run build:ui",
+    "predev": "npm run build:ui",
+    "typecheck": "tsc --noEmit",
     "build": "node scripts/build.mjs",
     "dev": "node scripts/serve.mjs",
     "preview": "node scripts/serve.mjs dist",
     "test": "node --test scripts/routing.test.mjs"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "framer-motion": "^13.4.4",
+    "lucide-react": "^1.49.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
+  }
 }
