@@ -3,14 +3,14 @@ export const yolaGrowthCase = {
   heroTitle: "Product design that drives growth",
   heroPlaceholder: "HERO IMAGE — PLACEHOLDER",
   metadata: [
-    { label: "Role & teams", text: "Product Designer · Activation & Monetization teams" },
+    { label: "Role & teams", text: "Product Designer · Teams: Activation, Monetization" },
     { label: "Scope", text: "Activation & retention · Monetization · User acquisition · Product growth strategy" },
     { label: "Delivered", text: "Activation journeys & Website Assistant · Paywall, checkout & domain purchase flows · 20+ templates across 16 business verticals" }
   ],
   sections: [
     {
       id: "tldr", eyebrow: "TL;DR",
-      summary: "Yola is a website-building platform that helps people and small businesses create and publish websites without coding. My task was to improve growth across the customer journey, helping new users reach value sooner, publish their sites, and move toward paid plans.",
+      summary: "Yola helps small businesses and creators build websites without coding. I focused on improving growth across the customer journey, helping users reach value sooner.",
       body: "I worked across activation, monetization, and acquisition, designing connected improvements throughout the journey: from personalized onboarding and product guidance to paywalls, checkout, domain purchase flows, and new website templates."
     },
     {
@@ -119,7 +119,7 @@ export const yolaGrowthCase = {
         "Built a repeatable design-to-launch process",
         "Created 20+ SEO-ready templates across 16 verticals"
       ],
-      media: [{ src: "/assets/case-02.png", alt: "Yola skincare business template example with a product page and search result preview" }]
+      media: [{ type: "video", src: "/assets/yola-templates.mp4?v=2", alt: "Yola website templates walkthrough" }]
     },
     {
       id: "outcome", eyebrow: "OUTCOME",

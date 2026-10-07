@@ -1,8 +1,7 @@
 export function videoIllustration(src, poster, label) {
   return `<div class="onboarding-video-illustration">
-    <video muted loop playsinline preload="none" poster="${poster}" aria-hidden="true" tabindex="-1" src="${src}"></video>
-    <img class="onboarding-video-poster" src="${poster}" alt="" />
-    <button class="onboarding-video-open" type="button" aria-label="Open full 30-second ${label}"></button>
+    <video autoplay muted loop playsinline preload="metadata"${poster ? ` poster="${poster}"` : ""} aria-label="${label}" tabindex="-1" src="${src}"></video>
+    <button class="onboarding-video-open" type="button" aria-label="Open full ${label}"></button>
     <button class="onboarding-video-toggle" type="button" aria-label="Replay video"><span class="onboarding-video-control-icon" aria-hidden="true"></span></button>
   </div>`;
 }
@@ -19,7 +18,6 @@ function bindVideo(board) {
   const video = board.querySelector('video');
   const toggle = board.querySelector('.onboarding-video-toggle');
   const open = board.querySelector('.onboarding-video-open');
-  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let visible = false;
   let userPaused = false;
   let disposed = false;
@@ -27,13 +25,12 @@ function bindVideo(board) {
   let closeDialog;
   video.muted = true;
 
-  const canPlay = () => !disposed && board.isConnected && visible && !document.hidden && !motion.matches && !userPaused && !dialog;
+  const canPlay = () => !disposed && board.isConnected && visible && !document.hidden && !userPaused && !dialog;
   const updateButton = () => {
     toggle.classList.toggle('is-playing', !video.paused);
     toggle.setAttribute('aria-label', video.paused ? 'Replay video' : 'Pause video');
   };
   const sync = () => {
-    board.classList.toggle('is-reduced-motion', motion.matches);
     if (canPlay()) {
       video.play().then(() => { if (!canPlay()) video.pause(); }).catch(updateButton);
     } else video.pause();
@@ -46,7 +43,6 @@ function bindVideo(board) {
     sync();
   }, { threshold: [0, 0.15] });
   observer.observe(board);
-  motion.addEventListener('change', sync);
   document.addEventListener('visibilitychange', sync);
   toggle.onclick = () => {
     userPaused = !video.paused;
@@ -57,13 +53,14 @@ function bindVideo(board) {
     if (dialog) return;
     dialog = document.createElement('dialog');
     dialog.className = 'onboarding-video-dialog';
-    dialog.setAttribute('aria-label', 'Full guided onboarding walkthrough');
+    dialog.setAttribute('aria-label', `Full ${video.getAttribute('aria-label')}`);
     const full = document.createElement('video');
     full.src = video.getAttribute('src');
     full.poster = video.poster;
     full.controls = true;
     full.playsInline = true;
-    full.setAttribute('aria-label', 'Guided onboarding walkthrough');
+    full.muted = true;
+    full.setAttribute('aria-label', video.getAttribute('aria-label'));
     const close = document.createElement('button');
     close.className = 'onboarding-video-close';
     close.type = 'button';
@@ -87,7 +84,7 @@ function bindVideo(board) {
     dialog.onclick = event => { if (event.target === dialog) closeDialog(); };
     dialog.showModal();
     sync();
-    if (!motion.matches) full.play().catch(() => {});
+    full.play().catch(() => {});
   };
   // The app replaces its page on navigation; release playback and observers then.
   const removal = new MutationObserver(() => { if (!board.isConnected) dispose(); });
@@ -96,7 +93,6 @@ function bindVideo(board) {
     disposed = true;
     observer.disconnect();
     removal.disconnect();
-    motion.removeEventListener('change', sync);
     document.removeEventListener('visibilitychange', sync);
     video.pause();
     closeDialog?.();

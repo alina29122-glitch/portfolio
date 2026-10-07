@@ -4,6 +4,7 @@ export const edtechCase = {
   "company": "NDA · AI EdTech",
   "heroTitle": "From product opportunity to AI learning experience",
   "heroVideo": "/assets/nda-case-hero.mp4",
+  "heroNote": "Company and product names, confidential metrics, and original assets are omitted. Visuals are conceptual reconstructions and do not reproduce production interfaces.",
   "metadata": [
     {
       "label": "Role & teams",
@@ -37,9 +38,7 @@ export const edtechCase = {
           "body": "Validate fast before investing in development."
         }
       ],
-      "body": "Moving from R&D to Venture changed the questions we were answering: from whether an opportunity was worth pursuing to whether the product could deliver clear value, earn trust, and give learners a reason to return.",
-      "noteLabel": "This case is anonymized",
-      "note": "Company and product names, confidential metrics, non-public details, and original assets are omitted. All visuals are independent conceptual reconstructions and do not reproduce production interfaces."
+      "body": "Moving from R&D to Venture changed the questions we were answering: from whether an opportunity was worth pursuing to whether the product could deliver clear value, earn trust, and give learners a reason to return."
     },
     {
       "id": "validation",
@@ -79,8 +78,7 @@ export const edtechCase = {
       "eyebrow": "PRODUCTS",
       "title": "Different learning problems. Different product approaches.",
       "body": "I worked across a range of AI-powered learning products on web and mobile, turning specific learning needs into focused product experiences. The selected examples show my work across product definition, core flows, validation, MVP delivery, and iteration.",
-      "noteLabel": "Visuals note",
-      "note": "Each visual is an independent conceptual reconstruction created to communicate the product thinking without revealing original interfaces or proprietary details.",
+      "note": "Visuals are conceptual reconstructions created to protect confidential product details.",
       "featureLayout": "stack",
       "caseFeatureRows": [
         {
@@ -137,6 +135,7 @@ export const edtechCase = {
     {
       "id": "reflection",
       "eyebrow": "REFLECTION",
+      "closingBody": "I used post-launch behavior and user feedback to refine positioning, flows, and monetization experiments, and to decide which directions were worth continuing.",
       "challenge": {
         "label": "KEY LESSON",
         "statement": "Launching products showed me what early validation could not: real value emerges through behavior, trust, and reasons to return."

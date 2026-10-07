@@ -1,21 +1,29 @@
-export function cinematicProjectList(projects, projectUrl) {
+export function cinematicProjectList(projects, projectUrl, { showSeeAll = false } = {}) {
   if (!projects.length) return '';
-  const first = projects[0];
   return `<section class="cinematic-work" aria-labelledby="more-work-heading" data-cinematic-work>
-    <h3 id="more-work-heading" class="project-year">More work</h3>
+    <div class="work-project-group-meta">
+      <h2 id="more-work-heading" class="work-project-group-label">More projects</h2>
+    </div>
     <div class="cinematic-work-layout">
       <div class="cinematic-work-list">
-        ${projects.map((project) => `<a class="cinematic-work-row" href="${projectUrl(project.slug)}"
-          data-work-row data-work-poster="${project.previewPoster || ''}" data-work-video="${project.previewVideo || ''}" data-work-image="${project.image}">
-          <span class="cinematic-work-copy"><span class="cinematic-work-title"><span>${project.title}</span></span><span class="cinematic-work-meta">${project.company}</span></span>
-          <span class="cinematic-work-arrow" aria-hidden="true">↗</span>
-        </a>`).join('')}
+        ${projects.map(project => `<article class="cinematic-work-row" data-work-row>
+          <div class="cinematic-work-copy">
+            <div class="cinematic-work-intro">
+              <h3 class="cinematic-work-title"><a href="${projectUrl(project.slug)}"><span class="cinematic-work-title-text">${project.title}</span></a></h3>
+              <p class="cinematic-work-meta"><span>${project.years}</span>${project.company.split(' · ').map(part => `<span>${part}</span>`).join('')}</p>
+            </div>
+            <p class="body-copy cinematic-work-description">${project.delivered}</p>
+            <a class="underline-link cinematic-work-cta" href="${projectUrl(project.slug)}"><span>Explore case</span><img src="/assets/lets-talk-icon.svg" alt="" /></a>
+          </div>
+          <a class="cinematic-work-preview" href="${projectUrl(project.slug)}" aria-label="${project.title}">
+            ${project.previewPoster
+              ? `<img class="cinematic-work-poster" src="${project.previewPoster}" alt="" loading="lazy" />`
+              : `<span class="project-image ${project.image}"></span>`}
+            ${project.previewVideo ? `<video class="cinematic-work-video" data-work-video="${project.previewVideo}" muted loop playsinline preload="none" tabindex="-1" aria-hidden="true"></video>` : ''}
+          </a>
+        </article>`).join('')}
       </div>
-      <div class="cinematic-work-preview" aria-hidden="true">
-        <span class="project-image ${first.image}" data-work-fallback></span>
-        <img class="cinematic-work-poster" data-work-poster-image ${first.previewPoster ? `src="${first.previewPoster}"` : 'hidden'} alt="" loading="lazy" />
-        <video class="cinematic-work-video" muted loop playsinline preload="none" tabindex="-1"></video>
-      </div>
+      ${showSeeAll ? `<div class="projects-actions"><a class="button projects-see-all" href="/projects"><span>Explore all projects</span><img src="/assets/lets-talk-icon.svg" alt="" /></a></div>` : ''}
     </div>
   </section>`;
 }
@@ -27,120 +35,44 @@ export function setupCinematicWork() {
   cleanupCinematicWork();
   const section = document.querySelector('[data-cinematic-work]');
   if (!section) return;
-  const rows = [...section.querySelectorAll('[data-work-row]')];
-  const preview = section.querySelector('.cinematic-work-preview');
-  const layout = section.querySelector('.cinematic-work-layout');
-  const video = preview.querySelector('video');
-  const poster = preview.querySelector('[data-work-poster-image]');
-  const fallback = preview.querySelector('[data-work-fallback]');
   const hover = matchMedia('(hover: hover) and (pointer: fine)');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const abort = new AbortController();
   const options = { signal: abort.signal };
-  let pointerRow = null;
-  let focusRow = null;
+  const states = [...section.querySelectorAll('.cinematic-work-video')].map(video => ({ video, preview: video.closest('.cinematic-work-preview'), generation: 0 }));
   let active = null;
-  let generation = 0;
-  let frame = 0;
-  let position = null;
-  let destination = { x: 0, y: 0 };
-  let lastTime = 0;
-  const stopMotion = () => { cancelAnimationFrame(frame); frame = 0; };
-  const paintPosition = () => {
-    preview.style.transform = `translate3d(${position.x}px, ${position.y}px, 0)`;
+  const stop = state => {
+    state.generation++;
+    state.video.pause();
+    state.video.classList.remove('is-playing');
+    if (state.video.readyState > 0) state.video.currentTime = 0;
+    if (active === state) active = null;
   };
-  const animate = time => {
-    frame = 0;
-    const blend = 1 - Math.pow(0.85, Math.min(time - lastTime, 64) / (1000 / 60));
-    lastTime = time;
-    position.x += (destination.x - position.x) * blend;
-    position.y += (destination.y - position.y) * blend;
-    const settled = Math.hypot(destination.x - position.x, destination.y - position.y) < 0.2;
-    if (settled) position = { ...destination };
-    paintPosition();
-    if (!settled) frame = requestAnimationFrame(animate);
-  };
-  const moveTo = (x, y, immediate = false) => {
-    destination = {
-      x: Math.max(16, Math.min(x, window.innerWidth - preview.offsetWidth - 16)),
-      y: Math.max(16, Math.min(y, window.innerHeight - preview.offsetHeight - 16))
-    };
-    if (!position || immediate || reduced.matches) {
-      stopMotion();
-      position = { ...destination };
-      paintPosition();
-    } else if (!frame) {
-      lastTime = performance.now();
-      frame = requestAnimationFrame(animate);
-    }
-  };
-  const positionForFocus = row => {
-    const bounds = layout.getBoundingClientRect();
-    const item = row.getBoundingClientRect();
-    moveTo(bounds.right - preview.offsetWidth - 24,
-      item.top + (item.height - preview.offsetHeight) / 2, true);
-  };
-  const followPointer = event => {
-    if (!pointerRow || !hover.matches || event.pointerType === 'touch') return;
-    if (reduced.matches) { positionForFocus(pointerRow); return; }
-    moveTo(event.clientX + 20, event.clientY - 100);
-  };
-
-  const stopVideo = () => {
-    generation++;
-    video.classList.remove('is-playing');
-    video.pause();
-    if (video.readyState > 0) video.currentTime = 0;
-  };
-  const deactivate = () => {
-    stopMotion();
-    stopVideo();
-    active = null;
-    preview.classList.remove('is-visible');
-    rows.forEach(row => row.classList.remove('is-active'));
-  };
-  const reset = () => { pointerRow = focusRow = null; deactivate(); position = null; };
-  const sync = () => {
-    const row = pointerRow || focusRow;
-    if (!row || !hover.matches || document.hidden) { deactivate(); return; }
-    if (row === active) return;
-    stopVideo();
-    active = row;
-    preview.classList.add('is-visible');
-    rows.forEach(item => item.classList.toggle('is-active', item === row));
-    fallback.className = `project-image ${row.dataset.workImage}`;
-    const imageSrc = row.dataset.workPoster;
-    poster.hidden = !imageSrc;
-    if (imageSrc) poster.src = imageSrc;
-    // Clear the old movie before switching, keeping the static poster visible.
-    const src = row.dataset.workVideo;
-    if (!src || reduced.matches) return;
-    if (video.getAttribute('src') !== src) { video.src = src; video.load(); }
+  const reset = () => states.forEach(stop);
+  const play = state => {
+    if (active === state || reduced.matches || document.hidden) return;
+    reset();
+    active = state;
+    const { video, generation } = state;
+    if (!video.getAttribute('src')) video.src = video.dataset.workVideo;
     video.muted = true;
-    const request = generation;
-    window.dispatchEvent(new CustomEvent('portfolio-preview-play', { detail: video }));
     video.play().then(() => {
-      if (generation === request && active === row) video.classList.add('is-playing');
-    }).catch(() => {});
+      if (state.generation === generation && !abort.signal.aborted) video.classList.add('is-playing');
+    }).catch(() => { if (state.generation === generation) stop(state); });
   };
-
-  rows.forEach(row => {
-    row.addEventListener('pointerenter', event => {
-      if (hover.matches && event.pointerType !== 'touch') { pointerRow = row; followPointer(event); sync(); }
-    }, options);
-    row.addEventListener('pointermove', followPointer, options);
-    row.addEventListener('pointerleave', () => { pointerRow = null; if (focusRow) positionForFocus(focusRow); sync(); }, options);
-    row.addEventListener('focus', () => { focusRow = row; if (!pointerRow) positionForFocus(row); sync(); }, options);
-    row.addEventListener('blur', () => { focusRow = null; sync(); }, options);
+  states.forEach(state => {
+    state.preview.addEventListener('pointerenter', event => { if (hover.matches && event.pointerType !== 'touch') play(state); }, options);
+    state.preview.addEventListener('pointerleave', () => stop(state), options);
+    state.preview.addEventListener('focus', () => play(state), options);
+    state.preview.addEventListener('blur', () => stop(state), options);
   });
-  window.addEventListener('portfolio-preview-play', event => { if (event.detail !== video) reset(); }, options);
-  window.addEventListener('blur', reset, options);
-  window.addEventListener('resize', reset, options);
-  window.addEventListener('scroll', reset, { ...options, passive: true, capture: true });
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (!entry.isIntersecting) stop(states.find(state => state.preview === entry.target)); });
+  });
+  states.forEach(state => observer.observe(state.preview));
   document.addEventListener('visibilitychange', reset, options);
+  window.addEventListener('blur', reset, options);
   hover.addEventListener('change', reset, options);
-  reduced.addEventListener('change', () => { stopMotion(); if (active) positionForFocus(active); active = null; sync(); }, options);
-  const observer = new IntersectionObserver(([entry]) => { if (!entry.isIntersecting) reset(); });
-  observer.observe(section);
-  cleanup = () => { reset(); abort.abort(); observer.disconnect(); };
+  reduced.addEventListener('change', reset, options);
+  cleanup = () => { abort.abort(); observer.disconnect(); reset(); };
 }

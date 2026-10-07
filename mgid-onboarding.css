@@ -1,6 +1,6 @@
 /* Only the MGID Onboarding page: shared case layout and components stay intact. */
 .case-page-mgid-user-activation {
-  --onboarding-copy: #b5b6c2;
+  --onboarding-copy: var(--body-display);
   --onboarding-block-gap: clamp(80px, 6vw, 96px);
 }
 
@@ -538,23 +538,15 @@
   .case-page-mgid-user-activation .onboarding-comparison-divider span { transition: none; }
 }
 
-.case-page-mgid-user-activation .onboarding-video-illustration {
+:is(.case-page-mgid-user-activation, .case-page-yola-growth) .onboarding-video-illustration {
   position: relative;
   aspect-ratio: 1490 / 720;
 }
-.case-page-mgid-user-activation .onboarding-video-illustration video {
+:is(.case-page-mgid-user-activation, .case-page-yola-growth) .onboarding-video-illustration video {
   height: 100%;
   object-fit: contain;
 }
-.case-page-mgid-user-activation .onboarding-video-poster {
-  display: none;
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-.case-page-mgid-user-activation .onboarding-video-open {
+:is(.case-page-mgid-user-activation, .case-page-yola-growth) .onboarding-video-open {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -563,7 +555,7 @@
   background: transparent;
   cursor: zoom-in;
 }
-.case-page-mgid-user-activation .onboarding-video-toggle,
+:is(.case-page-mgid-user-activation, .case-page-yola-growth) .onboarding-video-toggle,
 .onboarding-video-close {
   position: absolute;
   right: 12px;
@@ -577,40 +569,30 @@
   font-size: 24px;
   cursor: pointer;
 }
-.case-page-mgid-user-activation .onboarding-video-toggle {
+:is(.case-page-mgid-user-activation, .case-page-yola-growth) .onboarding-video-toggle {
   display: grid;
   place-items: center;
   padding: 0;
 }
-.case-page-mgid-user-activation .onboarding-video-control-icon {
+:is(.case-page-mgid-user-activation, .case-page-yola-growth) .onboarding-video-control-icon {
   width: 24px;
   height: 24px;
   background: currentColor;
   -webkit-mask: url("assets/redo-stroke-rounded.svg") center / contain no-repeat;
   mask: url("assets/redo-stroke-rounded.svg") center / contain no-repeat;
 }
-.case-page-mgid-user-activation .onboarding-video-toggle.is-playing .onboarding-video-control-icon {
+:is(.case-page-mgid-user-activation, .case-page-yola-growth) .onboarding-video-toggle.is-playing .onboarding-video-control-icon {
   -webkit-mask-image: url("assets/pause-circle-stroke-rounded.svg");
   mask-image: url("assets/pause-circle-stroke-rounded.svg");
 }
-.case-page-mgid-user-activation .onboarding-video-open:focus-visible {
+:is(.case-page-mgid-user-activation, .case-page-yola-growth) .onboarding-video-open:focus-visible {
   outline: 2px solid #fff;
   outline-offset: -4px;
 }
-.case-page-mgid-user-activation .onboarding-video-toggle:focus-visible,
+:is(.case-page-mgid-user-activation, .case-page-yola-growth) .onboarding-video-toggle:focus-visible,
 .onboarding-video-close:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 3px;
-}
-.case-page-mgid-user-activation .is-reduced-motion .onboarding-video-poster {
-  display: block;
-}
-.case-page-mgid-user-activation .is-reduced-motion .onboarding-video-toggle {
-  display: none;
-}
-@media (prefers-reduced-motion: reduce) {
-  .case-page-mgid-user-activation .onboarding-video-poster { display: block; }
-  .case-page-mgid-user-activation .onboarding-video-toggle { display: none; }
 }
 .onboarding-video-dialog {
   width: min(96vw, calc((92dvh - 56px) * 1490 / 720));
@@ -631,4 +613,19 @@
   bottom: auto;
   right: 0;
   font-size: 32px;
+}
+
+.case-page-yola-growth .onboarding-video-illustration {
+  aspect-ratio: auto;
+}
+
+.case-page-yola-growth .onboarding-video-illustration video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+:is(.onboarding-video-illustration, .onboarding-video-dialog) video[src^="/assets/yola-templates.mp4"] {
+  clip-path: inset(0 0 4px 0);
+  margin-bottom: -4px;
 }

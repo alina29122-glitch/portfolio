@@ -1,5 +1,6 @@
 import { renderMgidOnboarding, setupMgidOnboardingNavigation } from "./mgid-onboarding.js?v=clean-routes-1";
 import { yolaGrowthCase } from "./yola-growth.js?v=clean-routes-1";
+import { videoIllustration } from "./components/ui/video-illustration.js";
 
 import { edtechCase } from "./edtech-case.js?v=guided-programs-copy-10";
 import { cursorShapes } from "./components/CustomCursor.js?v=cursor-follow-6";
@@ -13,6 +14,7 @@ const projects = [
     cardEyebrow: "2025–2026 · NDA · AI EDTECH",
     cardTitle: "From product opportunity to AI learning experience",
     cardSummary: "Worked across a portfolio of AI-powered education products, from a flagship learning experience to new web and mobile tools for studying, writing, and problem-solving.",
+    cardBody: "Explored and validated new product opportunities, defined MVP scope, and brought AI learning concepts from early hypotheses to testable web and mobile experiences, while improving the core product in parallel.",
     years: "2025-2026",
     company: "NDA · EdTech",
     title: "From product opportunity to AI learning experience",
@@ -34,7 +36,7 @@ const projects = [
     slug: "mgid-feature-design",
     cardEyebrow: "2023–2024 / MGID · ADTECH",
     cardTitle: "Driving smarter advertising for 850M+ monthly users",
-    cardSummary: "MGID is a global native advertising platform connecting advertisers and publishers. I designed and improved core workflows for campaign management, tracking, integrations, targeting, and monetization across the platform.",
+    cardSummary: "Improved the advertiser journey across campaign creation, management, targeting, and integrations, reducing friction in complex workflows and supporting more efficient campaign setup and optimization.",
     years: "2023–2024",
     company: "MGID · AdTech",
     title: "Driving smarter advertising for 850M+ monthly users",
@@ -44,17 +46,17 @@ const projects = [
     previewPoster: "/assets/mgid-features-2-preview-1s.jpg",
     summary:
       "Improving a large-scale advertising platform: simplifying campaign setup, ad creation, and management while building scalable experiences across the product ecosystem.",
-    role: "Senior Product Designer · Advertiser, Publisher, Compliance & Antifraud teams",
+    role: "Senior Product Designer · Teams: Advertiser, Publisher, Compliance & Antifraud",
     scope: "End-to-end feature design · User research · Design systems · A/B testing · Post-release data analysis · Iterative improvements",
     team: "Product · Engineering · Compliance · Antifraud",
-    delivered: "Campaign management improvements · Tracking and integrations · 60+ native ad formats",
+    delivered: "Improved the advertiser journey across campaign creation, management, targeting, and integrations, reducing friction in complex workflows and supporting more efficient campaign setup and optimization.",
     whatIDid: ["Product discovery", "UX/UI", "Complex workflows", "Data analysis", "Design systems", "Design documentation", "A/B testing", "Post-release optimization"],
     outcome: "Improved advertiser workflows · Expanded publisher monetization · Built a scalable widget system",
     sections: [
       {
         eyebrow: "/TL;DR",
         body:
-          "MGID connects advertisers running campaigns with publishers monetizing content across their websites. Designing for both sides meant balancing advertiser control and performance with publisher revenue and audience trust within an already data-heavy platform.\n\nI improved campaign management, tracking, integrations, and traffic controls for advertisers, and led the design of 60+ native ad formats and built a scalable widget system for publishers. I owned features end to end, partnering with product and engineering from research through post-release analysis.",
+          "MGID connects advertisers running campaigns with publishers monetizing content across their websites. Designing for both sides meant balancing advertiser control and performance with publisher revenue and audience trust.\n\nMy work spanned campaign management, tracking, integrations, and native ad formats, improving core workflows while accounting for the needs of both sides of the platform.",
         ecosystemDiagram: {
           items: [
             {
@@ -341,12 +343,13 @@ const projects = [
 ];
 
 const experience = [
-  ["Apr 2023 - Dec 2024", "MGID | Senior Product Designer", "Designed and launched features for a new advertising platform, shaping hypotheses, design variations, and improvements."],
-  ["Aug 2022 - Present", "Self-employed | Design mentor", "Shared product-design knowledge with UX and Product Designers across levels."],
-  ["Dec 2020 - Sep 2022", "Yola | Product Designer", "Built solutions that met users' needs and supported stronger business results."],
-  ["Dec 2019 - Dec 2020", "Yola | Senior UX/UI Designer", "Performed research across product limitations and dependencies to define practical solutions."],
-  ["Dec 2017 - Dec 2019", "Yola | UX/UI Designer", "Supported the legacy platform and helped create a new site-building platform from scratch."],
-  ["Oct 2014 - Dec 2017", "Freelance Web Designer", "Designed landing pages, websites, desktop apps, and mobile applications across domains."]
+  ["Apr 2023 – Dec 2024", "MGID | Senior Product Designer", "I'm taking part in designing and launching a new advertising platform. I hypothesized solutions and design variations, shipping new features and design improvements."],
+  ["Dec 2020 – Sep 2022", "Yola | Product designer", "Built solutions that meet users' needs and achieving better business results, providing a start-to-finish design services."],
+  ["Dec 2019 – Dec 2020", "Yola | Senior UX/UI designer", "Performed extensive research considering product limitations and external/internal technical dependencies to find the most suitable solution for development."],
+  ["Dec 2017 – Dec 2019", "Yola | UX/UI designer", "Supporting the Legacy platform and working on a new site-building platform from scratch to its launch. I focused on new features for Yola Editor and designed 50+ site templates."],
+  ["Oct 2014 – Dec 2017", "Freelance Web Designer", "Designed landing pages, websites, and desktop and mobile applications in different domains."],
+  ["Sep 2015 – Dec 2015", "Onlinico | User Interface Designer", "Conducted UX research, designed, and prototyped a dashboard for the internal in-company project tracking."],
+  ["Apr 2015 – Oct 2015", "Riversoft | Graphic Design Specialist", "I created graphic design for desktop and mobile games, assembling images, typography, motion graphics, and designed graphics for printed materials."]
 ];
 
 const testimonials = [
@@ -429,17 +432,18 @@ function projectsSection(items, { showSeeAll = false, label = "/projects" } = {}
     <section class="section section-tight projects-section selected-work-section" id="projects">
       <div class="projects-shell">
         <div class="projects-list">
-          ${items[0] ? projectCard(items[0], { home: true, featured: true, featuredLabel: label }) : ""}
+          ${items[0] ? `
+            <section class="work-project-group featured-project-section" aria-labelledby="featured-project-heading">
+              <div class="work-project-group-meta">
+                <h2 id="featured-project-heading" class="work-project-group-label"><svg class="featured-project-star" width="20" height="20" viewBox="0 0 48 48" aria-hidden="true">${cursorShapes["star-23"].svg}</svg><span>Featured project</span></h2>
+              </div>
+              <div class="work-project-group-list">
+                ${projectCard(items[0], { home: true, featured: true })}
+              </div>
+            </section>
+          ` : ""}
         </div>
-        ${cinematicProjectList(items.slice(1), projectUrl)}
-        ${showSeeAll ? `
-          <div class="projects-actions">
-            <a class="button projects-see-all" href="/projects">
-              <span>All cases here</span>
-              <img src="/assets/lets-talk-icon.svg" alt="" />
-            </a>
-          </div>
-        ` : ""}
+        ${cinematicProjectList(items.slice(1), projectUrl, { showSeeAll })}
       </div>
     </section>
   `;
@@ -527,29 +531,29 @@ function featuredProjectsSection(items, { showSeeAll = false } = {}) {
   `;
 }
 
-function testimonialsSection() {
+function testimonialsSection(entries = testimonials) {
   return `
     <section class="section testimonial" data-testimonials>
       <div class="testimonial-shell">
-        <p class="project-year">Testimonials</p>
+        <p class="testimonial-counter" data-testimonial-counter>01 / ${String(entries.length).padStart(2, "0")}</p>
         <div class="testimonial-quotes">
-          ${testimonials.map((testimonial, index) => `
+          ${entries.map((testimonial, index) => `
             <blockquote class="testimonial-quote${index === 0 ? " is-active" : ""}" data-testimonial-quote data-testimonial-index="${index}">
               ${testimonial.quote}
             </blockquote>
           `).join("")}
         </div>
         <div class="testimonial-author-row">
-          <div class="testimonial-author-buttons" aria-label="Testimonials">
-            ${testimonials.map((testimonial, index) => `
+          ${entries.length > 1 ? `<div class="testimonial-author-buttons" aria-label="Testimonials">
+            ${entries.map((testimonial, index) => `
               <button class="testimonial-author-button${index === 0 ? " is-active" : ""}" type="button" data-testimonial-trigger data-testimonial-index="${index}" aria-label="Show testimonial from ${testimonial.name}" aria-pressed="${index === 0 ? "true" : "false"}">
                 <span>${testimonial.initials}</span>
               </button>
             `).join("")}
           </div>
-          <span class="testimonial-divider" aria-hidden="true"></span>
+          <span class="testimonial-divider" aria-hidden="true"></span>` : ""}
           <div class="testimonial-author-info">
-            ${testimonials.map((testimonial, index) => `
+            ${entries.map((testimonial, index) => `
               <cite class="testimonial-author-panel${index === 0 ? " is-active" : ""}" data-testimonial-author data-testimonial-index="${index}">
                 <span>${testimonial.name}</span>
                 <span>${testimonial.role}</span>
@@ -587,7 +591,7 @@ function renderHome() {
         <div class="opportunity-hero-copy">
           <h1 id="opportunity-hero-title"><span>I’m a Senior Product Designer shaping products from discovery to launch.</span> Always learning to make better products and grow as a designer (/human)</h1>
         </div>
-        <div class="opportunity-hero-photo-placeholder"><img class="opportunity-hero-photo" src="/assets/home-hero-portrait.jpeg" alt="Alina Diadenko" width="1024" height="1280" fetchpriority="high" /></div>
+        <div class="opportunity-hero-photo-placeholder"><img class="opportunity-hero-photo" src="/assets/hero-photo.png" alt="Alina Diadenko" width="1122" height="1402" fetchpriority="high" /></div>
         <div class="opportunity-hero-facts" aria-label="Portfolio overview">
           <div class="opportunity-hero-fact opportunity-hero-experience">
             <span class="opportunity-hero-fact-label">Experience</span>
@@ -623,7 +627,7 @@ function renderHome() {
 
     ${testimonialsSection()}
 
-    ${cta()}
+    ${homeContact()}
   `;
 }
 
@@ -635,57 +639,37 @@ function renderProjects() {
       </div>
     </section>
     ${groupedProjectsSection(workProjectGroups())}
-    ${cta()}
+    ${homeContact()}
   `;
 }
 
-function projectCard(project, { home = false, featured = false, featuredLabel = "Selected work", cursorVariant = project.cursorVariant || Object.keys(cursorShapes)[projects.indexOf(project) % Object.keys(cursorShapes).length] } = {}) {
+function projectPreview(project) {
+  return `
+    ${project.previewPoster
+      ? `<img class="project-image project-preview-poster" src="${project.previewPoster}" alt="" loading="lazy" />`
+      : `<span class="project-image ${project.image}"></span>`}
+    ${project.previewVideo
+      ? `<video class="project-preview-video" data-preview-src="${project.previewVideo}" muted loop playsinline preload="none" aria-hidden="true"></video>`
+      : ""}
+  `;
+}
+
+function projectCard(project, { home = false, featured = false, cursorVariant = project.cursorVariant || Object.keys(cursorShapes)[projects.indexOf(project) % Object.keys(cursorShapes).length] } = {}) {
   const homeNda = home && project.slug === "new-project";
   const isFeatured = home && featured;
   const cardTitle = home ? project.cardTitle || project.title : project.title;
-  if (isFeatured) {
-    return `
-      <article class="project-card project-card-featured">
-        <a class="project-media"${cursorVariant ? ` data-cursor="${cursorVariant}"` : ""} href="${projectUrl(project.slug)}" aria-label="${cardTitle}">
-          ${project.previewVideo ? `
-            <img class="project-image project-preview-poster" src="${project.previewPoster}" alt="" loading="lazy" />
-            <video class="project-preview-video" data-preview-src="${project.previewVideo}" muted loop playsinline preload="none" aria-hidden="true"></video>
-          ` : `<span class="project-image ${project.image}"></span>`}
-        </a>
-        <div class="featured-project-copy">
-          <div class="featured-project-intro">
-            <h2 class="project-year featured-project-label">${featuredLabel}</h2>
-            <h3><a class="project-title-link" href="${projectUrl(project.slug)}">${cardTitle}</a></h3>
-          </div>
-          <div class="featured-project-details">
-            <div>
-              <p class="featured-project-meta">${project.cardEyebrow.split(" · ").map(part => `<span>${part}</span>`).join("")}</p>
-            </div>
-            <div>
-              <p>${project.cardSummary || project.summary}</p>
-            </div>
-          </div>
-          <a class="underline-link" href="${projectUrl(project.slug)}" data-preserve-label="true"><span>Explore case</span><img src="/assets/lets-talk-icon.svg" alt="" /></a>
-        </div>
-      </article>
-    `;
-  }
+
   return `
     <article class="project-card${homeNda && !isFeatured ? " project-card-home-nda" : ""}${isFeatured ? " project-card-featured" : ""}">
-      ${isFeatured && featuredLabel ? `<h2 class="project-year featured-project-label">${featuredLabel}</h2>` : ""}
-      ${isFeatured ? `<p class="project-year featured-project-meta"><span class="featured-project-number">01 / 04</span>${project.cardEyebrow.split(" · ").map(part => `<span>${part}</span>`).join("")}</p>` : ""}
       <a class="project-media"${cursorVariant ? ` data-cursor="${cursorVariant}"` : ""} href="${projectUrl(project.slug)}" aria-label="${cardTitle}">
-        ${project.previewVideo ? `
-          <img class="project-image project-preview-poster" src="${project.previewPoster}" alt="" loading="lazy" />
-          <video class="project-preview-video" data-preview-src="${project.previewVideo}" muted loop playsinline preload="none" aria-hidden="true"></video>
-        ` : `<span class="project-image ${project.image}"></span>`}
+        ${projectPreview(project)}
       </a>
       <div class="project-card-info">
         <div class="card-info">
           ${!isFeatured ? `<p class="project-year">${home && project.cardEyebrow ? project.cardEyebrow : `${project.years} / ${project.company}`}</p>` : ""}
           <div>
             <h3><a class="project-title-link" href="${projectUrl(project.slug)}">${homeNda && !isFeatured ? "From product<br>opportunity to AI<br>learning experience" : cardTitle}</a></h3>
-            ${!isFeatured ? `<p>${home && project.cardSummary ? project.cardSummary : project.delivered}</p>` : ""}
+            ${isFeatured ? `<p class="featured-project-meta">${project.cardEyebrow.split(" · ").map(part => `<span>${part}</span>`).join("")}</p>` : `<p>${project.cardBody || (home && project.cardSummary ? project.cardSummary : project.delivered)}</p>`}
             ${!home && project.whatIDid ? `
               <div class="project-scope">
                 <span>What I did</span>
@@ -696,6 +680,7 @@ function projectCard(project, { home = false, featured = false, featuredLabel = 
             ` : ""}
 
           </div>
+          ${isFeatured ? `<p class="body-copy featured-project-description">${project.cardBody || project.delivered}</p>` : ""}
           <a class="underline-link" href="${projectUrl(project.slug)}" data-preserve-label="true">
             <span>Explore case</span>
             <img src="/assets/lets-talk-icon.svg" alt="" />
@@ -707,27 +692,49 @@ function projectCard(project, { home = false, featured = false, featuredLabel = 
 }
 
 function otherCases(currentProject) {
-  const currentIndex = projects.findIndex((project) => project.slug === currentProject.slug);
-  const orderedProjects = [
-    ...projects.slice(currentIndex + 1),
-    ...projects.slice(0, currentIndex)
-  ].filter((project) => project.slug !== currentProject.slug && !project.hidden);
-  const relatedProjects = orderedProjects.slice(0, 2);
+  // Editorial ranking: relevance, strength, then recency. Prefer distinct companies.
+  const rankedSlugs = {
+    "new-project": ["mgid-user-activation", "yola-growth", "mgid-feature-design"],
+    "mgid-feature-design": ["new-project", "yola-growth", "mgid-user-activation"],
+    "mgid-user-activation": ["new-project", "yola-growth", "mgid-feature-design"],
+    "yola-growth": ["new-project", "mgid-feature-design", "mgid-user-activation"]
+  };
+  const orderedProjects = projectsBySlug([
+    ...new Set([
+      ...(rankedSlugs[currentProject.slug] || []),
+      "new-project", "mgid-feature-design", "mgid-user-activation", "yola-growth",
+      ...projects.map((project) => project.slug)
+    ])
+  ]).filter((project) => project.slug !== currentProject.slug);
+  const relatedProjects = [];
+  const companies = new Set();
+  for (const project of orderedProjects) {
+    const company = project.company.split("·")[0].trim().toLowerCase();
+    if (companies.has(company)) continue;
+    relatedProjects.push(project);
+    companies.add(company);
+    if (relatedProjects.length === 2) break;
+  }
+  // Repeat a company only when no alternative remains.
+  for (const project of orderedProjects) {
+    if (relatedProjects.length === 2) break;
+    if (!relatedProjects.includes(project)) relatedProjects.push(project);
+  }
 
   if (!relatedProjects.length) return "";
 
   return `
     <section class="section section-tight other-cases">
       <div>
-        <h2 class="other-cases-heading">Other cases.</h2>
+        <h2 class="other-cases-heading">More projects.</h2>
         <div class="other-cases-grid">
           ${relatedProjects.map((project) => `
-            <a class="other-case-card" href="${projectUrl(project.slug)}" aria-label="${project.title}">
+            <a class="other-case-card" href="${projectUrl(project.slug)}" aria-label="${project.cardTitle || project.title}">
               <span class="other-case-media">
-                <span class="project-image ${project.image}"></span>
+                ${projectPreview(project)}
               </span>
               <span class="other-case-caption">
-                <span>${project.title}</span>
+                <span>${project.cardTitle || project.title}</span>
                 <span>${project.years}</span>
               </span>
             </a>
@@ -818,86 +825,177 @@ function caseReferenceNav(project, sections) {
   `;
 }
 
+function renderExperienceEntry({ date, title, roles = "", description }, index) {
+  const open = index === 0;
+  const id = `about-experience-${index}`;
+  return `<article class="about-work-entry${open ? " is-expanded" : ""}">
+    <h3 class="about-work-heading">
+      <button class="about-work-trigger" id="${id}-trigger" type="button" aria-expanded="${open}" aria-controls="${id}-panel">
+        <span class="eyebrow about-work-date">${date}</span>
+        <span class="about-work-main"><span class="about-work-title">${title}</span>${roles}</span>
+        <span class="about-work-indicator" aria-hidden="true">
+          <svg class="about-work-icon-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11.9922 4.00012V20.0001M19.9922 12.0001H3.99222"></path></svg>
+          <svg class="about-work-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.9922 12L2.99219 12"></path></svg>
+        </span>
+      </button>
+    </h3>
+    <div class="about-work-panel" id="${id}-panel" role="region" aria-labelledby="${id}-trigger" aria-hidden="${!open}"${open ? "" : " inert"}>
+      <div class="about-work-panel-inner"><div class="about-work-description"><p class="body-copy">${description}</p></div></div>
+    </div>
+  </article>`;
+}
+
 function renderAbout() {
   app.innerHTML = `
-    <section class="section">
-      <div class="two-column">
-        <h1 class="lead">I’m an ally to people who use products I designed</h1>
-        <div class="body-copy">
-          <p>With ~10 years of design experience, I apply my expertise to create a vision for developing products, focusing on users' and clients' goals to achieve better results and providing a complete, start-to-finish design service.</p>
-          <p>My avocation is design mentorship. I share knowledge and experience with UX/Product Designers at different levels, helping them advance careers, build technical and soft skills, develop portfolios, and achieve their goals.</p>
-          <p>I'm dedicated to creating thoughtful and functional design that delivers customer value and positively impacts society.</p>
+    <article class="about-page">
+      <section class="section work-page-intro about-editorial-hero" aria-labelledby="about-statement">
+        <div class="work-page-intro-shell about-editorial-hero-inner">
+          <h1 id="about-statement">I’m an ally to the people <span>who use the products I design.</span></h1>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section section-tight about-disciplines" aria-label="Design disciplines">
-      <div class="about-disciplines-panel">
-        <div class="about-disciplines-type">
-          <div class="about-disciplines-row">
-            <span>Art direction</span>
-            <span class="about-disciplines-star" aria-hidden="true">✷</span>
-            <span class="about-disciplines-italic">Product design</span>
-          </div>
-          <div class="about-disciplines-row">
-            <span class="about-disciplines-italic about-disciplines-underlined">Visual design</span>
-            <span>Mobile &amp; web design</span>
-          </div>
-          <div class="about-disciplines-row">
-            <span>Interaction design</span>
-            <span class="about-disciplines-amp">&amp;</span>
-            <span>Animation</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-tight">
-      <div class="timeline">
-        ${experience.map(([date, title, description]) => `
-          <article class="timeline-item">
-            <div class="project-year">${date}</div>
-            <div>
-              <h3>${title}</h3>
-              <p class="body-copy">${description}</p>
+      <section class="section about-editorial-intro" aria-labelledby="about-section-label">
+        <div class="work-project-group">
+          <div class="work-project-group-meta"><h2 id="about-section-label" class="work-project-group-label">About me</h2></div>
+          <div class="about-editorial-intro-grid">
+            <div class="about-editorial-bio">
+              <div class="body-copy">
+                <p>I like making sense of messy product problems: figuring out what matters, narrowing the scope, and turning ideas into clear, usable products.</p>
+                <p>Over the years, I’ve also mentored other designers, which made me more thoughtful about feedback, decision-making, and product craft.</p>
+              </div>
             </div>
-          </article>
-        `).join("")}
+            <div class="about-work-history" aria-label="Work experience">
+              ${renderExperienceEntry({
+                date: "2025–2026",
+                title: "NDA · EdTech | Founding Product Designer",
+                description: "Started in R&amp;D, focused on discovery and validation, then moved into Venture to take validated concepts through MVP development, launch, and iteration."
+              }, 0)}
+              ${experience.map(([date, title, description], index) => renderExperienceEntry({ date, title, description }, index + 1)).join("")}
+              <div class="about-resume-actions">
+                <a class="underline-link" href="https://docs.google.com/document/d/1_92s3CKNwckTEHPxEddXWUKyN2wlX0kvHNI-qNUYcuQ/view" target="_blank" rel="noopener noreferrer">
+                  <span>View full resume</span>
+                  <img src="/assets/lets-talk-icon.svg" alt="" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about-working" aria-labelledby="about-working-heading">
+        <div class="work-project-group">
+          <div class="work-project-group-meta"><h2 id="about-working-heading" class="work-project-group-label">How I work</h2></div>
+          <div class="about-process">
+            <article class="about-process-row about-editorial-intro-grid" aria-labelledby="about-process-direction">
+              <div class="about-process-heading">
+                <span class="about-process-number">01</span>
+                <h3 id="about-process-direction">Shape the direction</h3>
+              </div>
+              <div class="about-process-content">
+                <p class="body-copy about-process-copy">I work with product context, existing insights, business goals, and constraints to define what is worth solving and what needs to be validated first.</p>
+                <ul class="about-process-tags" aria-label="Capabilities">
+                  <li>Product strategy</li>
+                  <li>Opportunity framing</li>
+                  <li>Prioritization</li>
+                  <li>Requirements</li>
+                </ul>
+              </div>
+            </article>
+            <article class="about-process-row about-editorial-intro-grid" aria-labelledby="about-process-design">
+              <div class="about-process-heading">
+                <span class="about-process-number">02</span>
+                <h3 id="about-process-design">Design &amp; validate</h3>
+              </div>
+              <div class="about-process-content">
+                <p class="body-copy about-process-copy">I turn product questions into flows, concepts, and prototypes, then use research, usability testing, and product signals to refine the direction before and during development.</p>
+                <ul class="about-process-tags" aria-label="Capabilities">
+                  <li>UX/UI</li>
+                  <li>Prototyping</li>
+                  <li>Validation</li>
+                  <li>User research</li>
+                  <li>Design systems</li>
+                </ul>
+              </div>
+            </article>
+            <article class="about-process-row about-editorial-intro-grid" aria-labelledby="about-process-launch">
+              <div class="about-process-heading">
+                <span class="about-process-number">03</span>
+                <h3 id="about-process-launch">Build, launch &amp; learn</h3>
+              </div>
+              <div class="about-process-content">
+                <p class="body-copy about-process-copy">I stay close to implementation — working through edge cases, design QA, and release — then use feedback and behavioral data to decide what should be improved next.</p>
+                <ul class="about-process-tags" aria-label="Capabilities">
+                  <li>Development support</li>
+                  <li>Design QA</li>
+                  <li>Launch</li>
+                  <li>Analytics</li>
+                  <li>Iteration</li>
+                </ul>
+<aside class="about-process-note" aria-labelledby="about-process-ai">
+              <h3 id="about-process-ai"><svg class="about-process-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.9922 4.00012V20.0001M19.9922 12.0001H3.99222"></path></svg><span>AI-assisted development</span></h3>
+              <p class="body-copy">I increasingly use AI-assisted tools to reduce the distance between product definition, prototype, and functional MVP.</p>
+            </aside>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      ${homeContact()}
+    </article>
+  `;
+}
+
+function homeContact() {
+  const archive = [
+    ["edtech-core-ai-workflow.png", 3312, 1840, "AI learning workflow"],
+    ["mgid-widget-02.png", 1656, 1080, "MGID ad widget design"],
+    ["mgid-guided-onboarding-poster.jpg", 1490, 720, "MGID guided onboarding"],
+    ["yola-growth-preview.jpg", 2546, 1430, "Yola website builder"],
+    ["edtech-math-solver-v2.png", 2664, 1736, "AI math solver"]
+  ];
+  const separators = {
+    1: ["star-23", "red"]
+  };
+  const images = (duplicate = false) => archive.map(([src, width, height, alt], index) => `
+    <img src="/assets/${src}" width="${width}" height="${height}" alt="${duplicate ? "" : alt}" loading="lazy" decoding="async" />
+    ${separators[index] ? `<svg class="home-contact-archive-star home-contact-archive-star--${separators[index][1]}" viewBox="0 0 48 48" aria-hidden="true" focusable="false">${cursorShapes[separators[index][0]].svg}</svg>` : ""}
+  `).join("");
+
+  return `
+    <section class="section cta-band home-contact" aria-labelledby="contact-heading">
+      <div class="cta-content">
+        <h2 id="contact-heading">Let’s make something that matters.</h2>
+        <div class="opportunity-hero-fact home-contact-row">
+          <span class="opportunity-hero-fact-label">Contact</span>
+          <p class="opportunity-hero-contact-links">
+            <a href="mailto:alina.dyadenko@gmail.com">alina.dyadenko@gmail.com</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://www.linkedin.com/in/alina-diadenko/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://medium.com/@alina.dyadenko" target="_blank" rel="noopener noreferrer">Medium</a>
+          </p>
+        </div>
+        <div class="home-contact-archive" role="region" aria-label="Portfolio visual archive" tabindex="0">
+          <div class="home-contact-archive-track">
+            <div class="home-contact-archive-sequence">${images()}</div>
+            <div class="home-contact-archive-sequence" aria-hidden="true">${images(true)}</div>
+          </div>
+        </div>
       </div>
     </section>
-
-    <section class="section section-tight">
-      <div class="two-column">
-        <h2 class="lead">My work process & responsibilities</h2>
-        <p class="body-copy">As a Product Designer, I work closely with product and engineering teams to improve platforms and develop new features from ideation to launch, including post-release support and analysis.</p>
-      </div>
-      <div class="process-grid">
-        <article class="process-card"><h3>Co-author</h3><p class="body-copy">Strategic planning, ideation, prioritization, product research, and requirements with the product team.</p></article>
-        <article class="process-card"><h3>Primary responsibilities</h3><p class="body-copy">User research, concept design, prototyping, testing, design artifacts, requirements, development support, and QA.</p></article>
-        <article class="process-card"><h3>Support & quality control</h3><p class="body-copy">Release support, announcements, product communication, user feedback loops, and post-release analysis.</p></article>
-      </div>
-    </section>
-
-    ${cta()}
   `;
 }
 
 function cta() {
-  const arrow = '<span class="cta-arrow" aria-hidden="true"></span>';
   return `
     <section class="section cta-band" aria-labelledby="contact-heading">
       <div class="cta-content">
-        <h2 id="contact-heading">Let’s make something great!</h2>
-        <div class="cta-email-row">
-          <a class="cta-email" href="mailto:alina.dyadenko@gmail.com">alina.dyadenko@gmail.com</a>
-          ${arrow}
-          <span class="cta-for">for</span>
-        </div>
-        <div class="cta-collaboration-row">
-          <span class="cta-arrow-trail" aria-hidden="true">${arrow}${arrow}${arrow}</span>
-          <p>collaborations.</p>
-          <svg class="cta-star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0 59 29 85 15 71 41 100 50 71 59 85 85 59 71 50 100 41 71 15 85 29 59 0 50 29 41 15 15 41 29Z" fill="currentColor" /></svg>
-        </div>
+        <h2 id="contact-heading">Let’s make something that matters.</h2>
+        <a class="button cta-contact-link" href="mailto:alina.dyadenko@gmail.com">
+          <span>Contact me</span>
+          <img src="/assets/lets-talk-icon.svg" alt="" />
+        </a>
       </div>
     </section>
   `;
@@ -914,7 +1012,7 @@ function renderCase(slug) {
   const project = caseContent ? { ...sourceProject, ...caseContent } : sourceProject;
 
   if (slug === "mgid-user-activation") {
-    app.innerHTML = renderMgidOnboarding(project, otherCases, cta);
+    app.innerHTML = renderMgidOnboarding(project, otherCases, homeContact);
     return;
   }
 
@@ -987,10 +1085,10 @@ function renderCase(slug) {
       ${section.phases ? `<div class="case-phases">${section.phases.map(phase => `<article class="case-ecosystem-item"><h3>${phase.title}</h3><p>${phase.role}</p><ul>${phase.focus.map(item => `<li>${item}</li>`).join("")}</ul></article>`).join("")}</div>` : ""}
       ${section.approach ? `<div class="case-challenge-block"><p class="case-challenge-statement"><span class="case-challenge-label">Approach</span> ${section.approach}</p></div>` : ""}
       ${section.growthStages ? `<div class="case-growth-stages" aria-label="Connected stages of product growth">${section.growthStages.map((stage, index) => `${index ? '<span aria-hidden="true">→</span>' : ''}<span>${stage}</span>`).join("")}</div>` : ""}
-      ${section.valueJourneys ? `<p class="body-copy case-value-journeys">${section.valueJourneys.map(journey => `${journey.title}: <span class="case-value-steps">${journey.steps}</span>`).join("<br>")}</p>${section.valueJourneysClosing ? `<p class="body-copy case-value-closing">${section.valueJourneysClosing}</p>` : ""}` : ""}
+      ${section.valueJourneys ? `<div class="case-hero-details case-value-journeys">${section.valueJourneys.map(journey => `<article><span>${journey.title}</span><p>${journey.steps}</p></article>`).join("")}</div>${section.valueJourneysClosing ? `<p class="body-copy case-value-closing">${section.valueJourneysClosing}</p>` : ""}` : ""}
       ${section.opportunity ? `<div class="case-opportunity-columns"><div><h3>Opportunity:</h3><p>${section.opportunity}</p></div><div><h3>What I did:</h3><ul>${section.changes.map(change => `<li>${change}</li>`).join("")}</ul></div></div>` : ""}
       ${section.changes && !section.opportunity ? `<div class="case-changes"><p class="case-feature-label">${section.changesLabel || "What changed"}</p><ul>${section.changes.map(change => `<li>${change}</li>`).join("")}</ul></div>` : ""}
-      ${section.media ? `<div class="case-evidence">${section.media.map(item => item.src ? `<button class="case-feature-media" type="button" data-lightbox-image="${item.src}" data-lightbox-caption="${item.alt}" aria-label="Open image: ${item.alt}"><img class="case-feature-image" src="${item.src}" alt="${item.alt}" loading="lazy" width="1242" height="807" /></button>` : `<div class="case-media-placeholder" role="img" aria-label="${item.placeholder}"><span>${item.placeholder}</span></div>`).join("")}</div>` : ""}
+      ${section.media ? `<div class="case-evidence">${section.media.map(item => item.type === "video" ? videoIllustration(item.src, item.poster, item.alt) : item.src ? `<button class="case-feature-media" type="button" data-lightbox-image="${item.src}" data-lightbox-caption="${item.alt}" aria-label="Open image: ${item.alt}"><img class="case-feature-image" src="${item.src}" alt="${item.alt}" loading="lazy" width="1242" height="807" /></button>` : `<div class="case-media-placeholder" role="img" aria-label="${item.placeholder}"><span>${item.placeholder}</span></div>`).join("")}</div>` : ""}
       ${section.metrics ? `<div class="case-result-metrics" aria-label="Results">${section.metrics.map(([value, label]) => `<div><strong>${value}</strong><p>${label}</p></div>`).join("")}</div>` : ""}
       ${section.bullets && section.bullets.length ? `<ul>${section.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>` : ""}
       ${!section.researchTagsAfterEvidence ? renderResearchTags(section) : ""}
@@ -1173,6 +1271,7 @@ function renderCase(slug) {
           <div class="case-hero-details">
             ${caseHeroInfo(project).map((item) => `<article><span>${item.label}</span><p>${item.text}</p></article>`).join("")}
           </div>
+          ${project.heroNote ? `<aside class="case-disclosure" aria-label="${project.heroNoteLabel || "Project note"}"><img src="/assets/lock.svg" width="16" height="16" alt="" />${project.heroNoteLabel ? `<p class="case-disclosure-label">${project.heroNoteLabel}</p>` : ""}<p class="case-disclosure-copy">${project.heroNote}</p></aside>` : ""}
         </div>
       </div>
     </section>
@@ -1226,7 +1325,7 @@ function renderCase(slug) {
       </main>
     </div>
     ${otherCases(project)}
-    ${cta()}
+    ${homeContact()}
     </article>
   `;
 }
@@ -1322,6 +1421,7 @@ function route() {
     requestAnimationFrame(() => {
       makeLinksSentenceCase();
       setupAccordions();
+      setupExperienceAccordion();
       setupMotion();
       setupProjectShowcaseHover();
       setupProjectVideoPreviews();
@@ -1390,6 +1490,24 @@ function makeLinksSentenceCase() {
     const normalized = toSentenceCase(text);
     if (normalized && normalized !== text) a.textContent = normalized;
     a.dataset._caseNormalized = '1';
+  });
+}
+
+function setupExperienceAccordion() {
+  const entries = [...app.querySelectorAll(".about-work-entry")];
+  const setExpanded = (entry, expanded) => {
+    const trigger = entry.querySelector(".about-work-trigger");
+    const panel = entry.querySelector(".about-work-panel");
+    entry.classList.toggle("is-expanded", expanded);
+    trigger.setAttribute("aria-expanded", String(expanded));
+    panel.setAttribute("aria-hidden", String(!expanded));
+    panel.inert = !expanded;
+  };
+  entries.forEach(entry => {
+    entry.querySelector(".about-work-trigger").onclick = () => {
+      const opening = !entry.classList.contains("is-expanded");
+      entries.forEach(other => setExpanded(other, other === entry && opening));
+    };
   });
 }
 
@@ -1588,7 +1706,9 @@ function setupMotion() {
     !target.closest(".hero") &&
     !target.closest(".pipeline-copy") &&
     !target.closest(".question-evidence") &&
-    !target.closest(".case-page-new-project .case-feature-detail")
+    !target.closest(".case-feature-detail") &&
+    !target.closest(".onboarding-changes") &&
+    !target.closest(".case-opportunity-columns > div:last-child")
   ));
 
   if (!("IntersectionObserver" in window)) {
@@ -1752,7 +1872,7 @@ function setupProjectVideoPreviews() {
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
   const stops = [];
   app.querySelectorAll(".project-preview-video").forEach(video => {
-    const card = video.closest(".project-card");
+    const card = video.closest(".project-card, .other-case-card");
     const selectedWork = Boolean(card.closest('.selected-work-section'));
     let hovered = false;
     let focused = false;
@@ -1916,6 +2036,7 @@ function setupTestimonials() {
     const triggers = [...section.querySelectorAll("[data-testimonial-trigger]")];
     const quotes = [...section.querySelectorAll("[data-testimonial-quote]")];
     const authors = [...section.querySelectorAll("[data-testimonial-author]")];
+    const counter = section.querySelector("[data-testimonial-counter]");
     if (triggers.length < 2) return;
 
     let activeIndex = triggers.findIndex((trigger) => trigger.classList.contains("is-active"));
@@ -1924,6 +2045,7 @@ function setupTestimonials() {
 
     const setActive = (index) => {
       activeIndex = Number(index);
+      if (counter) counter.textContent = `${String(activeIndex + 1).padStart(2, "0")} / ${String(quotes.length).padStart(2, "0")}`;
 
       triggers.forEach((trigger) => {
         const isActive = trigger.dataset.testimonialIndex === String(activeIndex);

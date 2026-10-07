@@ -12,9 +12,9 @@ const visuals = {
 };
 
 const results = [
-  ["22%", "reduction in drop-off at key signup friction points"],
-  ["16%", "increase in user activation"],
-  ["28%", "faster verification completion"]
+  ["22%", "lower signup drop-off"],
+  ["16%", "higher user activation"],
+  ["28%", "faster verification"]
 ];
 
 const features = [
@@ -108,7 +108,7 @@ export function renderMgidOnboarding(project, otherCases, cta) {
           <h1 class="page-title">Helping new advertisers succeed from day one</h1>
         </div></div>
         <div class="case-hero-content"><div class="case-hero-details">
-          <article><span>ROLE</span><p>Senior Product Designer</p></article>
+          <article><span>ROLE &amp; TEAM</span><p>Senior Product Designer · Advertisers team</p></article>
           <article><span>SCOPE</span><p>First-time user journey · Signup and login · Verification · Onboarding strategy · User activation</p></article>
           <article><span>APPROACH</span><p>User research · CJM · User flow redesign · UX/UI · Prototyping · A/B testing · Post-release analysis</p></article>
         </div></div>
@@ -125,7 +125,7 @@ export function renderMgidOnboarding(project, otherCases, cta) {
         ${section("tldr", "", `
           <p class="onboarding-lead">After MGID launched its modernized advertising platform, feedback and behavioral data revealed friction across signup, verification, and early product exploration. Users were dropping off before they could understand the platform’s value.</p>
           ${renderCaseContext(caseContextFor("mgid-user-activation"))}
-          <p class="body-copy">I redesigned the first-time journey as a guided path from signup to activation—simplifying account access, reordering verification, and introducing contextual onboarding. These changes reduced drop-offs and helped users reach product value sooner.</p>`, "case-section-intro case-tldr")}
+          <p class="body-copy">I redesigned the first-time journey from signup to activation, reducing friction and helping users reach product value sooner.</p>`, "case-section-intro case-tldr")}
         ${section("research", "Understanding where activation broke down", `
           <p class="body-copy">Friction extended across the first-time journey: from account creation to early product exploration. Working with UX research, I combined interviews and think-aloud usability tests with funnel drop-offs and session recordings to understand where users lost momentum.</p>
           ${columns([
@@ -158,11 +158,11 @@ export function renderMgidOnboarding(project, otherCases, cta) {
             </article>`).join("")}
           </div>`, "case-section-chapter case-feature-layout-section")}
         ${section("outcome", "", `
-          <p class="onboarding-lead">Post-launch data showed measurable improvements across every redesigned stage of the activation journey.</p>
+          <p class="onboarding-lead">Post-launch data showed measurable improvements across the activation journey.</p>
           ${metrics(true)}`, "case-section-chapter")}
         ${section("reflection", "", `
-          <p class="onboarding-lead case-challenge-statement"><span class="case-challenge-label">KEY LESSON</span> Activation is shaped by the entire journey. Account access, the timing of required steps, and early guidance all influence whether users continue and experience value, while combining behavioral data with direct feedback makes it possible to keep improving the journey after launch.</p>
-          <p class="body-copy">If I revisited the project, I would explore deeper onboarding personalization based on advertisers’ experience, goals, and intended use of the platform.</p>`, "case-section-reflection")}
+          <p class="onboarding-lead case-challenge-statement"><span class="case-challenge-label">KEY LESSON</span> Activation is shaped by the entire journey. Account access, the timing of required steps, and early guidance all influence whether users continue and experience value.</p>
+          <p class="body-copy">Post-launch behavioral data and direct feedback helped me continue refining the journey and identify where further improvements could have the most impact.</p>`, "case-section-reflection")}
       </main>
     </div>
     ${otherCases(project)}
