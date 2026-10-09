@@ -11,6 +11,8 @@ import { cinematicProjectList, setupCinematicWork, cleanupCinematicWork } from "
 const projects = [
   {
     slug: "new-project",
+    // Keep the internal key stable for existing styles and case-specific behavior.
+    urlSlug: "ai-learning",
     cardEyebrow: "2025–2026 · NDA · AI EDTECH",
     cardTitle: "From product opportunity to AI learning experience",
     cardSummary: "Worked across a portfolio of AI-powered education products, from a flagship learning experience to new web and mobile tools for studying, writing, and problem-solving.",
@@ -424,7 +426,14 @@ let caseSectionNavObserver;
 
 
 function projectUrl(slug) {
-  return `/case/${slug}`;
+  const project = projects.find(item => item.slug === slug);
+  return `/case/${project?.urlSlug || slug}`;
+}
+
+export function canonicalCasePath(path) {
+  return /^\/case\/new-project(?:\/|\.html|\/index\.html)?$/.test(path)
+    ? "/case/ai-learning"
+    : path;
 }
 
 function projectsSection(items, { showSeeAll = false, label = "/projects" } = {}) {
@@ -1361,7 +1370,10 @@ function renderCurrentRoute(path) {
   if (path === "/") renderHome();
   else if (path === "/projects") renderProjects();
   else if (path === "/about") renderAbout();
-  else if (caseMatch) renderCase(caseMatch[1]);
+  else if (caseMatch) {
+    const project = projects.find(item => projectUrl(item.slug) === path);
+    renderCase(project?.slug || caseMatch[1]);
+  }
   else renderNotFound();
 }
 
@@ -1399,6 +1411,10 @@ function migrateLegacyUrl() {
 
 let renderedPath;
 function route() {
+  const canonicalPath = canonicalCasePath(window.location.pathname);
+  if (canonicalPath !== window.location.pathname) {
+    history.replaceState(null, "", canonicalPath + window.location.search + window.location.hash);
+  }
   const path = currentPath();
   // Fragment navigation stays within the current document; it never remounts a case.
   if (hasRendered && renderedPath === path && !app.classList.contains("is-changing")) return;

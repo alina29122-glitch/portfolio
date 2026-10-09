@@ -2,7 +2,7 @@ import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { resolve, extname, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { pagePaths, pageMetadata, renderPage } from '../app.js';
+import { canonicalCasePath, pagePaths, pageMetadata, renderPage } from '../app.js';
 
 const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.svg': 'image/svg+xml', '.mp4': 'video/mp4', '.xml': 'application/xml', '.txt': 'text/plain' };
 const escape = text => text.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
@@ -10,8 +10,14 @@ export function createPreviewServer(directory = '.') {
   const root = resolve(directory);
   return createServer(async (req, res) => {
     try {
-      const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+      const url = new URL(req.url, 'http://localhost');
+      const pathname = decodeURIComponent(url.pathname);
       const path = pathname.replace(/\/+$/, '') || '/';
+      const canonicalPath = canonicalCasePath(path);
+      if (canonicalPath !== path) {
+        res.writeHead(301, { Location: canonicalPath + url.search }).end();
+        return;
+      }
       const candidate = resolve(root, `.${path}`);
       if (candidate !== root && !candidate.startsWith(root + sep)) { res.writeHead(403).end(); return; }
       let file;

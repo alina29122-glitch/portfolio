@@ -28,6 +28,14 @@ for (const path of pagePaths) {
     await mkdir(dirname(previewFile), { recursive: true });
     await writeFile(previewFile + '.tmp', html);
     await rename(previewFile + '.tmp', previewFile);
+    if (path === '/case/ai-learning') {
+      // Static Live Preview cannot send HTTP redirects; the app canonicalizes
+      // this compatibility entry point while Vercel and our server return 301.
+      const legacyFile = resolve('case/new-project/index.html');
+      await mkdir(dirname(legacyFile), { recursive: true });
+      await writeFile(legacyFile + '.tmp', html);
+      await rename(legacyFile + '.tmp', legacyFile);
+    }
   }
 }
 await writeFile(resolve(output, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pagePaths.map(path => `<url><loc>${pageMetadata(path).canonical}</loc></url>`).join('')}</urlset>\n`);

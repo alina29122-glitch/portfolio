@@ -10,7 +10,7 @@ Requires Node.js 20 or later. No npm dependencies are required.
 npm run dev
 ```
 
-Open `http://localhost:5173`. Clean routes work directly, including `/case/new-project`.
+Open `http://localhost:5173`. Clean routes work directly, including `/case/ai-learning`.
 
 ## Build and verify
 
@@ -28,11 +28,11 @@ Most portfolio copy lives in `app.js`; extended case content is in `edtech-case.
 
 ## Routing and deployment
 
-The existing project is linked to Vercel. `vercel.json` explicitly runs `npm run build`, publishes only `dist`, enables clean URLs and adds an SPA fallback. Vercel serves matching generated HTML/assets before applying the fallback rewrite. Thus `/case/new-project` returns its own HTML to crawlers and on refresh, rather than just the app shell.
+The existing project is linked to Vercel. `vercel.json` explicitly runs `npm run build`, publishes only `dist`, enables clean URLs and adds an SPA fallback. Vercel serves matching generated HTML/assets before applying the fallback rewrite. Thus `/case/ai-learning` returns its own HTML to crawlers and on refresh, rather than just the app shell.
 
 Deploy through the existing Vercel workflow; do not publish the unbuilt source folder. The configuration takes effect on the next deployment. No production deployment is performed by the build command.
 
-Browser navigation uses the History API, preserves page transitions and starts a newly opened case at the top. Section fragments remain ordinary in-page anchors. Old hash-route bookmarks are converted once on load to their clean equivalent. Existing case slugs are preserved (the MGID dashboard case is `/case/mgid-feature-design`).
+Browser navigation uses the History API, preserves page transitions and starts a newly opened case at the top. Section fragments remain ordinary in-page anchors. Old hash-route bookmarks are converted once on load to their clean equivalent. The AI learning case uses `/case/ai-learning`; `/case/new-project` redirects with HTTP 301 on Vercel and the local dev/preview server. Old hash-route bookmarks also resolve to the new URL. Other case slugs are preserved (the MGID dashboard case is `/case/mgid-feature-design`).
 
 ## VS Code Live Preview
 
