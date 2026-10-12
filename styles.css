@@ -8828,7 +8828,7 @@ body:has(.case-page) .case-lightbox img {
 @media (min-width: 1024px) and (max-height: 900px) {
   .opportunity-hero {
     --hero-top-space: calc(var(--header-height) + clamp(40px, 8svh, 72px));
-    --hero-bottom-space: 40px;
+    --hero-bottom-space: 24px;
     --hero-copy-top-space: 24px;
     --hero-facts-gap: 56px;
     --hero-row-padding: 24px;
@@ -8842,10 +8842,7 @@ body:has(.case-page) .case-lightbox img {
 
   .opportunity-hero-shell {
     /* The fixed header is included in top space; content may still grow. */
-    min-height: min(
-      calc(100svh - var(--hero-top-space) - var(--hero-bottom-space)),
-      calc(var(--hero-desktop-photo-height) * var(--hero-portrait-scale))
-    );
+    min-height: calc(100svh - var(--hero-top-space) - var(--hero-bottom-space));
   }
 
   .opportunity-hero-copy { padding-top: var(--hero-copy-top-space); }
@@ -8854,7 +8851,7 @@ body:has(.case-page) .case-lightbox img {
   .opportunity-hero-fact { padding-block: var(--hero-row-padding); }
 
   .opportunity-hero-photo-placeholder {
-    inset: 0 0 auto auto;
+    inset: auto 0 0 auto;
     width: calc((100% - var(--hero-copy-width) - 64px) * var(--hero-portrait-scale));
     height: calc(var(--hero-desktop-photo-height) * var(--hero-portrait-scale));
   }
@@ -8863,7 +8860,6 @@ body:has(.case-page) .case-lightbox img {
 @media (min-width: 1024px) and (max-height: 850px) {
   .opportunity-hero {
     --hero-top-space: calc(var(--header-height) + clamp(24px, 5svh, 40px));
-    --hero-bottom-space: 32px;
     --hero-copy-top-space: 16px;
     --hero-facts-gap: 32px;
     --hero-row-padding: 20px;
