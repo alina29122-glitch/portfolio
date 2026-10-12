@@ -928,7 +928,7 @@ function renderExperienceEntry({ date, title, progression = [], description }, i
     ? `<a class="about-work-company-link" href="${productUrl}" target="_blank" rel="noopener noreferrer">${company}</a>`
     : company;
   const companyTitle = logo
-    ? `<span class="about-work-company"><img class="about-work-logo" src="/assets/company-${logo}.svg" width="24" height="24" alt="" />${companyName}</span>${role ? ` | ${role}` : ""}`
+    ? `<span class="about-work-company"><img class="about-work-logo" src="/assets/company-${logo}.svg" width="28" height="28" alt="" />${companyName}</span>${role ? ` | ${role}` : ""}`
     : title;
   return `<article class="about-work-entry${open ? " is-expanded" : ""}">
     <h3 class="about-work-heading">
@@ -1027,7 +1027,7 @@ function renderAbout() {
                 <h3 id="about-process-launch">Build, launch &amp; learn</h3>
               </div>
               <div class="about-process-content">
-                <p class="body-copy about-process-copy">I stay close to implementation — working through edge cases, design QA, and release — then use feedback and behavioral data to decide what should be improved next.</p>
+                <p class="body-copy about-process-copy">I stay close to implementation, resolving edge cases, supporting design QA, and working through release. After launch, I use product data and feedback to identify what should be refined, scaled, or reconsidered.</p>
                 <ul class="about-process-tags" aria-label="Capabilities">
                   <li>Development support</li>
                   <li>Design QA</li>
