@@ -345,13 +345,97 @@ const projects = [
 ];
 
 const experience = [
-  ["Apr 2023 – Dec 2024", "MGID | Senior Product Designer", "I'm taking part in designing and launching a new advertising platform. I hypothesized solutions and design variations, shipping new features and design improvements."],
-  ["Dec 2020 – Sep 2022", "Yola | Product designer", "Built solutions that meet users' needs and achieving better business results, providing a start-to-finish design services."],
-  ["Dec 2019 – Dec 2020", "Yola | Senior UX/UI designer", "Performed extensive research considering product limitations and external/internal technical dependencies to find the most suitable solution for development."],
-  ["Dec 2017 – Dec 2019", "Yola | UX/UI designer", "Supporting the Legacy platform and working on a new site-building platform from scratch to its launch. I focused on new features for Yola Editor and designed 50+ site templates."],
-  ["Oct 2014 – Dec 2017", "Freelance Web Designer", "Designed landing pages, websites, and desktop and mobile applications in different domains."],
-  ["Sep 2015 – Dec 2015", "Onlinico | User Interface Designer", "Conducted UX research, designed, and prototyped a dashboard for the internal in-company project tracking."],
-  ["Apr 2015 – Oct 2015", "Riversoft | Graphic Design Specialist", "I created graphic design for desktop and mobile games, assembling images, typography, motion graphics, and designed graphics for printed materials."]
+  {
+    "date": "May 2025 – Jun 2026",
+    "title": "Nodera Group (Develux) | Founding Product Designer",
+    "progression": [
+      {
+        "title": "Founding Product Designer · January 2026 - June 2026",
+        "bullets": [
+          "Led end-to-end product design and AI-assisted development of web and mobile applications.",
+          "Shaped core product experiences, monetization strategies, and growth experiments, from initial validation to post-launch optimization."
+        ]
+      },
+      {
+        "title": "Senior Product Designer · May 2025 - December 2025",
+        "bullets": [
+          "Identified and validated product opportunities through market and user research, rapid prototyping, and usability testing.",
+          "Improved existing AI-powered learning experiences through product discovery and experimentation."
+        ]
+      }
+    ]
+  },
+  {
+    "date": "Apr 2023 – Dec 2024",
+    "title": "MGID | Senior Product Designer",
+    "progression": [
+      {
+        "title": "Senior Product Designer · Apr 2023 - Dec 2024",
+        "bullets": [
+          "Designed core features for advertisers and publishers, including campaign management, targeting, and performance analytics.",
+          "Redesigned onboarding and activation flows, using user research and A/B testing to identify friction and improve conversion.",
+          "Built a scalable system of 60+ native ad widgets to support publisher monetization."
+        ]
+      }
+    ]
+  },
+  {
+    "date": "Dec 2017 – Sep 2022",
+    "title": "Yola | Product Designer",
+    "progression": [
+      {
+        "title": "Product Designer · Dec 2020 – Sep 2022",
+        "bullets": [
+          "Led end-to-end feature design focused on user activation, acquisition, monetization, and product growth.",
+          "Established continuous discovery and customer feedback practices, using research and post-launch analytics to guide product improvements."
+        ]
+      },
+      {
+        "title": "Senior UX/UI Designer · Dec 2019 – Dec 2020",
+        "bullets": [
+          "Led user research, usability testing, and UX evaluations to identify and validate product improvements.",
+          "Designed new features and optimized existing experiences, balancing user needs, business goals, and technical constraints."
+        ]
+      },
+      {
+        "title": "UX/UI Designer · Dec 2017 – Dec 2019",
+        "bullets": [
+          "Contributed to the development and launch of a new website-building platform, designing core editor features and customizable templates.",
+          "Co-created an atomic design system and designed 200+ reusable blocks to support scalable website creation."
+        ]
+      }
+    ]
+  },
+  {
+    "date": "Oct 2014 – Dec 2017",
+    "title": "Freelance (Upwork) | Web Designer",
+    "progression": [
+      {
+        "title": "Web Designer · Oct 2014 – Dec 2017",
+        "description": "Designed websites, landing pages, mobile interfaces, and brand identities for clients across multiple domains."
+      }
+    ]
+  },
+  {
+    "date": "Sep 2015 – Dec 2017",
+    "title": "Onlinico | UX/UI Designer",
+    "progression": [
+      {
+        "title": "UX/UI Designer · Sep 2015 – Dec 2017",
+        "description": "Researched, designed, and prototyped an internal project management dashboard to improve workflow efficiency."
+      }
+    ]
+  },
+  {
+    "date": "Apr 2015 – Dec 2015",
+    "title": "RiverSoft | Graphic Design Specialist",
+    "progression": [
+      {
+        "title": "Graphic Design Specialist · Apr 2015 – Dec 2015",
+        "description": "Designed graphics for desktop and mobile games, as well as digital and print marketing materials."
+      }
+    ]
+  }
 ];
 
 const testimonials = [
@@ -834,22 +918,38 @@ function caseReferenceNav(project, sections) {
   `;
 }
 
-function renderExperienceEntry({ date, title, roles = "", description }, index) {
+function renderExperienceEntry({ date, title, progression = [], description }, index) {
   const open = index === 0;
   const id = `about-experience-${index}`;
+  const [company, role] = title.split(" | ");
+  const logo = { "Nodera Group (Develux)": "develux", MGID: "mgid", Yola: "yola", Onlinico: "onlinico", RiverSoft: "riversoft" }[company];
+  const productUrl = { MGID: "https://ads.mgid.com/", Yola: "https://www.yola.com/" }[company];
+  const companyName = productUrl
+    ? `<a class="about-work-company-link" href="${productUrl}" target="_blank" rel="noopener noreferrer">${company}</a>`
+    : company;
+  const companyTitle = logo
+    ? `<span class="about-work-company"><img class="about-work-logo" src="/assets/company-${logo}.svg" width="24" height="24" alt="" />${companyName}</span>${role ? ` | ${role}` : ""}`
+    : title;
   return `<article class="about-work-entry${open ? " is-expanded" : ""}">
     <h3 class="about-work-heading">
-      <button class="about-work-trigger" id="${id}-trigger" type="button" aria-expanded="${open}" aria-controls="${id}-panel">
-        <span class="eyebrow about-work-date">${date}</span>
-        <span class="about-work-main"><span class="about-work-title">${title}</span>${roles}</span>
+      <button class="about-work-trigger" id="${id}-trigger" type="button" aria-labelledby="${id}-date ${id}-title" aria-expanded="${open}" aria-controls="${id}-panel"></button>
+        <span class="eyebrow about-work-date" id="${id}-date">${date}</span>
+        <span class="about-work-main"><span class="about-work-title" id="${id}-title">${companyTitle}</span></span>
         <span class="about-work-indicator" aria-hidden="true">
           <svg class="about-work-icon-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11.9922 4.00012V20.0001M19.9922 12.0001H3.99222"></path></svg>
           <svg class="about-work-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.9922 12L2.99219 12"></path></svg>
         </span>
-      </button>
     </h3>
     <div class="about-work-panel" id="${id}-panel" role="region" aria-labelledby="${id}-trigger" aria-hidden="${!open}"${open ? "" : " inert"}>
-      <div class="about-work-panel-inner"><div class="about-work-description"><p class="body-copy">${description}</p></div></div>
+      <div class="about-work-panel-inner"><div class="about-work-description">${progression.length
+        ? progression.map(position => `<div class="about-work-progression">
+            <h4 class="about-work-role">${position.title}</h4>
+            ${position.specialty ? `<span class="about-work-specialty">${position.specialty}</span>` : ""}
+            ${position.bullets
+              ? `<ul class="body-copy about-work-bullets">${position.bullets.map(text => `<li>${text}</li>`).join("")}</ul>`
+              : `<p class="body-copy">${position.description}</p>`}
+          </div>`).join("")
+        : `<p class="body-copy">${description}</p>`}</div></div>
     </div>
   </article>`;
 }
@@ -874,12 +974,7 @@ function renderAbout() {
               </div>
             </div>
             <div class="about-work-history" aria-label="Work experience">
-              ${renderExperienceEntry({
-                date: "2025–2026",
-                title: "NDA · EdTech | Founding Product Designer",
-                description: "Started in R&amp;D, focused on discovery and validation, then moved into Venture to take validated concepts through MVP development, launch, and iteration."
-              }, 0)}
-              ${experience.map(([date, title, description], index) => renderExperienceEntry({ date, title, description }, index + 1)).join("")}
+              ${experience.map((entry, index) => renderExperienceEntry(entry, index)).join("")}
               <div class="about-resume-actions">
                 <a class="underline-link" href="https://docs.google.com/document/d/1_92s3CKNwckTEHPxEddXWUKyN2wlX0kvHNI-qNUYcuQ/view" target="_blank" rel="noopener noreferrer">
                   <span>View full resume</span>
@@ -2277,6 +2372,61 @@ function setupCaseHeroParallax() {
   };
 }
 
+function setupEmailCopy() {
+  const tooltip = document.createElement("div");
+  tooltip.className = "email-copy-tooltip";
+  tooltip.setAttribute("role", "status");
+  tooltip.setAttribute("aria-live", "polite");
+  document.body.append(tooltip);
+  let timeout;
+  let request = 0;
+  const hide = () => {
+    clearTimeout(timeout);
+    tooltip.classList.remove("is-visible");
+    tooltip.textContent = "";
+  };
+
+  document.addEventListener("click", async (event) => {
+    const link = event.target.closest('a[href^="mailto:"]');
+    if (!link) return;
+    event.preventDefault();
+    const currentRequest = ++request;
+    hide();
+    const email = decodeURIComponent(link.getAttribute("href").slice(7).split("?")[0]);
+    let copied = false;
+    try {
+      await navigator.clipboard.writeText(email);
+      copied = true;
+    } catch {
+      // Also support local HTTP previews where the Clipboard API is unavailable.
+      const field = document.createElement("textarea");
+      field.value = email;
+      field.className = "email-copy-buffer";
+      field.setAttribute("readonly", "");
+      const focused = document.activeElement;
+      document.body.append(field);
+      field.select();
+      try { copied = document.execCommand("copy"); } catch { /* Show failure feedback below. */ }
+      field.remove();
+      focused?.focus({ preventScroll: true });
+    }
+    if (currentRequest !== request || !link.isConnected) return;
+    tooltip.textContent = copied ? "✓ Copied" : "Couldn’t copy. Please try again.";
+    const rect = link.getBoundingClientRect();
+    const width = tooltip.offsetWidth;
+    const height = tooltip.offsetHeight;
+    tooltip.style.left = `${Math.max(8, Math.min(rect.left + (rect.width - width) / 2, window.innerWidth - width - 8))}px`;
+    tooltip.style.top = `${rect.top >= height + 16 ? rect.top - height - 8 : rect.bottom + 8}px`;
+    tooltip.classList.add("is-visible");
+    timeout = setTimeout(hide, 2000);
+  });
+  window.addEventListener("scroll", hide, { passive: true });
+  window.addEventListener("resize", hide);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") hide();
+  });
+}
+
 function setupGlobalInteractions() {
   const getHeaderScrollThreshold = () => {
     const hero = app.querySelector(".minimal-hero");
@@ -2307,6 +2457,7 @@ if (isBrowser) {
   migrateLegacyUrl();
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
   setupGlobalInteractions();
+  setupEmailCopy();
   projectCursor = createPreviewCursor({ selector: '.projects-section .project-media' });
   setupHistoryNavigation();
   route();
