@@ -4,20 +4,20 @@ UI components live in `components/ui`; the site's existing styles are in the roo
 `styles.css`. The `@/*` TypeScript alias resolves from the project root. Keeping
 reusable components here matches shadcn's default `@/components/ui` imports.
 
-`mouse-follow-animations.tsx` contains the supplied demos and spring settings.
-`demo.tsx` is the supplied React demo entry. The live site uses
-`project-preview-cursor.tsx`, adapting the same Framer Motion springs to existing
-project links without replacing their photos, videos, or navigation.
+The live site uses `project-preview-cursor.js`, a vanilla JavaScript module with
+no runtime dependencies or build step. Its spring uses the original mass (0.1),
+damping (10), and stiffness (131). Animation frames stop once the cursor settles.
+The cursor element is created only on the first eligible project hover.
 
-React, React DOM, Framer Motion, TypeScript, and esbuild are installed. No context
-provider, state store, images, or icon dependencies are required by this component.
-The live cursor is styled in `styles.css`; its size is 40px. It is enabled only for
+The cursor is styled in `styles.css`; its size is 40px. It is enabled only for
 fine pointers with hover support. Reduced motion disables spring interpolation.
+It hides on scroll, blur, resize, cancellation, or route changes. `destroy()`
+removes its element, listeners, and scheduled animation frame.
 
-Run `npm run build:ui` after editing TSX when using a plain static server. `npm run
-build` and `npm run dev` run this automatically. The generated browser module is
-committed so source preview servers can also load it. Run `npm run typecheck` for
-TypeScript validation.
+`mouse-follow-animations.tsx` and `demo.tsx` preserve the supplied standalone React
+demos. React, React DOM, Framer Motion, and TypeScript remain available for these
+references; they are not imported by the live cursor. Run `npm run typecheck`
+for TypeScript validation of the reference components.
 
 ## Tailwind and shadcn setup for the standalone demos
 

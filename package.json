@@ -3,9 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:ui": "node scripts/build-ui.mjs",
-    "prebuild": "npm run build:ui",
-    "predev": "npm run build:ui",
     "typecheck": "tsc --noEmit",
     "build": "node scripts/build.mjs",
     "dev": "node scripts/serve.mjs",
@@ -24,7 +21,6 @@
   "devDependencies": {
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "esbuild": "^0.28.2",
     "typescript": "^7.0.2"
   }
 }

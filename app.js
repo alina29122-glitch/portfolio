@@ -253,94 +253,6 @@ const projects = [
         ]
       }
     ]
-  },
-  {
-    slug: "latitude-retention",
-    hidden: true,
-    cardEyebrow: "YOLA · ONBOARDING",
-    cardTitle: "Helping new users succeed from day one",
-    cardSummary: "For Yola’s website builder, I redesigned early product experiences to help first-time users understand the platform, start building with confidence, and reach meaningful progress sooner.",
-    years: "2021-2022",
-    company: "Yola · Website Builder",
-    title: "Turning user JTBD into personalized experiences",
-    image: "case-03",
-    summary:
-      "Redesigned the onboarding experience around real user behavior and JTBD, turning research insights into personalized guidance that improved Day-1 retention, activation, and site publishing rate.",
-    role: "Product Designer",
-    delivered: "Redesigned the onboarding experience around real user behavior and JTBD, turning research insights into personalized guidance that improved Day-1 retention, activation, and site publishing rate.",
-    whatIDid: ["User interviews", "User research", "JTBD", "Journey mapping", "Usability testing", "UX/UI", "Prototyping", "Post-release analysis"],
-    outcome: "126% increase in Day-1 user retention.",
-    stats: [["126%", "Increase in Day-1 user retention"]],
-    sections: [
-      {
-        title: "Redesigning the first session",
-        body:
-          "The project focused on making the first product session clearer and more motivating for new users. I tested assumptions through usability sessions and refined the onboarding based on observed behavior.",
-        bullets: [
-          "Created wireframes for a new onboarding direction.",
-          "Organized, designed, and conducted usability testing sessions.",
-          "Used findings to refine the final design version."
-        ]
-      }
-    ]
-  },
-  {
-    slug: "sitebuilder-tools",
-    hidden: true,
-    cardEyebrow: "YOLA · WEBSITE BUILDER",
-    cardTitle: "Building the foundation of a new website builder",
-    cardSummary: "Helped shape a new generation of Yola’s website-building product. I designed core creation tools and reusable patterns that made building and editing websites simpler and more scalable.",
-    years: "2018-2020",
-    company: "Yola · Sitebuilder",
-    title: "Building a website builder from scratch to launch",
-    image: "case-01",
-    summary:
-      "Helped shape a new site-building platform from early concept to MVP and launch, designing 65+ features and scalable patterns that made website creation simpler for users without technical expertise.",
-    role: "UX/UI Designer",
-    delivered: "Helped shape a new site-building platform from early concept to MVP and launch, designing 65+ features and scalable patterns that made website creation simpler for users without technical expertise.",
-    whatIDid: ["UX research", "Product design", "UX/UI", "Prototyping", "Design systems", "Feature design", "Post-launch iteration"],
-    outcome: "A broad suite of usable site-building tools for small-business users.",
-    sections: [
-      {
-        title: "Building a product foundation",
-        body:
-          "With deep empathy for the audience, I focused on creating a friendly interface that helped users build their online presence without unnecessary complexity.",
-        bullets: [
-          "Designed tools and patterns for a new site-building platform.",
-          "Balanced feature depth with approachable interaction design.",
-          "Collaborated across design and product to support a platform launch."
-        ]
-      }
-    ]
-  },
-  {
-    slug: "site-templates",
-    hidden: true,
-    cardEyebrow: "YOLA · TEMPLATES",
-    cardTitle: "Helping users go from blank page to published website",
-    cardSummary: "Designed and evolved Yola’s template experience to give users a stronger starting point. The work helped people choose, customize, and launch websites with less effort.",
-    years: "2018-2019",
-    company: "Yola · Sitebuilder",
-    title: "Designing a template system from the ground up",
-    image: "case-04",
-    summary:
-      "Created Yola’s template system from scratch for the new sitebuilder, combining reusable blocks, flexible customization, and niche-specific templates to help users launch professional websites faster.",
-    role: "UX/UI Designer",
-    delivered: "Created Yola’s template system from scratch for the new sitebuilder, combining reusable blocks, flexible customization, and niche-specific templates to help users launch professional websites faster.",
-    whatIDid: ["Template strategy", "UX/UI", "Design systems", "Component architecture", "Visual design", "Prototyping", "Design documentation"],
-    outcome: "Reusable template starting points for different small-business categories.",
-    sections: [
-      {
-        title: "Templates as product onboarding",
-        body:
-          "Templates gave users a practical starting point and reduced the blank-page problem. I designed flexible layouts that could adapt across business categories and screen sizes.",
-        bullets: [
-          "Created responsive, customizable templates.",
-          "Designed for different business niches and user intents.",
-          "Balanced visual polish with practical editing flexibility."
-        ]
-      }
-    ]
   }
 ];
 
@@ -561,7 +473,7 @@ function workProjectGroups() {
     {
       year: "2018-2022",
       label: "Yola · Site Builder",
-      items: projectsBySlug(["yola-growth", "latitude-retention", "sitebuilder-tools", "site-templates"])
+      items: projectsBySlug(["yola-growth"])
     }
   ];
 }
@@ -728,7 +640,7 @@ function renderProjects() {
   app.innerHTML = `
     <section class="section work-page-intro">
       <div class="work-page-intro-shell">
-        <p class="intro-text">A selection of projects shaped through<br /><span>thoughtful design, clear strategy,</span><br /><span>and measurable impact.</span></p>
+        <h1 class="intro-text">A selection of projects shaped through<br /><span>thoughtful design, clear strategy,</span><br /><span>and measurable impact.</span></h1>
       </div>
     </section>
     ${groupedProjectsSection(workProjectGroups())}
@@ -1446,6 +1358,16 @@ function renderNotFound() {
 
 export const pagePaths = ["/", "/projects", "/about", ...projects.map(project => projectUrl(project.slug))];
 
+const socialImages = {
+  "/": "homepage.png",
+  "/projects": "projects.png",
+  "/about": "about.png",
+  "/case/ai-learning": "project-nda.png",
+  "/case/mgid-feature-design": "project-mgid-features.png",
+  "/case/mgid-user-activation": "project-mgid-onboarding.png",
+  "/case/yola-growth": "project-yola.png"
+};
+
 export function pageMetadata(path) {
   const project = projects.find(item => projectUrl(item.slug) === path);
   const content = project && ({ "new-project": edtechCase, "yola-growth": yolaGrowthCase }[project.slug] || project);
@@ -1456,8 +1378,38 @@ export function pageMetadata(path) {
       path === "/" ? "Alina Diadenko | Product Designer Portfolio" : "Page not found | Alina Diadenko",
     description: project ? project.cardSummary || project.summary :
       "Alina Diadenko, Senior Product Designer portfolio: case studies, experience, design process, and contact details.",
-    canonical: `https://alina-di.com${path === "/" ? "/" : path}`
+    canonical: `https://alina-di.com${path === "/" ? "/" : path}`,
+    image: `https://alina-di.com/assets/og/${socialImages[path] || socialImages["/"]}`
   };
+}
+
+export function socialMetadata(path) {
+  const meta = pageMetadata(path);
+  return {
+    "og:type": "website",
+    "og:site_name": "Alina Diadenko",
+    "og:title": meta.title,
+    "og:description": meta.description,
+    "og:url": meta.canonical,
+    "og:image": meta.image,
+    "og:image:type": "image/png",
+    "og:image:width": "1200",
+    "og:image:height": "630",
+    "og:image:alt": meta.title,
+    "twitter:card": "summary_large_image",
+    "twitter:title": meta.title,
+    "twitter:description": meta.description,
+    "twitter:image": meta.image,
+    "twitter:image:alt": meta.title
+  };
+}
+
+export function applySocialMetadata(html, path) {
+  const tags = socialMetadata(path);
+  return html.replace(/(<meta (?:property|name)="((?:og|twitter):[^"]+)" content=")[^"]*(")/g,
+    (match, before, key, after) => key in tags
+      ? before + tags[key].replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;') + after
+      : match);
 }
 
 function renderCurrentRoute(path) {
@@ -1481,6 +1433,10 @@ export function renderPage(path) {
 function updatePageMetadata(path) {
   const meta = pageMetadata(path);
   document.title = meta.title;
+  for (const [key, value] of Object.entries(socialMetadata(path))) {
+    const attribute = key.startsWith("og:") ? "property" : "name";
+    document.querySelector(`meta[${attribute}="${key}"]`).content = value;
+  }
   document.querySelector('meta[name="description"]').content = meta.description;
   document.querySelector('link[rel="canonical"]').href = meta.canonical;
   document.querySelector('meta[name="robots"]').content = pagePaths.includes(path) ? "index, follow" : "noindex";

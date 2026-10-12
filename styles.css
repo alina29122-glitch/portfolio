@@ -8505,7 +8505,7 @@ body:has(.case-page) .case-lightbox img {
   position: relative;
   z-index: 2;
   width: var(--hero-copy-width);
-  padding-top: 56px;
+  padding-top: 0;
 }
 .opportunity-hero-eyebrow,
 .opportunity-hero-fact-label {

@@ -20,7 +20,7 @@ npm test
 npm run preview
 ```
 
-The build writes `dist/`: homepage, Projects, About and all seven case pages as full semantic HTML, with unique titles, descriptions and canonical URLs. It uses the same renderer as the browser, so case content is not duplicated. It also generates `sitemap.xml` and `robots.txt`. Preview serves the generated pages with the hosting fallback behavior.
+The build writes `dist/`: homepage, Projects, About and all four case pages as full semantic HTML, with unique titles, descriptions and canonical URLs. It uses the same renderer as the browser, so case content is not duplicated. It also generates `sitemap.xml` and `robots.txt`. Unknown URLs return a 404 page with noindex.
 
 ## Edit content
 
@@ -28,7 +28,7 @@ Most portfolio copy lives in `app.js`; extended case content is in `edtech-case.
 
 ## Routing and deployment
 
-The existing project is linked to Vercel. `vercel.json` explicitly runs `npm run build`, publishes only `dist`, enables clean URLs and adds an SPA fallback. Vercel serves matching generated HTML/assets before applying the fallback rewrite. Thus `/case/ai-learning` returns its own HTML to crawlers and on refresh, rather than just the app shell.
+The existing project is linked to Vercel. `vercel.json` explicitly runs `npm run build`, publishes only `dist`, enables clean URLs and serves a custom 404 page for unknown URLs. Vercel serves matching generated HTML/assets directly. Thus `/case/ai-learning` returns its own HTML to crawlers and on refresh, rather than just the app shell.
 
 Deploy through the existing Vercel workflow; do not publish the unbuilt source folder. The configuration takes effect on the next deployment. No production deployment is performed by the build command.
 

@@ -9,8 +9,5 @@
     { "source": "/case/new-project", "destination": "/case/ai-learning", "statusCode": 301 },
     { "source": "/case/new-project.html", "destination": "/case/ai-learning", "statusCode": 301 },
     { "source": "/case/new-project/index.html", "destination": "/case/ai-learning", "statusCode": 301 }
-  ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

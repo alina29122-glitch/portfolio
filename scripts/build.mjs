@@ -1,29 +1,34 @@
 import { cp, mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
-import { pagePaths, pageMetadata, renderPage } from '../app.js';
+import { pagePaths, pageMetadata, renderPage, applySocialMetadata } from '../app.js';
 
 const output = resolve('dist');
 const template = await readFile('index.html', 'utf8');
 const escape = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
+// Remove obsolete Live Preview pages left by earlier builds.
+for (const slug of ['latitude-retention', 'sitebuilder-tools', 'site-templates']) {
+  await rm(resolve('case', slug, 'index.html'), { force: true });
+}
 for (const file of ['assets', 'components', 'app.js', 'edtech-case.js', 'yola-growth.js', 'mgid-onboarding.js', 'styles.css', 'mgid-onboarding.css']) {
   await cp(file, resolve(output, file), { recursive: true });
 }
-for (const path of pagePaths) {
+for (const path of [...pagePaths, "/404"]) {
   const meta = pageMetadata(path);
-  let html = template
+  let html = applySocialMetadata(template, path)
     .replace(/<title>.*?<\/title>/s, `<title>${escape(meta.title)}</title>`)
     .replace(/(<meta\s+name="description"\s+content=")[^"]*(")/s, (_, before, after) => before + escape(meta.description) + after)
     .replace(/(<link rel="canonical" href=")[^"]*(")/, (_, before, after) => before + escape(meta.canonical) + after)
     .replace('<main id="app"></main>', () => `<main id="app">${renderPage(path)}</main>`)
     .replace('<body>', `<body class="${path === '/' ? 'is-home-route' : path === '/about' ? '' : 'is-work-route'}">`);
+  if (path === '/404') html = html.replace('content="index, follow"', 'content="noindex"');
   const file = resolve(output, path === '/' ? 'index.html' : `${path.slice(1)}.html`);
   await mkdir(dirname(file), { recursive: true });
   await writeFile(file, html);
   // VS Code Live Preview serves the source workspace without SPA rewrites.
   // Keep directory entry points outside dist so rebuilds never remove them.
-  if (path !== '/') {
+  if (path !== '/' && path !== '/404') {
     const previewFile = resolve(`.${path}`, 'index.html');
     await mkdir(dirname(previewFile), { recursive: true });
     await writeFile(previewFile + '.tmp', html);
