@@ -3,7 +3,7 @@ export const yolaGrowthCase = {
   heroTitle: "Product design that drives growth",
   heroPlaceholder: "HERO IMAGE — PLACEHOLDER",
   metadata: [
-    { label: "Role & teams", text: "Product Designer · Teams: Activation, Monetization" },
+    { label: "Role & teams", text: "Product Designer · Growth Product Team" },
     { label: "Scope", text: "Activation & retention · Monetization · User acquisition · Product growth strategy" },
     { label: "Delivered", text: "Activation journeys & Website Assistant · Paywall, checkout & domain purchase flows · 20+ templates across 16 business verticals" }
   ],
