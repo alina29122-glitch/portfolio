@@ -1,3 +1,4 @@
+import { inject } from '@vercel/analytics';
 import { renderMgidOnboarding, setupMgidOnboardingNavigation } from "./mgid-onboarding.js?v=clean-routes-1";
 import { yolaGrowthCase } from "./yola-growth.js?v=clean-routes-1";
 import { videoIllustration } from "./components/ui/video-illustration.js";
@@ -7,6 +8,9 @@ import { cursorShapes } from "./components/CustomCursor.js?v=cursor-follow-6";
 import { createPreviewCursor } from "./components/ui/project-preview-cursor.js";
 import { caseContextFor, renderCaseContext } from "./components/ui/case-context.js";
 import { cinematicProjectList, setupCinematicWork, cleanupCinematicWork } from "./components/ui/cinematic-project-list.js";
+
+// Initialize Vercel Web Analytics
+inject();
 
 const projects = [
   {
